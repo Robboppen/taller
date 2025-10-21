@@ -32,13 +32,13 @@ const courses = [
     },
     {
         id: 4,
-        title: "Introducción a la Física",
-        description: "Fundamentos de mecánica clásica: cinemática, dinámica y energías.",
-        image: "https://images.unsplash.com/photo-1633493702341-4d04841df53b?q=80&w=2960&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        topics: ["Cinemática", "Leyes de Newton", "Trabajo y energía", "Momento lineal y angular"],
+        title: "Introducción a la Cosmología",
+        description: "Introducción a las bases teóricas-matemáticas sobre el estudio del universo",
+        image: "https://images.unsplash.com/photo-1709139449975-0a9ecd32b74e?i",
+        topics: [ "Leyes de Newton", "Ecuaciones de Friedman", "Ecuaciones de Fluidos"],
         level: "Principiante",
         duration: "10 semanas",
-        professor: "Dra. Pia Barria"
+        professor: "Lemaitre"
     },
     {
         id: 5,
@@ -89,7 +89,8 @@ const courses = [
         level: "Intermedio",
         duration: "10 semanas",
         professor: "Dra. Doña Pía Barria"
-    }
+    },
+    
 ];
 
 
@@ -179,7 +180,7 @@ function enrollInCourse(courseId) {
         1: "cursos/mecanica_cuantica.html",
         2: "cursos/calculo1.html",
         3: "cursos/electromagnetismo.html",
-        4: "cursos/curso4.html",
+        4: "cursos/cosmologia_course.html",
         5: "cursos/curso5.html",
         6: "cursos/curso6.html",
         7: "cursos/curso7.html",
