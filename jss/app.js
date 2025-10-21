@@ -18,7 +18,7 @@ const courses = [
         topics: ["Límites y continuidad", "Derivadas y sus aplicaciones", "Teoremas fundamentales"],
         level: "Intermedio",
         duration: "8 semanas",
-        professor: "Dr. Sr. Joaquin 'sharkie' Saldaño"
+        professor: "Dr. Stewart"
     },
     {
         id: 3,
@@ -28,17 +28,17 @@ const courses = [
         topics: ["Electrostática", "Magnetostática", "Ecuaciones de Maxwell", "Ondas electromagnéticas"],
         level: "Intermedio",
         duration: "14 semanas",
-        professor: "Dr. California"
+        professor: "Dr. Maxwell"
     },
     {
         id: 4,
         title: "Introducción a la Cosmología",
         description: "Introducción a las bases teóricas-matemáticas sobre el estudio del universo",
         image: "https://images.unsplash.com/photo-1709139449975-0a9ecd32b74e?i",
-        topics: [ "Leyes de Newton", "Ecuaciones de Friedman", "Ecuaciones de Fluidos"],
-        level: "Principiante",
+        topics: [ "Leyes de Newton", "Ecuaciones de Friedman", "Parámetro de curvatura"],
+        level: "Avanzado",
         duration: "10 semanas",
-        professor: "Lemaitre"
+        professor: "Dr. Lemaitre"
     },
     {
         id: 5,
@@ -48,7 +48,7 @@ const courses = [
         topics: ["Espacios vectoriales", "Transformaciones lineales", "Valores y vectores propios", "Aplicaciones"],
         level: "Intermedio",
         duration: "8 semanas",
-        professor: "Arfken"
+        professor: "Dr. Arfken"
     },
     {
         id: 6,
@@ -68,7 +68,7 @@ const courses = [
         topics: ["Funciones multivariables", "Derivadas parciales", "Integrales múltiples", "Teoremas de Green, Stokes y Gauss"],
         level: "Avanzado",
         duration: "12 semanas",
-        professor: "Dr. Sr. Lacio California"
+        professor: "Dr. Lacio California"
     },
     {
         id: 8,
@@ -88,7 +88,7 @@ const courses = [
         topics: ["Integrales indefinidas", "Técnicas de integración", "Aplicaciones de la integral"],
         level: "Intermedio",
         duration: "10 semanas",
-        professor: "Dra. Doña Pía Barria"
+        professor: "Dra. Pía Barria"
     },
     
 ];

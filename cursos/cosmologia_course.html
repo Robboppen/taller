@@ -4,14 +4,63 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cosmología - Academia Científica</title>
-    <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- MathJax para LaTeX -->
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script" async
-        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+        
+        header {
+            background-color: #000000;
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-content {
+            text-align: center;
+            padding: 1rem;
+        }
+        
+        .header-content h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            background-color: rgba(0, 0, 0, 0.1);
+            padding: 0.8rem;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0 1.5rem;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: #3498db;
+        }
+        
         .course-container {
             display: flex;
             max-width: 1200px;
@@ -19,13 +68,17 @@
             padding: 20px;
             gap: 20px;
         }
+        
         .lessons-panel {
             width: 35%;
             background: white;
             border-radius: 8px;
             padding: 15px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            max-height: calc(100vh - 200px);
+            overflow-y: auto;
         }
+        
         .content-panel {
             width: 65%;
             background: white;
@@ -33,46 +86,256 @@
             padding: 15px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
+        
         .lesson-header {
             display: flex;
             justify-content: space-between;
+            align-items: center;
             cursor: pointer;
             padding: 10px;
             background: #f5f5f5;
             border-radius: 5px;
             margin-bottom: 5px;
         }
+        
+        .lesson-header:hover {
+            background: #e8e8e8;
+        }
+        
         .subtopics-list {
             list-style: none;
             padding-left: 15px;
             display: none;
         }
+        
         .lesson-item.expanded .subtopics-list {
             display: block;
         }
+        
         .subtopic-item {
-            padding: 5px;
+            padding: 8px;
             cursor: pointer;
-        }
-        .subtopic-item.active {
-            background: #e3f2fd;
             border-radius: 4px;
+            margin: 3px 0;
         }
+        
+        .subtopic-item:hover {
+            background: #f0f0f0;
+        }
+        
+        .subtopic-item.active {
+            background: #e2d9f8;
+            border-left: 3px solid #4c38ff;
+        }
+        
         .video-container iframe {
             width: 100%;
             height: 350px;
             border-radius: 8px;
+            margin-bottom: 20px;
         }
+        
         #current-lesson-desc {
             white-space: pre-line;
         }
-        .MathJax {
-            color: inherit !important;
+        
+        .simulation-container {
+            background: linear-gradient(135deg, #0a0e27 0%, #1a1a2e 100%);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 30px 0;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            color: white;
+        }
+        
+        .simulation-title {
+            text-align: center;
+            color: #e0e0e0;
+            margin-bottom: 10px;
+            font-size: 22px;
+            background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        /* PERSONALIZACIÓN DE COLORES */
+        /* Puedes cambiar estos valores para personalizar los colores: */
+        /* 
+        Para un esquema azul-verde:
+        - Reemplaza #667eea con #00d4ff (azul cyan)
+        - Reemplaza #764ba2 con #00ff88 (verde menta)
+        
+        Para un esquema naranja-rojo:
+        - Reemplaza #667eea con #ff6b35 (naranja)
+        - Reemplaza #764ba2 con #ff006e (rosa fuerte)
+        
+        Para un esquema dorado:
+        - Reemplaza #667eea con #ffd700 (dorado)
+        - Reemplaza #764ba2 con #ff8c00 (naranja oscuro)
+        */
+        
+        .simulation-subtitle {
+            text-align: center;
+            color: #aaa;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+        
+        .canvas-wrapper {
+            position: relative;
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 400px;
+        }
+        
+        canvas {
+            display: block;
+            margin: 0 auto;
+        }
+        
+        canvas.grab {
+            cursor: grab;
+        }
+        
+        canvas.grab:active {
+            cursor: grabbing;
+        }
+        
+        .sim-controls {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+            background: rgba(255, 255, 255, 0.03);
+            padding: 20px;
+            border-radius: 10px;
+        }
+        
+        .control-group {
+            background: transparent;
+        }
+        
+        .control-group label {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #fff;
+        }
+        
+        .value-display {
+            color: #667eea;
+            font-weight: bold;
+        }
+        
+        .control-group input[type="range"] {
+            width: 100%;
+            margin-bottom: 4px;
+        }
+        
+        input[type="range"] {
+            -webkit-appearance: none;
+            appearance: none;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+            outline: none;
+        }
+        
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            background: #3f34db;
+            cursor: pointer;
+            border-radius: 50%;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        input[type="range"]::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            background: #3f34db;
+            cursor: pointer;
+            border-radius: 50%;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            border: none;
+        }
+        
+        .presets {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .preset-btn {
+            padding: 8px 16px;
+            background: rgba(102, 126, 234, 0.2);
+            border: 2px solid #667eea;
+            border-radius: 8px;
+            color: #fff;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.85em;
+        }
+        
+        .preset-btn:hover {
+            background: rgba(102, 126, 234, 0.4);
+            transform: translateY(-2px);
+        }
+        
+        .preset-btn.active {
+            background: #667eea;
+        }
+        
+        .geometry-info {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.15) 0%, rgba(118, 75, 162, 0.15) 100%);
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+            margin-top: 15px;
+        }
+        
+        .geometry-title {
+            font-size: 1.1em;
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: #667eea;
+        }
+        
+        .geometry-description {
+            line-height: 1.5;
+            color: #ccc;
+            font-size: 0.9em;
+        }
+        
+        @media (max-width: 968px) {
+            .course-container {
+                flex-direction: column;
+            }
+            
+            .lessons-panel, .content-panel {
+                width: 100%;
+            }
+            
+            .presets {
+                flex-direction: column;
+            }
+            
+            .preset-btn {
+                width: 100%;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
     <header>
         <div class="header-content">
             <h1>Academia Científica</h1>
@@ -86,15 +349,11 @@
     </header>
 
     <main class="course-container">
-        <!-- Panel izquierdo: Temario -->
         <aside class="lessons-panel">
             <h2>Temario</h2>
-            <ul class="lessons-list">
-                <!-- Las lecciones se generarán dinámicamente con JavaScript -->
-            </ul>
+            <ul class="lessons-list"></ul>
         </aside>
 
-        <!-- Panel derecho: Video + contenido -->
         <section class="content-panel">
             <div class="video-container">
                 <iframe src="https://www.youtube.com/embed/VIDEO_ID_1" frameborder="0" allowfullscreen></iframe>
@@ -107,7 +366,6 @@
     </main>
 
     <script>
-        // Datos del curso
         const courseData = {
             id: 3,
             title: "Cosmología",
@@ -122,8 +380,60 @@
                         {
                             title: "Teorema de Newton",
                             duration: "15 min",
-                            description: `<h3>Teorema de Newton Revisitado</h3>
-                            <p><strong>Teorema fundamental:</strong> Una partícula dentro de una cáscara esférica no experimenta fuerza gravitacional neta.</p>
+                            description: `<h3>Teorema de Newton</h3>
+                            <p>Es perfectamente posible introducirse a la cosmología sin haber aún aprendido sobre relatividad general.
+                            De hecho, la ecuación más crucial, la ecuación de Friedmann, que describe la expansión del universo, resulta ser 
+                            la misma cuando se deriva de la teoría de la gravedad de Newton que cuando se deriva de las ecuaciones de la relatividad general (para Universo homogéneo e isotrópico).</p>
+                            
+                            <div class="simulation-container" style="background: #f8f9fa; color: #333;">
+                                <h3 class="simulation-title" style="color: #333; -webkit-text-fill-color: #333;">Simulación Interactiva: Gravedad Newtoniana</h3>
+                                <p style="text-align: center; color: #666; margin-bottom: 15px; font-size: 14px;">
+                                    Arrastra la masa para moverla alrededor del punto central
+                                </p>
+                                
+                                <div class="canvas-wrapper" style="background: #fff;">
+                                    <canvas id="gravityCanvas" class="grab"></canvas>
+                                </div>
+                                
+                                <div class="sim-controls" style="background: #fff; color: #333;">
+                                    <div class="control-group">
+                                        <label style="color: #555;">
+                                            Radio (r)
+                                            <span class="value-display" id="radiusValue">120 px</span>
+                                        </label>
+                                        <input type="range" id="radiusSlider" min="50" max="200" value="120">
+                                    </div>
+                                    
+                                    <div class="control-group">
+                                        <label style="color: #555;">
+                                            Tamaño de masa m
+                                            <span class="value-display" id="massSizeValue">8 px</span>
+                                        </label>
+                                        <input type="range" id="massSize" min="5" max="15" value="8">
+                                    </div>
+                                    
+                                    <div style="background: linear-gradient(135deg, #667eea15, #764ba215); padding: 15px; border-radius: 8px; margin-top: 15px; border-left: 4px solid #667eea;">
+                                        <div style="display: flex; justify-content: space-between; padding: 6px 0; font-size: 13px;">
+                                            <span style="color: #666;">Posición X:</span>
+                                            <span style="color: #667eea; font-weight: 700;" id="massX">0</span>
+                                        </div>
+                                        <div style="display: flex; justify-content: space-between; padding: 6px 0; font-size: 13px;">
+                                            <span style="color: #666;">Posición Y:</span>
+                                            <span style="color: #667eea; font-weight: 700;" id="massY">0</span>
+                                        </div>
+                                        <div style="display: flex; justify-content: space-between; padding: 6px 0; font-size: 13px;">
+                                            <span style="color: #666;">Distancia:</span>
+                                            <span style="color: #667eea; font-weight: 700;" id="distance">0 px</span>
+                                        </div>
+                                        <div style="display: flex; justify-content: space-between; padding: 6px 0; font-size: 13px;">
+                                            <span style="color: #666;">Ángulo:</span>
+                                            <span style="color: #667eea; font-weight: 700;" id="angle">0°</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <p><strong>Teorema fundamental:</strong> Este teorema establece que "una partícula dentro de una cáscara esférica no experimenta fuerza gravitacional neta" y se deriva de:</p>
 
                             <h4>Demostración</h4>
                             \\[
@@ -133,7 +443,7 @@
                             \\[
                             \\mathbf{F} = -2\\pi Gm\\sigma R^2 \\int_0^\\pi \\frac{(r - R\\cos\\theta)\\sin\\theta}{(R^2 + r^2 - 2Rr\\cos\\theta)^{3/2}} d\\theta = 0
                             \\]
-
+                            <p>Lo cual da 0, debido a la simetría.</p>
                             <h4>Implicaciones Cosmológicas</h4>
                             <ul>
                                 <li>Permite ignorar masa exterior al radio de interés</li>
@@ -142,29 +452,35 @@
                             </ul>
 
                             <h4>Para Distribuciones Esféricas</h4>
+                            <p> El caso de importancia en este curso y con el cual se llevará a cabo, son las simetrías esféricas, ya
+                            que en ellas encontramos la simetría que buscamos. </p>
                             \\[
                             \\mathbf{F}(r) = -\\frac{GM(r)m}{r^2}
                             \\]
-                            <p>donde \\(M(r) = 4\\pi \\int_0^r \\rho(r')r'^2 dr'\\)</p>
+                            <p>Donde la masa correspondiente al cuerpo estudiado corrresponde a: 
+                            \\(M(r) = 4\\pi \\int_0^r \\rho(r')r'^2 dr'\\)</p>
 
                             <p>En un universo homogéneo (\\(\\rho\\) constante):</p>
                             \\[
                             M(r) = \\frac{4\\pi}{3}\\rho r^3 \\quad \\Rightarrow \\quad \\mathbf{F}(r) = -\\frac{4\\pi G\\rho}{3}m\\mathbf{r}
-                            \\]`
+                            \\]`,
+                            hasSimulation: 'gravity'
                         },
                         {
                             title: "Ecuación de Friedmann",
                             duration: "20 min",
                             description: `<h3>Ecuación de Friedmann</h3>
-                            <h4>Configuración Inicial</h4>
-                            <p>Consideramos:</p>
+                            <p>Las ecuaciones de Friedmann describen la expansión del Universo, por lo que es la piedra angular en estos
+                                estudios. Uno de los retos a los cuales se enfrentan los cosmólogos es resolver esta ecuación mediante
+                                asumir distintos parámetros del Universo. Para poder derivar esta ecuación mediante Newton, consideremos:</p>
                             <ul>
-                                <li>Partícula de prueba m en la superficie de una esfera de radio físico \\(r(t) = a(t)x\\)</li>
+                                <li>Una partícula de prueba m en la superficie de una esfera de radio físico \\(r(t) = a(t)x\\)</li>
                                 <li>Masa interior: \\(M = \\frac{4\\pi}{3}\\rho(t)r^3(t)\\)</li>
                                 <li>Energía total por unidad de masa: \\(U/m = \\text{const}\\)</li>
                             </ul>
 
-                            <h4>Desarrollo Matemático</h4>
+                            <p>La ecuación que describe como cambia la separación r, puede ser derivada de la conservación de la energía:
+                            \\(U=T+V=\\frac{1}{2}m\\dot{r}^2 - \\frac{GmM}{r}=\\frac{1}{2}m\\dot{r}^2 - \\frac{GmM}{r}\\)</p>
                             \\[
                             \\frac{U}{m} = \\frac{1}{2}\\dot{r}^2 - \\frac{GM}{r}
                             \\]
@@ -172,30 +488,70 @@
                             \\[
                             \\frac{U}{m} = \\frac{1}{2}(\\dot{a}x)^2 - \\frac{G}{ax}\\frac{4\\pi}{3}\\rho a^3x^3 = x^2\\left(\\frac{1}{2}\\dot{a}^2 - \\frac{4\\pi G}{3}\\rho a^2\\right)
                             \\]
-
                             <p>Definiendo \\(k \\equiv -\\frac{2U}{mx^2c^2}\\) (adimensional):</p>
                             \\[
                             \\left(\\frac{\\dot{a}}{a}\\right)^2 = \\frac{8\\pi G}{3}\\rho - \\frac{kc^2}{a^2}
                             \\]
-
+                            <p>Esta es la forma estándar de la ecuación de Friedmann y aparecerá con frecuencia a lo largo de este curso.
+                            En esta expresión, k debe ser independiente de x, ya que todos los demás términos de la ecuación lo son; de lo 
+                            contrario, no se mantendrá la homogeneidad. De hecho, aprendemos que la homogeneidad requiere que la cantidad U, aunque constante para una partícula dada, cambie si observamos diferentes separaciones x.</p>
                             <h4>Interpretación Física</h4>
+                            <p>Esta ecuación consta de 3 componentes fundamentales para poder entender como se expande el Universo.</p>
                             <ul>
-                                <li>\\(\\dot{a}/a\\): Tasa de expansión (parámetro de Hubble)</li>
-                                <li>\\(\\frac{8\\pi G}{3}\\rho\\): Fuente gravitacional</li>
-                                <li>\\(k/a^2\\): Término de curvatura/energía total</li>
+                                <li>\\(\\dot{a}/a\\): Tasa de expansión (parámetro de Hubble), lo cual representa la velocidad de expansión del universo en un instante dado, cuanto mayor sea, más rápido se expande.</li>
+                                <li>\\(\\frac{8\\pi G}{3}\\rho\\): Fuente gravitacional, este término proviene del contenido energético del universo, a través de la densidad \\(\\rho\\). La cual incluye contribuciones de
+                                    materia bariónica (átomos, galaxias), materia oscura, radiación, energía oscura. Físicamente este término tiende a frenar la expansión, debido a la atracción gravitacional del contenido
+                                    material del Universo.</li>
+                                <li>\\(k/a^2\\): Término de curvatura/energía total, describe como la geometría del espacio afecta la expansión, su dependencia de \\(1/{a}^2\\) muestra que el efecto de la curvatura disminuye
+                                    con el tiempo a medida que el Universo se expande.</li>
                             </ul>
 
-                            <p><strong>Valores de k:</strong></p>
+                            <p><strong>Valores posibles de la curvatura k:</strong></p>
+                            <p>Se observa que para los 3 casos posibles, las geometrías que puede tener el Universo son muy disntitas entre sí, lo cual da pie al estudio en específico de este parámetro en la siguiente sección.</p>
                             <ul>
-                                <li>\\(k > 0\\): Energía negativa (universo cerrado)</li>
-                                <li>\\(k = 0\\): Energía cero (universo plano)</li>
-                                <li>\\(k < 0\\): Energía positiva (universo abierto)</li>
+                                <li>\\(k > 0\\): Energía negativa (Universo cerrado y finito).</li>
+                                <li>\\(k = 0\\): Energía cero (Universo plano e infinito).</li>
+                                <li>\\(k < 0\\): Energía positiva (Universo abierto e infinito).</li>
                             </ul>`
                         },
                         {
                             title: "Parámetro de Curvatura",
                             duration: "15 min",
                             description: `<h3>Parámetro de Curvatura k</h3>
+                            
+                            <div class="simulation-container" style="background: #f8f9fa; color: #333;">
+                                <h3 class="simulation-title" style="color: #2c3e50; -webkit-text-fill-color: #2c3e50; background: none; font-weight: 600;">Simulación Interactiva: Geometría del Universo</h3>
+                                <p class="simulation-subtitle" style="color: #666;">Explora cómo la curvatura afecta la geometría espacial</p>
+                                
+                                <div class="canvas-wrapper" style="background: #ffffff; border: 1px solid #e0e0e0;">
+                                    <canvas id="spaceCanvas" width="800" height="400"></canvas>
+                                </div>
+                                
+                                <div class="sim-controls" style="background: #ffffff; border-radius: 10px; padding: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+                                    <div class="control-group">
+                                        <label style="color: #555; font-weight: 600;">
+                                            Parámetro de Curvatura (k)
+                                            <span class="value-display" style="color: #3e41df;" id="kValue">0.00</span>
+                                        </label>
+                                        <input type="range" id="curvatureSlider" min="-10" max="10" value="0" step="0.1" style="background: linear-gradient(to right, #ddd 0%, #ddd 100%);">
+                                        <div class="presets">
+                                            <button class="preset-btn" onclick="setK(-5)" style="background: #fff; border: 2px solid #3e41df; color: #3e41df;">k < 0 (Hiperbólico)</button>
+                                            <button class="preset-btn active" onclick="setK(0)" style="background: #3e41df; border: 2px solid #3e41df; color: #fff;">k = 0 (Plano)</button>
+                                            <button class="preset-btn" onclick="setK(5)" style="background: #fff; border: 2px solid #3e41df; color: #3e41df;">k > 0 (Esférico)</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="geometry-info" id="geometryInfo" style="background: #e3f2fd; border-left: 4px solid #3e41df;">
+                                    <div class="geometry-title" style="color: #2c3e50;">Espacio Plano (k = 0)</div>
+                                    <div class="geometry-description" style="color: #555;">
+                                        Geometría euclidiana. Las líneas paralelas permanecen paralelas. 
+                                        La suma de los ángulos de un triángulo es exactamente 180°. 
+                                        Este es el tipo de geometría del universo si la densidad de energía es igual a la densidad crítica.
+                                    </div>
+                                </div>
+                            </div>
+                            
                             <h4>Normalización Matemática</h4>
                             <p>Tres convenciones comunes:</p>
                             <ol>
@@ -245,8 +601,9 @@
                                 <li>\\(U > 0\\) (energía positiva) ⇒ \\(k < 0\\) (universo abierto)</li>
                                 <li>\\(U = 0\\) ⇒ \\(k = 0\\) (universo crítico)</li>
                                 <li>\\(U < 0\\) ⇒ \\(k > 0\\) (universo cerrado)</li>
-                            </ul>`
-                        }
+                            </ul>`,
+                            hasSimulation: 'curvature'
+                           }
                     ]
                 },
                 {
@@ -775,6 +1132,412 @@
             ]
         };
 
+        function initGravitySimulation() {
+            const canvas = document.getElementById('gravityCanvas');
+            if (!canvas) return;
+            
+            const ctx = canvas.getContext('2d');
+            canvas.width = 400;
+            canvas.height = 400;
+            
+            let centerX = canvas.width / 2;
+            let centerY = canvas.height / 2;
+            let radius = 120;
+            let massSize = 8;
+            let massAngle = -Math.PI / 4;
+            let isDragging = false;
+            
+            const radiusSlider = document.getElementById('radiusSlider');
+            const radiusValue = document.getElementById('radiusValue');
+            const massSizeSlider = document.getElementById('massSize');
+            const massSizeValue = document.getElementById('massSizeValue');
+            
+            if (radiusSlider) {
+                radiusSlider.addEventListener('input', (e) => {
+                    radius = parseInt(e.target.value);
+                    radiusValue.textContent = radius + ' px';
+                    draw();
+                });
+            }
+            
+            if (massSizeSlider) {
+                massSizeSlider.addEventListener('input', (e) => {
+                    massSize = parseInt(e.target.value);
+                    massSizeValue.textContent = massSize + ' px';
+                    draw();
+                });
+            }
+            
+            function getMousePos(e) {
+                const rect = canvas.getBoundingClientRect();
+                const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+                const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+                return {
+                    x: clientX - rect.left,
+                    y: clientY - rect.top
+                };
+            }
+            
+            function isNearMass(x, y) {
+                const massX = centerX + radius * Math.cos(massAngle);
+                const massY = centerY + radius * Math.sin(massAngle);
+                const distance = Math.sqrt((x - massX) ** 2 + (y - massY) ** 2);
+                return distance < massSize + 10;
+            }
+            
+            canvas.addEventListener('mousedown', (e) => {
+                const pos = getMousePos(e);
+                if (isNearMass(pos.x, pos.y)) isDragging = true;
+            });
+            
+            canvas.addEventListener('touchstart', (e) => {
+                e.preventDefault();
+                const pos = getMousePos(e);
+                if (isNearMass(pos.x, pos.y)) isDragging = true;
+            });
+            
+            canvas.addEventListener('mousemove', (e) => {
+                if (isDragging) {
+                    const pos = getMousePos(e);
+                    massAngle = Math.atan2(pos.y - centerY, pos.x - centerX);
+                    draw();
+                }
+            });
+            
+            canvas.addEventListener('touchmove', (e) => {
+                e.preventDefault();
+                if (isDragging) {
+                    const pos = getMousePos(e);
+                    massAngle = Math.atan2(pos.y - centerY, pos.x - centerX);
+                    draw();
+                }
+            });
+            
+            canvas.addEventListener('mouseup', () => isDragging = false);
+            canvas.addEventListener('touchend', () => isDragging = false);
+            canvas.addEventListener('mouseleave', () => isDragging = false);
+            
+            function draw() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                
+                const gradient = ctx.createRadialGradient(centerX, centerY, 0, centerX, centerY, radius);
+                gradient.addColorStop(0, '#b8c5d6');
+                gradient.addColorStop(1, '#8a9bb0');
+                
+                ctx.fillStyle = gradient;
+                ctx.beginPath();
+                ctx.arc(centerX, centerY, radius, 0, Math.PI * 2);
+                ctx.fill();
+                
+                ctx.strokeStyle = '#5a6b7f';
+                ctx.lineWidth = 2;
+                ctx.stroke();
+                
+                ctx.fillStyle = '#333';
+                ctx.font = 'bold 14px Arial';
+                ctx.textAlign = 'center';
+                ctx.fillText('Contributing', centerX, centerY - 8);
+                ctx.fillText('mass', centerX, centerY + 8);
+                
+                const massX = centerX + radius * Math.cos(massAngle);
+                const massY = centerY + radius * Math.sin(massAngle);
+                
+                ctx.beginPath();
+                ctx.moveTo(centerX, centerY);
+                ctx.lineTo(massX, massY);
+                ctx.strokeStyle = '#333';
+                ctx.lineWidth = 1.5;
+                ctx.stroke();
+                
+                const midX = centerX + (radius / 2) * Math.cos(massAngle);
+                const midY = centerY + (radius / 2) * Math.sin(massAngle);
+                ctx.fillStyle = '#333';
+                ctx.font = 'italic 16px Arial';
+                ctx.fillText('r', midX + 12, midY - 8);
+                
+                ctx.fillStyle = '#000';
+                ctx.beginPath();
+                ctx.arc(centerX, centerY, 4, 0, Math.PI * 2);
+                ctx.fill();
+                
+                ctx.fillStyle = '#333';
+                ctx.font = '12px Arial';
+                ctx.fillText('Central point', centerX, centerY + 20);
+                
+                ctx.fillStyle = '#000';
+                ctx.beginPath();
+                ctx.arc(massX, massY, massSize, 0, Math.PI * 2);
+                ctx.fill();
+                
+                ctx.fillStyle = '#333';
+                ctx.font = '12px Arial';
+                ctx.textAlign = 'left';
+                ctx.fillText('mass m', massX + 12, massY - 8);
+                
+                updateInfo(massX, massY);
+            }
+            
+            function updateInfo(massX, massY) {
+                const relX = (massX - centerX).toFixed(1);
+                const relY = (centerY - massY).toFixed(1);
+                const distance = radius.toFixed(1);
+                const angleDeg = (massAngle * 180 / Math.PI).toFixed(1);
+                
+                const massXEl = document.getElementById('massX');
+                const massYEl = document.getElementById('massY');
+                const distanceEl = document.getElementById('distance');
+                const angleEl = document.getElementById('angle');
+                
+                if (massXEl) massXEl.textContent = relX + ' px';
+                if (massYEl) massYEl.textContent = relY + ' px';
+                if (distanceEl) distanceEl.textContent = distance + ' px';
+                if (angleEl) angleEl.textContent = angleDeg + '°';
+            }
+            
+            draw();
+        }
+
+        function initCurvatureSimulation() {
+            const canvas = document.getElementById('spaceCanvas');
+            if (!canvas) return;
+            
+            const ctx = canvas.getContext('2d');
+            const curvatureSlider = document.getElementById('curvatureSlider');
+            const kValueDisplay = document.getElementById('kValue');
+            const geometryInfo = document.getElementById('geometryInfo');
+            
+            let k = 0;
+            
+            const geometryData = {
+                negative: {
+                    title: 'Espacio Hiperbólico (k < 0)',
+                    description: 'Geometría de curvatura negativa (silla de montar). Las líneas paralelas divergen. La suma de los ángulos de un triángulo es menor a 180°. Universo abierto que se expande eternamente.'
+                },
+                zero: {
+                    title: 'Espacio Plano (k = 0)',
+                    description: 'Geometría euclidiana. Las líneas paralelas permanecen paralelas. La suma de los ángulos de un triángulo es exactamente 180°. Este es el tipo de geometría del universo si la densidad de energía es igual a la densidad crítica.'
+                },
+                positive: {
+                    title: 'Espacio Esférico (k > 0)',
+                    description: 'Geometría de curvatura positiva (esfera). Las líneas paralelas convergen. La suma de los ángulos de un triángulo es mayor a 180°. Universo cerrado y finito que podría colapsar en el futuro.'
+                }
+            };
+            
+            function updateGeometryInfo() {
+                let info;
+                
+                if (k < -0.5) {
+                    info = geometryData.negative;
+                } else if (k > 0.5) {
+                    info = geometryData.positive;
+                } else {
+                    info = geometryData.zero;
+                }
+                
+                geometryInfo.innerHTML = `
+                    <div class="geometry-title" style="color: #2c3e50;">${info.title}</div>
+                    <div class="geometry-description" style="color: #555;">${info.description}</div>
+                `;
+            }
+            
+            function drawSphere(centerX, centerY, radius) {
+                const segments = 24;
+                const rings = 16;
+                
+                ctx.strokeStyle = 'rgba(52, 152, 219, 0.4)';
+                ctx.lineWidth = 1.5;
+                
+                for (let i = 0; i < segments; i++) {
+                    const angle = (i / segments) * Math.PI * 2;
+                    ctx.beginPath();
+                    
+                    for (let j = 0; j <= rings; j++) {
+                        const phi = (j / rings) * Math.PI;
+                        let x = radius * Math.sin(phi) * Math.cos(angle);
+                        let y = radius * Math.sin(phi) * Math.sin(angle);
+                        let z = radius * Math.cos(phi);
+                        
+                        const screenX = centerX + x * 0.866 - y * 0.5;
+                        const screenY = centerY - z + (x * 0.5 + y * 0.866) * 0.5;
+                        
+                        if (j === 0) ctx.moveTo(screenX, screenY);
+                        else ctx.lineTo(screenX, screenY);
+                    }
+                    ctx.stroke();
+                }
+                
+                for (let j = 1; j < rings; j++) {
+                    const phi = (j / rings) * Math.PI;
+                    ctx.beginPath();
+                    
+                    for (let i = 0; i <= segments; i++) {
+                        const angle = (i / segments) * Math.PI * 2;
+                        let x = radius * Math.sin(phi) * Math.cos(angle);
+                        let y = radius * Math.sin(phi) * Math.sin(angle);
+                        let z = radius * Math.cos(phi);
+                        
+                        const screenX = centerX + x * 0.866 - y * 0.5;
+                        const screenY = centerY - z + (x * 0.5 + y * 0.866) * 0.5;
+                        
+                        if (i === 0) ctx.moveTo(screenX, screenY);
+                        else ctx.lineTo(screenX, screenY);
+                    }
+                    ctx.stroke();
+                }
+                
+                ctx.strokeStyle = '#e74c3c';
+                ctx.lineWidth = 3;
+                ctx.beginPath();
+                for (let i = 0; i <= segments * 2; i++) {
+                    const angle = (i / (segments * 2)) * Math.PI * 2;
+                    const x = radius * Math.cos(angle);
+                    const y = radius * Math.sin(angle);
+                    const z = 0;
+                    
+                    const screenX = centerX + x * 0.866 - y * 0.5;
+                    const screenY = centerY - z + (x * 0.5 + y * 0.866) * 0.5;
+                    
+                    if (i === 0) ctx.moveTo(screenX, screenY);
+                    else ctx.lineTo(screenX, screenY);
+                }
+                ctx.stroke();
+            }
+            
+            function drawFlat(centerX, centerY, size) {
+                const gridSize = size / 15;
+                ctx.strokeStyle = 'rgba(52, 152, 219, 0.4)';
+                ctx.lineWidth = 1.5;
+                
+                for (let i = -7; i <= 7; i++) {
+                    ctx.beginPath();
+                    ctx.moveTo(centerX + i * gridSize, centerY - size/2);
+                    ctx.lineTo(centerX + i * gridSize, centerY + size/2);
+                    ctx.stroke();
+                }
+                
+                for (let i = -7; i <= 7; i++) {
+                    ctx.beginPath();
+                    const y = centerY + i * gridSize * 0.5;
+                    const width = size * (1 - Math.abs(i) * 0.05);
+                    ctx.moveTo(centerX - width/2, y);
+                    ctx.lineTo(centerX + width/2, y);
+                    ctx.stroke();
+                }
+                
+                ctx.strokeStyle = '#e74c3c';
+                ctx.lineWidth = 3;
+                ctx.beginPath();
+                ctx.moveTo(centerX - size/2, centerY);
+                ctx.lineTo(centerX + size/2, centerY);
+                ctx.stroke();
+            }
+            
+            function drawHyperbolic(centerX, centerY, size) {
+                ctx.strokeStyle = 'rgba(52, 152, 219, 0.4)';
+                ctx.lineWidth = 1.5;
+                
+                const segments = 30;
+                const layers = 12;
+                
+                for (let i = 0; i < 16; i++) {
+                    const angle = (i / 16) * Math.PI * 2;
+                    ctx.beginPath();
+                    
+                    for (let j = 0; j <= segments; j++) {
+                        const t = j / segments;
+                        const r = size * 0.3 * Math.sinh(t * 2);
+                        
+                        const x = centerX + r * Math.cos(angle);
+                        const y = centerY + r * Math.sin(angle) * 0.5 - r * 0.3;
+                        
+                        if (j === 0) ctx.moveTo(x, y);
+                        else ctx.lineTo(x, y);
+                    }
+                    ctx.stroke();
+                }
+                
+                for (let layer = 1; layer <= layers; layer++) {
+                    const t = layer / layers;
+                    const r = size * 0.3 * Math.sinh(t * 2);
+                    
+                    ctx.beginPath();
+                    for (let i = 0; i <= segments; i++) {
+                        const angle = (i / segments) * Math.PI * 2;
+                        const x = centerX + r * Math.cos(angle);
+                        const y = centerY + r * Math.sin(angle) * 0.5 - r * 0.3;
+                        
+                        if (i === 0) ctx.moveTo(x, y);
+                        else ctx.lineTo(x, y);
+                    }
+                    ctx.stroke();
+                }
+                
+                ctx.strokeStyle = '#e74c3c';
+                ctx.lineWidth = 3;
+                ctx.beginPath();
+                for (let i = 0; i <= segments; i++) {
+                    const t = (i / segments - 0.5) * 4;
+                    const x = centerX + t * size * 0.15;
+                    const y = centerY - size * 0.1 * Math.cosh(t);
+                    
+                    if (i === 0) ctx.moveTo(x, y);
+                    else ctx.lineTo(x, y);
+                }
+                ctx.stroke();
+            }
+            
+            function drawVisualization() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                
+                const centerX = canvas.width / 2;
+                const centerY = canvas.height / 2;
+                const size = 300;
+                
+                if (k < -0.5) {
+                    drawHyperbolic(centerX, centerY, size);
+                } else if (k > 0.5) {
+                    drawSphere(centerX, centerY, size * 0.4);
+                } else {
+                    drawFlat(centerX, centerY, size);
+                }
+                
+                ctx.fillStyle = '#2c3e50';
+                ctx.font = 'bold 16px Arial';
+                ctx.textAlign = 'center';
+                
+                let title = '';
+                if (k < -0.5) title = 'GEOMETRÍA HIPERBÓLICA';
+                else if (k > 0.5) title = 'GEOMETRÍA ESFÉRICA';
+                else title = 'GEOMETRÍA PLANA';
+                
+                ctx.fillText(title, centerX, 30);
+            }
+            
+            window.setK = function(preset) {
+                curvatureSlider.value = preset;
+                updateVisualization();
+                
+                document.querySelectorAll('.preset-btn').forEach((btn, idx) => {
+                    btn.classList.remove('active');
+                    if ((preset < 0 && idx === 0) || (preset === 0 && idx === 1) || (preset > 0 && idx === 2)) {
+                        btn.classList.add('active');
+                    }
+                });
+            }
+            
+            function updateVisualization() {
+                k = parseFloat(curvatureSlider.value);
+                kValueDisplay.textContent = k.toFixed(2);
+                
+                drawVisualization();
+                updateGeometryInfo();
+            }
+            
+            curvatureSlider.addEventListener('input', updateVisualization);
+            
+            updateVisualization();
+        }
+
         function renderLessons() {
             const lessonsList = document.querySelector('.lessons-list');
             lessonsList.innerHTML = '';
@@ -832,37 +1595,29 @@
             lessonTitle.textContent = `${lesson.title} - ${subtopic.title}`;
             lessonDesc.innerHTML = subtopic.description;
             
-            // Forzar el renderizado de MathJax después de cargar el contenido
             if (window.MathJax) {
                 MathJax.typesetPromise([lessonDesc]).catch(err => console.log('Error al renderizar MathJax:', err));
             }
-        }
-
-        function loadLesson(lesson) {
-            const videoContainer = document.querySelector('.video-container iframe');
-            const lessonTitle = document.getElementById('current-lesson-title');
-            const lessonDesc = document.getElementById('current-lesson-desc');
-
-            videoContainer.src = `https://www.youtube.com/embed/${lesson.videoId}?autoplay=1`;
-            lessonTitle.textContent = lesson.title;
-            lessonDesc.textContent = lesson.description;
             
-            if (window.MathJax) {
-                MathJax.typesetPromise([lessonDesc]).catch(err => console.log('Error al renderizar MathJax:', err));
+            if (subtopic.hasSimulation === 'gravity') {
+                setTimeout(initGravitySimulation, 100);
+            } else if (subtopic.hasSimulation === 'curvature') {
+                setTimeout(initCurvatureSimulation, 100);
             }
         }
 
-        // Esperar a que MathJax esté completamente cargado
         function waitForMathJax() {
             if (window.MathJax && window.MathJax.typesetPromise) {
                 renderLessons();
                 if (courseData.lessons.length > 0) {
-                    loadLesson(courseData.lessons[0]);
-                    // Activar el primer subtema del primer tema
-                    const firstSubtopic = document.querySelector('.subtopic-item');
-                    if (firstSubtopic) {
-                        firstSubtopic.classList.add('active');
-                    }
+                    const firstLesson = courseData.lessons[0];
+                    const firstSubtopic = firstLesson.subtopics[0];
+                    loadSubtopicContent(firstLesson, firstSubtopic);
+                    
+                    setTimeout(() => {
+                        const firstSubtopicEl = document.querySelector('.subtopic-item');
+                        if (firstSubtopicEl) firstSubtopicEl.classList.add('active');
+                    }, 100);
                 }
             } else {
                 setTimeout(waitForMathJax, 100);
