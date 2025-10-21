@@ -42,13 +42,13 @@ const courses = [
     },
     {
         id: 5,
-        title: "Álgebra Lineal",
+        title: "Métodos matemáticos para Físicos",
         description: "Estructuras algebraicas fundamentales para la física y matemáticas modernas.",
         image: "https://images.unsplash.com/photo-1607988795691-3d0147b43231?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         topics: ["Espacios vectoriales", "Transformaciones lineales", "Valores y vectores propios", "Aplicaciones"],
         level: "Intermedio",
         duration: "8 semanas",
-        professor: "Dr. Sr. Mauro 'Vienesa podrida ' Jelvez"
+        professor: "Arfken"
     },
     {
         id: 6,
@@ -181,7 +181,7 @@ function enrollInCourse(courseId) {
         2: "cursos/calculo1.html",
         3: "cursos/electromagnetismo.html",
         4: "cursos/cosmologia_course.html",
-        5: "cursos/curso5.html",
+        5: "cursos/MathMethII.html",
         6: "cursos/curso6.html",
         7: "cursos/curso7.html",
         8: "cursos/curso8.html"
