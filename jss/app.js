@@ -58,7 +58,7 @@ const courses = [
         topics: ["EDO de primer orden", "EDO lineales de orden superior", "Sistemas de EDO", "Transformada de Laplace"],
         level: "Avanzado",
         duration: "12 semanas",
-        professor: "Dr. Sharkie"
+        professor: "Dr. Laplace"
     },
     {
         id: 7,
@@ -68,7 +68,7 @@ const courses = [
         topics: ["Funciones multivariables", "Derivadas parciales", "Integrales múltiples", "Teoremas de Green, Stokes y Gauss"],
         level: "Avanzado",
         duration: "12 semanas",
-        professor: "Dr. Lacio California"
+        professor: "Dr. Leibniz"
     },
     {
         id: 8,
@@ -88,7 +88,7 @@ const courses = [
         topics: ["Integrales indefinidas", "Técnicas de integración", "Aplicaciones de la integral"],
         level: "Intermedio",
         duration: "10 semanas",
-        professor: "Dra. Pía Barria"
+        professor: "Dr. Leibniz"
     },
     
 ];
