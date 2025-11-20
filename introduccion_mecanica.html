@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Introducción a la Mecánica - Curso Teórico</title>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    :root{
+      --bg:#0b1020; --panel:#111733; --text:#eaf0ff; --muted:#a8b3d1;
+      --brand:#6aa9ff; --brand-2:#65f0d5; --chip:#1b244a; --card:#0f142b;
+      --radius:16px; --shadow: 0 10px 25px rgba(0,0,0,.35);
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:radial-gradient(1200px 700px at 80% -20%, rgba(101,240,213,.12), transparent),
+                        radial-gradient(800px 500px at -10% 10%, rgba(106,169,255,.12), transparent), var(--bg);
+         color:var(--text);
+         font:15px/1.6 Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial}
+    header{position:sticky; top:0; z-index:10; background:linear-gradient(180deg, rgba(17,23,51,.95), rgba(17,23,51,.85)); backdrop-filter: blur(6px);
+           border-bottom:1px solid rgba(255,255,255,.06)}
+    .wrap{max-width:1200px; margin:0 auto; padding:16px 20px; display:flex; align-items:center; gap:16px}
+    .brand{display:flex; align-items:center; gap:12px}
+    .brand i{font-size:22px; color:var(--brand)}
+    .brand h1{margin:0; font-size:18px}
+    .brand small{display:block; color:var(--muted); font-weight:500}
+    .btn{border:1px solid rgba(255,255,255,.12); background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+         color:var(--text); padding:10px 12px; border-radius:12px; cursor:pointer}
+    main{max-width:1200px; margin:18px auto; padding:0 20px; display:grid; grid-template-columns: 320px 1fr; gap:18px}
+    @media (max-width: 900px){ main{ grid-template-columns: 1fr; } }
+    aside, section{background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.02));
+      border:1px solid rgba(255,255,255,.08); border-radius: var(--radius); box-shadow: var(--shadow); padding:14px}
+    .search{display:flex; gap:8px; margin:6px 0 10px 0; background: var(--chip); border-radius:12px; padding:8px 10px; align-items:center}
+    .search input{background:transparent; border:none; outline:none; color:var(--text); width:100%}
+    .toc{margin:8px 0; padding:0; list-style:none}
+    .toc li{margin:6px 0}
+    .toc button{width:100%; text-align:left; border:none; background:transparent; color:var(--text);
+      padding:10px; border-radius:12px; cursor:pointer; display:flex; gap:10px; align-items:center}
+    .toc button:hover{background:rgba(255,255,255,.05)}
+    .toc button.active{background:linear-gradient(90deg, rgba(101,240,213,.14), rgba(106,169,255,.14))}
+    h2{margin:4px 0 8px 0}
+    h3{margin:18px 0 6px 0}
+    .chips{display:flex; gap:8px; flex-wrap:wrap; margin:10px 0}
+    .chip{background:#1b244a; color:var(--text); padding:6px 10px; border-radius:999px; font-size:12px; border:1px solid rgba(255,255,255,.08)}
+    .cards{display:grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap:14px}
+    @media (max-width: 900px){ .cards{ grid-template-columns: 1fr; } }
+    .card{background: var(--card); border:1px solid rgba(255,255,255,.08); border-radius:14px; padding:14px}
+    .grid2{display:grid; grid-template-columns: 1fr 1fr; gap:14px}
+    .equation{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace; font-size:13px}
+    .note{background: rgba(101,240,213,.08); border-left: 3px solid var(--brand-2); padding:10px 12px; border-radius:10px}
+    .footer{color:var(--muted); font-size:13px; margin-top:14px}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <div class="brand">
+        <i class="fa-solid fa-atom"></i>
+        <div>
+          <h1>Introducción a la Mecánica <small>• Curso teórico base</small></h1>
+          <small>Contenido estructurado, fórmulas en LaTeX y ejercicios sugeridos</small>
+        </div>
+      </div>
+      <div class="cta">
+        <button class="btn" id="exportPdfBtn" title="Imprimir / Guardar PDF"><i class="fa-solid fa-file-pdf"></i> Exportar</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <aside>
+      <div class="search">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input id="search" placeholder="Buscar en temario (e.g. 'trabajo')" />
+      </div>
+      <ul class="toc" id="toc"></ul>
+    </aside>
+
+    <section id="content"></section>
+  </main>
+
+  <script>
+    const lessons = [
+      {
+        id: "intro",
+        icon: "fa-book-open",
+        title: "Guía del curso",
+        chips: ["Objetivos", "Resultados de aprendizaje", "Estructura"],
+        html: `
+          <div class="note">
+            <b>Objetivo general:</b> Comprender los principios básicos de la mecánica clásica para describir y predecir el movimiento de partículas bajo diversas interacciones.
+          </div>
+          <h3>Resultados de aprendizaje</h3>
+          <ul>
+            <li>Usar el lenguaje de <b>vectores</b> para representar magnitudes físicas y operar con ellas.</li>
+            <li>Modelar movimientos en <b>1D y 2D</b> y en <b>trayectorias circulares</b>; leer e interpretar gráficas x–t, v–t, a–t.</li>
+            <li>Aplicar las <b>leyes de Newton</b> para resolver problemas de dinámica con y sin fricción.</li>
+            <li>Emplear <b>trabajo y energía</b> para analizar sistemas mecánicos.</li>
+            <li>Aplicar la <b>conservación del momento lineal</b> en choques y sistemas de partículas.</li>
+          </ul>
+          <h3>Recomendaciones</h3>
+          <ul>
+            <li>Antes de calcular, dibuja un esquema, define ejes y aclara las suposiciones (rozamiento, resistencia del aire, etc.).</li>
+            <li>Verifica unidades y orden de magnitud; usa notación científica cuando corresponda.</li>
+          </ul>
+        `
+      },
+      {
+        id: "vectores",
+        icon: "fa-compass-drafting",
+        title: "Vectores",
+        chips: ["Componentes", "Módulo y dirección", "Producto escalar", "Producto vectorial"],
+        html: `
+          <p>En mecánica, muchas magnitudes físicas son <b>vectoriales</b>: desplazamiento, velocidad, aceleración y fuerza. Un vector en \\(\\mathbb{R}^3\\) se expresa como
+          <span class="equation">\\[ \\vec{A} = A_x\\,\\hat{i} + A_y\\,\\hat{j} + A_z\\,\\hat{k}, \\qquad
+          \\lVert\\vec{A}\\rVert = \\sqrt{A_x^2 + A_y^2 + A_z^2}. \\]</span></p>
+          <h3>Operaciones</h3>
+          <ul>
+            <li><b>Suma/resta:</b> componente a componente.</li>
+            <li><b>Multiplicación por escalar:</b> cambia módulo, no dirección (salvo si el escalar es negativo).</li>
+          </ul>
+          <div class="grid2">
+            <div class="card">
+              <h3>Producto escalar</h3>
+              <p class="equation">\\[ \\vec{A}\\cdot\\vec{B} = A_xB_x + A_yB_y + A_zB_z = \\lVert\\vec{A}\\rVert\\,\\lVert\\vec{B}\\rVert \\cos\\theta. \\]</p>
+              <p>Es una magnitud escalar; mide “alineamiento” entre vectores.</p>
+            </div>
+            <div class="card">
+              <h3>Producto vectorial</h3>
+              <p class="equation">\\[ \\vec{A}\\times\\vec{B} = 
+                \\begin{vmatrix} \\hat{i} & \\hat{j} & \\hat{k} \\\\ A_x & A_y & A_z \\\\ B_x & B_y & B_z \\end{vmatrix},
+                \\qquad \\lVert\\vec{A}\\times\\vec{B}\\rVert = \\lVert\\vec{A}\\rVert\\,\\lVert\\vec{B}\\rVert\\sin\\theta.
+              \\]</p>
+              <p>Aplica regla de la mano derecha para la dirección.</p>
+            </div>
+          </div>
+          <h3>Errores frecuentes</h3>
+          <ul>
+            <li>Olvidar proyectar fuerzas/velocidades en ejes adecuados.</li>
+            <li>Confundir módulo con componentes.</li>
+          </ul>
+          <h3>Ejercicios sugeridos</h3>
+          <ol>
+            <li>Obtén el módulo y dirección de \\(\\vec{A}=(3,-4,12)\\).</li>
+            <li>Calcula \\(\\vec{A}\\cdot\\vec{B}\\) y \\(\\vec{A}\\times\\vec{B}\\) para \\(\\vec{A}=(1,2,0)\\), \\(\\vec{B}=(2,-1,3)\\).</li>
+          </ol>
+        `
+      },
+      {
+        id: "cinematica1d",
+        icon: "fa-arrow-right",
+        title: "Cinemática en 1D",
+        chips: ["MRU", "MRUA", "Gráficas x–t, v–t, a–t"],
+        html: `
+          <p>La cinemática describe el movimiento sin aludir a las causas (fuerzas). En <b>1D</b> se trabaja con funciones del tiempo \\(x(t), v(t), a(t)\\) y sus gráficas.</p>
+          <h3>Relaciones básicas</h3>
+          <p class="equation">\\[ v = \\frac{dx}{dt}, \\qquad a = \\frac{dv}{dt} = \\frac{d^2x}{dt^2}. \\]</p>
+          <div class="grid2">
+            <div class="card">
+              <h3>MRU</h3>
+              <p class="equation">\\[ v=\\text{cte},\\quad x(t)=x_0+vt. \\]</p>
+              <p>Gráfica x–t lineal; v–t constante.</p>
+            </div>
+            <div class="card">
+              <h3>MRUA</h3>
+              <p class="equation">\\[ v(t)=v_0+at,\\quad x(t)=x_0+v_0 t+\\tfrac{1}{2}a t^2,\\quad v^2=v_0^2+2a(x-x_0). \\]</p>
+              <p>Caída libre ideal: \\(a=-g\\).</p>
+            </div>
+          </div>
+          <h3>Lectura de gráficas</h3>
+          <ul>
+            <li>La pendiente de x–t es la velocidad; la de v–t es la aceleración.</li>
+            <li>El área bajo v–t es el desplazamiento; bajo a–t es el cambio de velocidad.</li>
+          </ul>
+          <h3>Ejercicios sugeridos</h3>
+          <ol>
+            <li>Un móvil parte con \\(v_0=3\\,\\text{m/s}\\) y \\(a=1.5\\,\\text{m/s}^2\\). Calcula \\(x(4\\,\\text{s})\\) y \\(v(4\\,\\text{s})\\).</li>
+            <li>Desde reposo y con \\(a=2\\,\\text{m/s}^2\\), ¿en qué tiempo alcanza 20 m/s?</li>
+          </ol>
+        
+          <div class="card">
+            <h3>Simulación Java: Caída libre con resistencia</h3>
+            <p><a href="caida_libre_resistencia.jar" download class="btn"><i class="fa-solid fa-download"></i> Descargar simulación (.jar)</a></p>
+          </div>
+    
+      <div class="card">
+        <h3>Simulaciones Java</h3>
+        <ul>
+          <li><a href="caida_libre.jar" download class="btn"><i class="fa-solid fa-download"></i> Caída libre (ideal) (.jar)</a></li>
+          <li><a href="caida_libre_resistencia.jar" download class="btn"><i class="fa-solid fa-download"></i> Caída libre con resistencia del aire (.jar)</a></li>
+        </ul>
+        <p class="footer">Descarga y ejecútalas en tu equipo con Java instalado.</p>
+      </div>
+    `
+      },
+      {
+        id: "cinematica2d",
+        icon: "fa-up-right-from-square",
+        title: "Cinemática en 2D y Tiro Parabólico",
+        chips: ["Descomposición", "Tiro oblicuo", "Alcance", "Altura máxima"],
+        html: `
+          <p>En <b>2D</b> la posición es \\(\\vec{r}(t)=(x(t),y(t))\\). Para tiro parabólico sin resistencia del aire:</p>
+          <p class="equation">\\[
+            x(t)=v_0\\cos\\theta\\, t,\\qquad
+            y(t)=y_0+v_0\\sin\\theta\\, t - \\tfrac{1}{2} g t^2.
+          \\]</p>
+          <div class="grid2">
+            <div class="card">
+              <h3>Magnitudes de interés</h3>
+              <p>Alcance (\\(y_0=0\\)): \\(R=\\tfrac{v_0^2}{g}\\sin 2\\theta\\).</p>
+              <p>Altura máxima: \\(H=y_0+\\tfrac{v_0^2\\sin^2\\theta}{2g}\\).</p>
+              <p>Tiempo de vuelo (\\(y_0=0\\)): \\(T=\\tfrac{2v_0\\sin\\theta}{g}\\).</p>
+            </div>
+            <div class="card">
+              <h3>Puntos clave</h3>
+              <ul>
+                <li>Descomponer en ejes: horizontal (MRU) y vertical (MRUA).</li>
+                <li>El ángulo que maximiza \\(R\\) con \\(y_0=0\\) es \\(45^\\circ\\).</li>
+              </ul>
+            </div>
+          </div>
+          <h3>Ejercicios sugeridos</h3>
+          <ol>
+            <li>Con \\(v_0=20\\,\\text{m/s}\\), \\(\\theta=30^\\circ\\), \\(y_0=0\\): calcula \\(R\\), \\(H\\) y \\(T\\).</li>
+            <li>Desde \\(y_0=5\\,\\text{m}\\), \\(v_0=18\\,\\text{m/s}\\), \\(\\theta=40^\\circ\\): determina el tiempo hasta impactar el suelo.</li>
+          </ol>
+        `
+      },
+      {
+        id: "circular",
+        icon: "fa-circle-notch",
+        title: "Cinemática Circular",
+        chips: ["MCU", "Aceleración centrípeta", "Período y frecuencia"],
+        html: `
+          <p>En movimiento circular de radio \\(r\\): \\(\\omega=\\tfrac{2\\pi}{T}\\), \\(f=\\tfrac{1}{T}\\), \\(v=\\omega r\\).</p>
+          <p class="equation">\\[ a_c=\\frac{v^2}{r}=\\omega^2 r, \\qquad a_t = \\dot v \\,\\text{(si hay variación de }v). \\]</p>
+          <h3>Notas</h3>
+          <ul>
+            <li>\\(a_c\\) apunta al centro (no cambia el módulo de \\(v\\), sí su dirección).</li>
+            <li>En MCUN, aparece además una componente tangencial \\(a_t\\).</li>
+          </ul>
+          <h3>Ejercicios sugeridos</h3>
+          <ol>
+            <li>Una partícula gira con \\(f=2\\,\\text{Hz}\\) y \\(r=0.4\\,\\text{m}\\). Calcula \\(\\omega\\), \\(v\\) y \\(a_c\\).</li>
+            <li>Si \\(v\\) aumenta uniformemente de 0 a 10 m/s en 5 s a \\(r=1\\,\\text{m}\\), halla \\(a_t\\) media y \\(a_c\\) al final.</li>
+          </ol>
+        
+          <div class="card">
+            <h3>Simulación Java: Movimiento circular (noria)</h3>
+            <p><a href="mov_circular_noria.jar" download class="btn"><i class="fa-solid fa-download"></i> Descargar simulación (.jar)</a></p>
+          </div>
+    
+          <div class="card">
+            <h3>Simulación Java: Movimiento circular simple</h3>
+            <p><a href="mov_circular_simple.jar" download class="btn"><i class="fa-solid fa-download"></i> Descargar simulación (.jar)</a></p>
+          </div>
+    
+      <div class="card">
+        <h3>Simulaciones Java</h3>
+        <ul>
+          <li><a href="mov_circular_simple.jar" download class="btn"><i class="fa-solid fa-download"></i> Movimiento circular simple (.jar)</a></li>
+          <li><a href="mov_circular_rueda.jar" download class="btn"><i class="fa-solid fa-download"></i> Movimiento circular con diagrama F–BD (.jar)</a></li>
+        </ul>
+        <p class="footer">Descarga y ejecútalas en tu equipo con Java instalado.</p>
+      </div>
+    `
+      },
+      {
+        id: "dinamica",
+        icon: "fa-weight-hanging",
+        title: "Dinámica (Leyes de Newton)",
+        chips: ["Segunda ley", "Rozamiento", "Planos inclinados", "Tensión"],
+        html: `
+          <p>Leyes de Newton: (I) inercia, (II) \\(\\sum \\vec{F}=m\\vec{a}\\), (III) acción–reacción.</p>
+          <h3>Fuerzas comunes</h3>
+          <ul>
+            <li>Peso: \\(\\vec{W}=m\\vec{g}\\).</li>
+            <li>Normal: perpendicular a la superficie.</li>
+            <li>Rozamiento: estático \\(f_s\\le \\mu_s N\\); cinético \\(f_k=\\mu_k N\\).</li>
+            <li>Tensión en cuerdas ideales: misma magnitud a lo largo si la cuerda y poleas son ideales.</li>
+          </ul>
+          <div class="grid2">
+            <div class="card">
+              <h3>Plano inclinado</h3>
+              <p class="equation">\\[ a = g(\\sin\\alpha - \\mu_k\\cos\\alpha) \\quad (\\text{si hay deslizamiento}). \\]</p>
+              <p>Descomponer \\(\\vec{W}\\) en ejes paralelos y perpendiculares al plano.</p>
+            </div>
+            <div class="card">
+              <h3>Procedimiento</h3>
+              <ol>
+                <li>Dibuja el FCL y define ejes.</li>
+                <li>Escribe \\(\\sum F_x=ma_x\\), \\(\\sum F_y=ma_y\\).</li>
+                <li>Resuelve incógnitas (aceleración, tensiones, coeficientes, etc.).</li>
+              </ol>
+            </div>
+          </div>
+          <h3>Ejercicios sugeridos</h3>
+          <ol>
+            <li>Bloque de masa \\(m\\) en plano con \\(\\alpha\\) y \\(\\mu_k\\). Obtén \\(a\\).</li>
+            <li>Dos masas \\(m_1\\) y \\(m_2\\) unidas por cuerda sobre mesa sin fricción y polea ideal. Encuentra \\(a\\) y tensión.</li>
+          </ol>
+        
+          <div class="card">
+            <h3>Simulación Java: Colisión elástica con plano inclinado</h3>
+            <p><a href="colision_plano_inclinado.jar" download class="btn"><i class="fa-solid fa-download"></i> Descargar simulación (.jar)</a></p>
+          </div>
+    
+          <div class="card">
+            <h3>Simulación Java: Máquina de Atwood</h3>
+            <p><a href="maquina_atwood.jar" download class="btn"><i class="fa-solid fa-download"></i> Descargar simulación (.jar)</a></p>
+          </div>
+    
+      <div class="card">
+        <h3>Simulaciones Java</h3>
+        <ul>
+          <li><a href="maquina_atwood_fluido.jar" download class="btn"><i class="fa-solid fa-download"></i> Máquina de Atwood en fluido (.jar)</a></li>
+        </ul>
+        <p class="footer">Descarga y ejecútalas en tu equipo con Java instalado.</p>
+      </div>
+    `
+      },
+      {
+        id: "trabajo",
+        icon: "fa-bolt",
+        title: "Trabajo y Energía",
+        chips: ["Trabajo", "Energía cinética", "Energía potencial", "Potencia"],
+        html: `
+          <p>El trabajo por una fuerza constante es \\(W=\\vec{F}\\cdot\\Delta\\vec{r}=F\\,\\Delta r\\cos\\phi\\).</p>
+          <p>Teorema trabajo–energía: <b>el trabajo neto</b> realizado sobre una partícula es el <b>cambio</b> en su energía cinética:
+          <span class="equation">\\[ W_{\\text{net}} = \\Delta K, \\qquad K=\\tfrac{1}{2}mv^2. \\]</span></p>
+          <div class="grid2">
+            <div class="card">
+              <h3>Fuerzas conservativas</h3>
+              <p>Existe potencial \\(U\\) tal que \\(\\Delta U = -W_c\\). La energía mecánica \\(E=K+U\\) se conserva si el trabajo no conservativo es cero.</p>
+            </div>
+            <div class="card">
+              <h3>Potencia</h3>
+              <p class="equation">\\[ P=\\frac{dW}{dt}=\\vec{F}\\cdot\\vec{v}. \\]</p>
+            </div>
+          </div>
+          <h3>Ejercicios sugeridos</h3>
+          <ol>
+            <li>Un bloque desliza por un plano rugoso. Determina \\(\\Delta K\\) y el trabajo por fricción en un tramo \\(\\Delta s\\).</li>
+            <li>Una partícula en campo gravitatorio cercano a la Tierra: demuestra la conservación de \\(E\\) al caer sin rozamiento.</li>
+          </ol>
+        
+          <div class="card">
+            <h3>Simulación Java: Sistema masa-resorte</h3>
+            <p><a href="masa_resorte.jar" download class="btn"><i class="fa-solid fa-download"></i> Descargar simulación (.jar)</a></p>
+          </div>
+    
+          <div class="card">
+            <h3>Simulación Java: Relación entre tipos de energía y gráficos</h3>
+            <p><a href="energias_graficos.jar" download class="btn"><i class="fa-solid fa-download"></i> Descargar simulación (.jar)</a></p>
+          </div>
+    
+          <div class="card">
+            <h3>Simulación Java: Energía en montaña rusa</h3>
+            <p><a href="montana_rusa.jar" download class="btn"><i class="fa-solid fa-download"></i> Descargar simulación (.jar)</a></p>
+          </div>
+    
+      <div class="card">
+        <h3>Simulaciones Java</h3>
+        <ul>
+          <li><a href="energizer_tipos_energia.jar" download class="btn"><i class="fa-solid fa-download"></i> Relación entre tipos de energía (.jar)</a></li>
+          <li><a href="energia_montana_rusa.jar" download class="btn"><i class="fa-solid fa-download"></i> Energía en montaña rusa (.jar)</a></li>
+          <li><a href="masa_resorte.jar" download class="btn"><i class="fa-solid fa-download"></i> Sistema masa–resorte (.jar)</a></li>
+        </ul>
+        <p class="footer">Descarga y ejecútalas en tu equipo con Java instalado.</p>
+      </div>
+    `
+      },
+      {
+        id: "momento",
+        icon: "fa-arrows-to-dot",
+        title: "Conservación del Momento Lineal",
+        chips: ["Impulso", "Choques", "Centro de masa"],
+        html: `
+          <p>Momento lineal: \\(\\vec{p}=m\\vec{v}\\). Impulso: \\(\\vec{J}=\\int \\vec{F}\\,dt=\\Delta\\vec{p}\\).</p>
+          <p>En un sistema aislado (\\(\\sum \\vec{F}_{\\text{ext}}=0\\)), el <b>momento total</b> \\(\\vec{P}\\) se conserva.</p>
+          <div class="grid2">
+            <div class="card">
+              <h3>Choques 1D</h3>
+              <p><b>Elástico:</b> se conservan energía cinética y momento.</p>
+              <p><b>Inelástico:</b> se conserva el momento; \\(K\\) disminuye. Máx. inelástico: cuerpos quedan unidos.</p>
+            </div>
+            <div class="card">
+              <h3>Centro de masa</h3>
+              <p class="equation">\\[ \\vec{R}_{CM}=\\frac{1}{M}\\sum_i m_i \\vec{r}_i, \\qquad M=\\sum_i m_i. \\]</p>
+              <p>Si \\(\\sum \\vec{F}_{ext}=0\\), \\(\\vec{R}_{CM}\\) se mueve con velocidad constante.</p>
+            </div>
+          </div>
+          <h3>Ejercicios sugeridos</h3>
+          <ol>
+            <li>Colisión elástica entre masas \\(m_1,m_2\\) con velocidades iniciales \\(u_1,u_2\\). Obtén \\(v_1',v_2'\\).</li>
+            <li>Choque inelástico máximo: determina la velocidad final común y la pérdida de energía.</li>
+          </ol>
+        `
+      }
+    ];
+
+    const toc = document.getElementById('toc');
+    const content = document.getElementById('content');
+
+    function renderTOC(filter=""){
+      toc.innerHTML = "";
+      lessons
+        .filter(l => l.title.toLowerCase().includes(filter.toLowerCase()) || l.chips.join(" ").toLowerCase().includes(filter.toLowerCase()))
+        .forEach((l, idx) => {
+          const li = document.createElement('li');
+          const btn = document.createElement('button');
+          btn.innerHTML = `<i class="fa-solid ${l.icon}"></i> <span>${l.title}</span>`;
+          btn.onclick = () => showLesson(l.id);
+          btn.id = "btn_"+l.id;
+          li.appendChild(btn);
+          toc.appendChild(li);
+          if(idx===0 && !document.querySelector('.toc button.active')) btn.classList.add('active');
+        });
+    }
+
+    function showLesson(id){
+      const l = lessons.find(x => x.id===id) || lessons[0];
+      content.innerHTML = `
+        <div class="chips">${l.chips.map(c => '<span class="chip">'+c+'</span>').join('')}</div>
+        <h2>${l.title}</h2>
+        ${l.html}
+        <div class="footer">© Curso de Introducción a la Mecánica — Uso educativo.</div>
+      `;
+      document.querySelectorAll('.toc button').forEach(b=>b.classList.remove('active'));
+      const act = document.getElementById('btn_'+id);
+      if(act) act.classList.add('active');
+      if(window.MathJax) MathJax.typesetPromise();
+    }
+
+    document.getElementById('search').addEventListener('input', (e)=>renderTOC(e.target.value));
+    renderTOC();
+    showLesson("intro");
+
+    document.getElementById('exportPdfBtn')?.addEventListener('click', ()=>window.print());
+  </script>
+</body>
+</html>
