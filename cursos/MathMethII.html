@@ -7,29 +7,27 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- MathJax para LaTeX -->
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script" async
-        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
         body {
-            background-color: #f5f7fa;
-            color: #333;
-            line-height: 1.6;
-        }
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: #000000;
+}
         
         header {
-            background: linear-gradient(135deg, #1a237e, #283593);
-            color: white;
-            padding: 1.5rem 0;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
+            position: relative;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1699720885574-4e83b4ff3b11?q=80&w=2950&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+            background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: rgb(255, 255, 255);
+    padding: 4rem 0;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    min-height: 150px;
+}
         
         .header-content {
             max-width: 1200px;
@@ -80,17 +78,17 @@
         .course-container {
             display: flex;
             max-width: 1200px;
-            margin: 2rem auto;
-            padding: 0 20px;
+            margin: auto;
+            padding: 20px;
             gap: 20px;
         }
         
         .lessons-panel {
             width: 35%;
-            background: white;
+            background: rgb(255, 255, 255);
             border-radius: 8px;
             padding: 20px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
             height: fit-content;
         }
         
@@ -136,12 +134,12 @@
         
         .subtopic-item:hover {
             background: #f0f0f0;
-            border-left-color: #5c6bc0;
+            border-left-color: #000000;
         }
         
         .subtopic-item.active {
             background: #e3f2fd;
-            border-left-color: #1a237e;
+            border-left-color: #000000;
             border-radius: 0 4px 4px 0;
         }
         
@@ -163,7 +161,7 @@
         }
         
         h2 {
-            color: #1a237e;
+            color: #000000;
             margin: 20px 0 15px;
             padding-bottom: 10px;
             border-bottom: 2px solid #e8eaf6;
@@ -175,7 +173,7 @@
         }
         
         h4 {
-            color: #3949ab;
+            color: #000000;
             margin: 12px 0 8px;
         }
         
@@ -185,7 +183,7 @@
             background: #f8f9fa;
             border-radius: 5px;
             margin: 15px 0;
-            border-left: 4px solid #5c6bc0;
+            border-left: 4px solid #030d40;
         }
         
         table {
@@ -203,7 +201,7 @@
         
         th {
             background-color: #e8eaf6;
-            color: #1a237e;
+            color: #000001;
             font-weight: 600;
         }
         
@@ -787,6 +785,7 @@
             if (window.MathJax) {
                 MathJax.typeset();
             }
+            MathJax.typesetPromise();
         }
         
         // Inicializar el curso cuando se carga la página

@@ -4,14 +4,77 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Electromagnetismo - Academia Científica</title>
-    <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- MathJax para LaTeX -->
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script" async
-        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    
     <style>
+        body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: #000000;
+}
+        
+        header {
+            position: relative;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1699720885574-4e83b4ff3b11?q=80&w=2950&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+            background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: rgb(255, 255, 255);
+    padding: 4rem 0;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    min-height: 150px;
+}
+        
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+        
+        .header-content h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .header-content p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            margin-top: 1rem;
+        }
+        
+        nav li {
+            margin: 0 10px;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        
+        nav a:hover {
+            background-color: rgba(255,255,255,0.1);
+        }
+        
         .course-container {
             display: flex;
             max-width: 1200px;
@@ -19,55 +82,158 @@
             padding: 20px;
             gap: 20px;
         }
+        
         .lessons-panel {
             width: 35%;
-            background: white;
+            background: rgb(255, 255, 255);
             border-radius: 8px;
-            padding: 15px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            padding: 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            height: fit-content;
         }
+        
         .content-panel {
             width: 65%;
             background: white;
             border-radius: 8px;
-            padding: 15px;
+            padding: 20px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
+        
         .lesson-header {
             display: flex;
             justify-content: space-between;
             cursor: pointer;
-            padding: 10px;
+            padding: 12px;
             background: #f5f5f5;
             border-radius: 5px;
             margin-bottom: 5px;
+            transition: background-color 0.3s;
         }
+        
+        .lesson-header:hover {
+            background: #e8eaf6;
+        }
+        
         .subtopics-list {
             list-style: none;
             padding-left: 15px;
             display: none;
         }
+        
         .lesson-item.expanded .subtopics-list {
             display: block;
         }
+        
         .subtopic-item {
-            padding: 5px;
+            padding: 8px;
             cursor: pointer;
+            border-left: 3px solid transparent;
+            transition: all 0.3s;
         }
+        
+        .subtopic-item:hover {
+            background: #f0f0f0;
+            border-left-color: #000000;
+        }
+        
         .subtopic-item.active {
             background: #e3f2fd;
-            border-radius: 4px;
+            border-left-color: #000000;
+            border-radius: 0 4px 4px 0;
         }
+        
         .video-container iframe {
             width: 100%;
-            height: 350px;
+            height: 400px;
             border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
+        
         #current-lesson-desc {
             white-space: pre-line;
+            margin-top: 20px;
+            line-height: 1.8;
         }
+        
         .MathJax {
             color: inherit !important;
+        }
+        
+        h2 {
+            color: #000000;
+            margin: 20px 0 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e8eaf6;
+        }
+        
+        h3 {
+            color: #283593;
+            margin: 15px 0 10px;
+        }
+        
+        h4 {
+            color: #000000;
+            margin: 12px 0 8px;
+        }
+        
+        .math-content {
+            overflow-x: auto;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 5px;
+            margin: 15px 0;
+            border-left: 4px solid #030d40;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        th {
+            background-color: #e8eaf6;
+            color: #000001;
+            font-weight: 600;
+        }
+        
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+        
+        ul, ol {
+            padding-left: 20px;
+            margin: 10px 0;
+        }
+        
+        li {
+            margin-bottom: 8px;
+        }
+        
+        .toggle-icon {
+            transition: transform 0.3s;
+        }
+        
+        @media (max-width: 900px) {
+            .course-container {
+                flex-direction: column;
+            }
+            
+            .lessons-panel, .content-panel {
+                width: 100%;
+            }
+            
+            .video-container iframe {
+                height: 300px;
+            }
         }
     </style>
 </head>
@@ -81,6 +247,9 @@
         <nav>
             <ul>
                 <li><a href="../index.html">Volver al inicio</a></li>
+                <li><a href="#">Recursos</a></li>
+                <li><a href="#">Ejercicios</a></li>
+
             </ul>
         </nav>
     </header>
@@ -493,101 +662,109 @@
             ]
         };
 
-        function renderLessons() {
+        // Función para inicializar el curso
+        function initCourse() {
             const lessonsList = document.querySelector('.lessons-list');
-            lessonsList.innerHTML = '';
-
+            
+            // Generar las lecciones
             courseData.lessons.forEach(lesson => {
                 const lessonItem = document.createElement('li');
                 lessonItem.className = 'lesson-item';
-                
-                const lessonHeader = document.createElement('div');
-                lessonHeader.className = 'lesson-header';
-                lessonHeader.innerHTML = `
-                    <span class="lesson-title">${lesson.title}</span>
-                    <span class="lesson-duration">${lesson.duration}</span>
-                    <i class="fas fa-chevron-down toggle-icon"></i>
+                lessonItem.innerHTML = `
+                    <div class="lesson-header" data-lesson-id="${lesson.id}">
+                        <div>
+                            <h3>${lesson.title}</h3>
+                            <span>${lesson.duration}</span>
+                        </div>
+                        <i class="fas fa-chevron-down toggle-icon"></i>
+                    </div>
+                    <ul class="subtopics-list">
+                        ${lesson.subtopics.map(subtopic => `
+                            <li class="subtopic-item" data-lesson-id="${lesson.id}" data-subtopic-id="${lesson.subtopics.indexOf(subtopic)}">
+                                <div>
+                                    <h4>${subtopic.title}</h4>
+                                    <span>${subtopic.duration}</span>
+                                </div>
+                            </li>
+                        `).join('')}
+                    </ul>
                 `;
-                
-                const subtopicsList = document.createElement('ul');
-                subtopicsList.className = 'subtopics-list';
-
-                lesson.subtopics.forEach(subtopic => {
-                    const subtopicItem = document.createElement('li');
-                    subtopicItem.className = 'subtopic-item';
-                    subtopicItem.innerHTML = `
-                        <span class="subtopic-title">${subtopic.title}</span>
-                        <span class="subtopic-duration">${subtopic.duration}</span>
-                    `;
-                    subtopicItem.addEventListener('click', (e) => {
-                        e.stopPropagation();
-                        document.querySelectorAll('.subtopic-item').forEach(item => item.classList.remove('active'));
-                        subtopicItem.classList.add('active');
-                        loadSubtopicContent(lesson, subtopic);
-                    });
-                    subtopicsList.appendChild(subtopicItem);
-                });
-
-                lessonHeader.addEventListener('click', () => {
+                lessonsList.appendChild(lessonItem);
+            });
+            
+            // Event listeners para expandir/contraer lecciones
+            document.querySelectorAll('.lesson-header').forEach(header => {
+                header.addEventListener('click', function() {
+                    const lessonItem = this.parentElement;
                     lessonItem.classList.toggle('expanded');
-                    const icon = lessonHeader.querySelector('.toggle-icon');
+                    const icon = this.querySelector('.toggle-icon');
                     icon.classList.toggle('fa-chevron-down');
                     icon.classList.toggle('fa-chevron-up');
                 });
-
-                lessonItem.appendChild(lessonHeader);
-                lessonItem.appendChild(subtopicsList);
-                lessonsList.appendChild(lessonItem);
             });
+            
+            // Event listeners para subtemas
+            document.querySelectorAll('.subtopic-item').forEach(item => {
+                item.addEventListener('click', function() {
+                    // Remover clase activa de todos los subtemas
+                    document.querySelectorAll('.subtopic-item').forEach(i => {
+                        i.classList.remove('active');
+                    });
+                    
+                    // Añadir clase activa al subtema seleccionado
+                    this.classList.add('active');
+                    
+                    // Obtener datos del subtema
+                    const lessonId = parseInt(this.getAttribute('data-lesson-id'));
+                    const subtopicId = parseInt(this.getAttribute('data-subtopic-id'));
+                    
+                    // Actualizar contenido
+                    updateContent(lessonId, subtopicId);
+                });
+            });
+            
+            // Inicializar con el primer subtema
+            document.querySelector('.subtopic-item').classList.add('active');
+            updateContent(1, 0);
         }
-
-        function loadSubtopicContent(lesson, subtopic) {
-            const videoContainer = document.querySelector('.video-container iframe');
-            const lessonTitle = document.getElementById('current-lesson-title');
-            const lessonDesc = document.getElementById('current-lesson-desc');
+        
+        // Función para actualizar el contenido
+        function updateContent(lessonId, subtopicId) {
+            const lesson = courseData.lessons.find(l => l.id === lessonId);
+            const subtopic = lesson.subtopics[subtopicId];
             
-            videoContainer.src = `https://www.youtube.com/embed/${lesson.videoId}?autoplay=1`;
-            lessonTitle.textContent = `${lesson.title} - ${subtopic.title}`;
-            lessonDesc.innerHTML = subtopic.description;
+            // Actualizar video
+            const iframe = document.querySelector('.video-container iframe');
+            iframe.src = `https://www.youtube.com/embed/${lesson.videoId}`;
             
-            // Forzar el renderizado de MathJax después de cargar el contenido
+            // Actualizar título y descripción
+            document.getElementById('current-lesson-title').textContent = subtopic.title;
+            document.getElementById('current-lesson-desc').innerHTML = subtopic.description;
+            
+            // Reprocesar MathJax
             if (window.MathJax) {
-                MathJax.typesetPromise([lessonDesc]).catch(err => console.log('Error al renderizar MathJax:', err));
+                MathJax.typeset();
             }
+            MathJax.typesetPromise();
         }
-
-        function loadLesson(lesson) {
-            const videoContainer = document.querySelector('.video-container iframe');
-            const lessonTitle = document.getElementById('current-lesson-title');
-            const lessonDesc = document.getElementById('current-lesson-desc');
-
-            videoContainer.src = `https://www.youtube.com/embed/${lesson.videoId}?autoplay=1`;
-            lessonTitle.textContent = lesson.title;
-            lessonDesc.textContent = lesson.description;
-            
-            if (window.MathJax) {
-                MathJax.typesetPromise([lessonDesc]).catch(err => console.log('Error al renderizar MathJax:', err));
-            }
-        }
-
-        // Esperar a que MathJax esté completamente cargado
-        function waitForMathJax() {
-            if (window.MathJax && window.MathJax.typesetPromise) {
-                renderLessons();
-                if (courseData.lessons.length > 0) {
-                    loadLesson(courseData.lessons[0]);
-                    // Activar el primer subtema del primer tema
-                    const firstSubtopic = document.querySelector('.subtopic-item');
-                    if (firstSubtopic) {
-                        firstSubtopic.classList.add('active');
-                    }
-                }
-            } else {
-                setTimeout(waitForMathJax, 100);
-            }
-        }
-
-        document.addEventListener('DOMContentLoaded', waitForMathJax);
+        
+        // Inicializar el curso cuando se carga la página
+        document.addEventListener('DOMContentLoaded', initCourse);
     </script>
+
+
+<!-- ======================= -->
+<!-- BLOQUE DE SIMULACIONES -->
+<!-- ======================= -->
+<div style="max-width:1200px;margin:40px auto;background:white;padding:20px;border-radius:10px;box-shadow:0 4px 15px rgba(0,0,0,0.15);">
+    <h2>Simulaciones del Curso</h2>
+    <ul style="list-style:none;line-height:2;">
+        <li><a href="Flujo magnetico.jar" download>Flujo magnético</a></li>
+        <li><a href="Fuerza magnetica 2D.jar" download>Fuerza magnética</a></li>
+        <li><a href="Induccion por Iman en caida libre.jar" download>Inducción por imán en caída libre</a></li>
+        <li><a href="Ley de Gauss linea de carga.jar" download>Ley de Gauss</a></li>
+        <li><a href="Potencial y campo Electrico.jar" download>Potencial y campo magnético</a></li>
+    </ul>
+</div>
 </body>
 </html>

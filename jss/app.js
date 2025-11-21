@@ -4,7 +4,7 @@ const courses = [
         id: 1,
         title: "Mecánica Cuántica 1 - Fundamentos",
         description: "Introducción a los principios básicos de la mecánica cuántica, incluyendo postulados y representaciones.",
-        image: "https://images.unsplash.com/photo-1453733190371-0a9bedd82893?q=80&w=2874&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        image: "https://images.unsplash.com/photo-1708011271954-c0d2b3155ded?q=80&w=2073&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         topics: ["Herramientas Matemáticas de QM","Postulados de la mecánica cuántica","Problemas unidimensionales"],
         level: "Intermedio",
         duration: "8 semanas",
@@ -12,13 +12,13 @@ const courses = [
     },
     {
         id: 2,
-        title: "Cálculo I",
-        description: "Domina los fundamentos del cálculo con este curso completo de límites y derivadas.",
-        image: "https://images.unsplash.com/photo-1581089778245-3ce67677f718?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        topics: ["Límites y continuidad", "Derivadas y sus aplicaciones", "Teoremas fundamentales"],
+        title: "Introducción a la Mecánica",
+        description: "Introducción a los principios básicos de la mecánica newtoniana.",
+        image: "https://images.unsplash.com/photo-1635372722656-389f87a941b7?q=80&w=2831&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        topics: ["Vectores ", "Cinemática 1D, 2D y Rotacional", "Leyes de Movimiento", "Energía y Trabajo"],
         level: "Intermedio",
         duration: "8 semanas",
-        professor: "Dr. Stewart"
+        professor: "Sir Newton"
     },
     {
         id: 3,
@@ -49,46 +49,6 @@ const courses = [
         level: "Intermedio",
         duration: "8 semanas",
         professor: "Dr. Arfken"
-    },
-    {
-        id: 6,
-        title: "Ecuaciones Diferenciales",
-        description: "Resolución y aplicación de ecuaciones diferenciales ordinarias y parciales.",
-        image: "https://plus.unsplash.com/premium_photo-1714618950572-78509e6e15af?q=80&w=2872&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        topics: ["EDO de primer orden", "EDO lineales de orden superior", "Sistemas de EDO", "Transformada de Laplace"],
-        level: "Avanzado",
-        duration: "12 semanas",
-        professor: "Dr. Laplace"
-    },
-    {
-        id: 7,
-        title: "Cálculo 3",
-        description: "Explora el mundo del cálculo en múltiples variables y campos vectoriales.",
-        image: "https://images.unsplash.com/photo-1596495577886-d920f1fb7238?q=80&w=2948&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        topics: ["Funciones multivariables", "Derivadas parciales", "Integrales múltiples", "Teoremas de Green, Stokes y Gauss"],
-        level: "Avanzado",
-        duration: "12 semanas",
-        professor: "Dr. Leibniz"
-    },
-    {
-        id: 8,
-        title: "Termodinámica",
-        description: "Técnicas computacionales para resolver problemas matemáticos complejos.",
-        image: "https://images.unsplash.com/photo-1453733190371-0a9bedd82893?q=80&w=2874&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        topics: ["Error numérico", "Interpolación", "Diferenciación e integración numérica", "Resolución de EDO"],
-        level: "Avanzado",
-        duration: "10 semanas",
-        professor: "Dra. Boltzmann"
-    },
-    {
-        id: 9,
-        title: "Cálculo II",
-        description: "Aprende técnicas de integración y sus aplicaciones en problemas reales.",
-        image: "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        topics: ["Integrales indefinidas", "Técnicas de integración", "Aplicaciones de la integral"],
-        level: "Intermedio",
-        duration: "10 semanas",
-        professor: "Dr. Leibniz"
     },
     
 ];
@@ -178,7 +138,7 @@ function closeModal() {
 function enrollInCourse(courseId) {
     const coursePages = {
         1: "cursos/mecanica_cuantica.html",
-        2: "cursos/calculo1.html",
+        2: "cursos/Introduccion-mecanica.html",
         3: "cursos/electromagnetismo.html",
         4: "cursos/cosmologia_course.html",
         5: "cursos/MathMethII.html",
