@@ -1,0 +1,1049 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mecánica Intermedia - Academia Científica</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- MathJax para LaTeX -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    
+    
+    <style>
+        body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: #000000;
+}
+        
+        header {
+            position: relative;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1699720885574-4e83b4ff3b11?q=80&w=2950&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+            background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: rgb(255, 255, 255);
+    padding: 4rem 0;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    min-height: 150px;
+}
+        
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+        
+        .header-content h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .header-content p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            margin-top: 1rem;
+        }
+        
+        nav li {
+            margin: 0 10px;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        
+        nav a:hover {
+            background-color: rgba(255,255,255,0.1);
+        }
+        
+        .course-container {
+            display: flex;
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+            gap: 20px;
+        }
+        
+        .lessons-panel {
+            width: 35%;
+            background: rgb(255, 255, 255);
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            height: fit-content;
+        }
+        
+        .content-panel {
+            width: 65%;
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .lesson-header {
+            display: flex;
+            justify-content: space-between;
+            cursor: pointer;
+            padding: 12px;
+            background: #f5f5f5;
+            border-radius: 5px;
+            margin-bottom: 5px;
+            transition: background-color 0.3s;
+        }
+        
+        .lesson-header:hover {
+            background: #e8eaf6;
+        }
+        
+        .subtopics-list {
+            list-style: none;
+            padding-left: 15px;
+            display: none;
+        }
+        
+        .lesson-item.expanded .subtopics-list {
+            display: block;
+        }
+        
+        .subtopic-item {
+            padding: 8px;
+            cursor: pointer;
+            border-left: 3px solid transparent;
+            transition: all 0.3s;
+        }
+        
+        .subtopic-item:hover {
+            background: #f0f0f0;
+            border-left-color: #000000;
+        }
+        
+        .subtopic-item.active {
+            background: #e3f2fd;
+            border-left-color: #000000;
+            border-radius: 0 4px 4px 0;
+        }
+        
+        .video-container iframe {
+            width: 100%;
+            height: 400px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        #current-lesson-desc {
+            white-space: pre-line;
+            margin-top: 20px;
+            line-height: 1.8;
+        }
+        
+        .MathJax {
+            color: inherit !important;
+        }
+        
+        h2 {
+            color: #000000;
+            margin: 20px 0 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e8eaf6;
+        }
+        
+        h3 {
+            color: #283593;
+            margin: 15px 0 10px;
+        }
+        
+        h4 {
+            color: #000000;
+            margin: 12px 0 8px;
+        }
+        
+        .math-content {
+            overflow-x: auto;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 5px;
+            margin: 15px 0;
+            border-left: 4px solid #030d40;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        th {
+            background-color: #e8eaf6;
+            color: #000001;
+            font-weight: 600;
+        }
+        
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+        
+        ul, ol {
+            padding-left: 20px;
+            margin: 10px 0;
+        }
+        
+        li {
+            margin-bottom: 8px;
+        }
+        
+        .toggle-icon {
+            transition: transform 0.3s;
+        }
+        
+        @media (max-width: 900px) {
+            .course-container {
+                flex-direction: column;
+            }
+            
+            .lessons-panel, .content-panel {
+                width: 100%;
+            }
+            
+            .video-container iframe {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <h1>Academia Científica</h1>
+            <p>Mecánica Intermedia</p>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Volver al inicio</a></li>
+                <li><a href="#">Recursos</a></li>
+                <li><a href="#">Ejercicios</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main class="course-container">
+        <!-- Panel izquierdo: Temario -->
+        <aside class="lessons-panel">
+            <h2>Temario</h2>
+            <ul class="lessons-list">
+                <!-- Las lecciones se generarán dinámicamente con JavaScript -->
+            </ul>
+        </aside>
+
+        <!-- Panel derecho: Video + contenido -->
+        <section class="content-panel">
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/VIDEO_ID_1" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <h2 id="current-lesson-title">Descripción del curso</h2>
+            <div id="current-lesson-desc">
+                Desarrollo de Formalismo Lagrangiano y Hamiltoniano.
+                
+            </div>
+        </section>
+    </main>
+
+   <script>
+        // CONTENIDO DEL CURSO
+
+    // Datos del curso
+    const courseData = {
+        id: 1,
+        title: "Mecánica Intermedia",
+        lessons: [
+            {
+                id: 1,
+                title: "Análisis Vectorial",
+                duration: "40 min",
+                videoId: "VECTOR_ANALYSIS_VIDEO",
+                description: "Fundamentos de cálculo vectorial y sistemas de coordenadas",
+                subtopics: [
+                    {
+                        title: "Identidades Diferenciales Vectoriales",
+                        duration: "15 min",
+                        description: `<h3>Identidades Diferenciales Vectoriales</h3>
+                        <p><strong>Operadores diferenciales fundamentales:</strong></p>
+                        \\[
+                        \\nabla \\cdot \\nabla \\varphi = \\nabla^2 \\varphi
+                        \\]
+                        \\[
+                        \\nabla \\cdot (\\nabla \\times \\mathbf{F}) = 0
+                        \\]
+                        \\[
+                        \\nabla \\times (\\nabla \\varphi) = 0
+                        \\]
+                        \\[
+                        \\nabla \\times (\\nabla \\times \\mathbf{F}) = \\nabla(\\nabla \\cdot \\mathbf{F}) - \\nabla^2 \\mathbf{F}
+                        \\]
+
+                        <p><strong>Identidades de productos:</strong></p>
+                        \\[
+                        \\nabla (\\varphi \\psi) = (\\nabla \\varphi) \\psi + \\varphi \\nabla \\psi
+                        \\]
+                        \\[
+                        \\nabla (\\mathbf{F} \\cdot \\mathbf{G}) = (\\mathbf{F} \\cdot \\nabla) \\mathbf{G} + \\mathbf{F} \\times (\\nabla \\times \\mathbf{G}) + (\\mathbf{G} \\cdot \\nabla) \\mathbf{F} + \\mathbf{G} \\times (\\nabla \\times \\mathbf{F})
+                        \\]
+                        \\[
+                        \\nabla \\cdot (\\varphi \\mathbf{F}) = (\\nabla \\varphi) \\cdot \\mathbf{F} + \\varphi \\nabla \\cdot \\mathbf{F}
+                        \\]
+                        \\[
+                        \\nabla \\cdot (\\mathbf{F} \\times \\mathbf{G}) = (\\nabla \\times \\mathbf{F}) \\cdot \\mathbf{G} - (\\nabla \\times \\mathbf{G}) \\cdot \\mathbf{F}
+                        \\]
+                        \\[
+                        \\nabla \\times (\\varphi \\mathbf{F}) = (\\nabla \\varphi) \\times \\mathbf{F} + \\varphi \\nabla \\times \\mathbf{F}
+                        \\]
+                        \\[
+                        \\nabla \\times (\\mathbf{F} \\times \\mathbf{G}) = (\\nabla \\cdot \\mathbf{G}) \\mathbf{F} - (\\nabla \\cdot \\mathbf{F}) \\mathbf{G} + (\\mathbf{G} \\cdot \\nabla) \\mathbf{F} - (\\mathbf{F} \\cdot \\nabla) \\mathbf{G}
+                        \\]`
+                    },
+                    {
+                        title: "Teoremas Integrales",
+                        duration: "15 min",
+                        description: `<h3>Teoremas Integrales Vectoriales</h3>
+                        <p><strong>Teorema de Stokes:</strong></p>
+                        \\[
+                        \\int_S (\\nabla \\times \\mathbf{F}) \\cdot \\mathbf{n} \\, da = \\oint_C \\mathbf{F} \\cdot d\\mathbf{l}
+                        \\]
+
+                        <p><strong>Teorema de la Divergencia (Gauss):</strong></p>
+                        \\[
+                        \\int_V \\nabla \\cdot \\mathbf{F} \\, dv = \\oint_S \\mathbf{F} \\cdot \\mathbf{n} \\, da
+                        \\]
+
+                        <p><strong>Teorema del Gradiente:</strong></p>
+                        \\[
+                        \\int_V \\nabla \\varphi \\, dv = \\oint_S \\varphi \\, \\mathbf{n} \\, da
+                        \\]
+
+                        <p><strong>Teorema del Rotacional:</strong></p>
+                        \\[
+                        \\int_V \\nabla \\times \\mathbf{F} \\, dv = \\oint_S \\mathbf{n} \\times \\mathbf{F} \\, da
+                        \\]
+
+                        <p><strong>Identidades adicionales:</strong></p>
+                        \\[
+                        \\int_S \\mathbf{n} \\times \\nabla \\varphi \\, da = \\oint_C \\varphi \\, d\\mathbf{l}
+                        \\]
+                        \\[
+                        \\int_a^b \\nabla \\varphi \\cdot d\\mathbf{l} = \\varphi \\bigg|_b^a
+                        \\]`
+                    },
+                    {
+                        title: "Análisis Dimensional",
+                        duration: "10 min",
+                        description: `<h3>Análisis Dimensional</h3>
+                        <p><strong>Cantidades fundamentales y sus dimensiones:</strong></p>
+                        
+                        <table class="dimension-table">
+                            <tr><th>Cantidad</th><th>Dimensión</th><th>Unidades MKS</th></tr>
+                            <tr><td>Ángulo</td><td>adimensional</td><td>radián</td></tr>
+                            <tr><td>Área</td><td>\\(L^2\\)</td><td>\\(m^2\\)</td></tr>
+                            <tr><td>Volumen</td><td>\\(L^3\\)</td><td>\\(m^3\\)</td></tr>
+                            <tr><td>Frecuencia</td><td>\\(T^{-1}\\)</td><td>\\(Hz\\)</td></tr>
+                            <tr><td>Velocidad</td><td>\\(LT^{-1}\\)</td><td>\\(m/s\\)</td></tr>
+                            <tr><td>Aceleración</td><td>\\(LT^{-2}\\)</td><td>\\(m/s^2\\)</td></tr>
+                            <tr><td>Velocidad angular</td><td>\\(T^{-1}\\)</td><td>\\(rad/s\\)</td></tr>
+                            <tr><td>Aceleración angular</td><td>\\(T^{-2}\\)</td><td>\\(rad/s^2\\)</td></tr>
+                            <tr><td>Densidad</td><td>\\(ML^{-3}\\)</td><td>\\(kg/m^3\\)</td></tr>
+                            <tr><td>Momentum</td><td>\\(MLT^{-1}\\)</td><td>\\(kg\\cdot m/s\\)</td></tr>
+                            <tr><td>Fuerza</td><td>\\(MLT^{-2}\\)</td><td>\\(N = kg\\cdot m/s^2\\)</td></tr>
+                            <tr><td>Trabajo, Energía</td><td>\\(ML^2T^{-2}\\)</td><td>\\(J = kg\\cdot m^2/s^2\\)</td></tr>
+                            <tr><td>Torque</td><td>\\(ML^2T^{-2}\\)</td><td>\\(N\\cdot m\\)</td></tr>
+                            <tr><td>Potencia</td><td>\\(ML^2T^{-3}\\)</td><td>\\(W = J/s\\)</td></tr>
+                            <tr><td>Presión</td><td>\\(ML^{-1}T^{-2}\\)</td><td>\\(Pa = N/m^2\\)</td></tr>
+                        </table>
+
+                        <p><strong>Sistema de unidades naturales de Planck:</strong></p>
+                        \\[
+                        c = 3 \\times 10^8 \\, m/s \\quad (LT^{-1})
+                        \\]
+                        \\[
+                        G = 6.67 \\times 10^{-11} \\, m^3/(kg\\cdot s^2) \\quad (L^3M^{-1}T^{-2})
+                        \\]
+                        \\[
+                        \\hbar = 1.055 \\times 10^{-34} \\, J\\cdot s \\quad (L^2MT^{-1})
+                        \\]
+                        \\[
+                        k_B = 1.38 \\times 10^{-23} \\, J/K \\quad (L^2MT^{-2}\\theta^{-1})
+                        \\]`
+                    }
+                ]
+            },
+            {
+                id: 2,
+                title: "Sistemas de Coordenadas",
+                duration: "50 min",
+                videoId: "COORDINATE_SYSTEMS_VIDEO",
+                description: "Sistemas de coordenadas y transformaciones",
+                subtopics: [
+                    {
+                        title: "Coordenadas Cartesianas",
+                        duration: "15 min",
+                        description: `<h3>Coordenadas Cartesianas</h3>
+                        <p><strong>Vector posición:</strong></p>
+                        \\[
+                        \\mathbf{r} = x\\hat{i} + y\\hat{j} + z\\hat{k}
+                        \\]
+                        \\[
+                        r = |\\mathbf{r}| = \\sqrt{x^2 + y^2 + z^2}
+                        \\]
+
+                        <p><strong>Velocidad y aceleración:</strong></p>
+                        \\[
+                        \\mathbf{v} = \\dot{\\mathbf{r}} = \\dot{x}\\hat{i} + \\dot{y}\\hat{j} + \\dot{z}\\hat{k}
+                        \\]
+                        \\[
+                        \\mathbf{a} = \\ddot{\\mathbf{r}} = \\ddot{x}\\hat{i} + \\ddot{y}\\hat{j} + \\ddot{z}\\hat{k}
+                        \\]
+
+                        <p><strong>Movimiento circular paramétrico:</strong></p>
+                        \\[
+                        x = A \\cos \\omega t, \\quad y = A \\sin \\omega t
+                        \\]
+                        \\[
+                        \\mathbf{v} = A\\omega(-\\sin \\omega t\\hat{i} + \\cos \\omega t\\hat{j})
+                        \\]
+                        \\[
+                        \\mathbf{a} = -\\omega^2 \\mathbf{r}
+                        \\]
+
+                        <p><strong>Momentum y momentum angular:</strong></p>
+                        \\[
+                        \\mathbf{p} = m\\dot{\\mathbf{r}} = p_x\\hat{i} + p_y\\hat{j} + p_z\\hat{k}
+                        \\]
+                        \\[
+                        \\mathbf{L} = \\mathbf{r} \\times \\mathbf{p} = L_x\\hat{i} + L_y\\hat{j} + L_z\\hat{k}
+                        \\]`
+                    },
+                    {
+                        title: "Coordenadas Cilíndricas",
+                        duration: "20 min",
+                        description: `<h3>Coordenadas Cilíndricas</h3>
+                        <p><strong>Transformación de coordenadas:</strong></p>
+                        \\[
+                        x = s \\cos \\phi, \\quad y = s \\sin \\phi, \\quad z = z
+                        \\]
+                        \\[
+                        s = \\sqrt{x^2 + y^2}, \\quad \\phi = \\arctan\\left(\\frac{y}{x}\\right)
+                        \\]
+
+                        <p><strong>Vectores unitarios:</strong></p>
+                        \\[
+                        \\hat{s} = \\cos \\phi\\hat{i} + \\sin \\phi\\hat{j}
+                        \\]
+                        \\[
+                        \\hat{\\phi} = -\\sin \\phi\\hat{i} + \\cos \\phi\\hat{j}
+                        \\]
+                        \\[
+                        \\hat{k} = \\hat{k}
+                        \\]
+
+                        <p><strong>Vector posición:</strong></p>
+                        \\[
+                        \\mathbf{r} = s\\hat{s} + z\\hat{k}
+                        \\]
+
+                        <p><strong>Velocidad:</strong></p>
+                        \\[
+                        \\dot{\\mathbf{r}} = \\dot{s}\\hat{s} + s\\dot{\\phi}\\hat{\\phi} + \\dot{z}\\hat{k}
+                        \\]
+
+                        <p><strong>Aceleración:</strong></p>
+                        \\[
+                        \\ddot{\\mathbf{r}} = (\\ddot{s} - s\\dot{\\phi}^2)\\hat{s} + (s\\ddot{\\phi} + 2\\dot{s}\\dot{\\phi})\\hat{\\phi} + \\ddot{z}\\hat{k}
+                        \\]
+
+                        <p><strong>Velocidad angular:</strong></p>
+                        \\[
+                        \\boldsymbol{\\omega} = \\dot{\\phi}\\hat{k}
+                        \\]`
+                    },
+                    {
+                        title: "Coordenadas Esféricas",
+                        duration: "15 min",
+                        description: `<h3>Coordenadas Esféricas</h3>
+                        <p><strong>Transformación de coordenadas:</strong></p>
+                        \\[
+                        x = r \\sin \\theta \\cos \\phi, \\quad y = r \\sin \\theta \\sin \\phi, \\quad z = r \\cos \\theta
+                        \\]
+                        \\[
+                        r = \\sqrt{x^2 + y^2 + z^2}, \\quad \\theta = \\arccos\\left(\\frac{z}{r}\\right), \\quad \\phi = \\arctan\\left(\\frac{y}{x}\\right)
+                        \\]
+
+                        <p><strong>Vectores unitarios:</strong></p>
+                        \\[
+                        \\hat{r} = \\sin \\theta \\cos \\phi\\hat{i} + \\sin \\theta \\sin \\phi\\hat{j} + \\cos \\theta\\hat{k}
+                        \\]
+                        \\[
+                        \\hat{\\theta} = \\cos \\theta \\cos \\phi\\hat{i} + \\cos \\theta \\sin \\phi\\hat{j} - \\sin \\theta\\hat{k}
+                        \\]
+                        \\[
+                        \\hat{\\phi} = -\\sin \\phi\\hat{i} + \\cos \\phi\\hat{j}
+                        \\]
+
+                        <p><strong>Vector posición:</strong></p>
+                        \\[
+                        \\mathbf{r} = r\\hat{r}
+                        \\]
+
+                        <p><strong>Velocidad:</strong></p>
+                        \\[
+                        \\dot{\\mathbf{r}} = \\dot{r}\\hat{r} + r\\sin \\theta\\dot{\\phi}\\hat{\\phi} + r\\dot{\\theta}\\hat{\\theta}
+                        \\]
+
+                        <p><strong>Aceleración:</strong></p>
+                        \\[
+                        \\ddot{\\mathbf{r}} = (\\ddot{r} - r\\dot{\\theta}^2 - r\\sin^2 \\theta\\dot{\\phi}^2)\\hat{r} + (r\\ddot{\\theta} + 2\\dot{r}\\dot{\\theta} - r\\sin \\theta \\cos \\theta\\dot{\\phi}^2)\\hat{\\theta} + (r\\sin \\theta\\ddot{\\phi} + 2\\dot{r}\\sin \\theta\\dot{\\phi} + 2r\\cos \\theta\\dot{\\theta}\\dot{\\phi})\\hat{\\phi}
+                        \\]
+
+                        <p><strong>Velocidad angular:</strong></p>
+                        \\[
+                        \\boldsymbol{\\omega} = \\dot{\\phi}\\cos \\theta\\hat{r} - \\dot{\\phi}\\sin \\theta\\hat{\\theta} + \\dot{\\theta}\\hat{\\phi}
+                        \\]`
+                    }
+                ]
+            },
+            {
+                id: 3,
+                title: "Mecánica Newtoniana",
+                duration: "60 min",
+                videoId: "NEWTONIAN_MECHANICS_VIDEO",
+                description: "Leyes de Newton y ecuaciones de movimiento",
+                subtopics: [
+                    {
+                        title: "Ecuaciones Cinemáticas",
+                        duration: "20 min",
+                        description: `<h3>Ecuaciones Cinemáticas</h3>
+                        <p><strong>Movimiento con aceleración constante:</strong></p>
+                        \\[
+                        v = v_0 + at
+                        \\]
+                        \\[
+                        x = v_0t + \\frac{1}{2}at^2
+                        \\]
+                        \\[
+                        v^2 = v_0^2 + 2a(x - x_0)
+                        \\]
+
+                        <p><strong>Caída libre:</strong></p>
+                        \\[
+                        v_y = v_{0y} - gt
+                        \\]
+                        \\[
+                        y = v_{0y}t - \\frac{1}{2}gt^2
+                        \\]
+                        \\[
+                        v_f^2 = v_0^2 + 2gh
+                        \\]
+
+                        <p><strong>Movimiento en 2D:</strong></p>
+                        \\[
+                        \\mathbf{v} = v_x\\hat{i} + v_y\\hat{j}
+                        \\]
+                        \\[
+                        v_x = v\\cos\\theta, \\quad v_y = v\\sin\\theta
+                        \\]
+                        \\[
+                        v^2 = v_x^2 + v_y^2, \\quad \\theta = \\arctan\\left(\\frac{v_y}{v_x}\\right)
+                        \\]
+
+                        <p><strong>Movimiento circular:</strong></p>
+                        \\[
+                        \\omega = \\frac{\\Delta\\theta}{\\Delta t} = \\frac{2\\pi}{T}
+                        \\]
+                        \\[
+                        \\ddot{r} = 0 \\quad \\text{(movimiento circular uniforme)}
+                        \\]`
+                    },
+                    {
+                        title: "Fuerzas Centrales",
+                        duration: "20 min",
+                        description: `<h3>Fuerzas Centrales Conservativas</h3>
+                        <p><strong>Definición y propiedades:</strong></p>
+                        \\[
+                        \\mathbf{F} = f(r)\\hat{r} = -\\nabla U
+                        \\]
+                        \\[
+                        \\boldsymbol{\\tau} = \\mathbf{r} \\times \\mathbf{F} = 0
+                        \\]
+
+                        <p><strong>Energía total:</strong></p>
+                        \\[
+                        E = \\frac{1}{2}m(\\dot{s}^2 + s^2\\dot{\\phi}^2) + U(s)
+                        \\]
+
+                        <p><strong>Momentum angular:</strong></p>
+                        \\[
+                        L = L_\\phi\\hat{k} = ms^2\\dot{\\phi} \\Rightarrow \\dot{\\phi} = \\frac{L}{ms^2}
+                        \\]
+
+                        <p><strong>Energía efectiva:</strong></p>
+                        \\[
+                        E = \\frac{1}{2}m\\dot{s}^2 + \\frac{L^2}{2ms^2} + U(s)
+                        \\]
+                        \\[
+                        U_{ef} = \\frac{L^2}{2ms^2} + U(s) \\quad \\text{(Potencial efectivo)}
+                        \\]
+                        \\[
+                        U_{centri} = \\frac{L^2}{2ms^2} \\quad \\text{(Potencial centrífugo)}
+                        \\]`
+                    },
+                    {
+                        title: "Teorema de Binet",
+                        duration: "20 min",
+                        description: `<h3>Teorema de Binet</h3>
+                        <p><strong>Para órbitas:</strong></p>
+                        \\[
+                        r = r(\\phi), \\quad u = \\frac{1}{r}
+                        \\]
+
+                        <p><strong>Fórmula de Binet:</strong></p>
+                        \\[
+                        F\\left(\\frac{1}{u}\\right) = -\\frac{L^2}{m}(u^2 u'' + u^3)
+                        \\]
+
+                        <p><strong>Ecuación diferencial para el potencial:</strong></p>
+                        \\[
+                        \\frac{d^2 u}{d\\phi^2} + u = -\\frac{m}{L^2}\\frac{d}{du}V\\left(\\frac{1}{u}\\right)
+                        \\]
+
+                        <p><strong>Aplicaciones:</strong></p>
+                        <ul>
+                            <li>Determinación de órbitas bajo fuerzas centrales</li>
+                            <li>Estudio de potenciales efectivos</li>
+                            <li>Análisis de estabilidad orbital</li>
+                        </ul>`
+                    }
+                ]
+            },
+            {
+                id: 4,
+                title: "Mecánica Lagrangiana",
+                duration: "55 min",
+                videoId: "LAGRANGIAN_MECHANICS_VIDEO",
+                description: "Formulación lagrangiana de la mecánica",
+                subtopics: [
+                    {
+                        title: "Ecuaciones de Euler-Lagrange",
+                        duration: "20 min",
+                        description: `<h3>Ecuaciones de Euler-Lagrange</h3>
+                        <p><strong>Principio de Hamilton:</strong></p>
+                        \\[
+                        \\delta I = \\int_a^b \\left[\\partial_y \\Phi - \\frac{d}{dx}(\\partial_{y'} \\Phi)\\right] \\delta y \\, dx = 0
+                        \\]
+
+                        <p><strong>Ecuación de Euler-Lagrange:</strong></p>
+                        \\[
+                        \\frac{d}{dx}\\partial_{y'} \\Phi - \\partial_y \\Phi = 0
+                        \\]
+
+                        <p><strong>Formulación lagrangiana:</strong></p>
+                        \\[
+                        \\mathcal{L} = \\mathcal{L}(q_1, \\ldots, q_n, \\dot{q}_1, \\ldots, \\dot{q}_n, t)
+                        \\]
+                        \\[
+                        \\frac{d}{dt}\\partial_{\\dot{q}_j} \\mathcal{L} - \\partial_{q_j} \\mathcal{L} = 0
+                        \\]
+
+                        <p><strong>Para sistemas conservativos:</strong></p>
+                        \\[
+                        \\mathcal{L} = T - U
+                        \\]`
+                    },
+                    {
+                        title: "Leyes de Conservación",
+                        duration: "20 min",
+                        description: `<h3>Leyes de Conservación</h3>
+                        <p><strong>Conservación de la energía:</strong></p>
+                        \\[
+                        E = \\sum_{j=1}^n \\partial_{\\dot{q}_j} \\mathcal{L} \\, \\dot{q}_j - \\mathcal{L} = \\text{constante}
+                        \\]
+
+                        <p><strong>Conservación del momentum:</strong></p>
+                        \\[
+                        \\mathbf{P} = \\sum_a \\partial_{\\dot{\\mathbf{r}}_a} \\mathcal{L} = \\text{constante}
+                        \\]
+
+                        <p><strong>Coordenadas cíclicas:</strong></p>
+                        \\[
+                        \\text{Si } \\partial_{q_n} \\mathcal{L} = 0 \\Rightarrow p_n = \\partial_{\\dot{q}_n} \\mathcal{L} = \\text{constante}
+                        \\]
+
+                        <p><strong>Teorema de funciones homogéneas de Euler:</strong></p>
+                        \\[
+                        f(\\lambda x, \\lambda y) = \\lambda f(x, y)
+                        \\]
+                        \\[
+                        E = T + U
+                        \\]`
+                    },
+                    {
+                        title: "Multiplicadores de Lagrange",
+                        duration: "15 min",
+                        description: `<h3>Multiplicadores de Lagrange</h3>
+                        <p><strong>Ligaduras holonómicas:</strong></p>
+                        \\[
+                        f_j(\\{q\\}, t) = 0, \\quad j = 1, \\ldots, k
+                        \\]
+
+                        <p><strong>Ecuaciones con multiplicadores:</strong></p>
+                        \\[
+                        \\frac{d}{dt}\\partial_{\\dot{q}_\\sigma} \\mathcal{L} - \\partial_{q_\\sigma} \\mathcal{L} = \\sum_{j=1}^k \\lambda_j \\partial_{q_\\sigma} f_j
+                        \\]
+
+                        <p><strong>Fuerzas de reacción:</strong></p>
+                        \\[
+                        Q_\\sigma' = \\sum_{j=1}^k \\lambda_j \\partial_{q_\\sigma} f_j
+                        \\]
+
+                        <p><strong>Principio de D'Alembert:</strong></p>
+                        \\[
+                        \\sum_i (\\mathbf{F}_i^{(a)} + \\mathbf{R}_i - \\dot{\\mathbf{p}}_i) \\cdot \\delta \\mathbf{x}_i = 0
+                        \\]`
+                    }
+                ]
+            },
+            {
+                id: 5,
+                title: "Mecánica Hamiltoniana",
+                duration: "45 min",
+                videoId: "HAMILTONIAN_MECHANICS_VIDEO",
+                description: "Formulación hamiltoniana y paréntesis de Poisson",
+                subtopics: [
+                    {
+                        title: "Ecuaciones de Hamilton",
+                        duration: "15 min",
+                        description: `<h3>Ecuaciones de Hamilton</h3>
+                        <p><strong>Momento generalizado:</strong></p>
+                        \\[
+                        p_j = \\partial_{\\dot{q}_j} \\mathcal{L}
+                        \\]
+
+                        <p><strong>Hamiltoniano:</strong></p>
+                        \\[
+                        H = \\sum_j p_j \\dot{q}_j - \\mathcal{L}
+                        \\]
+
+                        <p><strong>Ecuaciones de movimiento:</strong></p>
+                        \\[
+                        \\dot{p}_j = -\\partial_{q_j} H, \\quad \\dot{q}_j = \\partial_{p_j} H
+                        \\]
+
+                        <p><strong>Conservación de energía:</strong></p>
+                        \\[
+                        E = T + V = H
+                        \\]
+                        \\[
+                        \\frac{dH}{dt} = \\frac{\\partial H}{\\partial t}
+                        \\]`
+                    },
+                    {
+                        title: "Paréntesis de Poisson",
+                        duration: "15 min",
+                        description: `<h3>Paréntesis de Poisson</h3>
+                        <p><strong>Definición:</strong></p>
+                        \\[
+                        \\{f, g\\} = \\sum_{j=1}^n \\left( \\partial_{q_j} f \\, \\partial_{p_j} g - \\partial_{q_j} g \\, \\partial_{p_j} f \\right)
+                        \\]
+
+                        <p><strong>Propiedades fundamentales:</strong></p>
+                        \\[
+                        \\{f, c\\} = 0 \\quad \\text{(c constante)}
+                        \\]
+                        \\[
+                        \\{f + g, h\\} = \\{f, h\\} + \\{g, h\\}
+                        \\]
+                        \\[
+                        \\{fg, h\\} = f\\{g, h\\} + g\\{f, h\\}
+                        \\]
+                        \\[
+                        \\partial_t \\{f, g\\} = \\{\\partial_t f, g\\} + \\{f, \\partial_t g\\}
+                        \\]
+
+                        <p><strong>Relaciones canónicas:</strong></p>
+                        \\[
+                        \\{q_i, p_j\\} = \\delta_{ij}, \\quad \\{q_i, q_j\\} = \\{p_i, p_j\\} = 0
+                        \\]
+                        \\[
+                        \\{p_i, q_j\\} = -\\delta_{ij}
+                        \\]
+
+                        <p><strong>Identidad de Jacobi:</strong></p>
+                        \\[
+                        \\{f, \\{g, h\\}\\} + \\{h, \\{f, g\\}\\} + \\{g, \\{h, f\\}\\} = 0
+                        \\]`
+                    },
+                    {
+                        title: "Relatividad Especial",
+                        duration: "15 min",
+                        description: `<h3>Relatividad Especial</h3>
+                        <p><strong>Factor de Lorentz:</strong></p>
+                        \\[
+                        \\gamma = \\frac{1}{\\sqrt{1 - \\frac{v^2}{c^2}}}
+                        \\]
+
+                        <p><strong>Momentum relativista:</strong></p>
+                        \\[
+                        \\mathbf{p} = \\gamma m \\mathbf{v}
+                        \\]
+
+                        <p><strong>Energía relativista:</strong></p>
+                        \\[
+                        E = \\gamma m c^2
+                        \\]
+                        \\[
+                        E^2 = p^2 c^2 + m^2 c^4
+                        \\]
+
+                        <p><strong>Momentum en coordenadas esféricas:</strong></p>
+                        \\[
+                        p^2 = p_r^2 + \\frac{p_\\theta^2}{r^2} + \\frac{p_\\phi^2}{r^2 \\sin^2 \\theta}
+                        \\]
+
+                        <p><strong>Campos electromagnéticos:</strong></p>
+                        \\[
+                        \\mathbf{B} = \\nabla \\times \\mathbf{A}
+                        \\]
+                        \\[
+                        \\mathbf{E} = -\\nabla \\Phi - \\frac{1}{c} \\partial_t \\mathbf{A}
+                        \\]`
+                    }
+                ]
+            },
+            {
+                id: 6,
+                title: "Oscilaciones y Dispersión",
+                duration: "50 min",
+                videoId: "OSCILLATIONS_SCATTERING_VIDEO",
+                description: "Oscilaciones pequeñas y teoría de dispersión",
+                subtopics: [
+                    {
+                        title: "Oscilaciones Pequeñas",
+                        duration: "20 min",
+                        description: `<h3>Oscilaciones Pequeñas</h3>
+                        <p><strong>Aproximaciones para ángulos pequeños:</strong></p>
+                        \\[
+                        \\cos \\theta \\approx 1 - \\frac{\\theta^2}{2}, \\quad \\sin \\theta \\approx \\theta
+                        \\]
+
+                        <p><strong>Energía cinética:</strong></p>
+                        \\[
+                        T = \\frac{1}{2} \\mathbf{q}^T M \\mathbf{q}
+                        \\]
+                        \\[
+                        T = \\frac{1}{2} (A\\dot{q}_1^2 + B\\dot{q}_1\\dot{q}_2 + C\\dot{q}_1\\dot{q}_2 + D\\dot{q}_2^2)
+                        \\]
+
+                        <p><strong>Energía potencial:</strong></p>
+                        \\[
+                        U = \\frac{1}{2} \\mathbf{q}^T K \\mathbf{q}
+                        \\]
+
+                        <p><strong>Ecuación de autovalores:</strong></p>
+                        \\[
+                        (K - \\omega_n^2 M)|v_n\\rangle = 0
+                        \\]
+                        \\[
+                        \\det(K - \\omega_n^2 M) = 0
+                        \\]
+
+                        <p><strong>Coordenadas normales:</strong></p>
+                        \\[
+                        \\mathbf{Q} = \\mathcal{A}^T M \\mathbf{q}
+                        \\]
+                        \\[
+                        M' = \\mathcal{A}^T M \\mathcal{A} = I
+                        \\]
+                        \\[
+                        K' = \\mathcal{A}^T K \\mathcal{A} = \\text{diag}(\\omega_1^2, \\omega_2^2, \\ldots)
+                        \\]`
+                    },
+                    {
+                        title: "Dispersión Rutherford",
+                        duration: "15 min",
+                        description: `<h3>Dispersión Rutherford</h3>
+                        <p><strong>Potencial de Coulomb:</strong></p>
+                        \\[
+                        V(r) = \\frac{\\alpha}{r}, \\quad \\alpha = \\frac{1}{4\\pi\\epsilon_0} q_1 q_2
+                        \\]
+
+                        <p><strong>Fórmula de Rutherford:</strong></p>
+                        \\[
+                        \\left( \\frac{d\\sigma}{d\\Omega} \\right) = \\left( \\frac{\\alpha}{2mv_0^2} \\right)^2 \\frac{1}{\\sin^4(\\theta/2)}
+                        \\]
+
+                        <p><strong>Parámetro de impacto:</strong></p>
+                        \\[
+                        \\phi_0 = \\int_{r_{\\min}}^{\\infty} \\frac{(b/r^2) dr}{\\sqrt{1 - \\frac{b^2}{r^2} - \\frac{U(r)}{E}}}
+                        \\]
+
+                        <p><strong>Ángulo de dispersión:</strong></p>
+                        \\[
+                        \\chi = |\\pi - 2\\phi_0|
+                        \\]`
+                    },
+                    {
+                        title: "Teoría de Dispersión General",
+                        duration: "15 min",
+                        description: `<h3>Teoría General de Dispersión</h3>
+                        <p><strong>Sección transversal diferencial:</strong></p>
+                        \\[
+                        d\\sigma = 2\\pi b \\left| \\frac{db}{d\\theta} \\right| d\\theta
+                        \\]
+                        \\[
+                        \\left( \\frac{d\\sigma}{d\\Omega} \\right) = \\frac{b}{\\sin \\theta} \\left| \\frac{db}{d\\theta} \\right|
+                        \\]
+
+                        <p><strong>Sección transversal total:</strong></p>
+                        \\[
+                        \\sigma_T = \\int \\left( \\frac{d\\sigma}{d\\Omega} \\right) d\\Omega
+                        \\]
+
+                        <p><strong>Dispersión por esfera dura:</strong></p>
+                        \\[
+                        \\sigma_T = \\pi b_{\\max}^2
+                        \\]
+
+                        <p><strong>Parámetro de impacto:</strong></p>
+                        \\[
+                        l = m v b
+                        \\]
+
+                        <p><strong>Integral para el ángulo:</strong></p>
+                        \\[
+                        \\phi_0 = b \\int_0^{u_\\infty} \\frac{du}{\\sqrt{1 - \\frac{V}{E} - u^2 b^2}}
+                        \\]`
+                    }
+                ]
+            }
+        ]
+    };
+
+
+
+
+         // Función para inicializar el curso
+         function initCourse() {
+            const lessonsList = document.querySelector('.lessons-list');
+            
+            // Generar las lecciones
+            courseData.lessons.forEach(lesson => {
+                const lessonItem = document.createElement('li');
+                lessonItem.className = 'lesson-item';
+                lessonItem.innerHTML = `
+                    <div class="lesson-header" data-lesson-id="${lesson.id}">
+                        <div>
+                            <h3>${lesson.title}</h3>
+                            <span>${lesson.duration}</span>
+                        </div>
+                        <i class="fas fa-chevron-down toggle-icon"></i>
+                    </div>
+                    <ul class="subtopics-list">
+                        ${lesson.subtopics.map(subtopic => `
+                            <li class="subtopic-item" data-lesson-id="${lesson.id}" data-subtopic-id="${lesson.subtopics.indexOf(subtopic)}">
+                                <div>
+                                    <h4>${subtopic.title}</h4>
+                                    <span>${subtopic.duration}</span>
+                                </div>
+                            </li>
+                        `).join('')}
+                    </ul>
+                `;
+                lessonsList.appendChild(lessonItem);
+            });
+            
+            // Event listeners para expandir/contraer lecciones
+            document.querySelectorAll('.lesson-header').forEach(header => {
+                header.addEventListener('click', function() {
+                    const lessonItem = this.parentElement;
+                    lessonItem.classList.toggle('expanded');
+                    const icon = this.querySelector('.toggle-icon');
+                    icon.classList.toggle('fa-chevron-down');
+                    icon.classList.toggle('fa-chevron-up');
+                });
+            });
+            
+            // Event listeners para subtemas
+            document.querySelectorAll('.subtopic-item').forEach(item => {
+                item.addEventListener('click', function() {
+                    // Remover clase activa de todos los subtemas
+                    document.querySelectorAll('.subtopic-item').forEach(i => {
+                        i.classList.remove('active');
+                    });
+                    
+                    // Añadir clase activa al subtema seleccionado
+                    this.classList.add('active');
+                    
+                    // Obtener datos del subtema
+                    const lessonId = parseInt(this.getAttribute('data-lesson-id'));
+                    const subtopicId = parseInt(this.getAttribute('data-subtopic-id'));
+                    
+                    // Actualizar contenido
+                    updateContent(lessonId, subtopicId);
+                });
+            });
+            
+            // Inicializar con el primer subtema
+            document.querySelector('.subtopic-item').classList.add('active');
+            updateContent(1, 0);
+        }
+        
+        // Función para actualizar el contenido
+        function updateContent(lessonId, subtopicId) {
+            const lesson = courseData.lessons.find(l => l.id === lessonId);
+            const subtopic = lesson.subtopics[subtopicId];
+            
+            // Actualizar video
+            const iframe = document.querySelector('.video-container iframe');
+            iframe.src = `https://www.youtube.com/embed/${lesson.videoId}`;
+            
+            // Actualizar título y descripción
+            document.getElementById('current-lesson-title').textContent = subtopic.title;
+            document.getElementById('current-lesson-desc').innerHTML = subtopic.description;
+            
+            // Reprocesar MathJax
+            if (window.MathJax) {
+                MathJax.typeset();
+            }
+            MathJax.typesetPromise();
+        }
+        
+        // Inicializar el curso cuando se carga la página
+        document.addEventListener('DOMContentLoaded', initCourse);
+    </script>
+</body>
+</html>
+

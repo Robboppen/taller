@@ -50,6 +50,17 @@ const courses = [
         duration: "8 semanas",
         professor: "Dr. Arfken"
     },
+    {
+        id: 6,
+        title: "Mecánica Intermedia",
+        description: "Desarrollo de formalismo Lagrangiano y Hamiltoniano, Fuerzas Centrales, Scattering, Pequeñas Oscilaciones.",
+        image: "https://images.unsplash.com/photo-1708011271935-3e109df56fe0?q=80&w=2073&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        topics: ["Mecánica Clásica Newtoniana", "Cálculo de Variaciones", "Dinámica Lagrangiana", "Dinámica Hamiltoniana", "Transformaciones Canonicas y Corchetes de Poisson"],
+        level: "Intermedio",
+        duration: "16 semanas",
+        professor: "Fetter & Walecka"
+
+    }
     
 ];
 
@@ -142,7 +153,7 @@ function enrollInCourse(courseId) {
         3: "cursos/electromagnetismo.html",
         4: "cursos/cosmologia_course.html",
         5: "cursos/MathMethII.html",
-        6: "cursos/curso6.html",
+        6: "cursos/MecInt.html",
         7: "cursos/curso7.html",
         8: "cursos/curso8.html"
     };
