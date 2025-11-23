@@ -4,62 +4,73 @@ const courses = [
         id: 1,
         title: "Mecánica Cuántica 1 - Fundamentos",
         description: "Introducción a los principios básicos de la mecánica cuántica, incluyendo postulados y representaciones.",
-        image: "https://images.unsplash.com/photo-1708011271954-c0d2b3155ded?q=80&w=2073&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        image: "https://blogs-images.forbes.com/startswithabang/files/2018/03/leinie.gif",
         topics: ["Herramientas Matemáticas de QM","Postulados de la mecánica cuántica","Problemas unidimensionales"],
-        level: "Intermedio",
-        duration: "8 semanas",
+        level: "Avanzado",
+        duration: "20 semanas",
         professor: "Dr. Zettili"
+
     },
     {
         id: 2,
-        title: "Introducción a la Mecánica",
-        description: "Introducción a los principios básicos de la mecánica newtoniana.",
-        image: "https://images.unsplash.com/photo-1635372722656-389f87a941b7?q=80&w=2831&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        topics: ["Vectores ", "Cinemática 1D, 2D y Rotacional", "Leyes de Movimiento", "Energía y Trabajo"],
-        level: "Intermedio",
-        duration: "8 semanas",
-        professor: "Sir Newton"
+        title: "Introducción a la Relatividad General",
+        description: "Introducción a la Relatividad General ",
+        image: "https://mymodernmet.com/wp/wp-content/uploads/2019/10/nasa-black-hole-visualization-1.gif",
+        topics: ["Análisis vectorial en Relatividad Especial", "Análisis tensorial en Relatividad Especial", "Fluidos Perfectos en Relatividad Especial", "Prefacio a curvatura", "Espacios curvos"],
+        level: "Avanzado",
+        duration: "20 semanas",
+        professor: "Schutz."
+
     },
     {
         id: 3,
+        title: "Introducción a la Mecánica",
+        description: "Introducción a los principios básicos de la mecánica newtoniana.",
+        image: "https://d3bkbkx82g74b8.cloudfront.net/eyJidWNrZXQiOiJsYWJyb290cy1pbWFnZXMiLCJrZXkiOiJjb250ZW50X3RhZ19wcm9maWxlX2ltYWdlXzI5NTFmMWNhMWY3ODg3ZTU2MGIyMGQ4Yzc0ZTQ3ZDRkYTJlOTU1ZTBfNzkwOS5qcGciLCJlZGl0cyI6eyJ0b0Zvcm1hdCI6ImpwZyIsInJlc2l6ZSI6eyJ3aWR0aCI6ODAwLCJoZWlnaHQiOjQwMCwiZml0IjoiY292ZXIiLCJwb3NpdGlvbiI6ImNlbnRlciIsImJhY2tncm91bmQiOiIjZmZmIn0sImZsYXR0ZW4iOnsiYmFja2dyb3VuZCI6IiNmZmYifX19",
+        topics: ["Vectores ", "Cinemática 1D, 2D y Rotacional", "Leyes de Movimiento", "Energía y Trabajo"],
+        level: "Intermedio",
+        duration: "10",
+        professor: "Sir Newton"
+    },
+    {
+        id: 4,
         title: "Electromagnetismo",
         description: "Teoría y aplicaciones de los fenómenos electromagnéticos.",
-        image: "https://images.unsplash.com/photo-1507413245164-6160d8298b31?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        image: "https://upload.wikimedia.org/wikipedia/commons/9/99/EM-Wave.gif",
         topics: ["Electrostática", "Magnetostática", "Ecuaciones de Maxwell", "Ondas electromagnéticas"],
-        level: "Intermedio",
+        level: "Avanzado",
         duration: "14 semanas",
         professor: "Dr. Maxwell"
     },
     {
-        id: 4,
+        id: 5,
         title: "Introducción a la Cosmología",
         description: "Introducción a las bases teóricas-matemáticas sobre el estudio del universo",
-        image: "https://images.unsplash.com/photo-1709139449975-0a9ecd32b74e?i",
+        image: "https://scitechdaily.com/images/Universe-Expansion-Funnel-Animation.gif",
         topics: [ "Leyes de Newton", "Ecuaciones de Friedman", "Parámetro de curvatura"],
         level: "Avanzado",
         duration: "10 semanas",
         professor: "Dr. Lemaitre"
     },
     {
-        id: 5,
-        title: "Métodos matemáticos para Físicos",
-        description: "Estructuras algebraicas fundamentales para la física y matemáticas modernas.",
-        image: "https://images.unsplash.com/photo-1607988795691-3d0147b43231?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        topics: ["Espacios vectoriales", "Transformaciones lineales", "Valores y vectores propios", "Aplicaciones"],
-        level: "Intermedio",
-        duration: "8 semanas",
-        professor: "Dr. Arfken"
-    },
-    {
         id: 6,
         title: "Mecánica Intermedia",
         description: "Desarrollo de formalismo Lagrangiano y Hamiltoniano, Fuerzas Centrales, Scattering, Pequeñas Oscilaciones.",
-        image: "https://images.unsplash.com/photo-1708011271935-3e109df56fe0?q=80&w=2073&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        image: "https://s2.ppllstatics.com/leonoticias/www/multimedia/202203/14/media/cortadas/Emmy%20Noether-kySC-U1601305654175sSE-1248x770@Leonoticias.jpg",
         topics: ["Mecánica Clásica Newtoniana", "Cálculo de Variaciones", "Dinámica Lagrangiana", "Dinámica Hamiltoniana", "Transformaciones Canonicas y Corchetes de Poisson"],
-        level: "Intermedio",
+        level: "Avanzado",
         duration: "16 semanas",
         professor: "Fetter & Walecka"
-
+    },
+    {
+        id: 7,
+        title: "Métodos matemáticos para Físicos",
+        description: "Estructuras algebraicas fundamentales para la física y matemáticas modernas.",
+        image: "https://home.cern/sites/default/files/2021-10/seqD_063%20copy%202.jpg",
+        topics: ["Espacios vectoriales", "Transformaciones lineales", "Valores y vectores propios", "Aplicaciones"],
+        level: "Avanzado",
+        duration: "8 semanas",
+        professor: "Dr. Arfken"
     }
     
 ];
@@ -149,12 +160,12 @@ function closeModal() {
 function enrollInCourse(courseId) {
     const coursePages = {
         1: "cursos/mecanica_cuantica.html",
-        2: "cursos/Introduccion-mecanica.html",
-        3: "cursos/electromagnetismo.html",
-        4: "cursos/cosmologia_course.html",
-        5: "cursos/MathMethII.html",
+        2: "cursos/GR.html",
+        3: "cursos/Introduccion-mecanica.html",
+        4: "cursos/electromagnetismo.html",
+        5: "cursos/cosmologia_course.html",
         6: "cursos/MecInt.html",
-        7: "cursos/curso7.html",
+        7: "cursos/MathMethII.html",
         8: "cursos/curso8.html"
     };
 
