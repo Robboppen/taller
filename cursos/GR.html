@@ -1,0 +1,2253 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mecánica Intermedia - Academia Científica</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- MathJax para LaTeX -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    
+    
+    <style>
+        body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: #000000;
+}
+        
+        header {
+            position: relative;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://i.extremetech.com/imagery/content-types/00s27kjDhPJVZ8ZpMcfIxhc/hero-image.fit_lim.size_1600x900.v1678673379.jpg');
+            background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: rgb(255, 255, 255);
+    padding: 4rem 0;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    min-height: 150px;
+}
+        
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+        
+        .header-content h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .header-content p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            margin-top: 1rem;
+        }
+        
+        nav li {
+            margin: 0 10px;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        
+        nav a:hover {
+            background-color: rgba(255,255,255,0.1);
+        }
+        
+        .course-container {
+            display: flex;
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+            gap: 20px;
+        }
+        
+        .lessons-panel {
+            width: 35%;
+            background: rgb(255, 255, 255);
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            height: fit-content;
+        }
+        
+        .content-panel {
+            width: 65%;
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .lesson-header {
+            display: flex;
+            justify-content: space-between;
+            cursor: pointer;
+            padding: 12px;
+            background: #f5f5f5;
+            border-radius: 5px;
+            margin-bottom: 5px;
+            transition: background-color 0.3s;
+        }
+        
+        .lesson-header:hover {
+            background: #e8eaf6;
+        }
+        
+        .subtopics-list {
+            list-style: none;
+            padding-left: 15px;
+            display: none;
+        }
+        
+        .lesson-item.expanded .subtopics-list {
+            display: block;
+        }
+        
+        .subtopic-item {
+            padding: 8px;
+            cursor: pointer;
+            border-left: 3px solid transparent;
+            transition: all 0.3s;
+        }
+        
+        .subtopic-item:hover {
+            background: #f0f0f0;
+            border-left-color: #000000;
+        }
+        
+        .subtopic-item.active {
+            background: #e3f2fd;
+            border-left-color: #000000;
+            border-radius: 0 4px 4px 0;
+        }
+        
+        .video-container iframe {
+            width: 100%;
+            height: 400px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        #current-lesson-desc {
+            white-space: pre-line;
+            margin-top: 20px;
+            line-height: 1.8;
+        }
+        
+        .MathJax {
+            color: inherit !important;
+        }
+        
+        h2 {
+            color: #000000;
+            margin: 20px 0 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e8eaf6;
+        }
+        
+        h3 {
+            color: #283593;
+            margin: 15px 0 10px;
+        }
+        
+        h4 {
+            color: #000000;
+            margin: 12px 0 8px;
+        }
+        
+        .math-content {
+            overflow-x: auto;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 5px;
+            margin: 15px 0;
+            border-left: 4px solid #030d40;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        th {
+            background-color: #e8eaf6;
+            color: #000001;
+            font-weight: 600;
+        }
+        
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+        
+        ul, ol {
+            padding-left: 20px;
+            margin: 10px 0;
+        }
+        
+        li {
+            margin-bottom: 8px;
+        }
+        
+        .toggle-icon {
+            transition: transform 0.3s;
+        }
+        
+        @media (max-width: 900px) {
+            .course-container {
+                flex-direction: column;
+            }
+            
+            .lessons-panel, .content-panel {
+                width: 100%;
+            }
+            
+            .video-container iframe {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <h1>Academia Científica</h1>
+            <p>Mecánica Intermedia</p>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Volver al inicio</a></li>
+                <li><a href="#">Recursos</a></li>
+                <li><a href="#">Ejercicios</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main class="course-container">
+        <!-- Panel izquierdo: Temario -->
+        <aside class="lessons-panel">
+            <h2>Temario</h2>
+            <ul class="lessons-list">
+                <!-- Las lecciones se generarán dinámicamente con JavaScript -->
+            </ul>
+        </aside>
+
+        <!-- Panel derecho: Video + contenido -->
+        <section class="content-panel">
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/VIDEO_ID_1" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <h2 id="current-lesson-title">Descripción del curso</h2>
+            <div id="current-lesson-desc">
+                Desarrollo de Formalismo Lagrangiano y Hamiltoniano.
+                
+            </div>
+        </section>
+    </main>
+
+   <script>
+        // CONTENIDO DEL CURSO
+
+    // Datos del curso
+    
+    const courseData = {
+    id: 1,
+    title: "Relatividad Especial",
+    lessons: [
+        {
+            id: 1,
+            title: "Análisis Vectorial en SR",
+            duration: "4h 15min",
+            videoId: "VECTOR_SR_VIDEO",
+            description: "Análisis vectorial completo en relatividad especial",
+            subtopics: [
+                {
+                    title: "Definición de Vector",
+                    duration: "15 min",
+                    description: `<h3>Definición de Vector</h3>
+                    <p><strong>Vector desplazamiento:</strong></p>
+                    \\[
+                    \\Delta\\vec{x} \\rightarrow_O (\\Delta t, \\Delta x, \\Delta y, \\Delta z)
+                    \\]
+                    
+                    <p><strong>Notación con índices:</strong></p>
+                    \\[
+                    \\Delta\\vec{x} \\rightarrow \\{\\Delta x^{\\alpha}\\}, \\quad \\alpha = 0,1,2,3
+                    \\]
+                    
+                    <p><strong>Transformación de Lorentz:</strong></p>
+                    \\[
+                    \\Delta x^{\\bar{\\alpha}} = \\Lambda^{\\bar{\\alpha}}{}_{\\beta} \\Delta x^{\\beta}
+                    \\]
+                    
+                    <p>Componentes de la matriz para boost en dirección x:</p>
+                    \\[
+                    \\Lambda^{\\bar{0}}{}_{0} = \\frac{1}{\\sqrt{1 - v^{2}}}, \\quad \\Lambda^{\\bar{0}}{}_{1} = -\\frac{v}{\\sqrt{1 - v^{2}}}
+                    \\]
+                    \\[
+                    \\Lambda^{\\bar{0}}{}_{2} = \\Lambda^{\\bar{0}}{}_{3} = 0
+                    \\]
+                    
+                    <p><strong>Convención de suma de Einstein:</strong></p>
+                    \\[
+                    A_{\\alpha} B^{\\alpha} = \\sum_{\\alpha=0}^{3} A_{\\alpha} B^{\\alpha}
+                    \\]
+                    
+                    <p><strong>Vector general:</strong></p>
+                    \\[
+                    \\vec{A} \\rightarrow_O (A^0, A^1, A^2, A^3) = \\{A^\\alpha\\}
+                    \\]
+                    \\[
+                    A^{\\bar{\\alpha}} = \\Lambda^{\\bar{\\alpha}}{}_{\\beta} A^{\\beta}
+                    \\]`
+                },
+                {
+                    title: "Vectores Base",
+                    duration: "15 min",
+                    description: `<h3>Vectores Base</h3>
+                    <p><strong>Definición en marco O:</strong></p>
+                    \\[
+                    \\vec{e}_0 \\rightarrow_O (1, 0, 0, 0)
+                    \\]
+                    \\[
+                    \\vec{e}_1 \\rightarrow_O (0, 1, 0, 0)
+                    \\]
+                    \\[
+                    \\vec{e}_2 \\rightarrow_O (0, 0, 1, 0)
+                    \\]
+                    \\[
+                    \\vec{e}_3 \\rightarrow_O (0, 0, 0, 1)
+                    \\]
+                    
+                    <p><strong>Notación compacta:</strong></p>
+                    \\[
+                    (\\vec{e}_{\\alpha})^{\\beta} = \\delta_{\\alpha}^{\\beta}
+                    \\]
+                    
+                    <p><strong>Expansión de vectores:</strong></p>
+                    \\[
+                    \\vec{A} = A^{\\alpha} \\vec{e}_{\\alpha} = A^0 \\vec{e}_0 + A^1 \\vec{e}_1 + A^2 \\vec{e}_2 + A^3 \\vec{e}_3
+                    \\]
+                    
+                    <p><strong>Transformación de vectores base:</strong></p>
+                    \\[
+                    \\vec{e}_{\\alpha} = \\Lambda^{\\bar{\\beta}}{}_{\\alpha} \\vec{e}_{\\bar{\\beta}}
+                    \\]
+                    
+                    <p><strong>Ejemplo con boost en x:</strong></p>
+                    \\[
+                    \\gamma := \\frac{1}{\\sqrt{1 - v^2}}
+                    \\]
+                    \\[
+                    \\vec{e}_0 = \\gamma \\vec{e}_{\\bar{0}} - v\\gamma \\vec{e}_{\\bar{1}}
+                    \\]
+                    \\[
+                    \\vec{e}_1 = -v\\gamma \\vec{e}_{\\bar{0}} + \\gamma \\vec{e}_{\\bar{1}}
+                    \\]
+                    \\[
+                    \\vec{e}_2 = \\vec{e}_{\\bar{2}}, \\quad \\vec{e}_3 = \\vec{e}_{\\bar{3}}
+                    \\]`
+                },
+                {
+                    title: "Transformaciones Inversas",
+                    duration: "15 min",
+                    description: `<h3>Transformaciones Inversas</h3>
+                    <p><strong>Transformación inversa:</strong></p>
+                    \\[
+                    \\vec{e}_{\\alpha} = \\Lambda^{\\bar{\\beta}}{}_{\\alpha}(v) \\vec{e}_{\\bar{\\beta}}
+                    \\]
+                    \\[
+                    \\vec{e}_{\\bar{\\mu}} = \\Lambda^{\\nu}{}_{\\bar{\\mu}}(-v) \\vec{e}_{\\nu}
+                    \\]
+                    
+                    <p><strong>Propiedad de inversión:</strong></p>
+                    \\[
+                    \\Lambda^{\\nu}{}_{\\bar{\\beta}}(-v) \\Lambda^{\\bar{\\beta}}{}_{\\alpha}(v) = \\delta^{\\nu}{}_{\\alpha}
+                    \\]
+                    
+                    <p>La matriz con \\(-v\\) es la inversa de la matriz con \\(v\\).</p>
+                    
+                    <p><strong>Inversión de componentes:</strong></p>
+                    \\[
+                    A^{\\bar{\\beta}} = \\Lambda^{\\bar{\\beta}}{}_{\\alpha}(v) A^{\\alpha}
+                    \\]
+                    \\[
+                    A^{\\nu} = \\Lambda^{\\nu}{}_{\\bar{\\beta}}(-v) A^{\\bar{\\beta}}
+                    \\]
+                    
+                    <p>Multiplicando ambos lados:</p>
+                    \\[
+                    \\Lambda^{\\nu}{}_{\\bar{\\beta}}(-v) A^{\\bar{\\beta}} = \\delta^{\\nu}{}_{\\alpha} A^{\\alpha} = A^{\\nu}
+                    \\]`
+                },
+                {
+                    title: "Definición de Cuadrivelocidad",
+                    duration: "20 min",
+                    description: `<h3>La Cuadrivelocidad</h3>
+                    <p><strong>Definición:</strong> Vector tangente a la línea de universo, normalizado a una unidad de tiempo propio.</p>
+                    
+                    <p><strong>En el marco de reposo (MCRF):</strong></p>
+                    \\[
+                    \\vec{U} = \\vec{e}_0
+                    \\]
+                    
+                    <p><strong>Como derivada:</strong></p>
+                    \\[
+                    \\vec{U} = \\frac{d\\vec{x}}{d\\tau}
+                    \\]
+                    
+                    <p><strong>Componentes para partícula con velocidad v en dirección x:</strong></p>
+                    \\[
+                    U^0 = (1 - v^2)^{-1/2}
+                    \\]
+                    \\[
+                    U^1 = v(1 - v^2)^{-1/2}
+                    \\]
+                    \\[
+                    U^2 = 0, \\quad U^3 = 0
+                    \\]
+                    
+                    <p><strong>Normalización:</strong></p>
+                    \\[
+                    \\vec{U} \\cdot \\vec{U} = -1
+                    \\]
+                    
+                    <p>Para v pequeña: \\(U^i \\approx (v, 0, 0)\\)</p>`
+                },
+                {
+                    title: "Cuadrimomento",
+                    duration: "20 min",
+                    description: `<h3>El Cuadrimomento</h3>
+                    <p><strong>Definición:</strong></p>
+                    \\[
+                    \\vec{p} = m\\vec{U}
+                    \\]
+                    <p>donde m es la masa en reposo.</p>
+                    
+                    <p><strong>Componentes:</strong></p>
+                    \\[
+                    \\vec{p} \\rightarrow_O (E, p^1, p^2, p^3)
+                    \\]
+                    
+                    <p><strong>Ejemplo con velocidad v en x:</strong></p>
+                    \\[
+                    p^0 = E = m(1 - v^2)^{-1/2}
+                    \\]
+                    \\[
+                    p^1 = mv(1 - v^2)^{-1/2}
+                    \\]
+                    \\[
+                    p^2 = 0, \\quad p^3 = 0
+                    \\]
+                    
+                    <p><strong>Para v pequeña:</strong></p>
+                    \\[
+                    E \\simeq m + \\frac{1}{2}mv^2
+                    \\]
+                    <p>Energía de masa en reposo más energía cinética clásica.</p>
+                    
+                    <p><strong>Relación energía-momento:</strong></p>
+                    \\[
+                    \\vec{p} \\cdot \\vec{p} = -m^2
+                    \\]
+                    \\[
+                    E^2 = m^2 + \\sum_{i=1}^3 (p^i)^2
+                    \\]`
+                },
+                {
+                    title: "Ley de Conservación",
+                    duration: "15 min",
+                    description: `<h3>Conservación del Cuadrimomento</h3>
+                    <p><strong>Postulado:</strong></p>
+                    \\[
+                    \\vec{p} := \\sum_{\\text{todas las partículas}} \\vec{p}_{(i)} = \\text{constante}
+                    \\]
+                    
+                    <p>El cuadrimomento total es el mismo antes y después de cada interacción.</p>
+                    
+                    <p><strong>Implicaciones:</strong></p>
+                    <ul>
+                        <li>Conservación de energía (incluye masa en reposo)</li>
+                        <li>Conservación de momento</li>
+                        <li>La masa en reposo puede convertirse en energía cinética</li>
+                    </ul>
+                    
+                    <p><strong>Nota importante:</strong> Cualquier observador puede definir su hipersuperficie de tiempo constante, sumar todos los momentos, y obtener el mismo vector total.</p>`
+                },
+                {
+                    title: "Marco del Centro de Momento",
+                    duration: "20 min",
+                    description: `<h3>Marco del Centro de Momento (CM)</h3>
+                    <p><strong>Definición:</strong> Marco inercial donde el momento total se anula.</p>
+                    \\[
+                    \\sum_i \\vec{p}_{(i)} \\rightarrow_{CM} (E_{TOTAL}, 0, 0, 0)
+                    \\]
+                    
+                    <p><strong>Energía relativa a un observador:</strong></p>
+                    \\[
+                    -\\vec{p} \\cdot \\vec{U}_{\\text{obs}} = \\bar{E}
+                    \\]
+                    
+                    <p>Esta es una expresión invariante de marco para la energía de la partícula medida por el observador con cuadrivelocidad \\(\\vec{U}_{\\text{obs}}\\).</p>
+                    
+                    <p><strong>En el marco del observador:</strong></p>
+                    \\[
+                    \\vec{p} \\cdot \\vec{e}_{\\bar{0}} = -\\bar{E}
+                    \\]
+                    \\[
+                    \\vec{p} \\rightarrow_{\\bar{O}} (\\bar{E}, \\bar{p}^1, \\bar{p}^2, \\bar{p}^3)
+                    \\]`
+                },
+                {
+                    title: "Magnitud de un Vector",
+                    duration: "15 min",
+                    description: `<h3>Magnitud de un Vector</h3>
+                    <p><strong>Definición:</strong></p>
+                    \\[
+                    \\vec{A}^2 = -(A^0)^2 + (A^1)^2 + (A^2)^2 + (A^3)^2
+                    \\]
+                    
+                    <p><strong>Invariancia:</strong></p>
+                    \\[
+                    -(A^{\\bar{0}})^2 + (A^{\\bar{1}})^2 + (A^{\\bar{2}})^2 + (A^{\\bar{3}})^2 = \\vec{A}^2
+                    \\]
+                    
+                    <p><strong>Clasificación:</strong></p>
+                    <ul>
+                        <li><strong>Vector espacial:</strong> \\(\\vec{A}^2 > 0\\)</li>
+                        <li><strong>Vector nulo:</strong> \\(\\vec{A}^2 = 0\\)</li>
+                        <li><strong>Vector temporal:</strong> \\(\\vec{A}^2 < 0\\)</li>
+                    </ul>
+                    
+                    <p>Un vector nulo NO es un vector cero. Tiene \\(\\vec{A}^2 = 0\\) pero no todos \\(A^\\alpha = 0\\).</p>`
+                },
+                {
+                    title: "Producto Escalar",
+                    duration: "15 min",
+                    description: `<h3>Producto Escalar</h3>
+                    <p><strong>Definición:</strong></p>
+                    \\[
+                    \\vec{A} \\cdot \\vec{B} = -A^0 B^0 + A^1 B^1 + A^2 B^2 + A^3 B^3
+                    \\]
+                    
+                    <p><strong>Prueba de invariancia:</strong></p>
+                    \\[
+                    (\\vec{A} + \\vec{B}) \\cdot (\\vec{A} + \\vec{B}) = \\vec{A}^2 + \\vec{B}^2 + 2\\vec{A} \\cdot \\vec{B}
+                    \\]
+                    
+                    <p><strong>Ortogonalidad:</strong></p>
+                    <p>Dos vectores son ortogonales si \\(\\vec{A} \\cdot \\vec{B} = 0\\).</p>
+                    
+                    <p><strong>Vectores base:</strong></p>
+                    \\[
+                    \\vec{e}_{\\alpha} \\cdot \\vec{e}_{\\beta} = \\eta_{\\alpha \\beta}
+                    \\]
+                    
+                    <p>donde el tensor métrico es:</p>
+                    \\[
+                    \\eta_{00} = -1, \\quad \\eta_{11} = \\eta_{22} = \\eta_{33} = +1
+                    \\]
+                    \\[
+                    \\eta_{\\alpha\\beta} = 0 \\quad \\text{si } \\alpha \\neq \\beta
+                    \\]`
+                },
+                {
+                    title: "Ejemplos de Productos Escalares",
+                    duration: "15 min",
+                    description: `<h3>Ejemplos</h3>
+                    <p><strong>Cuadrivelocidad:</strong></p>
+                    \\[
+                    \\vec{U} \\cdot \\vec{U} = -1
+                    \\]
+                    
+                    <p><strong>Vectores base en marcos diferentes:</strong></p>
+                    \\[
+                    \\vec{e}_{\\bar{0}} \\cdot \\vec{e}_{\\bar{1}} = 0
+                    \\]
+                    <p>Aunque en el diagrama de espaciotiempo no parezcan perpendiculares.</p>
+                    
+                    <p><strong>Regla de ortogonalidad:</strong> Dos vectores son ortogonales si forman ángulos iguales con la línea de 45° (trayectoria de luz).</p>
+                    
+                    <p><strong>Intervalo:</strong></p>
+                    \\[
+                    ds^2 = d\\vec{x} \\cdot d\\vec{x} = -dt^2 + dx^2 + dy^2 + dz^2
+                    \\]
+                    
+                    <p><strong>Tiempo propio:</strong></p>
+                    \\[
+                    (d\\tau)^2 = -d\\vec{x} \\cdot d\\vec{x}
+                    \\]`
+                },
+                {
+                    title: "Cuadriaceleración",
+                    duration: "20 min",
+                    description: `<h3>Cuadriaceleración</h3>
+                    <p><strong>Derivada de la cuadrivelocidad:</strong></p>
+                    \\[
+                    \\frac{d\\vec{U}}{d\\tau} = \\frac{d^2\\vec{x}}{d\\tau^2}
+                    \\]
+                    
+                    <p><strong>Diferenciando la normalización:</strong></p>
+                    \\[
+                    \\frac{d}{d\\tau}(\\vec{U} \\cdot \\vec{U}) = 2\\vec{U} \\cdot \\frac{d\\vec{U}}{d\\tau} = 0
+                    \\]
+                    
+                    <p><strong>Ortogonalidad:</strong></p>
+                    \\[
+                    \\vec{U} \\cdot \\frac{d\\vec{U}}{d\\tau} = 0
+                    \\]
+                    
+                    <p><strong>En el MCRF:</strong></p>
+                    \\[
+                    \\frac{d\\vec{U}}{d\\tau} \\rightarrow_{MCRF} (0, a^1, a^2, a^3)
+                    \\]
+                    
+                    <p><strong>Definición:</strong></p>
+                    \\[
+                    \\vec{a} = \\frac{d\\vec{U}}{d\\tau}, \\quad \\vec{U} \\cdot \\vec{a} = 0
+                    \\]`
+                },
+                {
+                    title: "Relaciones Energía-Momento",
+                    duration: "15 min",
+                    description: `<h3>Energía y Momento</h3>
+                    <p><strong>Magnitud del cuadrimomento:</strong></p>
+                    \\[
+                    \\vec{p} \\cdot \\vec{p} = m^2 \\vec{U} \\cdot \\vec{U} = -m^2
+                    \\]
+                    
+                    <p><strong>Expresión explícita:</strong></p>
+                    \\[
+                    \\vec{p} \\cdot \\vec{p} = -E^2 + (p^1)^2 + (p^2)^2 + (p^3)^2 = -m^2
+                    \\]
+                    
+                    <p><strong>Relación energía-momento:</strong></p>
+                    \\[
+                    E^2 = m^2 + \\sum_{i=1}^3 (p^i)^2
+                    \\]
+                    
+                    <p><strong>Energía medida por observador:</strong></p>
+                    \\[
+                    \\vec{p} \\cdot \\vec{U}_{\\text{obs}} = \\vec{p} \\cdot \\vec{e}_{\\bar{0}}
+                    \\]
+                    \\[
+                    -\\vec{p} \\cdot \\vec{U}_{\\text{obs}} = \\bar{E}
+                    \\]
+                    
+                    <p>Expresión invariante de marco para la energía relativa.</p>`
+                },
+                {
+                    title: "Derivadas como Vectores",
+                    duration: "15 min",
+                    description: `<h3>Derivadas Temporales</h3>
+                    <p><strong>Desplazamiento infinitesimal:</strong></p>
+                    \\[
+                    d\\vec{x} \\rightarrow_O (dt, dx, dy, dz)
+                    \\]
+                    
+                    <p><strong>Intervalo:</strong></p>
+                    \\[
+                    ds^2 = d\\vec{x} \\cdot d\\vec{x} = -dt^2 + dx^2 + dy^2 + dz^2
+                    \\]
+                    
+                    <p><strong>Tiempo propio:</strong></p>
+                    \\[
+                    (d\\tau)^2 = -d\\vec{x} \\cdot d\\vec{x}
+                    \\]
+                    
+                    <p><strong>Cuadrivelocidad como derivada:</strong></p>
+                    \\[
+                    \\vec{U} = \\frac{d\\vec{x}}{d\\tau}
+                    \\]
+                    
+                    <p><strong>Verificación de magnitud:</strong></p>
+                    \\[
+                    \\frac{d\\vec{x}}{d\\tau} \\cdot \\frac{d\\vec{x}}{d\\tau} = \\frac{d\\vec{x} \\cdot d\\vec{x}}{(d\\tau)^2} = -1
+                    \\]
+                    
+                    <p><strong>En el MCRF:</strong></p>
+                    \\[
+                    d\\vec{x} \\rightarrow_{MCRF} (d\\tau, 0, 0, 0)
+                    \\]
+                    \\[
+                    \\frac{d\\vec{x}}{d\\tau} \\rightarrow_{MCRF} (1, 0, 0, 0) = (\\vec{e}_0)_{MCRF}
+                    \\]`
+                },
+                {
+                    title: "Fotones y Vectores Nulos",
+                    duration: "15 min",
+                    description: `<h3>Fotones</h3>
+                    <p><strong>Línea de universo nula:</strong></p>
+                    \\[
+                    d\\vec{x} \\cdot d\\vec{x} = 0
+                    \\]
+                    
+                    <p>Por lo tanto \\(d\\tau = 0\\) y la cuadrivelocidad no puede definirse.</p>
+                    
+                    <p><strong>No hay MCRF:</strong> No existe marco donde la luz esté en reposo (segundo postulado de SR).</p>
+                    
+                    <p><strong>Vectores tangentes:</strong> Existen vectores tangentes a la trayectoria del fotón (como \\(d\\vec{x}\\)), pero todos tienen magnitud nula. No hay tangente de magnitud unitaria.</p>`
+                },
+                {
+                    title: "Cuadrimomento del Fotón",
+                    duration: "15 min",
+                    description: `<h3>Cuadrimomento del Fotón</h3>
+                    <p><strong>En un marco donde el fotón tiene energía E y se mueve en dirección x:</strong></p>
+                    \\[
+                    p^0 = E, \\quad p^y = p^z = 0, \\quad p^x = E
+                    \\]
+                    
+                    <p><strong>Magnitud nula:</strong></p>
+                    \\[
+                    \\vec{p} \\cdot \\vec{p} = -E^2 + (E)^2 = 0
+                    \\]
+                    
+                    <p><strong>Masa en reposo:</strong></p>
+                    \\[
+                    m^2 = -\\vec{p} \\cdot \\vec{p} = 0
+                    \\]
+                    
+                    <p><strong>Relación cuántica:</strong></p>
+                    \\[
+                    E = h\\nu
+                    \\]
+                    <p>donde \\(\\nu\\) es la frecuencia y \\(h = 6.6256 \\times 10^{-34}\\) J·s es la constante de Planck.</p>
+                    
+                    <p>El momento espacial del fotón es igual a su energía.</p>`
+                },
+                {
+                    title: "Efecto Doppler Relativista",
+                    duration: "10 min",
+                    description: `<h3>Efecto Doppler</h3>
+                    <p><strong>Fotón con frecuencia ν en marco O, moviéndose en dirección x:</strong></p>
+                    \\[
+                    E = h\\nu, \\quad p^x = h\\nu
+                    \\]
+                    
+                    <p><strong>En marco \\(\\bar{O}\\) con velocidad v en dirección x:</strong></p>
+                    \\[
+                    \\bar{E} = E\\gamma - p^x v\\gamma = h\\nu\\gamma - h\\nu v\\gamma
+                    \\]
+                    \\[
+                    \\bar{E} = h\\nu\\gamma(1 - v)
+                    \\]
+                    
+                    <p><strong>Frecuencia en \\(\\bar{O}\\):</strong></p>
+                    \\[
+                    \\bar{\\nu} = \\nu\\gamma(1 - v) = \\nu\\sqrt{\\frac{1 - v}{1 + v}}
+                    \\]
+                    
+                    <p>donde \\(\\gamma = 1/\\sqrt{1 - v^2}\\).</p>`
+                },
+                {
+                    title: "Partículas de Masa Cero",
+                    duration: "25 min",
+                    description: `<h3>Partículas de Masa en Reposo Cero</h3>
+                    <p><strong>Condición:</strong></p>
+                    \\[
+                    m^2 = -\\vec{p} \\cdot \\vec{p} = 0
+                    \\]
+                    
+                    <p>Cualquier partícula con cuadrimomento nulo tiene masa en reposo cero, y viceversa.</p>
+                    
+                    <p><strong>Partículas conocidas:</strong></p>
+                    <ul>
+                        <li>Fotón (única partícula confirmada de masa cero)</li>
+                        <li>Neutrinos (muy ligeros, pero no sin masa)</li>
+                        <li>Gravitón (concepto teórico, no bien definido aún)</li>
+                    </ul>
+                    
+                    <p><strong>Velocidad de la luz:</strong></p>
+                    <p>Solo partículas con \\(m = 0\\) viajan a la velocidad de la luz.</p>
+                    
+                    <p><strong>Partícula con masa finita m:</strong></p>
+                    \\[
+                    \\vec{p} \\cdot \\vec{p} = -m^2
+                    \\]
+                    \\[
+                    \\frac{p^1}{p^0} = \\left[1 - \\frac{m^2}{(p^0)^2}\\right]^{1/2} < 1
+                    \\]
+                    
+                    <p>Siempre menor que 1, sin importar cuánta energía se le dé.</p>
+                    
+                    <p><strong>Diferencia clave:</strong></p>
+                    <ul>
+                        <li>Partícula con \\(m \\neq 0\\): tiene MCRF, puede acercarse a c pero nunca alcanzarla</li>
+                        <li>Partícula con \\(m = 0\\): no tiene MCRF, siempre viaja a c</li>
+                    </ul>
+                    
+                    <p><strong>Energía infinita:</strong> Una partícula de masa finita requeriría energía infinita para alcanzar la velocidad de la luz.</p>`
+                }
+            ]
+        },
+        {
+    id: 2,
+    title: "Análisis Tensorial en SR",
+    duration: "5h 30min",
+    videoId: "TENSOR_ANALYSIS_VIDEO",
+    description: "Análisis tensorial completo en relatividad especial",
+    subtopics: [
+        {
+            title: "El Tensor Métrico",
+            duration: "20 min",
+            description: `<h3>El Tensor Métrico</h3>
+            <p><strong>Representación de vectores sobre una base:</strong></p>
+            \\[
+            \\vec{A} = A^{\\alpha}\\vec{e}_{\\alpha}, \\quad \\vec{B} = B^{\\beta}\\vec{e}_{\\beta}
+            \\]
+            
+            <p><strong>Producto escalar:</strong></p>
+            \\[
+            \\vec{A} \\cdot \\vec{B} = (A^{\\alpha}\\vec{e}_{\\alpha}) \\cdot (B^{\\beta}\\vec{e}_{\\beta})
+            \\]
+            \\[
+            \\vec{A} \\cdot \\vec{B} = A^{\\alpha}B^{\\beta}(\\vec{e}_{\\alpha} \\cdot \\vec{e}_{\\beta})
+            \\]
+            \\[
+            \\vec{A} \\cdot \\vec{B} = A^{\\alpha}B^{\\beta}\\eta_{\\alpha\\beta}
+            \\]
+            
+            <p><strong>Componentes del tensor métrico:</strong></p>
+            \\[
+            g(\\vec{e}_{\\alpha}, \\vec{e}_{\\beta}) = \\vec{e}_{\\alpha} \\cdot \\vec{e}_{\\beta} = \\eta_{\\alpha \\beta}
+            \\]
+            
+            <p>El tensor métrico \\(g\\) es una función que toma dos vectores y produce un número real (su producto escalar).</p>
+            
+            <p><strong>Definición de función:</strong></p>
+            \\[
+            g(\\vec{A}, \\vec{B}) := \\vec{A} \\cdot \\vec{B}
+            \\]
+            
+            <p>La métrica es lineal en ambos argumentos.</p>`
+        },
+        {
+            title: "Definición de Tensores",
+            duration: "25 min",
+            description: `<h3>Definición de Tensores</h3>
+            <p><strong>Definición:</strong> Un tensor de tipo \\(\\binom{0}{N}\\) es una función de N vectores en los números reales, lineal en cada argumento.</p>
+            
+            <p><strong>Linealidad en el primer argumento:</strong></p>
+            \\[
+            (\\alpha \\vec{A}) \\cdot \\vec{B} = \\alpha (\\vec{A} \\cdot \\vec{B})
+            \\]
+            \\[
+            (\\vec{A} + \\vec{B}) \\cdot \\vec{C} = \\vec{A} \\cdot \\vec{C} + \\vec{B} \\cdot \\vec{C}
+            \\]
+            
+            <p><strong>Linealidad en el segundo argumento:</strong></p>
+            \\[
+            \\vec{A} \\cdot (\\beta \\vec{B}) = \\beta (\\vec{A} \\cdot \\vec{B})
+            \\]
+            \\[
+            \\vec{A} \\cdot (\\vec{B} + \\vec{C}) = \\vec{A} \\cdot \\vec{B} + \\vec{A} \\cdot \\vec{C}
+            \\]
+            
+            <p><strong>Tensor métrico como función:</strong></p>
+            \\[
+            g(\\alpha \\vec{A} + \\beta \\vec{B}, \\vec{C}) = \\alpha g(\\vec{A}, \\vec{C}) + \\beta g(\\vec{B}, \\vec{C})
+            \\]
+            
+            <p><strong>Tensor \\(\\binom{0}{0}\\):</strong> Una función ordinaria \\(f(t, x, y, z)\\) es un tensor de ningún vector.</p>
+            
+            <p><strong>Componentes de un tensor:</strong> Las componentes en un marco O son los valores cuando los argumentos son vectores base \\(\\vec{e}_{\\alpha}\\).</p>`
+        },
+        {
+            title: "Uno-formas: Propiedades Generales",
+            duration: "25 min",
+            description: `<h3>Los Tensores \\(\\binom{0}{1}\\): Uno-formas</h3>
+            <p>Un tensor \\(\\binom{0}{1}\\) se llama <strong>covector</strong>, <strong>vector covariante</strong>, o <strong>uno-forma</strong>.</p>
+            
+            <p><strong>Propiedades de una uno-forma \\(\\tilde{p}\\):</strong></p>
+            <p>Provista de un argumento vectorial, da un número real: \\(\\tilde{p}(\\vec{A})\\) es un número real.</p>
+            
+            <p><strong>Operaciones con uno-formas:</strong></p>
+            \\[
+            \\tilde{s} = \\tilde{p} + \\tilde{q}, \\quad \\tilde{r} = \\alpha \\tilde{p}
+            \\]
+            \\[
+            \\tilde{s}(\\vec{A}) = \\tilde{p}(\\vec{A}) + \\tilde{q}(\\vec{A})
+            \\]
+            \\[
+            \\tilde{r}(\\vec{A}) = \\alpha \\tilde{p}(\\vec{A})
+            \\]
+            
+            <p><strong>Componentes de una uno-forma:</strong></p>
+            \\[
+            p_{\\alpha} := \\tilde{p}(\\vec{e}_{\\alpha})
+            \\]
+            
+            <p><strong>Valor de \\(\\tilde{p}\\) en un vector arbitrario:</strong></p>
+            \\[
+            \\tilde{p}(\\vec{A}) = \\tilde{p}(A^{\\alpha}\\vec{e}_{\\alpha}) = A^{\\alpha}\\tilde{p}(\\vec{e}_{\\alpha})
+            \\]
+            \\[
+            \\tilde{p}(\\vec{A}) = A^{\\alpha}p_{\\alpha}
+            \\]
+            
+            <p>Esta operación se llama <strong>contracción</strong>.</p>`
+        },
+        {
+            title: "Transformación de Uno-formas",
+            duration: "20 min",
+            description: `<h3>Transformación de Componentes</h3>
+            <p><strong>Componentes en otro marco:</strong></p>
+            \\[
+            p_{\\bar{\\beta}} := \\tilde{p}(\\vec{e}_{\\bar{\\beta}}) = \\tilde{p}(\\Lambda^{\\alpha}{}_{\\bar{\\beta}} \\vec{e}_{\\alpha})
+            \\]
+            \\[
+            p_{\\bar{\\beta}} = \\Lambda^{\\alpha}{}_{\\bar{\\beta}} p_{\\alpha}
+            \\]
+            
+            <p>Las componentes de uno-formas se transforman como los vectores base (transformación inversa respecto a vectores).</p>
+            
+            <p><strong>Prueba de invariancia:</strong></p>
+            \\[
+            A^{\\bar{\\alpha}}p_{\\bar{\\alpha}} = (\\Lambda^{\\bar{\\alpha}}{}_{\\beta} A^{\\beta})(\\Lambda^{\\mu}{}_{\\bar{\\alpha}} p_{\\mu})
+            \\]
+            \\[
+            = \\Lambda^{\\mu}{}_{\\bar{\\alpha}} \\Lambda^{\\bar{\\alpha}}{}_{\\beta} A^{\\beta} p_{\\mu}
+            \\]
+            \\[
+            = \\delta^{\\mu}{}_{\\beta} A^{\\beta} p_{\\mu} = A^{\\beta} p_{\\beta}
+            \\]
+            
+            <p><strong>Nomenclatura:</strong></p>
+            <ul>
+                <li>Índices superiores: <strong>contravariantes</strong></li>
+                <li>Índices inferiores: <strong>covariantes</strong></li>
+                <li>Nombres modernos: <strong>vectores</strong> y <strong>uno-formas</strong></li>
+            </ul>`
+        },
+        {
+            title: "Uno-formas Base",
+            duration: "25 min",
+            description: `<h3>Uno-formas Base</h3>
+            <p><strong>Definición de base dual:</strong></p>
+            <p>Queremos un conjunto \\(\\{\\tilde{\\omega}^{\\alpha}\\}\\) tal que:</p>
+            \\[
+            \\tilde{p} = p_{\\alpha} \\tilde{\\omega}^{\\alpha}
+            \\]
+            
+            <p><strong>Condición fundamental:</strong></p>
+            \\[
+            \\tilde{\\omega}^{\\alpha}(\\vec{e}_{\\beta}) = \\delta^{\\alpha}{}_{\\beta}
+            \\]
+            
+            <p><strong>Componentes explícitas:</strong></p>
+            \\[
+            \\tilde{\\omega}^0 \\rightarrow (1, 0, 0, 0)
+            \\]
+            \\[
+            \\tilde{\\omega}^1 \\rightarrow (0, 1, 0, 0)
+            \\]
+            \\[
+            \\tilde{\\omega}^2 \\rightarrow (0, 0, 1, 0)
+            \\]
+            \\[
+            \\tilde{\\omega}^3 \\rightarrow (0, 0, 0, 1)
+            \\]
+            
+            <p><strong>Transformación de uno-formas base:</strong></p>
+            \\[
+            \\tilde{\\omega}^{\\bar{\\alpha}} = \\Lambda^{\\bar{\\alpha}}{}_{\\beta} \\tilde{\\omega}^{\\beta}
+            \\]
+            
+            <p>La base de uno-formas se transforma igual que componentes de vectores (opuesto a componentes de uno-formas).</p>`
+        },
+        {
+            title: "Imagen de una Uno-forma",
+            duration: "15 min",
+            description: `<h3>Visualización de Uno-formas</h3>
+            <p><strong>Imagen geométrica:</strong> Una uno-forma se representa como una serie de superficies paralelas.</p>
+            
+            <p><strong>Magnitud:</strong> Dada por el espaciado entre superficies. Cuanto mayor el espaciado, <em>menor</em> la magnitud.</p>
+            
+            <p><strong>Valor en un vector:</strong> El número de superficies que el vector atraviesa.</p>
+            
+            <p>En 4D, las superficies son tridimensionales. La uno-forma define una forma de "rebanar" el espacio, no una dirección única.</p>
+            
+            <p><strong>Diferencia con vectores:</strong></p>
+            <ul>
+                <li>Un vector es una flecha con dirección</li>
+                <li>Una uno-forma es un conjunto de superficies</li>
+                <li>El espaciado menor indica mayor magnitud</li>
+            </ul>`
+        },
+        {
+            title: "Gradiente como Uno-forma",
+            duration: "25 min",
+            description: `<h3>Gradiente de una Función</h3>
+            <p><strong>Campo escalar:</strong> \\(\\phi(\\vec{x})\\) definido en cada evento.</p>
+            
+            <p><strong>En una línea de universo parametrizada por \\(\\tau\\):</strong></p>
+            \\[
+            \\phi(\\tau) = \\phi[t(\\tau), x(\\tau), y(\\tau), z(\\tau)]
+            \\]
+            
+            <p><strong>Tasa de cambio:</strong></p>
+            \\[
+            \\frac{d\\phi}{d\\tau} = \\frac{\\partial \\phi}{\\partial t} \\frac{dt}{d\\tau} + \\frac{\\partial \\phi}{\\partial x} \\frac{dx}{d\\tau} + \\frac{\\partial \\phi}{\\partial y} \\frac{dy}{d\\tau} + \\frac{\\partial \\phi}{\\partial z} \\frac{dz}{d\\tau}
+            \\]
+            \\[
+            = \\frac{\\partial \\phi}{\\partial t} U^t + \\frac{\\partial \\phi}{\\partial x} U^x + \\frac{\\partial \\phi}{\\partial y} U^y + \\frac{\\partial \\phi}{\\partial z} U^z
+            \\]
+            
+            <p><strong>Definición del gradiente:</strong></p>
+            \\[
+            \\tilde{d}\\phi \\rightarrow \\left( \\frac{\\partial \\phi}{\\partial t}, \\frac{\\partial \\phi}{\\partial x}, \\frac{\\partial \\phi}{\\partial y}, \\frac{\\partial \\phi}{\\partial z} \\right)
+            \\]
+            
+            <p><strong>Transformación:</strong></p>
+            \\[
+            (\\tilde{d}\\phi)_{\\bar{\\alpha}} = \\Lambda^{\\beta}{}_{\\bar{\\alpha}} (\\tilde{d}\\phi)_{\\beta}
+            \\]
+            \\[
+            \\frac{\\partial \\phi}{\\partial x^{\\bar{\\alpha}}} = \\frac{\\partial \\phi}{\\partial x^{\\beta}} \\frac{\\partial x^{\\beta}}{\\partial x^{\\bar{\\alpha}}}
+            \\]
+            
+            <p><strong>Identidad fundamental:</strong></p>
+            \\[
+            \\frac{\\partial x^{\\beta}}{\\partial x^{\\bar{\\alpha}}} = \\Lambda^{\\beta}{}_{\\bar{\\alpha}}
+            \\]`
+        },
+        {
+            title: "Notación para Derivadas",
+            duration: "15 min",
+            description: `<h3>Notación de Derivadas</h3>
+            <p><strong>Notación subindicada:</strong></p>
+            \\[
+            \\frac{\\partial \\phi}{\\partial x} := \\phi_{,x}
+            \\]
+            \\[
+            \\frac{\\partial \\phi}{\\partial x^{\\alpha}} := \\phi_{,\\alpha}
+            \\]
+            
+            <p>El índice \\(\\alpha\\) aparece como superíndice en el denominador y como subíndice en la notación compacta.</p>
+            
+            <p><strong>Propiedad importante:</strong></p>
+            \\[
+            x^{\\alpha}{}_{,\\beta} \\equiv \\delta^{\\alpha}{}_{\\beta}
+            \\]
+            
+            <p><strong>Uno-forma base:</strong></p>
+            \\[
+            \\tilde{d} x^{\\alpha} := \\tilde{\\omega}^{\\alpha}
+            \\]
+            
+            <p><strong>Para cualquier función f:</strong></p>
+            \\[
+            \\tilde{d}f = \\frac{\\partial f}{\\partial x^{\\alpha}} \\tilde{d} x^{\\alpha}
+            \\]
+            
+            <p>\\(\\tilde{d}f\\) es un tensor, no un incremento infinitesimal.</p>`
+        },
+        {
+            title: "Uno-formas Normales",
+            duration: "15 min",
+            description: `<h3>Uno-formas Normales</h3>
+            <p><strong>Definición:</strong> Una uno-forma es normal a una superficie si su valor es cero en cada vector tangente a la superficie.</p>
+            
+            <p><strong>Normal hacia afuera:</strong> Una uno-forma normal cuyo valor en vectores que apuntan hacia afuera es positivo.</p>
+            
+            <p><strong>Gradiente como normal:</strong></p>
+            <p>\\(\\tilde{d}f\\) es normal a superficies de \\(f\\) constante.</p>
+            
+            <p><strong>Vector normal:</strong> Un vector es normal a una superficie si su uno-forma asociada (vía la métrica) es una uno-forma normal.</p>
+            
+            <p><strong>Normal unitario:</strong> Un vector o uno-forma normal con magnitud \\(\\pm 1\\).</p>
+            
+            <p><strong>Clasificación de superficies:</strong></p>
+            <ul>
+                <li><strong>Temporal:</strong> si su normal es temporal</li>
+                <li><strong>Espacial:</strong> si su normal es espacial</li>
+                <li><strong>Nula:</strong> si su normal es nula</li>
+            </ul>`
+        },
+        {
+            title: "Tensores de Tipo (0,2)",
+            duration: "25 min",
+            description: `<h3>Los Tensores \\(\\binom{0}{2}\\)</h3>
+            <p><strong>Producto externo:</strong> Si \\(\\tilde{p}\\) y \\(\\tilde{q}\\) son uno-formas, entonces \\(\\tilde{p} \\otimes \\tilde{q}\\) es el tensor \\(\\binom{0}{2}\\) definido por:</p>
+            \\[
+            (\\tilde{p} \\otimes \\tilde{q})(\\vec{A}, \\vec{B}) = \\tilde{p}(\\vec{A}) \\tilde{q}(\\vec{B})
+            \\]
+            
+            <p>Note: \\(\\otimes\\) no es conmutativo.</p>
+            
+            <p><strong>Componentes de tensor \\(\\binom{0}{2}\\) arbitrario \\(\\mathbf{f}\\):</strong></p>
+            \\[
+            f_{\\alpha \\beta} := \\mathbf{f}(\\vec{e}_{\\alpha}, \\vec{e}_{\\beta})
+            \\]
+            
+            <p><strong>Valor en vectores arbitrarios:</strong></p>
+            \\[
+            \\mathbf{f}(\\vec{A}, \\vec{B}) = A^{\\alpha} B^{\\beta} f_{\\alpha \\beta}
+            \\]
+            
+            <p><strong>Base para tensores \\(\\binom{0}{2}\\):</strong></p>
+            \\[
+            \\tilde{\\omega}^{\\alpha\\beta} = \\tilde{\\omega}^{\\alpha} \\otimes \\tilde{\\omega}^{\\beta}
+            \\]
+            \\[
+            \\mathbf{f} = f_{\\alpha\\beta}\\tilde{\\omega}^{\\alpha} \\otimes \\tilde{\\omega}^{\\beta}
+            \\]
+            
+            <p>Hay 16 componentes que pueden disponerse en una matriz.</p>`
+        },
+        {
+            title: "Simetrías de Tensores",
+            duration: "20 min",
+            description: `<h3>Simetrías</h3>
+            <p><strong>Tensor simétrico:</strong></p>
+            \\[
+            \\mathbf{f}(\\vec{A}, \\vec{B}) = \\mathbf{f}(\\vec{B}, \\vec{A}) \\quad \\forall \\vec{A}, \\vec{B}
+            \\]
+            \\[
+            f_{\\alpha\\beta} = f_{\\beta\\alpha}
+            \\]
+            
+            <p><strong>Parte simétrica de un tensor:</strong></p>
+            \\[
+            h_{(s)\\alpha\\beta} = \\frac{1}{2}(h_{\\alpha\\beta} + h_{\\beta\\alpha})
+            \\]
+            
+            <p><strong>Notación:</strong></p>
+            \\[
+            h_{(\\alpha\\beta)} := \\frac{1}{2}(h_{\\alpha\\beta} + h_{\\beta\\alpha})
+            \\]
+            
+            <p><strong>Tensor antisimétrico:</strong></p>
+            \\[
+            \\mathbf{f}(\\vec{A}, \\vec{B}) = -\\mathbf{f}(\\vec{B}, \\vec{A})
+            \\]
+            \\[
+            f_{\\alpha \\beta} = -f_{\\beta \\alpha}
+            \\]
+            
+            <p><strong>Parte antisimétrica:</strong></p>
+            \\[
+            h_{[\\alpha \\beta]} = \\frac{1}{2}(h_{\\alpha \\beta} - h_{\\beta \\alpha})
+            \\]
+            
+            <p><strong>Descomposición:</strong></p>
+            \\[
+            h_{\\alpha \\beta} = h_{(\\alpha \\beta)} + h_{[\\alpha \\beta]}
+            \\]
+            
+            <p>El tensor métrico \\(\\mathbf{g}\\) es simétrico.</p>`
+        },
+        {
+            title: "Métrica como Mapeo",
+            duration: "25 min",
+            description: `<h3>La Métrica como Mapeo de Vectores en Uno-formas</h3>
+            <p><strong>Mapeo fundamental:</strong></p>
+            \\[
+            \\mathbf{g}(\\vec{V}, \\quad) := \\tilde{V}(\\quad)
+            \\]
+            
+            <p><strong>Definición:</strong></p>
+            \\[
+            \\tilde{V}(\\vec{A}) := \\mathbf{g}(\\vec{V}, \\vec{A}) = \\vec{V} \\cdot \\vec{A}
+            \\]
+            
+            <p><strong>Componentes de \\(\\tilde{V}\\):</strong></p>
+            \\[
+            V_{\\alpha} := \\tilde{V}(\\vec{e}_{\\alpha}) = \\vec{V} \\cdot \\vec{e}_{\\alpha}
+            \\]
+            \\[
+            V_{\\alpha} = \\eta_{\\alpha \\beta} V^{\\beta}
+            \\]
+            
+            <p><strong>Regla práctica en SR:</strong></p>
+            <p>Si \\(\\vec{V} \\rightarrow (a, b, c, d)\\), entonces \\(\\tilde{V} \\rightarrow (-a, b, c, d)\\)</p>
+            
+            <p><strong>Ejemplos:</strong></p>
+            \\[
+            V_{0} = -V^{0}, \\quad V_{1} = +V^{1}
+            \\]
+            \\[
+            V_{2} = +V^{2}, \\quad V_{3} = +V^{3}
+            \\]
+            
+            <p>Cambio de signo solo en la componente temporal.</p>`
+        },
+        {
+            title: "Métrica Inversa",
+            duration: "20 min",
+            description: `<h3>La Inversa: de \\(\\tilde{A}\\) a \\(\\vec{A}\\)</h3>
+            <p><strong>Inversa de la métrica:</strong></p>
+            \\[
+            A^{\\alpha} := \\eta^{\\alpha \\beta} A_{\\beta}
+            \\]
+            
+            <p><strong>Componentes de \\(\\eta^{\\alpha\\beta}\\):</strong></p>
+            \\[
+            \\eta^{00} = -1, \\quad \\eta^{0i} = 0, \\quad \\eta^{ij} = \\delta^{ij}
+            \\]
+            
+            <p>En SR, \\((\\eta^{\\alpha\\beta})\\) es idéntica a \\((\\eta_{\\alpha\\beta})\\).</p>
+            
+            <p><strong>Vector gradiente:</strong></p>
+            \\[
+            \\vec{d}\\phi \\rightarrow \\left( -\\frac{\\partial \\phi}{\\partial t}, \\frac{\\partial \\phi}{\\partial x}, \\frac{\\partial \\phi}{\\partial y}, \\frac{\\partial \\phi}{\\partial z} \\right)
+            \\]
+            
+            <p>Este vector es ortogonal a superficies de \\(\\phi\\) constante.</p>
+            
+            <p><strong>Propiedad:</strong> El mapeo es uno a uno e invertible.</p>`
+        },
+        {
+            title: "Distinción Uno-formas y Vectores",
+            duration: "20 min",
+            description: `<h3>¿Por qué Distinguir Uno-formas de Vectores?</h3>
+            <p><strong>En espacio euclidiano:</strong> La métrica es \\(\\{\\delta_{ij}\\}\\), por lo que componentes de uno-formas y vectores son iguales.</p>
+            
+            <p><strong>En SR:</strong> Las componentes difieren por el cambio de signo en la componente temporal.</p>
+            
+            <p><strong>Ejemplo con vectores fila y columna:</strong></p>
+            \\[
+            (a, b, \\cdots) \\begin{pmatrix} p \\\\ q \\\\ \\vdots \\end{pmatrix} = ap + bq + \\cdots
+            \\]
+            
+            <p><strong>Mecánica cuántica:</strong></p>
+            <p>Producto interno: \\(\\int \\phi^* (\\vec{x}) \\psi (\\vec{x}) d^3x\\)</p>
+            <p>La conjugación compleja actúa como la métrica.</p>
+            
+            <p><strong>Notación de Dirac:</strong></p>
+            <ul>
+                <li>Estados (kets): \\(|\\rangle\\)</li>
+                <li>Dual (bras): \\(\\langle|\\)</li>
+                <li>Producto: \\(\\langle2|1\\rangle\\)</li>
+            </ul>
+            
+            <p>El concepto de espacio dual es fundamental en física matemática avanzada.</p>`
+        },
+        {
+            title: "Magnitudes de Uno-formas",
+            duration: "20 min",
+            description: `<h3>Magnitudes y Productos Escalares de Uno-formas</h3>
+            <p><strong>Definición de magnitud:</strong></p>
+            \\[
+            \\tilde{p}^2 = \\vec{p}^2 = \\eta_{\\alpha \\beta} p^{\\alpha} p^{\\beta}
+            \\]
+            
+            <p><strong>En términos de componentes de \\(\\tilde{p}\\):</strong></p>
+            \\[
+            \\tilde{p}^2 = \\eta^{\\alpha \\mu} p_{\\mu} p_{\\alpha}
+            \\]
+            
+            <p><strong>Usando \\(\\eta^{\\alpha\\beta}\\eta_{\\alpha\\mu} = \\delta^{\\beta}{}_{\\mu}\\):</strong></p>
+            \\[
+            \\tilde{p}^2 = -(p_0)^2 + (p_1)^2 + (p_2)^2 + (p_3)^2
+            \\]
+            
+            <p><strong>Clasificación:</strong> Las uno-formas son temporales, espaciales o nulas como sus vectores asociados.</p>
+            
+            <p><strong>Producto escalar de uno-formas:</strong></p>
+            \\[
+            \\tilde{p} \\cdot \\tilde{q} := \\frac{1}{2} \\left[ (\\tilde{p} + \\tilde{q})^2 - \\tilde{p}^2 - \\tilde{q}^2 \\right]
+            \\]
+            \\[
+            \\tilde{p} \\cdot \\tilde{q} = -p_0 q_0 + p_1 q_1 + p_2 q_2 + p_3 q_3
+            \\]`
+        },
+        {
+            title: "Normales Unitarios",
+            duration: "15 min",
+            description: `<h3>Vectores Normales y Uno-formas Normales Unitarias</h3>
+            <p><strong>Vector normal:</strong> Un vector es normal a una superficie si su uno-forma asociada es una uno-forma normal.</p>
+            
+            <p><strong>Normal unitario:</strong> Un vector normal o uno-forma normal con magnitud \\(\\pm 1\\).</p>
+            
+            <p>Los normales nulos no pueden ser normales unitarios.</p>
+            
+            <p><strong>Clasificación de superficies:</strong></p>
+            <p>Una superficie 3D es temporal, espacial o nula según la clase de su normal.</p>
+            
+            <p><strong>Propiedades peculiares:</strong></p>
+            <ul>
+                <li><strong>Superficie espacial:</strong> vector normal hacia afuera apunta hacia afuera</li>
+                <li><strong>Superficie temporal:</strong> vector normal hacia afuera apunta hacia adentro</li>
+                <li><strong>Superficie nula:</strong> vector hacia afuera es tangente a la superficie</li>
+            </ul>
+            
+            <p>Es más natural considerar la normal como una uno-forma.</p>`
+        },
+        {
+            title: "Tensores de Tipo (M,N)",
+            duration: "25 min",
+            description: `<h3>Tensores \\(\\binom{M}{N}\\)</h3>
+            <p><strong>Vector como función de uno-formas:</strong></p>
+            \\[
+            \\vec{V}(\\tilde{p}) \\equiv \\tilde{p}(\\vec{V}) \\equiv p_{\\alpha} V^{\\alpha} \\equiv \\langle \\tilde{p}, \\vec{V} \\rangle
+            \\]
+            <p><strong>Tensores \\(\\binom{M}{0}\\):</strong></p>
+            <p>Definición: Un tensor \\(\\binom{M}{0}\\) es una función lineal de M uno-formas en los números reales.</p>
+            
+            <p><strong>Ejemplo simple:</strong></p>
+            \\[
+            (\\vec{V} \\otimes \\vec{W})(\\tilde{p}, \\tilde{q}) = \\vec{V}(\\tilde{p})\\vec{W}(\\tilde{q})
+            \\]
+            
+            <p>Componentes: \\(V^{\\alpha} W^{\\beta}\\)</p>
+            
+            <p><strong>Base para tensores \\(\\binom{2}{0}\\):</strong></p>
+            \\[
+            \\vec{e}_{\\alpha} \\otimes \\vec{e}_{\\beta}
+            \\]
+            
+            <p><strong>Definición general:</strong></p>
+            <p>Un tensor \\(\\binom{M}{N}\\) es una función lineal de M uno-formas y N vectores en los números reales.</p>
+            
+            <p><strong>Ejemplo tensor \\(\\binom{1}{1}\\):</strong></p>
+            \\[
+            \\mathbf{R}(\\tilde{p}; \\vec{A})
+            \\]
+            <p>Componentes: \\(R^{\\alpha}{}_{\\beta} = \\mathbf{R}(\\tilde{\\omega}^{\\alpha}; \\vec{e}_{\\beta})\\)</p>
+            
+            <p><strong>Transformación:</strong></p>
+            \\[
+            R^{\\bar{\\alpha}}{}_{\\bar{\\beta}} = \\Lambda^{\\bar{\\alpha}}{}_{\\mu} \\Lambda^{\\nu}{}_{\\bar{\\beta}} R^{\\mu}{}_{\\nu}
+            \\]
+            
+            <p>Cada índice se transforma con un \\(\\Lambda\\) apropiado.</p>`
+        },
+        {
+            title: "Subir y Bajar Índices",
+            duration: "25 min",
+            description: `<h3>Subir y Bajar Índices</h3>
+            <p><strong>Operaciones con la métrica:</strong></p>
+            <p>La métrica mapea \\(\\binom{N}{M}\\) en \\(\\binom{N-1}{M+1}\\)</p>
+            <p>La inversa mapea \\(\\binom{N}{M}\\) en \\(\\binom{N+1}{M-1}\\)</p>
+            
+            <p><strong>Ejemplos con tensor \\(T^{\\alpha \\beta}{}_{\\gamma}\\):</strong></p>
+            \\[
+            T^{\\alpha}{}_{\\beta \\gamma} := \\eta_{\\beta \\mu} T^{\\alpha \\mu}{}_{\\gamma}
+            \\]
+            \\[
+            T_{\\alpha}{}^{\\beta}{}_{\\gamma} := \\eta_{\\alpha \\mu} T^{\\mu \\beta}{}_{\\gamma}
+            \\]
+            \\[
+            T^{\\alpha \\beta \\gamma} := \\eta^{\\gamma \\mu} T^{\\alpha \\beta}{}_{\\mu}
+            \\]
+            
+            <p><strong>Regla en SR:</strong></p>
+            <ul>
+                <li>Al subir/bajar índice '0': cambia el signo</li>
+                <li>Al subir/bajar índice 'i' (espacial): sin cambio</li>
+            </ul>
+            
+            <p><strong>Componentes mixtas de la métrica:</strong></p>
+            \\[
+            \\eta^{\\alpha}{}_{\\beta} = \\eta^{\\alpha \\mu} \\eta_{\\mu \\beta} = \\delta^{\\alpha}{}_{\\beta}
+            \\]
+            
+            <p>Para la métrica: componentes contravariantes igualan elementos de la matriz inversa de componentes covariantes.</p>`
+        },
+        {
+            title: "Álgebra Métrica y No Métrica",
+            duration: "20 min",
+            description: `<h3>Álgebras Vectoriales Métricas y No Métricas</h3>
+            <p><strong>¿Por qué la métrica?</strong></p>
+            <p>Sin métrica, el producto interno no está definido. Los números se producen solo cuando uno-formas actúan sobre vectores.</p>
+            
+            <p><strong>Espacios sin métrica importante:</strong></p>
+            <p>Ejemplo: espacio de fase en mecánica clásica y cuántica.</p>
+            
+            <p><strong>Definición matemática:</strong></p>
+            <p>Para un matemático, la métrica es estructura añadida al álgebra vectorial.</p>
+            
+            <p><strong>Tipos de espacios:</strong></p>
+            <ul>
+                <li><strong>Espacio riemanniano:</strong> métrica con magnitudes positivas-definidas</li>
+                <li><strong>Espacio pseudo-riemanniano:</strong> métrica con signo indefinido (como SR)</li>
+                <li><strong>Espacio espinorial:</strong> métrica antisimétrica</li>
+            </ul>
+            
+            <p><strong>Relatividad Especial:</strong></p>
+            <p>SR se define por tener métrica con componentes \\(\\eta_{\\alpha \\beta}\\). Otras componentes darían otros espacios.</p>`
+        },
+        {
+            title: "Diferenciación de Tensores",
+            duration: "25 min",
+            description: `<h3>Diferenciación de Tensores</h3>
+            <p><strong>Función como tensor \\(\\binom{0}{0}\\):</strong></p>
+            <p>Su gradiente \\(\\tilde{d}f\\) es tensor \\(\\binom{0}{1}\\). La diferenciación aumenta el rango covariante.</p>
+            
+            <p><strong>Tensor \\(\\binom{1}{1}\\) con componentes \\(T^{\\alpha}{}_{\\beta}\\):</strong></p>
+            \\[
+            \\mathbf{T} = T^{\\alpha}{}_{\\beta} \\tilde{\\omega}^{\\beta} \\otimes \\vec{e}_{\\alpha}
+            \\]
+            
+            <p><strong>Derivada temporal:</strong></p>
+            \\[
+            \\frac{d\\mathbf{T}}{d\\tau} = \\lim_{\\Delta \\tau \\to 0} \\frac{\\mathbf{T}(\\tau + \\Delta \\tau) - \\mathbf{T}(\\tau)}{\\Delta \\tau}
+            \\]
+            
+            <p>Los vectores base son constantes en SR:</p>
+            \\[
+            \\frac{d\\mathbf{T}}{d\\tau} = \\left( \\frac{dT^{\\alpha}{}_{\\beta}}{d\\tau} \\right) \\tilde{\\omega}^{\\beta} \\otimes \\vec{e}_{\\alpha}
+            \\]
+            \\[
+            \\frac{dT^{\\alpha}{}_{\\beta}}{d\\tau} = T^{\\alpha}{}_{\\beta ,\\nu} U^{\\nu}
+            \\]
+            
+            <p><strong>Gradiente de \\(\\mathbf{T}\\):</strong></p>
+            \\[
+            \\nabla \\mathbf{T} := T^{\\alpha}{}_{\\beta ,\\nu} \\tilde{\\omega}^{\\beta} \\otimes \\tilde{\\omega}^{\\nu} \\otimes \\vec{e}_{\\alpha}
+            \\]
+            
+            <p>Es un tensor \\(\\binom{1}{2}\\).</p>
+            
+            <p><strong>Notación conveniente:</strong></p>
+            \\[
+            \\frac{d\\mathbf{T}}{d\\tau} = \\nabla_{\\vec{U}} \\mathbf{T}
+            \\]
+            
+            <p><strong>Nota importante:</strong> En GR, los vectores base no son constantes.</p>`
+        }
+    ]
+},
+
+{
+    id: 3,
+    title: "Fluidos Perfectos en SR",
+    duration: "6h 00min",
+    videoId: "PERFECT_FLUIDS_VIDEO",
+    description: "Fluidos perfectos en relatividad especial",
+    subtopics: [
+        {
+            title: "Concepto de Fluidos",
+            duration: "20 min",
+            description: `<h3>Fluidos</h3>
+            <p><strong>Definición de continuo:</strong> Una colección de partículas tan numerosa que solo se describen cantidades promedio: número por unidad de volumen, densidad de energía, densidad de momento, presión, temperatura.</p>
+            
+            <p><strong>Elemento fluido:</strong> Una colección grande de partículas que puede considerarse homogénea, con un solo valor para densidades, velocidades y temperatura.</p>
+            
+            <p>La aproximación del continuo asigna a cada punto un valor de densidad, temperatura, etc.</p>
+            
+            <p><strong>Fluido vs Sólido:</strong></p>
+            <ul>
+                <li>Rigidez proviene de fuerzas paralelas a la interfaz</li>
+                <li>Fuerzas perpendiculares: presión</li>
+                <li>Fuerzas paralelas: viscosidad (anti-deslizamiento)</li>
+            </ul>
+            
+            <p><strong>Fluido perfecto:</strong> Todas las fuerzas anti-deslizantes son cero, solo hay presión entre elementos.</p>`
+        },
+        {
+            title: "Densidad Numérica",
+            duration: "20 min",
+            description: `<h3>La Densidad Numérica n</h3>
+            <p><strong>Definición:</strong></p>
+            \\[
+            n := \\text{densidad numérica en el MCRF del elemento}
+            \\]
+            
+            <p><strong>En un marco O donde partículas tienen velocidad v:</strong></p>
+            <p>Por contracción de Lorentz, el volumen se reduce por factor \\(\\sqrt{1 - v^2}\\):</p>
+            \\[
+            \\frac{n}{\\sqrt{1 - v^2}} = \\text{densidad numérica en marco con velocidad } v
+            \\]
+            
+            <p><strong>Volumen rectangular:</strong></p>
+            <p>Original: \\(\\Delta x \\, \\Delta y \\, \\Delta z\\)</p>
+            <p>Contraído: \\(\\Delta x \\, \\Delta y \\, \\Delta z \\sqrt{1 - v^2}\\)</p>
+            
+            <p>Las longitudes perpendiculares al movimiento no se contraen.</p>`
+        },
+        {
+            title: "Flujo a través de Superficie",
+            duration: "20 min",
+            description: `<h3>Flujo a través de una Superficie</h3>
+            <p><strong>Definición de flujo:</strong> Número de partículas que cruzan un área unitaria en una unidad de tiempo.</p>
+            
+            <p><strong>Marco de reposo del polvo:</strong> Flujo es cero (partículas en reposo).</p>
+            
+            <p><strong>En marco O con velocidad v en dirección x:</strong></p>
+            <p>Superficie perpendicular a x:</p>
+            \\[
+            (\\text{flujo})^{\\bar{x}} = \\frac{n v}{\\sqrt{1 - v^2}}
+            \\]
+            
+            <p><strong>Con componente y de velocidad:</strong></p>
+            \\[
+            (\\text{flujo})^{\\bar{x}} = \\frac{n v^x}{\\sqrt{1 - \\vec{v}^2}}
+            \\]
+            
+            <p>El volumen que cruza es un paralelepípedo con altura \\(v^x \\Delta \\bar{t}\\).</p>`
+        },
+        {
+            title: "Cuadrivector Número-Flujo",
+            duration: "25 min",
+            description: `<h3>El Cuadrivector Número-Flujo \\(\\vec{N}\\)</h3>
+            <p><strong>Definición:</strong></p>
+            \\[
+            \\vec{N} = n \\vec{U}
+            \\]
+            <p>donde \\(\\vec{U}\\) es la cuadrivelocidad de las partículas.</p>
+            
+            <p><strong>Componentes en marco O:</strong></p>
+            \\[
+            \\vec{N} \\rightarrow \\left( \\frac{n}{\\sqrt{1 - \\vec{v}^2}}, \\frac{n v^x}{\\sqrt{1 - \\vec{v}^2}}, \\frac{n v^y}{\\sqrt{1 - \\vec{v}^2}}, \\frac{n v^z}{\\sqrt{1 - \\vec{v}^2}} \\right)
+            \\]
+            
+            <p><strong>Interpretación:</strong></p>
+            <ul>
+                <li>Componente temporal: densidad numérica</li>
+                <li>Componentes espaciales: flujos a través de superficies</li>
+            </ul>
+            
+            <p><strong>Unificación:</strong> En física galileana, densidad (escalar) y flujo (tri-vector) eran separados. En SR, se unifican en un cuadrivector independiente del marco.</p>
+            
+            <p><strong>Magnitud:</strong></p>
+            \\[
+            \\vec{N} \\cdot \\vec{N} = -n^2, \\quad n = (-\\vec{N} \\cdot \\vec{N})^{1/2}
+            \\]
+            
+            <p>\\(n\\) es un escalar: la "densidad en reposo".</p>`
+        },
+        {
+            title: "Uno-formas y Superficies",
+            duration: "25 min",
+            description: `<h3>1-formas y Superficies</h3>
+            <p><strong>Densidad como flujo tipo tiempo:</strong></p>
+            <p>El flujo es el número de líneas de mundo que cruzan un tres-volumen unitario.</p>
+            
+            <p><strong>Superficie definida por función:</strong></p>
+            \\[
+            \\phi(t,x,y,z) = \\text{const.}
+            \\]
+            
+            <p><strong>Normal unitaria:</strong></p>
+            \\[
+            \\tilde{n} := \\tilde{d}\\phi / |\\tilde{d}\\phi|
+            \\]
+            \\[
+            |\\tilde{d}\\phi| = |\\eta^{\\alpha\\beta}\\phi_{,\\alpha}\\phi_{,\\beta}|^{1/2}
+            \\]
+            
+            <p><strong>Elemento de superficie:</strong></p>
+            <p>Volumen unitario representado por:</p>
+            \\[
+            \\tilde{n} dx^\\alpha dx^\\beta dx^\\gamma
+            \\]
+            
+            <p><strong>Flujo a través de superficie:</strong></p>
+            \\[
+            \\text{Flujo} = \\langle \\tilde{n}, \\vec{N} \\rangle
+            \\]
+            
+            <p>Para superficie de \\(\\bar{x}\\) constante: \\(\\tilde{n} = \\tilde{d}\\bar{x}\\), flujo = \\(N^{\\bar{x}}\\)</p>
+            <p>Para superficie de \\(\\bar{t}\\) constante: flujo = \\(N^0\\) (densidad numérica)</p>`
+        },
+        {
+            title: "Representación de Marco",
+            duration: "15 min",
+            description: `<h3>Representación de un Marco por 1-forma</h3>
+            <p><strong>Marco definido por 1-forma:</strong></p>
+            <p>Asociada con cuadrivelocidad: \\(g(\\vec{U}, \\cdot)\\)</p>
+            
+            <p><strong>Componentes:</strong></p>
+            \\[
+            U_{\\alpha} = \\eta_{\\alpha \\beta} U^{\\beta}
+            \\]
+            
+            <p><strong>En el marco:</strong></p>
+            \\[
+            U_{0} = -1, \\quad U_{i} = 0
+            \\]
+            
+            <p>Esto es igual a \\(-\\tilde{d}t\\).</p>
+            
+            <p><strong>Imagen:</strong> \\(\\tilde{d}t\\) son superficies de simultaneidad (constante t).</p>
+            
+            <p><strong>Energía de partícula:</strong></p>
+            \\[
+            E = \\langle \\tilde{d}t, \\vec{p} \\rangle = p^{0}
+            \\]
+            
+            <p>Sin signos menos, comparar con \\(E = -\\vec{p} \\cdot \\vec{U}\\).</p>`
+        },
+        {
+            title: "Densidad de Energía",
+            duration: "20 min",
+            description: `<h3>Densidad de Energía</h3>
+            <p><strong>En el MCRF:</strong></p>
+            <p>Energía de cada partícula: \\(m\\)</p>
+            <p>Número por unidad de volumen: \\(n\\)</p>
+            
+            <p><strong>Definición:</strong></p>
+            \\[
+            \\rho := \\text{densidad de energía en el MCRF}
+            \\]
+            
+            <p><strong>Para polvo:</strong></p>
+            \\[
+            \\rho = nm
+            \\]
+            
+            <p><strong>En marco \\(\\bar{O}\\) con velocidad v:</strong></p>
+            <ul>
+                <li>Densidad numérica: \\(n/\\sqrt{1-v^2}\\)</li>
+                <li>Energía por partícula: \\(m/\\sqrt{1-v^2}\\)</li>
+            </ul>
+            \\[
+            \\frac{\\rho}{1-v^2} = \\text{densidad de energía con velocidad } v
+            \\]
+            
+            <p>Dos factores de \\((1 - v^2)^{-1/2}\\): volumen y energía se transforman.</p>
+            
+            <p>No es componente de un vector, sino de un tensor \\(\\binom{2}{0}\\).</p>`
+        },
+        {
+            title: "Tensor de Tensión-Energía",
+            duration: "30 min",
+            description: `<h3>Tensor de Tensión-Energía</h3>
+            <p><strong>Definición de componentes:</strong></p>
+            \\[
+            T(\\tilde{d}x^\\alpha, \\tilde{d}x^\\beta) = T^{\\alpha\\beta} := \\text{flujo de momento } \\alpha \\text{ a través de superficie de constante } x^\\beta
+            \\]
+            
+            <p><strong>Interpretación física:</strong></p>
+            \\[
+            T^{00} = \\text{densidad de energía}
+            \\]
+            \\[
+            T^{0i} = \\text{flujo de energía a través de superficie } x^i
+            \\]
+            \\[
+            T^{i0} = \\text{densidad de momento } i
+            \\]
+            \\[
+            T^{ij} = \\text{flujo de momento } i \\text{ a través de superficie } j
+            \\]
+            
+            <p><strong>Para polvo en MCRF:</strong></p>
+            \\[
+            (T^{00})_{MCRF} = \\rho = mn
+            \\]
+            \\[
+            (T^{0i})_{MCRF} = (T^{i0})_{MCRF} = (T^{ij})_{MCRF} = 0
+            \\]
+            
+            <p><strong>Tensor para polvo:</strong></p>
+            \\[
+            T = \\vec{p} \\otimes \\vec{N} = mn \\, \\vec{U} \\otimes \\vec{U} = \\rho \\, \\vec{U} \\otimes \\vec{U}
+            \\]
+            \\[
+            T^{\\alpha \\beta} = \\rho U^{\\alpha} U^{\\beta}
+            \\]`
+        },
+        {
+            title: "Componentes de T en Marco Móvil",
+            duration: "20 min",
+            description: `<h3>Componentes en Marco Móvil</h3>
+            <p><strong>En marco O donde \\(\\vec{U} \\rightarrow \\left( \\frac{1}{\\sqrt{1 - v^2}}, \\frac{v^x}{\\sqrt{1 - v^2}}, \\ldots \\right)\\):</strong></p>
+            
+            \\[
+            T^{00} = \\rho U^{0} U^{0} = \\frac{\\rho}{1 - v^2}
+            \\]
+            \\[
+            T^{0i} = \\rho U^{0} U^{i} = \\frac{\\rho v^i}{1 - v^2}
+            \\]
+            \\[
+            T^{i0} = \\rho U^{i} U^{0} = \\frac{\\rho v^i}{1 - v^2}
+            \\]
+            \\[
+            T^{ij} = \\rho U^{i} U^{j} = \\frac{\\rho v^i v^j}{1 - v^2}
+            \\]
+            
+            <p>Estas son exactamente densidad de energía, flujo de energía, densidad de momento y flujo de momento.</p>
+            
+            <p><strong>Simetría importante:</strong></p>
+            \\[
+            T^{\\alpha \\beta} = T^{\\beta \\alpha}
+            \\]
+            
+            <p>El tensor es simétrico (cierto en general, no solo para polvo).</p>`
+        },
+        {
+            title: "Cantidades Macroscópicas",
+            duration: "25 min",
+            description: `<h3>Fluidos Generales: Cantidades Macroscópicas</h3>
+            <p><strong>MCRF del elemento:</strong> Marco donde el momento espacial total del elemento es cero. Es específico de cada elemento y función de posición y tiempo.</p>
+            
+            <p><strong>Definiciones fundamentales:</strong></p>
+            <table class="dimension-table">
+                <tr><th>Símbolo</th><th>Nombre</th><th>Definición</th></tr>
+                <tr><td>\\(\\vec{U}\\)</td><td>Cuadrivelocidad</td><td>Cuadrivelocidad del MCRF</td></tr>
+                <tr><td>\\(n\\)</td><td>Densidad numérica</td><td>Partículas por volumen en MCRF</td></tr>
+                <tr><td>\\(\\vec{N}\\)</td><td>Vector flujo</td><td>\\(\\vec{N} := n\\vec{U}\\)</td></tr>
+                <tr><td>\\(\\rho\\)</td><td>Densidad de energía</td><td>Energía total en MCRF</td></tr>
+                <tr><td>\\(\\Pi\\)</td><td>Energía interna</td><td>\\(\\Pi := (\\rho / n) - m\\)</td></tr>
+                <tr><td>\\(\\rho_0\\)</td><td>Densidad masa reposo</td><td>\\(\\rho_0 := mn\\)</td></tr>
+                <tr><td>\\(T\\)</td><td>Temperatura</td><td>Definición termodinámica</td></tr>
+                <tr><td>\\(p\\)</td><td>Presión</td><td>Noción fluido-dinámica</td></tr>
+                <tr><td>\\(S\\)</td><td>Entropía específica</td><td>Entropía por partícula</td></tr>
+            </table>
+            
+            <p><strong>Relación importante:</strong></p>
+            \\[
+            \\rho = \\rho_0 + n\\Pi = n(m + \\Pi)
+            \\]`
+        },
+        {
+            title: "Primera Ley Termodinámica",
+            duration: "30 min",
+            description: `<h3>Primera Ley de la Termodinámica</h3>
+            <p><strong>Conservación de energía en MCRF:</strong></p>
+            \\[
+            \\Delta E = \\Delta Q - p\\Delta V
+            \\]
+            <p>o</p>
+            \\[
+            \\Delta Q = \\Delta E + p\\Delta V
+            \\]
+            
+            <p><strong>Para N partículas:</strong></p>
+            \\[
+            V = \\frac{N}{n}, \\quad \\Delta V = -\\frac{N}{n^2}\\Delta n
+            \\]
+            \\[
+            E = \\rho V = \\rho N/n
+            \\]
+            
+            <p><strong>Calor por partícula \\(q := Q/N\\):</strong></p>
+            \\[
+            n\\Delta q = \\Delta \\rho - \\frac{\\rho + p}{n}\\Delta n
+            \\]
+            
+            <p><strong>Factor integrante:</strong></p>
+            \\[
+            d\\rho - (\\rho + p)dn/n = nT dS
+            \\]
+            
+            <p><strong>Temperatura y entropía:</strong></p>
+            \\[
+            \\Delta q = T \\Delta S
+            \\]
+            
+            <p>El calor absorbido es proporcional al aumento de entropía.</p>`
+        },
+        {
+            title: "Tensor T General",
+            duration: "25 min",
+            description: `<h3>Tensor de Tensión-Energía General</h3>
+            <p><strong>En el MCRF (sin flujo global):</strong></p>
+            
+            <p>(1) \\(T^{00} = \\rho\\) (densidad de energía)</p>
+            
+            <p>(2) \\(T^{0i}\\) = flujo de energía (conducción de calor)</p>
+            
+            <p>(3) \\(T^{i0}\\) = densidad de momento (energía en movimiento tiene momento)</p>
+            
+            <p>(4) \\(T^{ij}\\) = flujo de momento (tensión)</p>
+            
+            <p><strong>Simetría:</strong> \\(T^{i0} = T^{0i}\\)</p>
+            
+            <p><strong>Componentes espaciales \\(T^{ij}\\):</strong></p>
+            <p>Representan fuerzas entre elementos fluidos adyacentes.</p>
+            
+            <p>Para superficie S con área \\(\\mathcal{A}\\), la fuerza \\(\\mathbf{F}\\) da:</p>
+            \\[
+            T^{ij} = F^i/\\mathcal{A}
+            \\]
+            
+            <p>Si fuerzas son perpendiculares: \\(T^{ij} = 0\\) para \\(i \\neq j\\).</p>`
+        },
+        {
+            title: "Simetría del Tensor T",
+            duration: "25 min",
+            description: `<h3>Simetría de \\(T^{\\alpha\\beta}\\)</h3>
+            <p><strong>(a) Simetría de \\(T^{ij}\\):</strong></p>
+            <p>Considere elemento cúbico de lado \\(l\\).</p>
+            
+            <p>Fuerzas en caras:</p>
+            \\[
+            F_1^i = T^{ix}l^2, \\quad F_2^i = T^{iy}l^2
+            \\]
+            
+            <p><strong>Torque sobre eje z:</strong></p>
+            \\[
+            \\tau_z = l^3 (T^{xy} - T^{yx})
+            \\]
+            
+            <p><strong>Momento de inercia:</strong></p>
+            \\[
+            I = \\alpha \\rho l^5
+            \\]
+            
+            <p><strong>Aceleración angular:</strong></p>
+            \\[
+            \\ddot{\\theta} = \\frac{\\tau}{I} = \\frac{T^{xy} - T^{yx}}{\\alpha \\rho l^2}
+            \\]
+            
+            <p>Para evitar rotación infinita cuando \\(l \\to 0\\):</p>
+            \\[
+            T^{ij} = T^{ji}
+            \\]
+            
+            <p><strong>(b) Densidad de momento = Flujo de energía:</strong></p>
+            <p>Flujo de energía = densidad de energía × velocidad = densidad de masa × velocidad = densidad de momento</p>
+            \\[
+            T^{0i} = T^{i0}
+            \\]`
+        },
+        {
+            title: "Conservación Energía-Momento",
+            duration: "30 min",
+            description: `<h3>Conservación de Energía-Momento</h3>
+            <p><strong>Elemento cúbico de lado l:</strong></p>
+            <p>Energía fluye a través de todas las caras.</p>
+            
+            <p><strong>Tasa de cambio de energía:</strong></p>
+            \\[
+            \\frac{\\partial}{\\partial t} T^{00} l^3 = -l^2 [T^{0x}(x=a) - T^{0x}(x=0) + \\cdots]
+            \\]
+            
+            <p><strong>Tomando límite \\(l \\to 0\\):</strong></p>
+            \\[
+            \\frac{\\partial}{\\partial t} T^{00} = -\\left( \\frac{\\partial}{\\partial x} T^{0x} + \\frac{\\partial}{\\partial y} T^{0y} + \\frac{\\partial}{\\partial z} T^{0z} \\right)
+            \\]
+            
+            <p><strong>Forma compacta:</strong></p>
+            \\[
+            T^{0\\alpha}{}_{,\\alpha} = 0
+            \\]
+            
+            <p><strong>Para momento:</strong></p>
+            \\[
+            T^{i\\alpha}{}_{,\\alpha} = 0
+            \\]
+            
+            <p><strong>Ley general:</strong></p>
+            \\[
+            T^{\\alpha\\beta}{}_{,\\beta} = 0
+            \\]
+            
+            <p>Conservación de energía y momento para cualquier continuo.</p>`
+        },
+        {
+            title: "Conservación de Partículas",
+            duration: "20 min",
+            description: `<h3>Conservación de Partículas</h3>
+            <p><strong>Número de partículas cambia solo por flujos:</strong></p>
+            \\[
+            \\frac{\\partial}{\\partial t} N^0 = -\\frac{\\partial}{\\partial x} N^x - \\frac{\\partial}{\\partial y} N^y - \\frac{\\partial}{\\partial z} N^z
+            \\]
+            
+            <p><strong>Forma compacta:</strong></p>
+            \\[
+            N^{\\alpha}{}_{,\\alpha} = (nU^{\\alpha})_{,\\alpha} = 0
+            \\]
+            
+            <p><strong>Densidad de bariones:</strong></p>
+            <p>\\(n\\) puede tomarse como densidad de bariones (protones, neutrones).</p>
+            
+            <p><strong>Bariones:</strong></p>
+            <ul>
+                <li>Partículas más masivas (protón, neutrón)</li>
+                <li>Se conservan en procesos ordinarios</li>
+                <li>Número bariónico es constante</li>
+            </ul>
+            
+            <p>Nos limitamos a fluidos que obedecen esta ley de conservación.</p>`
+        },
+        {
+            title: "Definición Fluido Perfecto",
+            duration: "20 min",
+            description: `<h3>Fluidos Perfectos</h3>
+            <p><strong>Definición:</strong> Fluido sin viscosidad ni conducción de calor en el MCRF.</p>
+            
+            <p>Generalización del "gas ideal" de termodinámica. El tipo más simple junto al polvo.</p>
+            
+            <p><strong>(a) Sin conducción de calor:</strong></p>
+            <p>En el MCRF:</p>
+            \\[
+            T^{0i} = T^{i0} = 0
+            \\]
+            
+            <p>La energía fluye solo si las partículas fluyen.</p>
+            
+            <p>Con conservación de partículas, la entropía específica \\(S\\) es constante:</p>
+            \\[
+            \\frac{dS}{d\\tau} = 0
+            \\]
+            
+            <p><strong>(b) Sin viscosidad:</strong></p>
+            <p>Fuerzas perpendiculares a interfaces. \\(T^{ij} = 0\\) para \\(i \\neq j\\).</p>
+            
+            <p>\\(T^{ij}\\) debe ser diagonal en todos los marcos MCRF.</p>
+            
+            <p>Única matriz diagonal en todos marcos: múltiplo de identidad.</p>
+            \\[
+            T^{ij} = p\\delta^{ij}
+            \\]
+            
+            <p>De 6 cantidades posibles se reduce a una: la presión \\(p\\).</p>`
+        },
+        {
+            title: "Forma del Tensor T Perfecto",
+            duration: "25 min",
+            description: `<h3>Forma de T para Fluido Perfecto</h3>
+            <p><strong>Componentes en MCRF:</strong></p>
+            \\[
+            (T^{\\alpha\\beta}) = 
+            \\begin{pmatrix}
+            \\rho & 0 & 0 & 0 \\\\
+            0 & p & 0 & 0 \\\\
+            0 & 0 & p & 0 \\\\
+            0 & 0 & 0 & p
+            \\end{pmatrix}
+            \\]
+            
+            <p><strong>Forma tensorial en MCRF:</strong></p>
+            \\[
+            T^{\\alpha\\beta} = (\\rho + p)U^{\\alpha}U^{\\beta} + p\\eta^{\\alpha\\beta}
+            \\]
+            
+            <p>Verificación: Para \\(\\alpha = \\beta = 0\\):</p>
+            \\[
+            T^{00} = (\\rho + p)(1)(1) + p(-1) = \\rho
+            \\]
+            
+            <p><strong>Forma invariante de marco:</strong></p>
+            \\[
+            T = (\\rho + p)\\vec{U} \\otimes \\vec{U} + pg^{-1}
+            \\]
+            
+            <p><strong>Nota sobre presión:</strong></p>
+            <p>"Polvo" es fluido perfecto sin presión (\\(p = 0\\)).</p>
+            <p>Presión surge de velocidades aleatorias de partículas.</p>
+            <p>Incluso gas diluido sin colisiones tiene presión (flujo de momento).</p>`
+        },
+        {
+            title: "Leyes de Conservación",
+            duration: "35 min",
+            description: `<h3>Leyes de Conservación para Fluido Perfecto</h3>
+            <p><strong>Ecuación fundamental:</strong></p>
+            \\[
+            T^{\\alpha \\beta}{}_{,\\beta} = [(\\rho + p)U^{\\alpha} U^{\\beta} + p \\eta^{\\alpha \\beta}]_{,\\beta} = 0
+            \\]
+            
+            <p>Con conservación de partículas:</p>
+            \\[
+            (nU^{\\beta})_{,\\beta} = 0
+            \\]
+            
+            <p><strong>Reescritura del primer término:</strong></p>
+            \\[
+            [(\\rho + p)U^{\\alpha} U^{\\beta}]_{,\\beta} = nU^{\\beta} \\left( \\frac{\\rho + p}{n} U^{\\alpha} \\right)_{,\\beta}
+            \\]
+            
+            <p><strong>Propiedad importante:</strong></p>
+            \\[
+            U^{\\alpha}{}_{,\\beta} U_{\\alpha} = 0
+            \\]
+            
+            <p>Prueba: De \\(U^{\\alpha} U_{\\alpha} = -1\\), diferenciando:</p>
+            \\[
+            (U^{\\alpha} U_{\\alpha})_{,\\beta} = 2U^{\\alpha}{}_{,\\beta} U_{\\alpha} = 0
+            \\]
+            
+            <p><strong>Ecuación después de simplificaciones:</strong></p>
+            \\[
+            nU^{\\beta} \\left( \\frac{\\rho + p}{n} U^{\\alpha} \\right)_{,\\beta} + p_{,\\beta} \\eta^{\\alpha \\beta} = 0
+            \\]`
+        },
+        {
+            title: "Conservación de Entropía",
+            duration: "25 min",
+            description: `<h3>Conservación de Entropía</h3>
+            <p><strong>Multiplicar por \\(U_{\\alpha}\\) y sumar:</strong></p>
+            \\[
+            nU^{\\beta} U_{\\alpha} \\left( \\frac{\\rho + p}{n} U^{\\alpha} \\right)_{,\\beta} + p_{,\\beta} U^{\\beta} = 0
+            \\]
+            
+            <p>Usando \\(U^{\\alpha}{}_{,\\beta} U_{\\alpha} = 0\\) y \\(U^{\\alpha} U_{\\alpha} = -1\\):</p>
+            \\[
+            -U^{\\beta} \\left[ n \\left( \\frac{\\rho + p}{n} \\right)_{,\\beta} - p_{,\\beta} \\right] = 0
+            \\]
+            
+            <p><strong>Simplificando:</strong></p>
+            \\[
+            -U^{\\beta} \\left[ \\rho_{,\\beta} - \\frac{\\rho + p}{n} n_{,\\beta} \\right] = 0
+            \\]
+            \\[
+            \\frac{d\\rho}{d\\tau} - \\frac{\\rho + p}{n} \\frac{dn}{d\\tau} = 0
+            \\]
+            
+            <p><strong>Comparando con primera ley:</strong></p>
+            \\[
+            d\\rho - (\\rho + p)dn/n = nT dS
+            \\]
+            
+            <p><strong>Conclusión:</strong></p>
+            \\[
+            U^{\\alpha} S_{,\\alpha} = \\frac{dS}{d\\tau} = 0
+            \\]
+            
+            <p>El flujo es <strong>adiabático</strong>: entropía específica constante.</p>
+            
+            <p>La conservación de energía termodinámica está en la componente paralela a \\(U^{\\alpha}\\).</p>`
+        },
+        {
+            title: "Ecuación de Euler",
+            duration: "30 min",
+            description: `<h3>Ecuación de Euler</h3>
+            <p><strong>Componentes espaciales en MCRF:</strong></p>
+            <p>Donde \\(U^{i} = 0\\) pero \\(U^{i}{}_{,\\beta} \\neq 0\\):</p>
+            \\[
+            nU^{\\beta} \\left( \\frac{\\rho + p}{n} U^{i} \\right)_{,\\beta} + p_{,\\beta} \\eta^{i \\beta} = 0
+            \\]
+            
+            <p>Como \\(U^{i} = 0\\), la derivada de \\((\\rho + p)/n\\) no contribuye:</p>
+            \\[
+            (\\rho + p)U^{i}{}_{,\\beta} U^{\\beta} + p_{,\\beta} \\eta^{i \\beta} = 0
+            \\]
+            
+            <p><strong>Bajando el índice i:</strong></p>
+            \\[
+            (\\rho + p)U_{i,\\beta} U^{\\beta} + p_{,i} = 0
+            \\]
+            
+            <p><strong>Usando cuadriaceleración \\(a_i = U_{i,\\beta}U^{\\beta}\\):</strong></p>
+            \\[
+            (\\rho + p)a_i + p_{,i} = 0
+            \\]
+            
+            <p><strong>Comparación con dinámica no relativista:</strong></p>
+            \\[
+            \\rho\\mathbf{a} + \\nabla p = 0
+            \\]
+            <p>donde</p>
+            \\[
+            \\mathbf{a} = \\dot{\\mathbf{v}} + (\\mathbf{v} \\cdot \\nabla)\\mathbf{v}
+            \\]
+            
+            <p><strong>Diferencia clave:</strong> En relatividad, \\((\\rho + p)\\) es la "densidad de masa inercial".</p>
+            
+            <p><strong>Interpretación física:</strong></p>
+            <p>\\(-p_{,i}\\) = fuerza por volumen. Solo gradiente de presión da fuerza neta.</p>`
+        },
+        {
+            title: "Importancia para GR",
+            duration: "25 min",
+            description: `<h3>Importancia para Relatividad General</h3>
+            <p><strong>Fuente del campo gravitatorio:</strong></p>
+            <p>Newton: densidad \\(\\rho\\) (masa en reposo)</p>
+            <p>SR/GR: todo el tensor \\(\\mathbf{T}\\)</p>
+            
+            <p><strong>Razones:</strong></p>
+            <ul>
+                <li>Masa en reposo y energía son intercambiables</li>
+                <li>Solo \\(T^{00}\\) no sería invariante (necesita marco preferido)</li>
+                <li>Todas las tensiones, presiones y momentos son fuentes</li>
+            </ul>
+            
+            <p><strong>Rol de la presión en GR:</strong></p>
+            <p>(1) Es fuente del campo gravitatorio</p>
+            <p>(2) Aparece en término \\((\\rho + p)\\) de ecuación de movimiento</p>
+            
+            <p><strong>Estrella densa:</strong></p>
+            <p>Gradiente de presión requerido:</p>
+            \\[
+            -a_i = \\frac{p_{,i}}{\\rho + p}
+            \\]
+            
+            <p>Como \\((\\rho + p) > \\rho\\), el gradiente debe ser mayor que en Newton.</p>
+            
+            <p>Esta presión mayor genera más gravedad, requiriendo aún más presión.</p>
+            
+            <p><strong>Colapso gravitatorio:</strong></p>
+            <p>Cuando \\(p \\approx \\rho\\), ningún gradiente de presión puede sostener la estrella.</p>
+            
+            <p><strong>Magnitudes típicas:</strong></p>
+            <ul>
+                <li>Situaciones ordinarias: \\(p \\ll \\rho\\)</li>
+                <li>Estrella de neutrones: \\(p \\approx \\rho\\)</li>
+                <li>Gas relativista (partículas cerca de c): \\(p \\approx \\rho\\)</li>
+            </ul>`
+        },
+        {
+            title: "Ley de Gauss",
+            duration: "25 min",
+            description: `<h3>Ley de Gauss</h3>
+            <p><strong>Forma integral de conservación:</strong></p>
+            <p>Conversión de integral de volumen de divergencia en integral de superficie.</p>
+            
+            <p><strong>Teorema:</strong></p>
+            \\[
+            \\int V^{\\alpha}{}_{,\\alpha} d^{4}x = \\oint V^{\\alpha} n_{\\alpha} d^{3}S
+            \\]
+            
+            <p>donde:</p>
+            <ul>
+                <li>\\(\\vec{n}\\) = 1-forma unitaria normal</li>
+                <li>\\(d^{3}S\\) = tres-volumen de hipersuperficie</li>
+                <li>Normal apunta hacia afuera</li>
+            </ul>
+            
+            <p><strong>Volumen simple:</strong></p>
+            <p>Limitado por hipersuperficies de \\(t, x, y, z\\) constantes.</p>
+            
+            <p><strong>Normales:</strong></p>
+            <ul>
+                <li>En \\(t_2\\): \\(\\tilde{d}t\\)</li>
+                <li>En \\(t_1\\): \\(-\\tilde{d}t\\) (hacia atrás en tiempo)</li>
+                <li>En \\(x_2\\): \\(\\tilde{d}x\\)</li>
+                <li>En \\(x_1\\): \\(-\\tilde{d}x\\)</li>
+            </ul>
+            
+            <p><strong>Integral de superficie:</strong></p>
+            \\[
+            \\int [V^0(t_2) - V^0(t_1)] dx dy dz + \\int [V^x(x_2) - V^x(x_1)] dt dy dz + \\cdots
+            \\]
+            
+            <p><strong>Para \\(\\vec{V} = \\vec{N}\\):</strong></p>
+            <p>Con \\(N^{\\alpha}{}_{,\\alpha} = 0\\), el cambio en número de partículas en tres-volumen se debe al flujo a través de límites.</p>
+            
+            <p><strong>Para energía:</strong></p>
+            <p>Usar \\(T^{0\\alpha}{}_{,\\alpha} = 0\\) da versión integral de conservación de energía.</p>`
+        }
+    ]
+}
+]
+
+};
+
+
+
+
+
+
+
+
+
+
+
+         // Función para inicializar el curso
+         function initCourse() {
+            const lessonsList = document.querySelector('.lessons-list');
+            
+            // Generar las lecciones
+            courseData.lessons.forEach(lesson => {
+                const lessonItem = document.createElement('li');
+                lessonItem.className = 'lesson-item';
+                lessonItem.innerHTML = `
+                    <div class="lesson-header" data-lesson-id="${lesson.id}">
+                        <div>
+                            <h3>${lesson.title}</h3>
+                            <span>${lesson.duration}</span>
+                        </div>
+                        <i class="fas fa-chevron-down toggle-icon"></i>
+                    </div>
+                    <ul class="subtopics-list">
+                        ${lesson.subtopics.map(subtopic => `
+                            <li class="subtopic-item" data-lesson-id="${lesson.id}" data-subtopic-id="${lesson.subtopics.indexOf(subtopic)}">
+                                <div>
+                                    <h4>${subtopic.title}</h4>
+                                    <span>${subtopic.duration}</span>
+                                </div>
+                            </li>
+                        `).join('')}
+                    </ul>
+                `;
+                lessonsList.appendChild(lessonItem);
+            });
+            
+            // Event listeners para expandir/contraer lecciones
+            document.querySelectorAll('.lesson-header').forEach(header => {
+                header.addEventListener('click', function() {
+                    const lessonItem = this.parentElement;
+                    lessonItem.classList.toggle('expanded');
+                    const icon = this.querySelector('.toggle-icon');
+                    icon.classList.toggle('fa-chevron-down');
+                    icon.classList.toggle('fa-chevron-up');
+                });
+            });
+            
+            // Event listeners para subtemas
+            document.querySelectorAll('.subtopic-item').forEach(item => {
+                item.addEventListener('click', function() {
+                    // Remover clase activa de todos los subtemas
+                    document.querySelectorAll('.subtopic-item').forEach(i => {
+                        i.classList.remove('active');
+                    });
+                    
+                    // Añadir clase activa al subtema seleccionado
+                    this.classList.add('active');
+                    
+                    // Obtener datos del subtema
+                    const lessonId = parseInt(this.getAttribute('data-lesson-id'));
+                    const subtopicId = parseInt(this.getAttribute('data-subtopic-id'));
+                    
+                    // Actualizar contenido
+                    updateContent(lessonId, subtopicId);
+                });
+            });
+            
+            // Inicializar con el primer subtema
+            document.querySelector('.subtopic-item').classList.add('active');
+            updateContent(1, 0);
+        }
+        
+        // Función para actualizar el contenido
+        function updateContent(lessonId, subtopicId) {
+            const lesson = courseData.lessons.find(l => l.id === lessonId);
+            const subtopic = lesson.subtopics[subtopicId];
+            
+            // Actualizar video
+            const iframe = document.querySelector('.video-container iframe');
+            iframe.src = `https://www.youtube.com/embed/${lesson.videoId}`;
+            
+            // Actualizar título y descripción
+            document.getElementById('current-lesson-title').textContent = subtopic.title;
+            document.getElementById('current-lesson-desc').innerHTML = subtopic.description;
+            
+            // Reprocesar MathJax
+            if (window.MathJax) {
+                MathJax.typeset();
+            }
+            MathJax.typesetPromise();
+        }
+        
+        // Inicializar el curso cuando se carga la página
+        document.addEventListener('DOMContentLoaded', initCourse);
+    </script>
+</body>
+</html>
+
