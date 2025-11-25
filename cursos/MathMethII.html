@@ -19,7 +19,7 @@
         
         header {
             position: relative;
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://www.cnrs.fr/sites/default/files/styles/top_left/public/image/cnrs_19990001_0046_web_0.jpg?h=b457384a&itok=JeYXogcs');
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1699720885574-4e83b4ff3b11?q=80&w=2950&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
             background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -277,430 +277,627 @@
     <script>
         // Datos del curso
         const courseData = {
-            id: 4,
-            title: "Métodos Matemáticos para Físicos II",
-            lessons: [
+    id: 4,
+    title: "Métodos Matemáticos para Físicos II",
+    lessons: [
+        {
+            id: 1,
+            title: "Vectores y Sistemas de Coordenadas",
+            duration: "60 min",
+            videoId: "dQw4w9WgXcQ",
+            description: "Fundamentos de vectores y sistemas de coordenadas en física",
+            subtopics: [
                 {
-                    id: 1,
-                    title: "Vectores y Sistemas de Coordenadas",
-                    duration: "60 min",
-                    videoId: "dQw4w9WgXcQ",
-                    description: "Fundamentos de vectores y sistemas de coordenadas en física",
-                    subtopics: [
-                        {
-                            title: "Vectores: Posición y Propiedades",
-                            duration: "20 min",
-                            description: `<h3>Vectores: Posición, Desplazamiento y Separación</h3>
-                            <div class="math-content">
-                                <p>Vector posición:</p>
-                                \\[\\vec{r} = x\\hat{i} + y\\hat{j} + z\\hat{k}\\]
-                                <p>Magnitud:</p>
-                                \\[r=\\sqrt{x^{2}+y^{2} + z^{2}}\\]
-                                <p>Vector unitario:</p>
-                                \\[\\hat{r} = \\frac{\\vec{r}}{r} = \\frac{x\\hat{i} + y\\hat{j} + z\\hat{k}}{\\sqrt{x^{2}+y^{2} + z^{2}}}\\]
-                            </div>
-                            
-                            <h4>Propiedades de Vectores</h4>
-                            <ul>
-                                <li>Conmutatividad: \\(\\vec{A} + \\vec{B} = \\vec{B} + \\vec{A}\\)</li>
-                                <li>Asociatividad: \\(\\left( \\vec{A} + \\vec{B}\\right) + \\vec{C} = \\vec{A} + \\left(\\vec{B} + \\vec{C}\\right)\\)</li>
-                                <li>Resta: \\(\\vec{A} - \\vec{B} = \\vec{A} + (-1) \\vec{B}\\)</li>
-                            </ul>
-                            
-                            <h4>Vectores Unitarios</h4>
-                            <div class="math-content">
-                                \\[\\hat{i} \\cdot \\hat{i} = \\hat{j} \\cdot \\hat{j} = \\hat{k} \\cdot \\hat{k} = 1\\]
-                                \\[\\hat{i} \\cdot \\hat{j} = \\hat{j} \\cdot \\hat{k} = \\hat{k} \\cdot \\hat{i} = 0\\]
-                                \\[\\hat{i} \\times \\hat{i} = \\hat{j} \\times \\hat{j} = \\hat{k} \\times \\hat{k} = 0\\]
-                                \\[\\hat{i} \\times \\hat{j} = \\hat{k} \\ \\ \\ \\hat{j} \\times \\hat{k} = \\hat{i} \\  \\ \\ \\hat{k} \\times \\hat{i} = \\hat{j}\\]
-                            </div>`
-                        },
-                        {
-                            title: "Producto Punto y Cruz",
-                            duration: "20 min",
-                            description: `<h3>Producto Punto</h3>
-                            <div class="math-content">
-                                \\[\\vec{A} \\cdot \\vec{B} = \\left|\\vec{A}\\right| \\left|\\vec{B}\\right|cos \\ \\theta \\ \\]
-                                \\[\\vec{A} \\cdot \\vec{B} = A_{1}B_{1} + A_{2}B_{2} + ...\\]
-                                \\[\\left|\\vec{A}\\right|^{2} = \\vec{A} \\cdot \\vec{A}\\]
-                            </div>
-                            
-                            <h3>Producto Cruz</h3>
-                            <div class="math-content">
-                                \\[\\vec{C} = \\vec{A} \\times \\vec{B} = \\left(ABsin\\ \\theta \\ \\right) \\hat{e}_{c}\\]
-                                \\[\\vec{C} = \\vec{A} \\times \\vec{B}= \\begin{vmatrix}
-                                \\hat{e}_{x} &\\hat{e}_{y}  &\\hat{e}_{z} \\\\ 
-                                A_{x} & A_{y}  & A_{z} \\\\ 
-                                B_{x} & B_{y}  & B_{z}
-                                \\end{vmatrix}\\]
-                                \\[= \\hat{e}_{x}\\left(A_{y}B_{z} - A_{z}B_{y}\\right) + \\hat{e}_{y} \\left(A_{x}B_{z} - A_{z}B_{x}\\right) + \\hat{e}_{z} \\left(A_{x}B_{y} - A_{y}B_{x}\\right)\\]
-                            </div>
-                            
-                            <h4>Propiedades</h4>
-                            <ul>
-                                <li>Anticonmutatividad: \\(\\vec{A} \\times \\vec{B} = - \\vec{B} \\times \\vec{A}\\)</li>
-                                <li>Distributividad: \\(\\vec{A} \\times \\left(\\vec{B} + \\vec{C}\\right) = \\vec{A} \\times \\vec{B} + \\vec{A} \\times \\vec{C}\\)</li>
-                            </ul>`
-                        },
-                        {
-                            title: "Sistemas de Coordenadas",
-                            duration: "20 min",
-                            description: `<h3>Sistemas de Coordenadas</h3>
-                            
-                            <h4>Coordenadas Cartesianas</h4>
-                            <div class="math-content">
-                                <p>Posición:</p>
-                                \\[\\vec{r} = x \\hat{i} + y \\hat{j} + z \\hat{k}\\]
-                                <p>Velocidad:</p>
-                                \\[\\vec{v} = \\dot{x} \\hat{i} + \\dot{y} \\hat{j} + \\dot{z} \\hat{k}\\]
-                                <p>Aceleración:</p>
-                                \\[\\vec{a} = \\ddot{x} \\hat{i} + \\ddot{y} \\hat{j} + \\ddot{z} \\hat{k}\\]
-                            </div>
-                            
-                            <h4>Coordenadas Cilíndricas</h4>
-                            <div class="math-content">
-                                <p>Transformación:</p>
-                                \\[x = \\rho cos \\phi, \\quad y = \\rho sin \\phi, \\quad z = z\\]
-                                <p>Vectores unitarios:</p>
-                                \\[\\hat{\\rho} = cos \\phi \\hat{i} + sin \\phi \\hat{j}\\]
-                                \\[\\hat{\\phi} = -sin \\phi \\hat{i} + cos \\phi \\hat{j}\\]
-                                \\[\\hat{z} = \\hat{k}\\]
-                            </div>
-                            
-                            <h4>Coordenadas Esféricas</h4>
-                            <div class="math-content">
-                                <p>Transformación:</p>
-                                \\[x = r sin \\theta cos \\phi\\]
-                                \\[y = r sin \\theta sin \\phi\\]
-                                \\[z = r cos \\theta\\]
-                                <p>Vectores unitarios:</p>
-                                \\[\\hat{r} = sin \\theta cos \\phi \\hat{i} + sin \\theta sin \\phi \\hat{j} + cos \\theta \\hat{k}\\]
-                                \\[\\hat{\\theta} = cos \\theta cos \\phi \\hat{i} + cos \\theta sin \\phi \\hat{j} - sin \\theta \\hat{k}\\]
-                                \\[\\hat{\\phi} = -sin \\phi \\hat{i} + cos \\phi \\hat{j}\\]
-                            </div>`
-                        }
-                    ]
+                    title: "Vectores: Posición y Propiedades",
+                    duration: "20 min",
+                    description: `<h3>Vectores: Posición, Desplazamiento y Separación</h3>
+                    <div class="math-content">
+                        <p>Vector posición:</p>
+                        \\[\\vec{r} = x\\hat{i} + y\\hat{j} + z\\hat{k}\\]
+                        <p>Magnitud:</p>
+                        \\[r=\\sqrt{x^{2}+y^{2} + z^{2}}\\]
+                        <p>Vector unitario:</p>
+                        \\[\\hat{r} = \\frac{\\vec{r}}{r} = \\frac{x\\hat{i} + y\\hat{j} + z\\hat{k}}{\\sqrt{x^{2}+y^{2} + z^{2}}}\\]
+                        
+                        <h4>Vector de separación</h4>
+                        \\[\\vec{r} = \\left(x-x'\\right)\\hat{i} + \\left(y-y'\\right) \\hat{j} + \\left(z-z'\\right)\\hat{k}\\]
+                        \\[r= \\sqrt{x^{2}+ y^{2} + z^{2}}\\]
+                        \\[\\hat{r} = \\frac{ \\left(x-x'\\right)\\hat{i} + \\left(y-y'\\right) \\hat{j} + \\left(z-z'\\right)\\hat{k}}{ \\sqrt{x^{2}+ y^{2} + z^{2}}}\\]
+                    </div>
+                    
+                    <h4>Propiedades de Vectores</h4>
+                    <ul>
+                        <li>Conmutatividad: \\(\\vec{A} + \\vec{B} = \\vec{B} + \\vec{A}\\)</li>
+                        <li>Asociatividad: \\(\\left( \\vec{A} + \\vec{B}\\right) + \\vec{C} = \\vec{A} + \\left(\\vec{B} + \\vec{C}\\right)\\)</li>
+                        <li>Resta: \\(\\vec{A} - \\vec{B} = \\vec{A} + (-1) \\vec{B}\\)</li>
+                    </ul>
+                    
+                    <h4>Vectores Unitarios</h4>
+                    <div class="math-content">
+                        \\[\\vec{A} = A_{1} \\hat{e}_{1} + A_{2} \\hat{e}_{2} + ...\\]
+                        \\[\\hat{i} \\cdot \\hat{i} = \\hat{j} \\cdot \\hat{j} = \\hat{k} \\cdot \\hat{k} = 1\\]
+                        \\[\\hat{i} \\cdot \\hat{j} = \\hat{j} \\cdot \\hat{k} = \\hat{k} \\cdot \\hat{i} = 0\\]
+                        \\[\\hat{i} \\times \\hat{i} = \\hat{j} \\times \\hat{j} = \\hat{k} \\times \\hat{k} = 0\\]
+                        \\[\\hat{i} \\times \\hat{j} = \\hat{k} \\ \\ \\ \\hat{j} \\times \\hat{k} = \\hat{i} \\  \\ \\ \\hat{k} \\times \\hat{i} = \\hat{j}\\]
+                    </div>
+                    
+                    <h4>Longitud</h4>
+                    <div class="math-content">
+                        \\[\\left | \\vec{A}\\right | = A = \\left(A^{2}_{1} + A^{2}_{2} + ...\\right) ^{1/2}\\]
+                    </div>`
                 },
                 {
-                    id: 2,
-                    title: "Operadores Diferenciales Vectoriales",
-                    duration: "55 min",
-                    videoId: "VIDEO_ID_2",
-                    description: "Gradiente, divergencia, rotor y laplaciano en diferentes sistemas de coordenadas",
-                    subtopics: [
-                        {
-                            title: "Gradiente y Divergencia",
-                            duration: "20 min",
-                            description: `<h3>Gradiente</h3>
-                            <div class="math-content">
-                                \\[\\vec{\\nabla} \\varphi = \\frac{\\partial \\varphi}{\\partial x} \\hat{i} + \\frac{\\partial \\varphi}{\\partial y} \\hat{j} + \\frac{\\partial \\varphi}{\\partial z} \\hat{k}\\]
-                                \\[d\\varphi = \\left( \\vec{\\nabla} \\varphi \\right) \\cdot d\\vec{l}\\]
-                            </div>
-                            
-                            <h4>Divergencia</h4>
-                            <div class="math-content">
-                                \\[\\vec{\\nabla} \\cdot \\vec{A} = \\frac{\\partial A_{x}}{\\partial x} + \\frac{\\partial A_{y}}{\\partial y} + \\frac{\\partial A_{z}}{\\partial z}\\]
-                                <p>Interpretación física:</p>
-                                <ul>
-                                    <li>0 → Solenoidal (curvas cerradas)</li>
-                                    <li>(+) → Fuente (sale)</li>
-                                    <li>(-) → Sumidero (entra)</li>
-                                </ul>
-                            </div>
-                            
-                            <h4>Ecuación de Continuidad</h4>
-                            <div class="math-content">
-                                \\[\\frac{\\partial \\rho}{\\partial t} + \\vec{\\nabla} \\cdot (\\rho \\vec{v}) = 0\\]
-                            </div>`
-                        },
-                        {
-                            title: "Rotor y Laplaciano",
-                            duration: "20 min",
-                            description: `<h3>Rotor</h3>
-                            <div class="math-content">
-                                \\[\\vec{\\nabla} \\times \\vec{A} = \\begin{vmatrix}
-                                \\hat{i} & \\hat{j} & \\hat{k} \\\\
-                                \\frac{\\partial}{\\partial x} & \\frac{\\partial}{\\partial y} & \\frac{\\partial}{\\partial z} \\\\
-                                A_{x} & A_{y} & A_{z}
-                                \\end{vmatrix}\\]
-                                \\[= \\hat{i}\\left(\\frac{\\partial A_{z}}{\\partial y} - \\frac{\\partial A_{y}}{\\partial z}\\right) + \\hat{j}\\left(\\frac{\\partial A_{x}}{\\partial z} - \\frac{\\partial A_{z}}{\\partial x}\\right) + \\hat{k}\\left(\\frac{\\partial A_{y}}{\\partial x} - \\frac{\\partial A_{x}}{\\partial y}\\right)\\]
-                            </div>
-                            
-                            <h3>Laplaciano</h3>
-                            <div class="math-content">
-                                \\[\\nabla^{2} \\varphi = \\vec{\\nabla} \\cdot \\vec{\\nabla} \\varphi = \\frac{\\partial^{2} \\varphi}{\\partial x^{2}} + \\frac{\\partial^{2} \\varphi}{\\partial y^{2}} + \\frac{\\partial^{2} \\varphi}{\\partial z^{2}}\\]
-                            </div>
-                            
-                            <h4>Identidades Importantes</h4>
-                            <div class="math-content">
-                                \\[\\vec{\\nabla} \\times (\\vec{\\nabla} \\varphi) = 0\\]
-                                \\[\\vec{\\nabla} \\cdot (\\vec{\\nabla} \\times \\vec{A}) = 0\\]
-                                \\[\\vec{\\nabla} \\times (\\vec{\\nabla} \\times \\vec{A}) = \\vec{\\nabla}(\\vec{\\nabla} \\cdot \\vec{A}) - \\nabla^{2} \\vec{A}\\]
-                            </div>`
-                        },
-                        {
-                            title: "Coordenadas Curvilíneas",
-                            duration: "15 min",
-                            description: `<h3>Operadores en Coordenadas Curvilíneas</h3>
-                            
-                            <h4>Coordenadas Cilíndricas</h4>
-                            <div class="math-content">
-                                <p>Gradiente:</p>
-                                \\[\\vec{\\nabla} \\psi = \\frac{\\partial \\psi}{\\partial \\rho} \\hat{e}_{\\rho} + \\frac{1}{\\rho} \\frac{\\partial \\psi}{\\partial \\phi} \\hat{e}_{\\phi} + \\frac{\\partial \\psi}{\\partial z} \\hat{e}_{z}\\]
-                                <p>Divergencia:</p>
-                                \\[\\vec{\\nabla} \\cdot \\vec{V} = \\frac{1}{\\rho} \\frac{\\partial}{\\partial \\rho}(\\rho V_{\\rho}) + \\frac{1}{\\rho} \\frac{\\partial V_{\\phi}}{\\partial \\phi} + \\frac{\\partial V_{z}}{\\partial z}\\]
-                                <p>Laplaciano:</p>
-                                \\[\\nabla^{2} \\psi = \\frac{1}{\\rho} \\frac{\\partial}{\\partial \\rho}\\left(\\rho \\frac{\\partial \\psi}{\\partial \\rho}\\right) + \\frac{1}{\\rho^{2}} \\frac{\\partial^{2} \\psi}{\\partial \\phi^{2}} + \\frac{\\partial^{2} \\psi}{\\partial z^{2}}\\]
-                            </div>
-                            
-                            <h4>Coordenadas Esféricas</h4>
-                            <div class="math-content">
-                                <p>Gradiente:</p>
-                                \\[\\vec{\\nabla} \\psi = \\frac{\\partial \\psi}{\\partial r} \\hat{e}_{r} + \\frac{1}{r} \\frac{\\partial \\psi}{\\partial \\theta} \\hat{e}_{\\theta} + \\frac{1}{r sin \\theta} \\frac{\\partial \\psi}{\\partial \\phi} \\hat{e}_{\\phi}\\]
-                                <p>Divergencia:</p>
-                                \\[\\vec{\\nabla} \\cdot \\vec{V} = \\frac{1}{r^{2}} \\frac{\\partial}{\\partial r}(r^{2} V_{r}) + \\frac{1}{r sin \\theta} \\frac{\\partial}{\\partial \\theta}(sin \\theta V_{\\theta}) + \\frac{1}{r sin \\theta} \\frac{\\partial V_{\\phi}}{\\partial \\phi}\\]
-                            </div>`
-                        }
-                    ]
+                    title: "Producto Punto y Cruz",
+                    duration: "20 min",
+                    description: `<h3>Producto Punto</h3>
+                    <div class="math-content">
+                        \\[\\vec{A} \\cdot \\vec{B} = \\left|\\vec{A}\\right| \\left|\\vec{B}\\right|\\cos \\ \\theta \\ \\]
+                        \\[\\vec{A} \\cdot \\vec{B} = A_{1}B_{1} + A_{2}B_{2} + ...\\]
+                        \\[\\left|\\vec{A}\\right|^{2} = \\vec{A} \\cdot \\vec{A}\\]
+                        
+                        <h4>Como matrices de fila/columna</h4>
+                        \\[\\vec{A} = \\begin{pmatrix} A_{1} \\\\ A_{2} \\\\ A_{3} \\end{pmatrix} \\ \\rightarrow \\ \\vec{A}^{T} = \\left(A_{1}, A_{2}, A_{3}\\right)\\]
+                        \\[\\vec{A} \\cdot \\vec{B} = \\vec{A} \\cdot \\vec{B}^{T} = \\left(A_{1}, A_{2}, A_{3}\\right) \\cdot \\left(  \\begin{pmatrix} B_{1} \\\\ B_{2} \\\\ B_{3} \\end{pmatrix} \\right) = A_{1}B_{1} + A_{2}B_{2} + A_{3}B_{3}\\]
+                    </div>
+                    
+                    <h3>Producto Cruz</h3>
+                    <div class="math-content">
+                        \\[\\vec{C} = \\vec{A} \\times \\vec{B} = \\left(AB\\sin\\ \\theta \\ \\right) \\hat{e}_{c}\\]
+                        \\[\\vec{C} = \\vec{A} \\times \\vec{B}= \\begin{vmatrix}
+                        \\hat{e}_{x} &\\hat{e}_{y}  &\\hat{e}_{z} \\\\ 
+                        A_{x} & A_{y}  & A_{z} \\\\ 
+                        B_{x} & B_{y}  & B_{z}
+                        \\end{vmatrix}\\]
+                        \\[= \\hat{e}_{x} \\begin{vmatrix}
+                            A_{y} & A_{z} \\\\
+                            B_{y} & B_{z}
+                        \\end{vmatrix} - \\hat{e}_{y} \\begin{vmatrix}
+                            A_{x} & A_{z} \\\\
+                            B_{x} & B_{z}
+                        \\end{vmatrix} + \\hat{e}_{z} \\begin{vmatrix}
+                            A_{x} & A_{y} \\\\
+                            B_{x} & B_{y}
+                        \\end{vmatrix}\\]
+                        \\[= \\hat{e}_{x}\\left(A_{y}B_{z} - A_{z}B_{y}\\right) - \\hat{e}_{y} \\left(A_{x}B_{z} - A_{z}B_{x}\\right) + \\hat{e}_{z} \\left(A_{x}B_{y} - A_{y}B_{x}\\right)\\]
+                        \\[C_{i} = \\sum_{ijk} \\epsilon_{ijk}A_{j}B_{k}\\]
+                        \\[\\hat{e}_{i} \\times \\hat{e}_{j} = \\sum_{k}\\epsilon_{ijk} \\hat{e}_{k} \\ \\ \\ \\epsilon: \\text{Levi-Civita}\\]
+                    </div>
+                    
+                    <h4>Propiedades</h4>
+                    <ul>
+                        <li>Anticonmutatividad: \\(\\vec{A} \\times \\vec{B} = - \\vec{B} \\times \\vec{A}\\)</li>
+                        <li>Distributividad: \\(\\vec{A} \\times \\left(\\vec{B} + \\vec{C}\\right) = \\vec{A} \\times \\vec{B} + \\vec{A} \\times \\vec{C}\\)</li>
+                    </ul>
+                    
+                    <h3>Producto Triple Escalar</h3>
+                    <div class="math-content">
+                        \\[\\vec{A} \\cdot \\left(\\vec{B} \\times \\vec{C}\\right) = \\begin{vmatrix}
+                            A_{x} & A_{y} & A_{z} \\\\
+                            B_{x} & B_{y} & B_{z} \\\\
+                            C_{x} & C_{y} & C_{z}
+                        \\end{vmatrix}\\]
+                        \\[\\vec{A} \\cdot \\vec{B} \\times \\vec{C} = \\vec{B} \\cdot \\vec{C} \\times \\vec{A} = \\vec{C} \\cdot \\vec{A} \\times \\vec{B} = - \\vec{A} \\cdot \\vec{C} \\times \\vec{B}\\]
+                    </div>
+                    
+                    <h3>Producto Triple Vectorial</h3>
+                    <div class="math-content">
+                        \\[\\vec{A} \\times \\left(\\vec{B} \\times \\vec{C} \\right) = \\vec{B} \\left(\\vec{A} \\cdot \\vec{C}\\right) - \\vec{C} \\left(\\vec{A} \\cdot \\vec{B}\\right)\\]
+                        \\[\\left(\\vec{A} \\times \\vec{B} \\right) \\cdot \\left( \\vec{C} \\times \\vec{D}\\right) = \\left(\\vec{A} \\cdot \\vec{C}\\right) \\left( \\vec{B} \\cdot \\vec{D}\\right) - \\left(\\vec{A} \\cdot \\vec{D}\\right) \\left(\\vec{B} \\cdot \\vec{C}\\right)\\]
+                    </div>
+                    
+                    <h3>Ortogonalidad</h3>
+                    <div class="math-content">
+                        \\[\\vec{A} \\cdot \\vec{B} = 0 \\ \\ \\ \\ \\perp\\]
+                        \\[\\hat{e}_{i} \\cdot \\hat{e}_{j} = \\delta_{ij} = \\left\\{\\begin{matrix}
+                        0 & i \\neq j\\\\ 
+                        1 & i=j
+                        \\end{matrix}\\right.\\]
+                        <p>Proyección y cosenos directores:</p>
+                        \\[A_{x} = A \\cos\\ \\alpha \\  \\ \\ \\ A_{y}=A \\cos\\ \\beta \\ \\ \\ \\ A_{z} = A \\cos\\ \\gamma \\ \\ \\ \\]
+                    </div>`
                 },
                 {
-                    id: 3,
-                    title: "Análisis Tensorial y Álgebra Lineal",
-                    duration: "70 min",
-                    videoId: "VIDEO_ID_3",
-                    description: "Tensores, matrices, determinantes y valores propios",
-                    subtopics: [
-                        {
-                            title: "Tensores y Transformaciones",
-                            duration: "25 min",
-                            description: `<h3>Análisis Tensorial</h3>
-                            
-                            <h4>Clasificación</h4>
-                            <ul>
-                                <li><strong>Escalar:</strong> Cantidad invariante bajo rotaciones. Rango 0</li>
-                                <li><strong>Vector:</strong> N números que transforman de manera específica bajo rotaciones. Rango 1</li>
-                                <li><strong>Tensor:</strong> Objeto con n índices que transforma de manera específica bajo rotaciones. Rango n</li>
-                            </ul>
-                            
-                            <h4>Tensores Covariantes y Contravariantes</h4>
-                            <div class="math-content">
-                                <p>Vector transformado:</p>
-                                \\[A'_{i} = \\sum_{j}\\left(\\hat{e}'_{i} \\cdot \\hat{e}'_{j}\\right)A_{j}\\]
-                                \\[A'_{i} = \\sum_{j} \\frac{\\partial x'_{j}}{\\partial x_{j}}A_{j}\\]
-                                
-                                <p>Tensor Contravariante:</p>
-                                \\[(A')^{i} = \\sum_{j}\\frac{\\partial (x')^{i}}{\\partial x^{j}}A^{j}\\]
-                                
-                                <p>Tensor Covariante:</p>
-                                \\[A'_{i} = \\sum_{j}\\frac{\\partial x^{j}}{\\partial (x')^{i}}A_{j}\\]
-                            </div>`
-                        },
-                        {
-                            title: "Matrices y Determinantes",
-                            duration: "25 min",
-                            description: `<h3>Matrices</h3>
-                            
-                            <h4>Propiedades</h4>
-                            <ul>
-                                <li>Conmutativa: \\(A + B = B + A\\)</li>
-                                <li>Asociativa: \\((A + B) + C = A + (B + C)\\)</li>
-                                <li>Multiplicación por escalar: \\(B = \\alpha A\\)</li>
-                                <li>Producto matricial: \\(AB = C\\), \\(c_{ij} = \\sum_{k} a_{ik} b_{kj}\\)</li>
-                            </ul>
-                            
-                            <h3>Determinantes</h3>
-                            <div class="math-content">
-                                <p>Orden 2:</p>
-                                \\[D_2 = \\begin{vmatrix}
-                                a_{11} & a_{12} \\\\
-                                a_{21} & a_{22}
-                                \\end{vmatrix} = a_{11}a_{22} - a_{12}a_{21}\\]
-                                
-                                <p>Orden 3:</p>
-                                \\[D_3 = \\begin{vmatrix}
-                                a_{11} & a_{12} & a_{13} \\\\
-                                a_{21} & a_{22} & a_{23} \\\\
-                                a_{31} & a_{32} & a_{33}
-                                \\end{vmatrix} = a_{11}a_{22}a_{33} - a_{11}a_{23}a_{32} - a_{13}a_{22}a_{31} - a_{12}a_{21}a_{33} + a_{12}a_{23}a_{31} + a_{13}a_{21}a_{32}\\]
-                            </div>
-                            
-                            <h4>Propiedades de Determinantes</h4>
-                            <ul>
-                                <li>Intercambio de filas/columnas cambia el signo</li>
-                                <li>Dos filas/columnas iguales resulta en determinante cero</li>
-                                <li>Multiplicación por escalar: \\(\\text{det}(\\alpha A) = \\alpha^n \\text{det}(A)\\)</li>
-                            </ul>`
-                        },
-                        {
-                            title: "Valores y Vectores Propios",
-                            duration: "20 min",
-                            description: `<h3>Valores y Vectores Propios</h3>
-                            
-                            <div class="math-content">
-                                \\[Hr = \\lambda r\\]
-                                \\[(H - \\lambda I)r = 0\\]
-                                \\[\\text{det}(H - \\lambda I) = 0\\]
-                            </div>
-                            
-                            <h4>Propiedades</h4>
-                            <ul>
-                                <li>Los valores propios de una matriz hermitiana son reales</li>
-                                <li>Los vectores propios de una matriz hermitiana son ortogonales</li>
-                                <li>Diagonalización: \\(UHU^{-1}\\) es diagonal</li>
-                            </ul>
-                            
-                            <h4>Descomposición Espectral</h4>
-                            <div class="math-content">
-                                \\[H = \\sum_{\\mu} \\lambda_{\\mu} |c_{\\mu}\\rangle \\langle c_{\\mu}|\\]
-                                \\[f(H) = \\sum_{\\mu} f(\\lambda_{\\mu}) |c_{\\mu}\\rangle \\langle c_{\\mu}|\\]
-                            </div>`
-                        }
-                    ]
+                    title: "Coordenadas Cartesianas",
+                    duration: "15 min",
+                    description: `<h3>Sistema de Coordenadas Cartesianas</h3>
+                    
+                    <h4>Posición</h4>
+                    <div class="math-content">
+                        \\[\\vec{r} = x \\hat{i} + y \\hat{j} + z \\hat{k}\\]
+                        
+                        <p>Posición paramétrica:</p>
+                        \\[\\vec{r}(t) = A\\left( \\cos\\ \\omega t \\hat{i} + \\sin\\ \\omega t\\ \\hat{j} \\right)\\]
+                        \\[x = A\\cos\\ \\omega t \\ \\ \\ \\ \\ y=A\\sin\\ \\omega t, \\ \\ \\omega: \\text{velocidad angular}\\]
+                    </div>
+                    
+                    <h4>Velocidad</h4>
+                    <div class="math-content">
+                        \\[\\vec{v} = \\dot{\\vec{r}} = \\frac{\\mathrm{d}}{\\mathrm{d}t} \\left(x \\hat{i} + y \\hat{j} + z \\hat{k}\\right) = \\dot{x} \\hat{i} + \\dot{y} \\hat{j} + \\dot{z} \\hat{k}\\]
+                        
+                        <p>Velocidad paramétrica:</p>
+                        \\[\\vec{v} = \\dot{\\vec{r}} = A \\omega \\left(-\\sin\\ \\omega t \\ \\hat{i} + \\cos \\ \\omega t \\hat{j}\\right)\\]
+                        \\[v^{2} = \\omega^{2}A^{2}\\]
+                    </div>
+                    
+                    <h4>Aceleración</h4>
+                    <div class="math-content">
+                        \\[\\vec{a} = \\frac{\\mathrm{d}}{\\mathrm{d}t} \\left( \\dot{x} \\hat{i} + \\dot{y} \\hat{j} + \\dot{z} \\hat{k}\\right) = \\ddot{x} \\hat{i} + \\ddot{y} \\hat{j} + \\ddot{z} \\hat{k}\\]
+                        
+                        <p>Aceleración paramétrica:</p>
+                        \\[\\vec{a} = -A\\omega^{2} \\cos\\ \\omega t \\ \\hat{i} - A \\omega^{2}\\sin\\ \\omega t \\ \\hat{j} = - \\omega^{2} \\vec{r}\\]
+                    </div>
+                    
+                    <h4>Momentum</h4>
+                    <div class="math-content">
+                        \\[\\vec{p} = m \\dot{\\vec{r}} = m\\dot{x} \\hat{i} + m\\dot{y} \\hat{j} + m\\dot{z} \\hat{k} = p_{x}\\hat{i} + p_{y} \\hat{j} + p_{z} \\hat{k}\\]
+                        \\[=\\sum_{i=1}^{3}m\\dot{x}_{i}\\hat{e}_{i} = \\sum_{i=1}^{3} p_{i}\\hat{e}_{i}\\]
+                    </div>
+                    
+                    <h4>Momentum Angular</h4>
+                    <div class="math-content">
+                        \\[\\vec{L} = \\vec{r} \\times \\vec{p} = L_{x}\\hat{i} + L_{y}\\hat{j} + L_{z} \\hat{k} = \\epsilon_{ijk}r_{j}p_{k}\\]
+                    </div>
+                    
+                    <h4>Torque</h4>
+                    <div class="math-content">
+                        \\[\\vec{\\tau} = \\vec{r} \\times \\vec{F} = \\frac{\\mathrm{d} \\vec{L}}{\\mathrm{d}t} = \\tau_{x} \\hat{i} + \\tau_{y} \\hat{j} + \\tau_{z} \\hat{k}\\]
+                        \\[\\ \\ \\Rightarrow \\ \\ \\vec{\\tau} = \\hat{i} \\left( y F_{z} - zF_{y}\\right) + \\hat{j} \\left( zF_{x} - xF_{z}\\right) + \\hat{k} \\left(xF_{y} - yF_{z} \\right)\\]
+                    </div>`
                 },
                 {
-                    id: 4,
-                    title: "Series de Fourier y Ecuaciones Diferenciales",
-                    duration: "65 min",
-                    videoId: "VIDEO_ID_4",
-                    description: "Series de Fourier, ecuaciones diferenciales y funciones especiales",
-                    subtopics: [
-                        {
-                            title: "Series de Fourier",
-                            duration: "20 min",
-                            description: `<h3>Series de Fourier</h3>
-                            
-                            <div class="math-content">
-                                \\[f(x) = \\frac{1}{2L} \\sum_{n \\in \\mathbb{Z}} \\hat{f}_n e^{in\\pi x / L}\\]
-                                \\[\\hat{f}_n = \\frac{1}{2\\pi} \\int_{-\\pi}^{\\pi} e^{-inx} f(x)  dx\\]
-                            </div>
-                            
-                            <h4>Funciones Reales</h4>
-                            <div class="math-content">
-                                \\[f(\\theta) = \\hat{f}_0 + \\sum_{n=1}^{\\infty} (a_n \\cos n\\theta + b_n \\sin n\\theta)\\]
-                                \\[a_n = \\frac{1}{\\pi} \\int_{-\\pi}^{\\pi} \\cos(n\\theta) f(\\theta)  d\\theta\\]
-                                \\[b_n = \\frac{1}{\\pi} \\int_{-\\pi}^{\\pi} \\sin(n\\theta) f(\\theta)  d\\theta\\]
-                            </div>
-                            
-                            <h4>Identidad de Parseval</h4>
-                            <div class="math-content">
-                                \\[(f, f) = 2\\pi \\sum_{k \\in \\mathbb{Z}} |\\hat{f}_k|^2\\]
-                            </div>`
-                        },
-                        {
-                            title: "Ecuaciones Diferenciales",
-                            duration: "25 min",
-                            description: `<h3>Ecuaciones Diferenciales</h3>
-                            
-                            <h4>Operadores Diferenciales</h4>
-                            <div class="math-content">
-                                \\[\\mathcal{L} = A_p(x) \\frac{d^p}{dx^p} + A_{p-1}(x) \\frac{d^{p-1}}{dx^{p-1}} + \\cdots + A_1(x) \\frac{d}{dx} + A_0(x)\\]
-                            </div>
-                            
-                            <h4>Operadores Autoadjuntos</h4>
-                            <div class="math-content">
-                                \\[\\mathcal{L}y \\equiv \\frac{d}{dx} \\left( p(x) \\frac{dy}{dx} \\right) - q(x)y\\]
-                                \\[(\\mathcal{L}f, g) = (f,\\mathcal{L}g)\\]
-                            </div>
-                            
-                            <h4>Función de Green</h4>
-                            <div class="math-content">
-                                \\[\\mathcal{L}G = \\delta(x - \\xi)\\]
-                                \\[y(x) = \\int_a^b G(x; \\xi)f(\\xi)d\\xi\\]
-                            </div>`
-                        },
-                        {
-                            title: "Funciones Especiales",
-                            duration: "20 min",
-                            description: `<h3>Funciones Especiales</h3>
-                            
-                            <h4>Polinomios de Legendre</h4>
-                            <div class="math-content">
-                                \\[\\frac{d}{dx} \\left( (1 - x^2) \\frac{d\\Theta}{dx} \\right) = -\\lambda \\Theta\\]
-                                \\[P_l(x) = \\frac{1}{2^l l!} \\frac{d^l}{dx^l} (x^2 - 1)^l\\]
-                                \\[\\int_{-1}^{1} P_m(x) P_l(x)  dx = \\frac{2}{2l + 1} \\delta_{ml}\\]
-                            </div>
-                            
-                            <h4>Funciones de Bessel</h4>
-                            <div class="math-content">
-                                \\[x^2 \\frac{d^2 R}{dx^2} + x \\frac{dR}{dx} + (x^2 - n^2)R = 0\\]
-                                \\[J_n(x) = \\left( \\frac{x}{2} \\right)^n \\sum_{k=0}^\\infty \\frac{(-1)^k}{k!(k + n)!} \\left( \\frac{x}{2} \\right)^{2k}\\]
-                            </div>`
-                        }
-                    ]
+                    title: "Coordenadas Cilíndricas",
+                    duration: "15 min",
+                    description: `<h3>Coordenadas Cilíndricas</h3>
+                    
+                    <h4>Vectores unitarios</h4>
+                    <div class="math-content">
+                        \\[\\hat{s} = \\cos \\ \\phi \\ \\hat{i} + \\sin\\ \\phi \\ \\hat{j}\\]
+                        \\[\\hat{\\phi} = -\\sin\\ \\phi \\ \\hat{i} + \\cos \\ \\phi \\ \\hat{j}\\]
+                        \\[\\hat{k} = \\hat{k}\\]
+                    </div>
+                    
+                    <h4>Posición</h4>
+                    <div class="math-content">
+                        \\[x=s\\cos\\ \\phi  \\ \\ \\ y = s \\sin\\ \\phi  \\ \\Rightarrow \\ \\vec{r} = x \\hat{i} + y \\hat{j} + z \\hat{k} = s \\hat{s} + z \\hat{k}\\]
+                        \\[\\vec{s} = s \\hat{s} = x \\hat{i} + y \\hat{j} = s \\hat{s}\\]
+                        \\[\\vec{r} = \\vec{s} + \\vec{z} = s \\hat{s} + z \\hat{k} \\ \\ \\ \\ \\ \\  s = \\sqrt{x^{2} + y^{2}} \\ \\ \\ \\ \\ \\ \\phi = \\arctan \\left(\\frac{y}{x}\\right)\\]
+                    </div>
+                    
+                    <h4>Velocidad</h4>
+                    <div class="math-content">
+                        \\[\\vec{v} = \\dot{\\vec{r}} = \\dot{s}\\hat{s} + s\\dot{\\hat{s}} + \\dot{z}\\hat{k}\\]
+                        \\[\\dot{\\hat{s}} = \\dot{\\phi} \\hat{\\phi} \\ \\ \\Rightarrow \\ \\dot{\\vec{r}} = \\dot{s}\\hat{s} + s \\dot{\\phi} \\hat{\\phi} + \\dot{z}\\hat{k} \\ \\ \\ v^{2} = \\dot{\\vec{r}} \\cdot \\dot{\\vec{r}} = \\dot{s}^{2} + s^{2}\\dot{\\phi}^{2} + \\dot{z}^{2}\\]
+                        
+                        <p>Velocidad Angular:</p>
+                        \\[\\vec{\\omega} = \\dot{\\phi} \\hat{k}\\]
+                    </div>
+                    
+                    <h4>Aceleración</h4>
+                    <div class="math-content">
+                        \\[\\vec{a} = \\vec{\\ddot{r}} = \\left(\\ddot{s} - s \\dot{\\phi}^{2} \\right) \\hat{s} + \\left( s \\ddot{\\phi} + 2\\dot{s}\\dot{\\phi} \\right) \\hat{\\phi} + \\ddot{z} \\hat{k}\\]
+                    </div>
+                    
+                    <h4>Momentum</h4>
+                    <div class="math-content">
+                        \\[\\vec{p} = m \\vec{\\dot{r}} =  m\\dot{s}\\hat{s} + ms \\dot{\\phi} \\hat{\\phi} + m\\dot{z}\\hat{k} = p_{s}\\hat{s} + p_{\\phi} \\hat{\\phi} + p_{z} \\hat{k}\\]
+                    </div>
+                    
+                    <h4>Momentum Angular</h4>
+                    <div class="math-content">
+                        \\[\\vec{L} = \\vec{r} \\times \\vec{p} =s^{2}p_{\\phi}\\hat{k} + \\left(zp_{s} - sp_{z} \\right) \\hat{\\phi} - zp_{\\phi} \\hat{s}\\]
+                    </div>
+                    
+                    <h4>Torque</h4>
+                    <div class="math-content">
+                        \\[\\vec{\\tau} = \\vec{r} \\times \\vec{F} = \\frac{\\mathrm{d} \\vec{L}}{\\mathrm{d}t} = \\dot{L}_{s} \\hat{s} + \\dot{L}_{\\phi} \\hat{\\phi} + \\dot{L}_{z} \\hat{k}\\]
+                    </div>`
                 },
                 {
-                    id: 5,
-                    title: "Ecuaciones en Derivadas Parciales",
-                    duration: "60 min",
-                    videoId: "VIDEO_ID_5",
-                    description: "Ecuación de Laplace, ecuación de onda y métodos de solución",
-                    subtopics: [
-                        {
-                            title: "Ecuación de Laplace",
-                            duration: "20 min",
-                            description: `<h3>Ecuación de Laplace</h3>
-                            
-                            <div class="math-content">
-                                \\[\\nabla^2 \\psi \\equiv \\sum_{i=1}^{d} \\frac{\\partial^2 \\psi}{\\partial x_i^2} = 0\\]
-                            </div>
-                            
-                            <h4>Condiciones de Contorno</h4>
-                            <ul>
-                                <li><strong>Dirichlet:</strong> \\(\\psi(x) = f(x) \\quad \\forall x \\in \\partial \\Omega\\)</li>
-                                <li><strong>Neumann:</strong> \\(\\mathbf{n} \\cdot \\nabla \\psi(x) = g(x) \\quad \\forall x \\in \\partial \\Omega\\)</li>
-                            </ul>
-                            
-                            <h4>Separación de Variables</h4>
-                            <div class="math-content">
-                                \\[\\psi(x, y, z) = X(x)Y(y)Z(z)\\]
-                                \\[\\frac{X''(x)}{X(x)} + \\frac{Y''(y)}{Y(y)} + \\frac{Z''(z)}{Z(z)} = 0\\]
-                            </div>`
-                        },
-                        {
-                            title: "Ecuación de Onda",
-                            duration: "20 min",
-                            description: `<h3>Ecuación de Onda</h3>
-                            
-                            <div class="math-content">
-                                \\[\\frac{\\partial^2 \\phi}{\\partial t^2} = c^2 \\nabla^2 \\phi\\]
-                                \\[c^2 = \\frac{T}{\\mu}\\]
-                            </div>
-                            
-                            <h4>Solución por Separación de Variables</h4>
-                            <div class="math-content">
-                                \\[\\phi(x, t) = X(x)T(t)\\]
-                                \\[X'' = -\\lambda X \\quad \\text{y} \\quad T'' = -c^2 \\lambda T\\]
-                                \\[\\phi(x, t) = \\sum_{n=1}^{\\infty} \\sin \\left( \\frac{n \\pi x}{L} \\right) \\left( A_n \\cos \\left( \\frac{n \\pi c t}{L} \\right) + B_n \\sin \\left( \\frac{n \\pi c t}{L} \\right) \\right)\\]
-                            </div>`
-                        },
-                        {
-                            title: "Transformada de Fourier",
-                            duration: "20 min",
-                            description: `<h3>Transformada de Fourier</h3>
-                            
-                            <div class="math-content">
-                                \\[\\tilde{f}(k) := \\int_{-\\infty}^{\\infty} e^{-ikx} f(x)  dx\\]
-                                \\[f(x) = \\frac{1}{2\\pi} \\int_{-\\infty}^{\\infty} e^{ikx} \\tilde{f}(k)  dk\\]
-                            </div>
-                            
-                            <h4>Propiedades</h4>
-                            <ul>
-                                <li>Linealidad: \\(\\mathcal{F}[c_1f + c_2g] = c_1 \\mathcal{F}[f] + c_2 \\mathcal{F}[g]\\)</li>
-                                <li>Desplazamiento: \\(\\mathcal{F}[f(x - a)] = e^{-ika} \\mathcal{F}[f]\\)</li>
-                                <li>Modulación: \\(\\mathcal{F}[e^{iax} f(x)] = \\tilde{f}(k - a)\\)</li>
-                                <li>Derivación: \\(\\mathcal{F}[f'(x)] = ik \\tilde{f}(k)\\)</li>
-                            </ul>
-                            
-                            <h4>Convolución</h4>
-                            <div class="math-content">
-                                \\[(f * g)(x) := \\int_{-\\infty}^{\\infty} f(x - y)g(y)  dy\\]
-                                \\[\\mathcal{F}[f * g] = \\tilde{f}(k) \\tilde{g}(k)\\]
-                            </div>`
-                        }
-                    ]
+                    title: "Coordenadas Esféricas",
+                    duration: "15 min",
+                    description: `<h3>Coordenadas Esféricas</h3>
+                    
+                    <h4>Vectores unitarios</h4>
+                    <div class="math-content">
+                        \\[\\hat{r}=\\sin\\ \\theta \\ \\cos\\ \\phi \\ \\hat{i} + \\sin\\ \\theta \\ \\sin\\ \\phi \\hat{j} + \\cos\\ \\theta \\ \\hat{k}\\]
+                        \\[\\hat{\\theta} = \\cos\\ \\theta \\ \\cos\\ \\phi \\ \\hat{i} + \\cos \\ \\theta \\ \\sin\\ \\phi \\ \\hat{j} -\\sin\\ \\theta \\ \\hat{k}\\]
+                        \\[\\hat{\\phi} = -\\sin \\ \\phi \\ \\hat{i} + \\cos \\ \\phi \\ \\hat{j}\\]
+                    </div>
+                    
+                    <h4>Posición</h4>
+                    <div class="math-content">
+                        \\[\\vec{r} = r \\hat{r} \\ \\ \\ \\cos \\ \\theta \\ = \\frac{z}{r} \\ \\Rightarrow \\ z = r \\cos \\ \\theta \\ \\ \\ \\ s = r\\sin\\ \\theta\\]
+                        \\[x = s\\cos \\ \\phi \\ = r\\sin\\ \\theta \\ \\cos \\ \\phi\\]
+                        \\[y = s \\sin\\ \\phi \\ = r \\sin \\ \\theta \\ \\sin \\ \\phi \\]
+                        \\[\\ \\ \\Rightarrow \\ \\vec{r} = r\\left(\\sin\\ \\theta \\ \\cos\\ \\phi \\ \\hat{i} + \\sin\\ \\theta \\ \\sin\\ \\phi \\hat{j} + \\cos\\ \\theta \\ \\hat{k} \\right) = r \\hat{r}\\]
+                        \\[r = \\sqrt{x^{2}+y^{2} +z^{2}}  \\ \\ \\theta= \\arctan\\left(\\frac{\\sqrt{x^{2}+y^{2}}}{z} \\right)\\]
+                        \\[\\phi = \\arctan\\left( \\frac{y}{x}\\right)\\]
+                    </div>
+                    
+                    <h4>Velocidad</h4>
+                    <div class="math-content">
+                        \\[\\vec{v} = \\dot{\\vec{r}} = \\dot{r}\\hat{r} + r\\dot{\\hat{r}}\\]
+                        \\[\\Rightarrow \\ \\vec{v} = \\dot{\\vec{r}} = \\dot{r} \\hat{r} + r\\sin\\ \\theta \\ \\dot{\\phi}\\hat{\\phi} + r\\dot{\\theta} \\hat{\\theta}\\]
+                        
+                        <p>Velocidad Angular:</p>
+                        \\[\\vec{\\omega} = \\dot{\\phi} \\hat{k} - \\dot{\\theta}\\sin\\ \\phi \\ \\hat{i} + \\dot{\\theta}\\cos\\ \\phi \\ \\hat{j} = \\dot{\\theta} \\hat{\\phi} +\\dot{\\phi} \\hat{k}\\]
+                        \\[=\\dot{\\phi}\\cos\\ \\theta \\ \\hat{r} - \\dot{\\phi}\\sin\\ \\theta \\ \\hat{\\theta} + \\dot{\\theta} \\hat{\\phi}\\]
+                    </div>
+                    
+                    <h4>Aceleración</h4>
+                    <div class="math-content">
+                        \\[\\vec{a} = \\left( \\ddot{r} - r \\dot{\\theta}^{2} - r\\sin^{2}\\ \\theta \\ \\dot{\\phi}^{2} \\right) \\hat{r} + \\left(r \\ddot{\\theta} + 2\\dot{r}\\dot{\\theta} - r\\sin\\ \\theta \\ \\cos \\ \\theta \\ \\dot{\\phi}^{2} \\right) \\hat{\\theta}\\]
+                        \\[+ \\left(r \\sin\\ \\theta \\ \\ddot{\\phi} + 2 \\dot{r}\\dot{\\phi}\\sin\\ \\theta \\ + 2r\\dot{\\theta}\\dot{\\phi} \\cos\\ \\theta \\ \\right) \\hat{\\phi}\\]
+                    </div>
+                    
+                    <h4>Momentum</h4>
+                    <div class="math-content">
+                        \\[\\vec{p} = m \\dot{\\vec{r}} = m\\dot{r} \\hat{r} + mr\\dot{\\phi}\\sin\\ \\theta \\ \\hat{\\phi} + mr\\dot{\\theta} \\hat{\\theta} = p_{r} \\hat{r} + p_{\\phi} \\hat{\\phi} + p_{\\theta} \\hat{\\theta}\\]
+                    </div>
+                    
+                    <h4>Momentum Angular</h4>
+                    <div class="math-content">
+                        \\[\\vec{L} = \\vec{r} \\times \\vec{p} = rp_{\\phi} \\hat{\\theta} - rp_{\\theta} \\hat{\\phi} = L_{\\phi}\\hat{\\theta} + L_{\\theta} \\hat{\\phi}\\]
+                    </div>`
+                },
+                {
+                    title: "Rotaciones",
+                    duration: "25 min",
+                    description: `<h3>Rotaciones</h3>
+                    <div class="math-content">
+                        <p>Rotación de vectores unitarios:</p>
+                        \\[\\hat{e}_{x} = \\cos \\ \\Psi \\ \\hat{e'}_{x} - \\sin \\ \\Psi \\ \\hat{e'}_{y}\\]
+                        \\[\\hat{e}_{y} = \\sin \\ \\Psi \\ \\hat{e'}_{x} + \\cos \\ \\Psi \\ \\hat{e'}_{y}\\]
+                        
+                        <p>Vector en el sistema rotado:</p>
+                        \\[\\vec{A} = A_{x}\\hat{e}_{x} + A_{y}\\hat{e}_{y}\\]
+                        \\[= \\left(A_{x}\\cos\\ \\Psi \\ + A_{y}\\sin\\ \\Psi \\ \\right)\\hat{e'}_{x}+ \\left(-A_{x}\\sin \\ \\Psi \\ + A_{y}\\cos\\ \\Psi \\  \\right)\\hat{e'}_{y}\\]
+                        \\[\\vec{A} = A'_{x} \\hat{e'}_{x} + A'_{y}\\hat{e'}_{y}\\]
+                        
+                        <h4>Forma Matricial</h4>
+                        \\[\\vec{A'} = \\begin{pmatrix}
+                            A'_{x} \\\\
+                            A'_{y}
+                        \\end{pmatrix} = \\begin{pmatrix}
+                            \\cos\\ \\varphi \\ & \\sin\\ \\varphi \\ \\\\
+                            -\\sin\\ \\varphi \\ & \\cos\\ \\varphi \\ 
+                        \\end{pmatrix} \\begin{pmatrix}
+                            A_{x} \\\\
+                            A_{y}
+                        \\end{pmatrix} \\Rightarrow \\vec{A'} = S \\vec{A}\\]
+                        
+                        <p>Para una notación en sentido contrario \\(\\varphi = -\\varphi\\):</p>
+                        \\[\\vec{A} = \\begin{pmatrix}
+                            A_{x} \\\\
+                            A_{y}
+                        \\end{pmatrix} = \\begin{pmatrix}
+                            \\cos\\ \\varphi \\ & -\\sin\\ \\varphi \\ \\\\
+                            \\sin\\ \\varphi \\ & \\cos\\ \\varphi \\
+                        \\end{pmatrix}\\begin{pmatrix}
+                            A_{x} \\\\
+                            A_{y}
+                        \\end{pmatrix} \\Rightarrow \\ \\vec{A} = S'A'\\]
+                        
+                        <h4>Propiedades de Matrices Ortogonales</h4>
+                        \\[\\vec{A} = SS'\\vec{A}, \\ \\ S'=S^{-1} \\ \\ S' = S^{T} \\text{ ortogonal}\\]
+                        \\[SS' = \\begin{pmatrix}
+                            1 & 0 \\\\
+                            0 & 1
+                        \\end{pmatrix} = \\textbf{1}_{2}\\]
+                        \\[\\vec{A'} = S(R')S(R)\\vec{A} = S(RR')\\vec{A}\\]
+                    </div>`
+                },
+                {
+                    title: "Proyecciones de vectores unitarios",
+                    duration: "20 min",
+                    description: `<h3>Proyecciones de Vectores Unitarios</h3>
+                    <div class="math-content">
+                        <p>Proyecciones de vectores unitarios:</p>
+                        \\[\\hat{e}_{x} = \\left(\\hat{e'}_{x} \\cdot \\hat{e}_{x} \\right) \\hat{e'}_{x} + \\left(\\hat{e'}_{y} \\cdot \\hat{e}_{x} \\right) \\hat{e'}_{y}\\]
+                        \\[\\hat{e}_{y} = \\left(\\hat{e'}_{x} \\cdot \\hat{e}_{y} \\right) \\hat{e'}_{x} + \\left(\\hat{e'}_{y} \\cdot \\hat{e}_{y} \\right) \\hat{e'}_{y}\\]
+                        
+                        <h4>Matriz de rotación mediante productos punto</h4>
+                        \\[S= \\begin{pmatrix}
+                            \\hat{e'}_{x} \\cdot \\hat{e}_{x} & \\hat{e'}_{x} \\cdot \\hat{y} \\\\
+                            \\hat{e'}_{y} \\cdot \\hat{e}_{x} & \\hat{e'}_{y} \\cdot \\hat{e}_{y}
+                        \\end{pmatrix}; \\ \\ \\ \\det(S) = 1\\]
+                        
+                        <h4>Invertir todos los ejes coordenados</h4>
+                        \\[S= \\begin{pmatrix}
+                            -1 & 0 & 0 \\\\
+                            0 & -1 & 0 \\\\
+                            0 & 0 & -1
+                        \\end{pmatrix}; \\ \\ \\ \\ \\det(S)=-1 \\ (\\text{reflexión})\\]
+                        
+                        <p>Propiedad general:</p>
+                        \\[S'= S^{T} \\ \\ \\ \\Rightarrow \\ \\det(S) = \\pm 1\\]
+                    </div>`
+                },
+                {
+                    title: "Rotaciones 3D",
+                    duration: "20 min",
+                    description: `<h3>Rotaciones 3D</h3>
+                    <div class="math-content">
+                        <p>Matriz de rotación general en 3D:</p>
+                        \\[S= \\begin{pmatrix}
+                            \\hat{e'}_{x}\\cdot \\hat{e}_{x} &\\hat{e'}_{x}\\cdot \\hat{e}_{y} & \\hat{e'}_{x}\\cdot \\hat{e}_{z} \\\\
+                            \\hat{e'}_{y}\\cdot \\hat{e}_{x} &\\hat{e'}_{y}\\cdot \\hat{e}_{y} & \\hat{e'}_{y}\\cdot \\hat{e}_{z} \\\\
+                            \\hat{e'}_{z}\\cdot \\hat{e}_{x} &\\hat{e'}_{z}\\cdot \\hat{e}_{y} & \\hat{e'}_{z}\\cdot \\hat{e}_{z}
+                        \\end{pmatrix}\\]
+                        
+                        <h4>Proyección</h4>
+                        <p>Proyección \\(\\hat{e'}_{\\mu}\\) en \\(\\hat{e}_{\\nu}\\):</p>
+                        \\[S_{\\mu \\nu} = \\hat{e'}_{\\mu} \\cdot \\hat{e}_{\\nu}\\]
+                        
+                        <p>Cambio en \\(x_{\\nu}\\) por un cambio unitario en \\(x'_{\\mu}\\):</p>
+                        \\[\\hat{e'}_{\\mu} \\cdot \\hat{e}_{\\nu} = \\frac{\\partial x_{\\nu}}{\\partial x'_{\\mu}} \\ \\ \\Rightarrow \\ \\ S= \\begin{pmatrix}
+                            \\frac{\\partial x_{1}}{\\partial x'_{1}} & \\frac{\\partial x_{2}}{\\partial x'_{1}} & \\frac{\\partial x_{3}}{\\partial x'_{1}} \\\\
+                            \\frac{\\partial x_{1}}{\\partial x'_{2}} & \\frac{\\partial x_{2} }{\\partial x'_{2}} & \\frac{\\partial x_{3}}{\\partial x'_{2}} \\\\
+                            \\frac{\\partial x_{1} }{\\partial x'_{3}} & \\frac{\\partial x_{2}}{\\partial x'_{3}} & \\frac{\\partial x_{3}}{\\partial x'_{3}}
+                        \\end{pmatrix}\\]
+                        
+                        <p>También podemos escribir:</p>
+                        \\[\\hat{e}_{\\nu} \\cdot \\hat{e'}_{\\mu} = \\frac{\\partial x'_{\\mu}}{\\partial x_{\\nu}}\\]
+                        \\[\\hat{e}_{\\nu} \\cdot \\hat{e'}_{\\mu} = \\hat{e'}_{\\mu} \\cdot \\hat{e}_{\\nu}\\]
+                        
+                        <h4>Condición para matriz ortogonal</h4>
+                        \\[\\Rightarrow \\ \\frac{\\partial x'_{\\mu}}{\\partial x_{\\nu}} = \\frac{\\partial x_{\\nu}}{\\partial x'_{\\mu}}\\]
+                    </div>`
+                },
+                {
+                    title: "Ángulos de Euler",
+                    duration: "25 min",
+                    description: `<h3>Ángulos de Euler</h3>
+                    <div class="math-content">
+                        <p><strong>Primera rotación:</strong> Rotación alrededor del eje \\(\\hat{e}_{3}\\) en sentido antihorario por un ángulo \\(\\alpha \\in [0, 2\\pi]\\)</p>
+                        <p>Nuevos ejes: \\(\\Rightarrow \\ \\ \\hat{e'}_{1}, \\ \\hat{e'}_{2}, \\ \\hat{e'}_{3}\\)</p>
+                        
+                        <p><strong>Segunda rotación:</strong> Rotación alrededor del eje \\(\\hat{e'}_{2}\\) en sentido antihorario por un ángulo \\(\\beta \\in [0, \\pi]\\)</p>
+                        <p>Nuevos ejes: \\(\\Rightarrow \\ \\hat{e''}_{1}, \\ \\hat{e''}_{2}, \\ \\hat{e''}_{3}\\)</p>
+                        
+                        <p><strong>Tercera rotación:</strong> Rotación alrededor del eje \\(\\hat{e''}_{3}\\) en sentido antihorario por un ángulo \\(\\gamma \\in [0, 2\\pi]\\)</p>
+                        <p>Nuevos ejes: \\(\\Rightarrow \\ \\hat{e'''}_{1}, \\ \\hat{e'''}_{2}, \\ \\hat{e'''}_{3}\\)</p>
+                        
+                        <h4>Matrices de rotación</h4>
+                        \\[S_{1}(\\alpha) = \\begin{pmatrix}
+                            \\cos\\ \\alpha \\ & \\sin \\alpha \\ & 0 \\\\
+                            -\\sin \\ \\alpha \\ & \\cos \\ \\alpha \\ & 0 \\\\
+                            0 & 0 & 1
+                        \\end{pmatrix}\\]
+                        
+                        \\[S_{2}(\\beta) = \\begin{pmatrix}
+                            \\cos \\ \\beta \\ & 0 & -\\sin\\ \\beta \\ \\\\
+                            0 & 1 & 0 \\\\
+                            \\sin \\ \\beta \\ & 0 & \\cos\\ \\beta \\
+                        \\end{pmatrix}\\]
+                        
+                        \\[S_{3}(\\gamma) = \\begin{pmatrix}
+                            \\cos \\ \\gamma \\ & \\sin \\ \\gamma \\ & 0 \\\\
+                            -\\sin \\ \\gamma \\ & \\cos \\ \\gamma \\ & 0 \\\\
+                            0 & 0 & 1
+                        \\end{pmatrix}\\]
+                        
+                        <h4>Grupos de rotaciones</h4>
+                        <ul>
+                            <li>Rotaciones/reflexiones en 2D y 3D: \\(O(2)\\) y \\(O(3)\\)</li>
+                            <li>Solamente rotación en 2D y 3D: \\(SO(2)\\) y \\(SO(3)\\)</li>
+                        </ul>
+                    </div>`
                 }
             ]
-        };
+        },
+        {
+            id: 2,
+            title: "Operadores Diferenciales Vectoriales",
+            duration: "120 min",
+            videoId: "dQw4w9WgXcQ",
+            description: "Gradiente, divergencia, rotor y laplaciano en coordenadas cartesianas",
+            subtopics: [
+                {
+                    title: "Cartesianas",
+                    duration: "10 min",
+                    description: `<h3>Coordenadas Cartesianas</h3>
+                    <div class="math-content">
+                        <p>Elemento de línea y volumen:</p>
+                        \\[d\\vec{l} = dx \\hat{i} + dy \\hat{j} + dz \\hat{k}\\]
+                        \\[d\\tau = dxdydz\\]
+                    </div>`
+                },
+                {
+                    title: "Gradiente",
+                    duration: "25 min",
+                    description: `<h3>Gradiente</h3>
+                    <div class="math-content">
+                        <p>Definición del gradiente:</p>
+                        \\[\\vec{\\nabla} \\varphi = \\frac{\\partial \\varphi}{\\partial x_{1}} \\hat{e}_{1} + \\frac{\\partial \\varphi}{\\partial x_{2}} \\hat{e}_{2} + \\frac{\\partial \\varphi}{\\partial x_{3}} \\hat{e}_{3}\\]
+                        
+                        <p>Operador nabla:</p>
+                        \\[\\vec{\\nabla} = \\frac{\\partial}{\\partial x_{1}} \\hat{e}_{1} + \\frac{\\partial }{\\partial x_{2}} \\hat{e}_{2} + \\frac{\\partial }{\\partial x_{3}} \\hat{e}_{3}\\]
+                        
+                        <p>Diferencial total:</p>
+                        \\[d \\varphi = \\frac{\\partial \\varphi}{\\partial x_{1} } dx_{1} + \\frac{\\partial \\varphi}{\\partial x_{2}}dx_{2} + \\frac{\\partial \\varphi}{\\partial x_{3}}dx_{3}\\]
+                        
+                        <p>La variación de \\(\\varphi\\) tiene su máxima cuando \\(\\nabla \\varphi\\) y \\(d\\vec{l}\\) son colineales:</p>
+                        \\[d \\varphi = \\left( \\vec{\\nabla} \\varphi \\right) \\cdot d\\vec{l}\\]
+                        
+                        <h4>Fuerza central</h4>
+                        \\[\\vec{\\nabla} r^{n} = nr^{n-1} \\hat{r}\\]
+                    </div>`
+                },
+                {
+                    title: "Divergencia",
+                    duration: "25 min",
+                    description: `<h3>Divergencia</h3>
+                    <div class="math-content">
+                        <p>Definición:</p>
+                        \\[\\vec{\\nabla } \\cdot \\vec{A} = \\frac{\\partial A_{x}}{\\partial x} + \\frac{\\partial A_{y}}{\\partial y} + \\frac{\\partial A_{z}}{ \\partial z}\\]
+                        
+                        <h4>Interpretación física</h4>
+                        \\[\\left\\{\\begin{matrix}
+                        0 \\rightarrow \\text{solenoidal (curvas cerradas)} \\\\ 
+                        (+) \\rightarrow \\text{fuente (sale)}\\\\
+                        (-) \\rightarrow \\text{sumidero (entra)}
+                        \\end{matrix}\\right.\\]
+                        
+                        <h4>Ecuación de continuidad</h4>
+                        \\[\\frac{\\partial \\rho}{\\partial t} + \\vec{\\nabla} \\cdot (\\rho \\vec{v}) = 0\\]
+                        
+                        <h4>Divergencia de fuerza central</h4>
+                        \\[\\vec{\\nabla} \\cdot f(r) \\hat{r} = 2\\frac{f(r)}{r} + \\frac{\\mathrm{d}f(r) }{\\mathrm{d} r}\\]
+                        
+                        <p>Para \\(f(r)=r^{n}\\):</p>
+                        \\[\\vec{\\nabla} \\cdot r^{n} \\hat{r} = 2r^{n-1} + nr^{n-1} = (n+2)r^{n-1}\\]
+                        
+                        <h4>Divergencia de un producto</h4>
+                        \\[\\vec{\\nabla} \\cdot (f \\vec{A}) = (\\vec{\\nabla} f) \\cdot \\vec{A} + f \\vec{\\nabla} \\cdot \\vec{A}\\]
+                    </div>`
+                },
+                {
+                    title: "Rotor",
+                    duration: "30 min",
+                    description: `<h3>Rotor</h3>
+                    <div class="math-content">
+                        <p>Definición:</p>
+                        \\[\\vec{\\nabla} \\times \\vec{A} = \\hat{e}_{x} \\left(\\frac{\\partial A_{z}}{\\partial y} - \\frac{\\partial A_{y}}{\\partial z}\\right) + \\hat{e}_{y} \\left(\\frac{\\partial A_{x}}{\\partial z} - \\frac{\\partial A_{z}}{\\partial x}\\right)\\]
+                        \\[+\\hat{e}_{z}\\left(\\frac{\\partial A_{y}}{\\partial x} - \\frac{\\partial A_{x}}{\\partial y}\\right)\\]
+                        
+                        <h4>Forma determinante</h4>
+                        \\[\\vec{\\nabla} \\times \\vec{A} = \\begin{vmatrix}
+                            \\hat{e}_{x} & \\hat{e}_{y} & \\hat{e}_{z} \\\\
+                            \\frac{\\partial}{\\partial x} & \\frac{\\partial }{\\partial y} & \\frac{\\partial }{\\partial z} \\\\
+                            A_{x} & A_{y} & A_{z}
+                        \\end{vmatrix}\\]
+                        
+                        <h4>Propiedades</h4>
+                        <p>Rotor de una fuerza central:</p>
+                        \\[\\vec{\\nabla} \\times \\left[f(r) \\hat{r}\\right] = 0\\]
+                        
+                        <p>Rotor de un producto:</p>
+                        \\[\\vec{\\nabla} \\times (f\\vec{A}) = f\\left(\\vec{\\nabla} \\times \\vec{A}\\right) + (\\vec{\\nabla} f)\\times \\vec{A}\\]
+                    </div>`
+                },
+                {
+                    title: "Laplaciano",
+                    duration: "30 min",
+                    description: `<h3>Laplaciano</h3>
+                    <div class="math-content">
+                        <p>Definición del laplaciano escalar:</p>
+                        \\[\\vec{\\nabla} \\cdot \\vec{\\nabla} \\varphi = \\nabla ^{2} \\varphi = \\frac{\\partial ^{2} \\varphi}{\\partial x^{2}} + \\frac{\\partial ^{2} \\varphi }{\\partial y^{2}} + \\frac{\\partial^{2} \\varphi }{ \\partial z^{2}}\\]
+                        
+                        <h4>Laplaciano de un campo vectorial</h4>
+                        \\[\\vec{\\nabla} \\times (\\vec{\\nabla} \\times \\vec{A}) = \\vec{\\nabla}(\\vec{\\nabla} \\cdot \\vec{A}) - \\vec{\\nabla} \\cdot \\vec{\\nabla} \\vec{A}\\]
+                        
+                        <h4>Gradiente de un producto escalar</h4>
+                        \\[\\vec{\\nabla} (\\vec{A} \\cdot \\vec{B}) = (\\vec{B} \\cdot \\vec{\\nabla}) \\vec{A} + (\\vec{A} \\cdot \\vec{\\nabla}) \\vec{B} + \\vec{B} \\times (\\vec{\\nabla} \\times \\vec{A}) + \\vec{A} \\times (\\vec{\\nabla} \\times \\vec{B})\\]
+                    </div>`
+                }
+            ]
+        },
+        {
+            id: 3,
+            title: "Integración Vectorial",
+            duration: "150 min",
+            videoId: "dQw4w9WgXcQ",
+            description: "Integrales de línea, superficie y volumen, teoremas fundamentales",
+            subtopics: [
+                {
+                    title: "Integrales de línea",
+                    duration: "25 min",
+                    description: `<h3>Integrales de Línea</h3>
+                    <div class="math-content">
+                        <p>Tipos de integrales de línea:</p>
+                        \\[\\int _{C} \\varphi d\\vec{r} \\ \\ \\ \\int _{C} \\vec{F} \\cdot d\\vec{r} \\ \\ \\ \\int_{C} \\vec{V} \\times d\\vec{r}\\]
+                        
+                        <h4>Integral escalar de línea</h4>
+                        \\[\\int_{C} \\varphi d\\vec{r} = \\hat{e}_{x} \\int_{C} \\varphi (x,y,z) dx + \\hat{e}_{y} \\int_{C} \\varphi (x,y,z) dy + \\hat{e}_{z} \\int_{C} \\varphi (x,y,z)dz\\]
+                        
+                        <h4>Integral vectorial de línea</h4>
+                        \\[\\int_{C} \\vec{F} \\cdot d\\vec{r} = \\int_{C} F_{x}(x,y,z) dx + \\int_{C} F_{y}(x,y,z) dy + \\int_{C} F_{z}(x,y,z)dz\\]
+                        
+                        <p>Curva cerrada:</p>
+                        \\[\\oint^{b} _{a } \\vec{F} \\cdot d\\vec{r}\\]
+                    </div>`
+                },
+                {
+                    title: "Integrales de superficie",
+                    duration: "25 min",
+                    description: `<h3>Integrales de Superficie</h3>
+                    <div class="math-content">
+                        <p>Tipos de integrales de superficie:</p>
+                        \\[\\int_{\\Sigma} \\varphi d\\vec{\\sigma} \\ \\ \\ \\int_{\\Sigma} \\vec{F} \\cdot d\\vec{\\sigma} \\ \\ \\ \\int_{\\Sigma} \\vec{V} \\times d\\vec{\\sigma}\\]
+                        
+                        <p>Elemento de superficie:</p>
+                        \\[d\\vec{\\sigma} = \\hat{n}dA\\]
+                        
+                        <p>Superficie cerrada:</p>
+                        \\[\\oint _ {\\Sigma} \\vec{F} \\cdot d\\vec{\\sigma}\\]
+                    </div>`
+                },
+                {
+                    title: "Integrales de Volumen",
+                    duration: "20 min",
+                    description: `<h3>Integrales de Volumen</h3>
+                    <div class="math-content">
+                        <p>Notaciones equivalentes:</p>
+                        \\[\\int_ {V} \\vec{V}d\\tau \\ \\ \\ \\int_{V} \\vec{V} d^{3}x \\ \\ \\ \\int_{V} \\vec{V} d^{3}r\\]
+                        
+                        <p>Forma vectorial:</p>
+                        \\[\\int_{V} \\vec{V} d\\tau = \\hat{e}_{x} \\int_{V} V_{x}d\\tau + \\hat{e}_{y} \\int_{V} V_{y}d\\tau + \\hat{e}_{z} \\int _{V} V_{z}d\\tau\\]
+                    </div>`
+                },
+                {
+                    title: "Teorema de Gauss (Divergencia)",
+                    duration: "25 min",
+                    description: `<h3>Teorema de Gauss (Divergencia)</h3>
+                    <div class="math-content">
+                        <p>Teorema fundamental:</p>
+                        \\[\\oint _{\\partial V} \\vec{A} \\cdot \\mathrm{d}\\vec{\\sigma} = \\int _{V} \\vec{\\nabla} \\cdot \\vec{A} \\mathrm{d}\\tau\\]
+                        
+                        <p>Este teorema relaciona la integral de flujo sobre una superficie cerrada con la integral de volumen de la divergencia.</p>
+                    </div>`
+                },
+                {
+                    title: "Teorema de Green (Corolario de Gauss)",
+                    duration: "20 min",
+                    description: `<h3>Teorema de Green (Corolario de Gauss)</h3>
+                    <div class="math-content">
+                        <p>Con \\(u\\) y \\(v\\) escalares, tenemos las identidades:</p>
+                        \\[\\vec{\\nabla} \\cdot (u \\vec{\\nabla}v) = u \\nabla ^{2} v + (\\nabla v) \\cdot (\\nabla u)\\]
+                        \\[\\vec{\\nabla} \\cdot (v \\vec{\\nabla} u) = v\\nabla ^{2}u + (\\vec{\\nabla} u) \\cdot (\\vec{\\nabla}v)\\]
+                        
+                        <h4>Teorema de Green</h4>
+                        \\[\\Rightarrow \\ \\int_{V} (u \\nabla^{2}v - v \\nabla^{2}u)d\\tau = \\oint_{\\partial V} (u\\vec{\\nabla}v - v\\vec{\\nabla} u) \\cdot d\\vec{\\sigma}\\]
+                        
+                        <h4>Forma alternativa del teorema de Gauss</h4>
+                        \\[\\Rightarrow \\ \\oint _{\\partial V} u \\vec{\\nabla}v \\cdot d\\vec{\\sigma} = \\int_{V} u \\nabla ^{2}v d\\tau + \\int_{V} \\vec{\\nabla}u \\cdot \\vec{\\nabla}v d\\tau\\]
+                        
+                        <h4>Forma 2D</h4>
+                        \\[\\oint_{C} Mdx + Ndy = \\int_{\\Sigma } \\left(\\frac{\\partial N}{\\partial x} - \\frac{\\partial M}{\\partial y}\\right)d\\sigma\\]
+                    </div>`
+                },
+                {
+                    title: "Teorema de Gauss aplicado a un gradiente",
+                    duration: "15 min",
+                    description: `<h3>Teorema de Gauss Aplicado a un Gradiente</h3>
+                    <div class="math-content">
+                        \\[\\oint_{\\partial V} B d\\vec{\\sigma} = \\int_{V} \\vec{\\nabla} B d\\tau\\]
+                    </div>`
+                },
+                {
+                    title: "Teorema de Gauss aplicado a un rotor",
+                    duration: "15 min",
+                    description: `<h3>Teorema de Gauss Aplicado a un Rotor</h3>
+                    <div class="math-content">
+                        \\[\\oint _{\\partial V} d\\vec{\\sigma} \\times \\vec{P} = \\int_{V} \\vec{\\nabla} \\times \\vec{P} d\\tau\\]
+                    </div>`
+                },
+            ]
+
+        
+        }
+    ]
+    };
+        
 
         // Función para inicializar el curso
         function initCourse() {
