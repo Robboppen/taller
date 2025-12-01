@@ -19,7 +19,7 @@
         
         header {
             position: relative;
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1699720885574-4e83b4ff3b11?q=80&w=2950&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://static.scientificamerican.com/sciam/assets/Image/tng50_galaxy_evolution.gif');
             background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -892,10 +892,2692 @@
                     </div>`
                 },
             ]
-
+        },
         
+        {
+            id: 4,
+            title: "Coordenadas Curvilíneas",
+            duration: "180 min",
+            videoId: "dQw4w9WgXcQ",
+            description: "Sistemas de coordenadas curvilíneas ortogonales y operadores diferenciales",
+            subtopics: [
+                {
+                    title: "Introducción a Coordenadas Curvilíneas",
+                    duration: "25 min",
+                    description: `<h3>Coordenadas Curvilíneas</h3>
+                    <div class="math-content">
+                        <p>Coordenadas ortonormales en \\(\\mathbb{R}^{3}\\):</p>
+                        \\[dx = \\frac{\\partial x}{\\partial q_{1}} dq_{1} + \\frac{\\partial x}{\\partial q_{2}}dq_{2} + \\frac{\\partial x}{\\partial q_{3}} dq_{3}\\]
+                        
+                        \\[dr = \\left(dx\\right)^{2} + \\left(dy\\right)^{2} + \\left(dz\\right)^{2}\\]
+                        
+                        <h4>Métrica Riemanniana</h4>
+                        \\[\\left(dx \\right )^{2} = \\sum_{ij}\\frac{\\partial x}{\\partial q_{i}} \\frac{\\partial x}{\\partial q_{j}} dq_{i}dq_{j}\\]
+                        \\[\\left(dy \\right )^{2} = \\sum_{ij}\\frac{\\partial y}{\\partial q_{i}} \\frac{\\partial y}{\\partial q_{j}} dq_{i}dq_{j}\\]
+                        \\[\\left(dz \\right )^{2} = \\sum_{ij}\\frac{\\partial z}{\\partial q_{i}} \\frac{\\partial z}{\\partial q_{j}} dq_{i}dq_{j}\\]
+                        
+                        \\[(dr)^{2} = \\sum_{ij}g_{ij}dq_{i}dq_{j}\\]
+                        
+                        <p>Tensor métrico \\(g_{ij}\\) (producto punto en dirección \\(dq_{i}\\) con \\(dq_{j}\\)):</p>
+                        \\[g_{ij}(q_{1},q_{2},q_{3}) = \\frac{\\partial x}{\\partial q_{i}} \\frac{\\partial x}{\\partial q_{j}} + \\frac{\\partial y}{\\partial q_{i}} \\frac{\\partial y}{\\partial q_{j}} + \\frac{\\partial z}{\\partial q_{i}} \\frac{\\partial z}{\\partial q_{j}}\\]
+                        
+                        <p>Producto punto generalizado:</p>
+                        \\[\\vec{A} \\cdot \\vec{B} = \\sum_{ij}g_{ij}A_{i}B_{j}\\]
+                        
+                        <p>Para coordenadas cartesianas:</p>
+                        \\[g = \\begin{pmatrix}
+                            1 & 0 & 0 \\\\
+                            0 & 1 & 0 \\\\
+                            0 & 0 & 1
+                        \\end{pmatrix}\\]
+                    </div>`
+                },
+                {
+                    title: "Sistema Ortogonal de Coordenadas",
+                    duration: "20 min",
+                    description: `<h3>Sistema Ortogonal de Coordenadas</h3>
+                    <div class="math-content">
+                        <p>En un sistema ortogonal, la métrica es diagonal:</p>
+                        \\[\\left(d \\vec{r}\\right)^{2} = (h_{1}dq_{1})^{2} + (h_{2}dq_{2})^{2} +(h_{3}dq_{3})^{2}\\]
+                        
+                        <p>Factores de escala:</p>
+                        \\[h^{2}_{i} = \\left(\\frac{\\partial x}{\\partial q_{i}}\\right)^{2} + \\left(\\frac{\\partial y}{\\partial q_{i}}\\right)^{2} + \\left(\\frac{\\partial z}{\\partial q_{i}}\\right)^{2}\\]
+                        
+                        <p>Métrica diagonal:</p>
+                        \\[g = \\text{diag}(h^{2}_{1}, h^{2}_{2}, h^{2}_{3})\\]
+                        
+                        <p>Elementos de longitud:</p>
+                        \\[dr_{i} = h_{i}dq_{i}\\]
+                        \\[\\frac{\\partial \\vec{r}}{\\partial q_{i}} = h_{i}\\hat{e}_{i}\\]
+                        
+                        <p>Vector diferencial de posición:</p>
+                        \\[d\\vec{r} = h_{1}dq_{1}\\hat{e}_{1} + h_{2}dq_{2}\\hat{e}_{2} + h_{3}dq_{3} \\hat{e}_{3}\\]
+                    </div>`
+                },
+                {
+                    title: "Coordenadas Cilíndricas - Definición",
+                    duration: "20 min",
+                    description: `<h3>Coordenadas Cilíndricas</h3>
+                    <div class="math-content">
+                        <p>Vectores unitarios:</p>
+                        \\[\\hat{e}_{\\rho} = \\hat{s}, \\ \\ \\ \\hat{e}_{\\varphi} = \\hat{\\phi}, \\ \\ \\ \\hat{e}_{z} = \\hat{k}\\]
+                        
+                        <p>Rango de variables:</p>
+                        \\[0 \\leq \\rho < \\infty, \\ \\ \\ 0 \\leq \\varphi < 2\\pi, \\ \\ \\ -\\infty < z < \\infty\\]
+                        
+                        <p>Relación con cartesianas:</p>
+                        \\[\\rho = \\sqrt{x^{2} + y^{2}}\\]
+                        \\[x = \\rho\\cos\\ \\varphi, \\ \\ \\ y = \\rho \\sin\\ \\varphi\\]
+                        
+                        <p>Vector en cilíndricas:</p>
+                        \\[\\vec{V} = V_{\\rho}\\hat{e}_{\\rho} + V_{\\varphi}\\hat{e}_{\\varphi} + V_{z} \\hat{e}_{z}\\]
+                        
+                        <p>Factores de escala:</p>
+                        \\[h_{\\rho}=1, \\ \\ \\ h_{\\varphi}=\\rho, \\ \\ \\ h_{z}=1\\]
+                    </div>`
+                },
+                {
+                    title: "Operadores Diferenciales en Cilíndricas",
+                    duration: "30 min",
+                    description: `<h3>Operadores Diferenciales en Coordenadas Cilíndricas</h3>
+                    <div class="math-content">
+                        <h4>Elementos diferenciales</h4>
+                        \\[d\\vec{r} = d\\rho \\hat{e}_{\\rho} + \\rho d\\varphi \\hat{e}_{\\varphi} + dz\\hat{e}_{z}\\]
+                        \\[d\\vec{\\sigma} = \\rho d\\varphi dz \\hat{e}_{\\rho} + d\\rho dz \\hat{e}_{\\varphi} + \\rho d\\rho d\\varphi \\hat{e}_{z}\\]
+                        \\[d\\tau = \\rho d\\rho d\\varphi dz\\]
+                        
+                        <h4>Gradiente</h4>
+                        \\[\\vec{\\nabla} \\psi (\\rho, \\varphi, z) = \\frac{\\partial \\psi}{\\partial \\rho} \\hat{e}_{\\rho} + \\frac{1}{\\rho} \\frac{\\partial \\psi}{\\partial \\varphi} \\hat{e}_{\\varphi} + \\frac{\\partial \\psi}{\\partial z} \\hat{e}_{z}\\]
+                        
+                        <h4>Divergencia</h4>
+                        \\[\\vec{\\nabla}\\cdot \\vec{\\psi} = \\frac{1}{\\rho} \\frac{\\partial}{\\partial \\rho}(\\rho \\psi _{\\rho}) + \\frac{1}{\\rho} \\frac{\\partial \\psi_{\\varphi}}{\\partial \\varphi} + \\frac{\\partial \\psi_{z}}{\\partial z}\\]
+                        
+                        <h4>Laplaciano</h4>
+                        \\[\\nabla ^{2} \\psi = \\frac{1}{\\rho} \\frac{\\partial}{\\partial \\rho } \\left(\\rho\\frac{\\partial \\psi}{\\partial \\rho} \\right) + \\frac{1}{\\rho ^{2}} \\frac{\\partial ^{2}\\psi}{\\partial \\varphi ^{2}} + \\frac{\\partial ^{2} \\psi}{\\partial z^{2}}\\]
+                        
+                        <h4>Rotor</h4>
+                        \\[\\vec{\\nabla} \\times \\vec{\\psi} = \\frac{1}{\\rho} \\begin{vmatrix}
+                            \\hat{e}_{\\rho} & \\rho\\hat{e}_{\\varphi}&\\hat{e}_{z} \\\\
+                            \\frac{\\partial}{\\partial \\rho}& \\frac{\\partial}{\\partial \\varphi} & \\frac{\\partial}{\\partial z} \\\\
+                            \\psi _{\\rho}& \\rho\\psi _{\\varphi} & \\psi _{z}
+                        \\end{vmatrix}\\]
+                        
+                        \\[= \\left [ \\frac{1}{\\rho} \\frac{\\partial \\psi_{z}}{\\partial \\varphi} - \\frac{\\partial\\psi _{\\varphi}}{\\partial z} \\right ]\\hat{e}_{\\rho} + \\left [ \\frac{\\partial \\psi_{\\rho}}{\\partial z} - \\frac{\\partial \\psi_{z}}{\\partial \\rho}\\right ]\\hat{e}_{\\varphi}\\]
+                        \\[+\\frac{1}{\\rho}\\left [ \\frac{\\partial}{\\partial \\rho} (\\rho \\psi_{\\varphi}) - \\frac{\\partial \\psi_{\\rho}}{\\partial \\varphi} \\right ]\\hat{e}_{z}\\]
+                    </div>`
+                },
+                {
+                    title: "Coordenadas Esféricas - Definición",
+                    duration: "20 min",
+                    description: `<h3>Coordenadas Esféricas</h3>
+                    <div class="math-content">
+                        <p>Rango de variables:</p>
+                        \\[0 \\leq r < \\infty, \\ \\ \\ 0 \\leq \\theta \\leq \\pi, \\ \\ \\ 0 \\leq \\varphi < 2\\pi\\]
+                        
+                        <p>Relación con cartesianas:</p>
+                        \\[r=\\sqrt{x^{2}+y^{2}+z^{2}}\\]
+                        \\[\\theta = \\arccos\\left(\\frac{z}{r}\\right)\\]
+                        \\[\\varphi = \\arctan\\left(\\frac{y}{x}\\right)\\]
+                        
+                        <p>Transformación inversa:</p>
+                        \\[x = r\\sin\\ \\theta \\ \\cos\\ \\varphi\\]
+                        \\[y = r \\sin\\ \\theta \\ \\sin\\ \\varphi\\]
+                        \\[z = r \\cos\\ \\theta\\]
+                        
+                        <p>Factores de escala:</p>
+                        \\[h_{r}=1, \\ \\ \\ h_{\\theta}=r, \\ \\ \\ h_{\\varphi}=r\\sin\\theta\\]
+                    </div>`
+                },
+                {
+                    title: "Operadores Diferenciales en Esféricas",
+                    duration: "35 min",
+                    description: `<h3>Operadores Diferenciales en Coordenadas Esféricas</h3>
+                    <div class="math-content">
+                        <h4>Elementos diferenciales</h4>
+                        \\[d\\vec{r}= dr \\hat{e}_{r} + rd\\theta \\hat{e}_{\\theta} + r\\sin \\theta \\ d\\varphi \\hat{e}_{\\varphi}\\]
+                        \\[d\\vec{\\sigma}=r^{2}\\sin\\theta d\\theta d\\varphi \\hat{e}_{r} + r\\sin\\theta drd\\varphi \\hat{e}_{\\theta} + rdrd\\theta \\hat{e}_{\\varphi}\\]
+                        \\[d\\tau =r^{2}\\sin\\theta dr d\\theta d\\varphi\\]
+                        
+                        <h4>Gradiente</h4>
+                        \\[\\vec{\\nabla} \\psi (r,\\theta, \\varphi) = \\frac{\\partial \\psi}{\\partial r} \\hat{e}_{r} + \\frac{1}{r} \\frac{\\partial \\psi}{\\partial \\theta} \\hat{e}_{\\theta} + \\frac{1}{r\\sin\\ \\theta} \\frac{\\partial \\psi}{\\partial \\varphi} \\hat{e}_{\\varphi}\\]
+                        
+                        <h4>Divergencia</h4>
+                        \\[\\vec{\\nabla} \\cdot \\vec{V} = \\frac{1}{r^{2}\\sin \\theta} \\left \\{ \\sin\\theta\\frac{\\partial}{\\partial r} (r^{2}V_{r}) + r\\frac{\\partial}{\\partial \\theta} \\left(\\sin\\theta V_{\\theta}\\right) + r \\frac{\\partial V_{\\varphi}}{\\partial \\varphi} \\right \\}\\]
+                        
+                        <h4>Laplaciano</h4>
+                        \\[\\nabla ^{2} \\psi = \\frac{1}{r^{2}} \\frac{\\partial}{\\partial r}\\left(r^{2} \\frac{\\partial \\psi}{\\partial r}\\right) + \\frac{1}{r^{2}\\sin\\theta} \\frac{\\partial}{\\partial \\theta}\\left(\\sin\\theta \\frac{\\partial \\psi}{\\partial \\theta}\\right) + \\frac{1}{r^{2}\\sin^{2}\\theta} \\frac{\\partial ^{2} \\psi}{\\partial \\varphi ^{2}}\\]
+                        
+                        <h4>Rotor</h4>
+                        \\[\\vec{\\nabla} \\times \\vec{V} = \\frac{1}{r\\sin\\theta} \\left \\{ \\frac{\\partial}{\\partial \\theta}(\\sin\\theta V_{\\varphi}) - \\frac{\\partial V_{\\theta}}{\\partial \\varphi}  \\right \\} \\hat{e}_{r}\\]
+                        \\[+\\frac{1}{r} \\left \\{ \\frac{1}{\\sin \\theta} \\frac{\\partial V_{r}}{\\partial \\varphi} - \\frac{\\partial }{\\partial r}(rV_{\\varphi}) \\right \\} \\hat{e}_{\\theta}\\]
+                        \\[+ \\frac{1}{r}\\left \\{ \\frac{\\partial}{\\partial r} (rV_{\\theta}) - \\frac{\\partial V_{r}}{\\partial \\theta} \\right \\} \\hat{e}_{\\varphi}\\]
+                    </div>`
+                },
+                {
+                    title: "Integrales en Coordenadas Curvilíneas",
+                    duration: "30 min",
+                    description: `<h3>Integrales en Coordenadas Curvilíneas</h3>
+                    <div class="math-content">
+                        <h4>Integral de línea</h4>
+                        \\[\\int _{C}\\vec{V} \\cdot d\\vec{r} = \\sum _{i} \\int _{C} V_{i}h_{i}dq_{i}\\]
+                        
+                        <h4>Integrales de superficie</h4>
+                        \\[\\int _{\\Sigma} \\vec{V} \\cdot d\\vec{\\sigma} = \\int_{\\Sigma} V_{1}h_{2}h_{3}dq_{2}dq_{3} + \\int_{\\Sigma}V_{2}h_{3}h_{1}dq_{3}dq_{1}\\]
+                        \\[+ \\int _{\\Sigma}V_{3}h_{1}h_{2}dq_{1}dq_{2}\\]
+                        
+                        <h4>Integrales de volumen</h4>
+                        \\[\\int_{V}\\varphi (q_{1},q_{2},q_{3})h_{1}h_{2}h_{3}dq_{1}dq_{2}dq_{3}\\]
+                    </div>`
+                },
+                {
+                    title: "Delta de Kronecker",
+                    duration: "15 min",
+                    description: `<h3>Delta de Kronecker</h3>
+                    <div class="math-content">
+                        <p>Definición:</p>
+                        \\[\\delta _{ij} = \\left\\{\\begin{matrix}
+                        0 & i \\neq j \\\\ 
+                        1 & i = j 
+                        \\end{matrix}\\right.\\]
+                        
+                        <h4>Propiedades</h4>
+                        <p>Simetría:</p>
+                        \\[\\delta_{ij} = \\delta_{ji}\\]
+                        
+                        <p>Contracción:</p>
+                        \\[\\delta_{ij} \\delta_{jk} = \\delta_{ik}\\]
+                        
+                        <h4>Producto Punto con notación de índices</h4>
+                        \\[\\vec{v} = v_{1}\\hat{e}_{1} + v_{2}\\hat{e}_{2} + v_{3} \\hat{e}_{3} = \\sum^{3}_{j=1}v_{j} \\hat{e}_{j} = v_{j} \\hat{e}_{j}\\]
+                    </div>`
+                },
+                {
+                    title: "Símbolo de Levi-Civita",
+                    duration: "20 min",
+                    description: `<h3>Símbolo de Levi-Civita (Permutación)</h3>
+                    <div class="math-content">
+                        <h4>Propiedades de permutación cíclica</h4>
+                        \\[\\epsilon _{ijk} = \\epsilon _{jki} = \\epsilon _{kij}\\]
+                        
+                        <p>Antisimetría:</p>
+                        \\[\\epsilon _{ijk} = -\\epsilon_{ikj} = -\\epsilon_{kji} =-\\epsilon_{jik}\\]
+                        
+                        <h4>Relación con Delta de Kronecker</h4>
+                        \\[\\epsilon _{ijk} = \\epsilon _{ljk} \\delta_{li} = \\epsilon_{lmk} \\delta_{li} \\delta_{mj} = \\epsilon_{lmn} \\delta_{li} \\delta_{mj} \\delta_{nk}\\]
+                        
+                        <p>Contracción importante:</p>
+                        \\[\\epsilon_{ijk}\\cdot \\epsilon_{pqk}= \\delta_{ip}\\delta_{jq}-\\delta_{iq}\\delta_{jp}\\]
+                        
+                        <h4>Forma determinante</h4>
+                        \\[\\epsilon_{ijk} = \\begin{vmatrix}
+                            \\delta_{1i} & \\delta_{2i} & \\delta_{3i} \\\\
+                            \\delta_{1j} & \\delta_{2j} & \\delta_{3j} \\\\
+                            \\delta_{1k} & \\delta_{2k} & \\delta_{3k}
+                        \\end{vmatrix}\\]
+                    </div>`
+                },
+                {
+                    title: "Identidades Vectoriales - Parte I",
+                    duration: "25 min",
+                    description: `<h3>Identidades Vectoriales - Parte I</h3>
+                    <div class="math-content">
+                        <h4>Gradiente de productos</h4>
+                        \\[\\vec{\\nabla}(fg)=f\\vec{\\nabla}g + g\\vec{\\nabla}f\\]
+                        
+                        \\[\\vec{\\nabla}(\\vec{A} \\cdot \\vec{B}) = \\vec{A} \\times (\\vec{\\nabla} \\times \\vec{B}) + \\vec{B} \\times (\\vec{\\nabla} \\times \\vec{A})\\]
+                        \\[+ (\\vec{A} \\cdot \\vec{\\nabla})\\vec{B} + (\\vec{B} \\cdot \\vec{\\nabla})\\vec{A}\\]
+                        
+                        <h4>Divergencia de productos</h4>
+                        \\[\\vec{\\nabla} \\cdot (f\\vec{A}) = f(\\vec{\\nabla} \\cdot \\vec{A}) + \\vec{A} \\cdot (\\vec{\\nabla}f)\\]
+                        
+                        \\[\\vec{\\nabla} \\cdot(\\vec{A} \\times \\vec{B}) = \\vec{B} \\cdot(\\vec{\\nabla} \\times \\vec{A}) - \\vec{A} \\cdot (\\vec{\\nabla} \\times \\vec{B})\\]
+                    </div>`
+                },
+                {
+                    title: "Identidades Vectoriales - Parte II",
+                    duration: "30 min",
+                    description: `<h3>Identidades Vectoriales - Parte II</h3>
+                    <div class="math-content">
+                        <h4>Rotor de productos</h4>
+                        \\[\\vec{\\nabla} \\times (f \\vec{A}) = f(\\vec{\\nabla} \\times \\vec{A}) - \\vec{A} \\times (\\vec{\\nabla}f)\\]
+                        
+                        \\[\\vec{\\nabla} \\times (\\vec{A} \\times \\vec{B}) = (\\vec{B} \\cdot \\vec{\\nabla})\\vec{A} - (\\vec{A} \\cdot \\vec{\\nabla}) \\vec{B}\\]
+                        \\[+ \\vec{A}(\\vec{\\nabla} \\cdot \\vec{B}) - \\vec{B}(\\vec{\\nabla} \\cdot \\vec{A})\\]
+                        
+                        <h4>Identidad del producto triple vectorial</h4>
+                        \\[\\vec{v} \\times (\\vec{v} \\times \\vec{r}) = (\\vec{v} \\cdot \\vec{r})\\vec{v} - (\\vec{v} \\cdot \\vec{v})\\vec{r}\\]
+                        
+                        <h4>Laplaciano de productos</h4>
+                        \\[\\vec{\\nabla} \\cdot (f \\vec{\\nabla} g) = \\vec{\\nabla}f \\cdot \\vec{\\nabla}g + f \\nabla^{2}g\\]
+                        
+                        <p>Conmutatividad del gradiente:</p>
+                        \\[\\vec{\\nabla}f \\cdot \\vec{\\nabla}g = \\vec{\\nabla}g \\cdot \\vec{\\nabla} f\\]
+                    </div>`
+                }
+            ]
+        },
+        {
+            id: 5,
+            title: "Análisis Tensorial",
+            duration: "200 min",
+            videoId: "dQw4w9WgXcQ",
+            description: "Introducción a tensores, clasificación y transformaciones",
+            subtopics: [
+            {
+                    title: "Clasificación de Tensores",
+                    duration: "20 min",
+                    description: `<h3>Clasificación</h3>
+                    <div class="math-content">
+                        <h4>Escalar</h4>
+                        <p>Una cantidad invariante bajo rotaciones del sistema de coordenadas. Rango 0</p>
+                        
+                        <h4>Vector</h4>
+                        <p>\\(N\\) números (donde \\(N=D\\), dimensionalidad del espacio) que transforman en una manera especificada bajo rotaciones. Rango 1</p>
+                        
+                        <h4>Tensor</h4>
+                        <p>De rango \\(n\\): objeto con \\(n\\) índices que transforma en una manera especificada bajo rotaciones</p>
+                    </div>`
+                },
+                {
+                    title: "Tensores Covariante y Contravariante",
+                    duration: "35 min",
+                    description: `<h3>Tensores Covariante y Contravariante</h3>
+                    <div class="math-content">
+                        <h4>Vector transformado</h4>
+                        <p>Bajo rotación, donde los coeficientes corresponden a las proyecciones de \\(\\hat{e}'_{i}\\) en las direcciones \\(\\hat{e}_{j}\\):</p>
+                        \\[A'_{i} = \\sum_{j}\\left(\\hat{e}'_{i} \\cdot \\hat{e}'_{j}\\right)A_{j}\\]
+                        \\[A'_{i} = \\sum_{j} \\frac{\\partial x'_{j}}{\\partial x_{j}}A_{j}\\]
+                        
+                        <h4>Gradiente de un escalar</h4>
+                        \\[\\left( \\vec{\\nabla} \\varphi \\right)'_{i} \\equiv \\frac{\\partial \\varphi}{\\partial x'_{i}}\\hat{e}_{j}\\]
+                        
+                        <p>En un sistema girado:</p>
+                        \\[\\left( \\vec{\\nabla} \\varphi \\right)'_{i} \\equiv \\frac{\\partial \\varphi }{\\partial x'_{i}} = \\sum_{j} \\frac{\\partial x_{j}}{\\partial x'_{i}} \\frac{\\partial \\varphi}{\\partial x_{j}}\\]
+                        
+                        <h4>Tensor Contravariante</h4>
+                        \\[(A')^{i} = \\sum_{j}\\frac{\\partial (x')^{i}}{\\partial x^{j}}A^{j}\\]
+                        
+                        <h4>Tensor Covariante</h4>
+                        \\[A'_{i} = \\sum_{j}\\frac{\\partial x^{j}}{\\partial (x')^{i}}A_{j}\\]
+                    </div>`
+                },
+                {
+                    title: "Tensores de Rango 2",
+                    duration: "25 min",
+                    description: `<h3>Tensores de Rango 2</h3>
+                    <div class="math-content">
+                        <h4>Tensor Contravariante</h4>
+                        \\[(A')^{ij}=\\sum_{kl}\\frac{\\partial (x')^{i}}{\\partial x^{k}} \\frac{\\partial (x')^{j}}{\\partial x^{l}} A^{kl}\\]
+                        
+                        <h4>Tensor Mixto</h4>
+                        \\[(B')^{i}_{j} = \\sum_{kl} \\frac{\\partial (x')^{i}}{\\partial x^{k}} \\frac{\\partial x^{l}}{\\partial (x')^{j}} B^{k}_{l}\\]
+                        
+                        <h4>Tensor Covariante</h4>
+                        \\[(C')_{ij}=\\sum_{kl}\\frac{\\partial x^{k}}{\\partial (x')^{i}} \\frac{\\partial x^{l}}{\\partial (x')^{j}} C_{kl}\\]
+                        
+                        <h4>Representación matricial</h4>
+                        <p>Un tensor de rango 2 se puede representar como un arreglo dimensional:</p>
+                        \\[A = \\begin{pmatrix}
+                            A_{11} & A_{12} & A_{13} \\\\
+                            A_{21} & A_{22} & A_{23} \\\\
+                            A_{31} & A_{32} & A_{33}
+                        \\end{pmatrix}\\]
+                    </div>`
+                },
+                {
+                    title: "Transformación de Similitud",
+                    duration: "10 min",
+                    description: `<h3>Transformación de Similitud</h3>
+                    <div class="math-content">
+                        <p>Reglas de transformación se pueden representar como ecuaciones matriciales:</p>
+                        \\[(A')^{ij} = \\sum_{kl}S_{ik}A^{kl}(S^{T})_{lj}\\]
+                        \\[A' = SAS^{T}\\]
+                    </div>`
+                }
+            ]
+        },
+        {
+            id: 6,
+            title: "Algebra Lineal",
+            duration: "120 min",
+            videoId: "dQw4w9WgXcQ",
+            description: "Teoría de determinantes, propiedades y desarrollo laplaciano",
+            subtopics: [
+                {
+                    title: "Definiciones Básicas",
+                    duration: "30 min",
+                    description: `<h3>Definiciones</h3>
+                    <div class="math-content">
+                        <h4>Índices</h4>
+                        <p>\\(M_{ij}\\), donde \\(i\\) es la fila y \\(j\\) es la columna.</p>
+                        
+                        <h4>Permutaciones</h4>
+                        <p>\\(n\\) elementos (e.g. \\(1, 2, 3, \\ldots, n\\)) tienen \\(n!\\) permutaciones.</p>
+                        <p>Se puede obtener cualquier permutación por una sucesión de intercambios por pares. El número de intercambios será par o impar.</p>
+                        
+                        <h4>Símbolo de Levi-Civita</h4>
+                        \\[\\epsilon_{ij\\ldots} =
+                        \\begin{cases}
+                        +1 & \\text{si } ij\\ldots \\text{ es permutación par} \\\\
+                        -1 & \\text{si } ij\\ldots \\text{ es permutación impar} \\\\
+                        0 & \\text{si } ij\\ldots \\text{ no es una permutación}
+                        \\end{cases}\\]
+                        
+                        <h4>Determinante</h4>
+                        <p>El determinante (orden \\(n\\)) de un arreglo cuadrado de \\(n \\times n\\) elementos se escribe así:</p>
+                        \\[D_n =
+                        \\begin{vmatrix}
+                        a_{11} & a_{12} & \\cdots & a_{1n} \\\\
+                        a_{21} & a_{22} & \\cdots & a_{2n} \\\\
+                        \\vdots & \\vdots & \\ddots & \\vdots \\\\
+                        a_{n1} & a_{n2} & \\cdots & a_{nn}
+                        \\end{vmatrix}\\]
+                        
+                        <p>Entonces, el determinante se expresa como:</p>
+                        \\[D_n = \\sum_{ij\\ldots} \\epsilon_{ij\\ldots}a_{1i}a_{2j}\\cdots\\]
+                    </div>`
+                },
+                {
+                    title: "Determinantes de Orden 2 y 3",
+                    duration: "20 min",
+                    description: `<h3>Determinantes de Orden 2 y 3</h3>
+                    <div class="math-content">
+                        <h4>Orden 2</h4>
+                        \\[\\epsilon_{12} = +1, \\quad \\epsilon_{21} = -1\\]
+                        \\[D_2 =
+                        \\begin{vmatrix}
+                        a_{11} & a_{12} \\\\
+                        a_{21} & a_{22}
+                        \\end{vmatrix}
+                        = \\epsilon_{12}a_{11}a_{22} + \\epsilon_{21}a_{12}a_{21} = a_{11}a_{22} - a_{12}a_{21}\\]
+                        
+                        <h4>Orden 3</h4>
+                        \\[\\epsilon_{123} = \\epsilon_{231} = \\epsilon_{321} = +1\\]
+                        \\[\\epsilon_{213} = \\epsilon_{321} = \\epsilon_{132} = -1\\]
+                        \\[D_3 =
+                        \\begin{vmatrix}
+                        a_{11} & a_{12} & a_{13} \\\\
+                        a_{21} & a_{22} & a_{23} \\\\
+                        a_{31} & a_{32} & a_{33}
+                        \\end{vmatrix}
+                        = \\sum_{ijk} \\epsilon_{ijk}a_{1i}a_{2j}a_{3k}\\]
+                        \\[= a_{11}a_{22}a_{33} - a_{11}a_{23}a_{32} - a_{13}a_{22}a_{31} - a_{12}a_{21}a_{33}\\]
+                        \\[+ a_{12}a_{23}a_{31} + a_{13}a_{21}a_{32}\\]
+                    </div>`
+                },
+                {
+                    title: "Propiedades de Determinantes",
+                    duration: "35 min",
+                    description: `<h3>Propiedades de Determinantes</h3>
+                    <div class="math-content">
+                        <h4>Propiedad 1: Intercambio y transpuesta</h4>
+                        <p>Intercambio de dos filas/columnas cambia el signo. La transpuesta tiene el mismo valor.</p>
+                        \\[\\begin{vmatrix}
+                        a_{11} & a_{12} & a_{13} \\\\
+                        a_{21} & a_{22} & a_{23} \\\\
+                        a_{31} & a_{32} & a_{33}
+                        \\end{vmatrix}
+                        = -
+                        \\begin{vmatrix}
+                        a_{12} & a_{11} & a_{13} \\\\
+                        a_{22} & a_{21} & a_{23} \\\\
+                        a_{32} & a_{31} & a_{33}
+                        \\end{vmatrix}
+                        = 
+                        \\begin{vmatrix}
+                        a_{11} & a_{21} & a_{31} \\\\
+                        a_{12} & a_{22} & a_{32} \\\\
+                        a_{13} & a_{23} & a_{33}
+                        \\end{vmatrix}\\]
+                        
+                        <p>Dos filas/columnas iguales resulta en determinante cero.</p>
+                        
+                        <h4>Propiedad 2: Multiplicación escalar</h4>
+                        <p>Multiplicación del determinante por un escalar \\(k\\) es equivalente a multiplicar una fila/columna.</p>
+                        \\[k
+                        \\begin{vmatrix}
+                        a_{11} & a_{12} & a_{13} \\\\
+                        a_{21} & a_{22} & a_{23} \\\\
+                        a_{31} & a_{32} & a_{33}
+                        \\end{vmatrix}
+                        =
+                        \\begin{vmatrix}
+                        ka_{11} & ka_{12} & ka_{13} \\\\
+                        a_{21} & a_{22} & a_{23} \\\\
+                        a_{31} & a_{32} & a_{33}
+                        \\end{vmatrix}\\]
+                        
+                        <p>Dos filas/columnas proporcionales resulta en determinante cero.</p>
+                        
+                        <h4>Propiedad 3: Descomposición</h4>
+                        <p>Si una fila/columna es una suma, podemos descomponerla en dos determinantes.</p>
+                        \\[\\begin{vmatrix}
+                        a_{11} + b_{1} & a_{12} & a_{13} \\\\
+                        a_{21} + b_{2} & a_{22} & a_{23} \\\\
+                        a_{31} + b_{3} & a_{32} & a_{33}
+                        \\end{vmatrix}
+                        =
+                        \\begin{vmatrix}
+                        a_{11} & a_{12} & a_{13} \\\\
+                        a_{21} & a_{22} & a_{23} \\\\
+                        a_{31} & a_{32} & a_{33}
+                        \\end{vmatrix}
+                        +
+                        \\begin{vmatrix}
+                        b_{1} & a_{12} & a_{13} \\\\
+                        b_{2} & a_{22} & a_{23} \\\\
+                        b_{3} & a_{32} & a_{33}
+                        \\end{vmatrix}\\]
+                        
+                        <p>El determinante no cambia si un múltiplo de una fila/columna se suma a otra fila/columna.</p>
+                    </div>
+                    
+                    <h3>Desarrollo Laplaciano por Menores</h3>
+                    <div class="math-content">
+                        <p>Menor \\(M_{ij}(a)\\) que corresponde a \\(a_{ij}\\) es el determinante (orden \\(n - 1\\)) de la matriz con fila \\(i\\), columna \\(j\\) eliminadas.</p>
+                        \\[D_n = \\sum_{j=1}^{n} a_{ij}(-1)^{i+j}M_{ij}\\]
+                    </div>
+                    
+                    
+                    `
+                },
+                {
+                    title: "Sistemas Lineales y Regla de Cramer",
+                    duration: "30 min",
+                    description: `<h3>Sistemas de Ecuaciones Lineales</h3>
+                    <div class="math-content">
+                        <p>Sistema de ecuaciones:</p>
+                        \\[\\begin{array}{ccc}
+                        a_{1}x_{1} + a_{2}x_{2} + a_{3}x_{3} &=& h_{1} \\\\
+                        b_{1}x_{1} + b_{2}x_{2} + b_{3}x_{3} &=& h_{2} \\\\
+                        c_{1}x_{1} + c_{2}x_{2} + c_{3}x_{3} &=& h_{3}
+                        \\end{array}\\]
+                        
+                        <p>Determinante del sistema:</p>
+                        \\[D =
+                        \\begin{vmatrix}
+                        a_{1} & a_{2} & a_{3} \\\\
+                        b_{1} & b_{2} & b_{3} \\\\
+                        c_{1} & c_{2} & c_{3}
+                        \\end{vmatrix}\\]
+                        
+                        <p>Solución para \\(x_1\\):</p>
+                        \\[x_{1}D =
+                        \\begin{vmatrix}
+                        a_{1}x_{1} & a_{2} & a_{3} \\\\
+                        b_{1}x_{1} & b_{2} & b_{3} \\\\
+                        c_{1}x_{1} & c_{2} & c_{3}
+                        \\end{vmatrix}
+                        =
+                        \\begin{vmatrix}
+                        h_{1} & a_{2} & a_{3} \\\\
+                        h_{2} & b_{2} & b_{3} \\\\
+                        h_{3} & c_{2} & c_{3}
+                        \\end{vmatrix}\\]
+                        
+                        \\[x_{1} =
+                        \\frac{1}{D}
+                        \\begin{vmatrix}
+                        h_{1} & a_{2} & a_{3} \\\\
+                        h_{2} & b_{2} & b_{3} \\\\
+                        h_{3} & c_{2} & c_{3}
+                        \\end{vmatrix}\\]
+                    </div>
+                    
+                    <h3>Regla de Cramer</h3>
+                    <div class="math-content">
+                        <p>Si \\(D \\neq 0\\):</p>
+                        \\[x_{1} =
+                        \\frac{1}{D}
+                        \\begin{vmatrix}
+                        h_{1} & a_{2} & a_{3} \\\\
+                        h_{2} & b_{2} & b_{3} \\\\
+                        h_{3} & c_{2} & c_{3}
+                        \\end{vmatrix}\\]
+                        
+                        \\[x_{2} =
+                        \\frac{1}{D}
+                        \\begin{vmatrix}
+                        a_{1} & h_{1} & a_{3} \\\\
+                        b_{1} & h_{2} & b_{3} \\\\
+                        c_{1} & h_{3} & c_{3}
+                        \\end{vmatrix}\\]
+                        
+                        \\[x_{3} =
+                        \\frac{1}{D}
+                        \\begin{vmatrix}
+                        a_{1} & a_{2} & h_{1} \\\\
+                        b_{1} & b_{2} & h_{2} \\\\
+                        c_{1} & c_{2} & h_{3}
+                        \\end{vmatrix}\\]
+                        
+                        <h4>Propiedades</h4>
+                        <ul>
+                            <li>Si \\(D \\neq 0\\), la solución para los \\(x_{i}\\) es única.</li>
+                            <li>Si \\(D \\neq 0\\) y \\(h_{i} = 0\\), la única solución es \\(x_{i} = 0\\).</li>
+                        </ul>
+                        
+                        <p>Si los coeficientes de \\(n\\) ecuaciones lineales de \\(n\\) variables forman un determinante \\(D\\) tal que \\(D \\neq 0\\), las variables son independientes lineales. Si \\(D = 0\\), las variables son linealmente dependientes.</p>
+                        
+                        <p>Un sistema de \\(n\\) ecuaciones lineales homogéneas en \\(n\\) variables tiene soluciones no triviales solamente si \\(D = 0\\).</p>
+                    </div>
+                    
+                    
+                    
+                    `
+                },
+                {
+                    title: "Introducción a Matrices",
+                    duration: "20 min",
+                    description: `<h3>Matrices</h3>
+                    <div class="math-content">
+                        <p>La regla de multiplicación de matrices define un álgebra. Ejemplo:</p>
+                        \\[\\begin{array}{cc}
+                        a_{1}x_{1} + a_{2}x_{2} = h_{1} \\\\
+                        b_{1}x_{1} + b_{2}x_{2} = h_{2}
+                        \\end{array}\\]
+                        
+                        \\[\\begin{pmatrix}
+                        a_{1} & a_{2} \\\\
+                        b_{1} & b_{2}
+                        \\end{pmatrix}
+                        \\begin{pmatrix}
+                        x_{1} \\\\
+                        x_{2}
+                        \\end{pmatrix}
+                        =
+                        \\begin{pmatrix}
+                        h_{1} \\\\
+                        h_{2}
+                        \\end{pmatrix}\\]
+                        
+                        <p>Matriz de \\(m \\times n\\): \\(m\\) filas y \\(n\\) columnas. Un elemento de matriz \\(A\\) en fila \\(i\\), columna \\(j\\) se denota \\(a_{ij}\\).</p>
+                        
+                        <h4>Tipos de matrices</h4>
+                        <ul>
+                            <li>Una matriz donde \\(n = m\\): cuadrada.</li>
+                            <li>Una sola columna \\(m \\times 1\\): vector de columna.</li>
+                            <li>Una sola fila \\(1 \\times n\\): vector de fila.</li>
+                        </ul>
+                    </div>
+                    
+                    
+                    <h3>Propiedades de Matrices</h3>
+                    <div class="math-content">
+                        <ul>
+                            <li>Igualdad: \\(A = B\\) solo si \\(a_{ij} = b_{ij}\\) para todo \\(i, j\\).</li>
+                            <li>Adición: \\(A \\pm B = C\\) significa \\(c_{ij} = a_{ij} \\pm b_{ij}\\).</li>
+                            <li>Conmutativa: \\(A + B = B + A\\).</li>
+                            <li>Asociativa: \\((A + B) + C = A + (B + C)\\).</li>
+                            <li>Matriz nula: \\(A + 0 = 0 + A = A\\).</li>
+                            <li>Multiplicación por un escalar: \\(B = \\alpha A\\), con \\(b_{ij} = \\alpha a_{ij}\\) para todo \\(i, j\\).</li>
+                            <li>Conmutativa: \\(\\alpha A = A \\alpha\\).</li>
+                            <li>Si \\(A\\) es una matriz cuadrada \\(n \\times n\\), \\(\\det(\\alpha A) = \\alpha^n \\det(A)\\).</li>
+                        </ul>
+                    </div>
+
+                    <h3>Producto (Interior) de Matrices</h3>
+                    <div class="math-content">
+                        \\[AB = C, \\quad c_{ij} = \\sum_{k} a_{ik} b_{kj}\\]
+                        
+                        <h4>Propiedades del producto</h4>
+                        <ul>
+                            <li>Si \\(A\\) tiene \\(n\\) columnas, \\(B\\) debe tener \\(n\\) filas.</li>
+                            <li>Generalmente \\(AB \\neq BA\\).</li>
+                            <li>Conmutador: definido para matrices cuadradas.
+                            \\[[A, B] = AB - BA\\]</li>
+                            <li>El producto es asociativo: \\((AB)C = A(BC)\\).</li>
+                        </ul>
+                    </div>
+
+
+                    <h3>Matriz de Identidad y Nula</h3>
+                    <div class="math-content">
+                        <h4>Identidad multiplicativa</h4>
+                        <p>Existe una identidad multiplicativa para matrices cuadradas: \\(1A = A1 = A\\).</p>
+                        \\[\\begin{pmatrix}
+                        1 & 0 & 0 \\\\
+                        0 & 1 & 0 \\\\
+                        0 & 0 & 1
+                        \\end{pmatrix}\\]
+                        
+                        <p>A veces indicamos la matriz de identidad como:</p>
+                        \\[\\delta_{ij} = \\begin{cases} 0 & i \\neq j \\\\ 1 & i = j \\end{cases}\\]
+                        
+                        <h4>Matriz nula</h4>
+                        <p>La matriz nula tiene todos sus elementos igual a cero: \\(0A = A0 = 0\\).</p>
+                    </div>
+                    
+                    <h3>Matriz Inversa</h3>
+                    <div class="math-content">
+                        <p>Si \\(A\\) es una matriz cuadrada, y si existe otra matriz cuadrada \\(B\\) tal que \\(AB = BA = 1\\), llamamos a \\(B\\) como la inversa de \\(A\\): \\(B = A^{-1}\\).</p>
+                        
+                        <h4>Unicidad de la inversa</h4>
+                        \\[AB = BA = AC = CA = 1\\]
+                        \\[CAB = (CA)B = B\\]
+                        \\[CAB = C(AB) = C \\Rightarrow B = C\\]
+                        
+                        <h4>Propiedades</h4>
+                        <ul>
+                            <li>Hay matrices (no nulas) que no tienen inversa.</li>
+                            <li>Fórmula para la inversa:
+                            \\[(A^{-1})_{ij} = (-1)^{i+j} \\frac{M_{ji}}{\\det(A)}\\]</li>
+                            <li>La inversa no existe si \\(\\det(A) = 0\\).</li>
+                            <li>La inversa de un producto:
+                            \\[(AB)^{-1} = B^{-1}A^{-1}\\]
+                            \\[\\Rightarrow (AB)(AB)^{-1} = ABB^{-1}A^{-1} = AA^{-1} = 1\\]</li>
+                        </ul>
+                    </div>
+
+                    <h3>Derivadas de Determinantes</h3>
+                    <div class="math-content">
+                        \\[\\frac{\\partial \\det(A)}{\\partial a_{ij}} = (-1)^{i+j} M_{ij} = (A^{-1})_{ji} \\det(A)\\]
+                        
+                        <p>Suponiendo que los elementos de \\(A\\) dependen de una variable \\(x\\):</p>
+                        \\[\\frac{d \\det(A)}{dx} = \\det(A) \\sum_{ij} (A^{-1})_{ji} \\frac{da_{ij}}{dx}\\]
+                    </div>
+
+
+                    <h3>Transpuesta</h3>
+                    
+                    <div class="math-content">
+                    <p>La transpuesta de \\(A\\) es:</p>
+                    \\[\\tilde{A}_{ij} = (A^T)_{ij} = a_{ji}\\]
+                
+                    <p>Para un vector \\(\\vec{x}\\):</p>
+                    \\[\\vec{x} = \\begin{pmatrix} x_1 \\\\ x_2 \\\\ \\vdots \\\\ x_n \\end{pmatrix}, \\quad \\vec{x}^T = (x_1, x_2, \\ldots, x_n)\\]
+                    <p>Una matriz simétrica cumple: \\(A = A^T\\)</p>
+                
+                    <p>Para productos:</p>
+                    \\[(AB)^T = B^T A^T\\]
+                    
+                    </div>
+
+                    <h3>Traza</h3>
+            <div class="math-content">
+                <p>Es la suma de los elementos en la diagonal principal, definida para matrices cuadradas \\(n \\times n\\):</p>
+                \\[\\text{Tr}(A) = \\sum_{i=1}^n a_{ii}\\]
+                
+                <h4>Propiedades</h4>
+                <p>De la regla de suma de matrices:</p>
+                \\[\\text{Tr}(A + B) = \\text{Tr}(A) + \\text{Tr}(B)\\]
+                
+                <p>Para productos:</p>
+                \\[\\text{Tr}(AB) = \\sum_i (AB)_{ii} = \\sum_i \\sum_j a_{ij}b_{ji} = \\sum_j \\sum_i b_{ji}a_{ij}\\]
+                \\[=\\sum_j (BA)_{jj} = \\text{Tr}(BA)\\]
+                
+                <p>No importa si \\(AB \\neq BA\\). La traza del conmutador \\([A, B]\\) es siempre cero.</p>
+                
+                <p><strong>La traza es un operador lineal:</strong></p>
+                \\[\\text{Tr}(\\alpha A) = \\alpha \\text{Tr}(A) \\quad \\forall \\alpha \\in \\mathbb{R}, \\mathbb{C}\\]
+                
+                <p>La traza tiene una invarianza cíclica:</p>
+                \\[\\text{Tr}(ABC) = \\text{Tr}(BCA) = \\text{Tr}(CAB)\\]
+                
+                <p>No es invariante bajo permutaciones por pares de las matrices:</p>
+                \\[\\text{Tr}(ABC) \\neq \\text{Tr}(BAC)\\]
+            </div>
+
+            <h3>Matrices Ortogonales</h3>
+            <div class="math-content">
+                \\[S^{-1} = S^T \\quad SS^T = 1\\]
+            </div>
+
+            <h3>Matrices Unitarias</h3>
+            <div class="math-content">
+                \\[U^{-1} = U^\\dagger \\quad UU^\\dagger = U^\\dagger U = 1\\]
+                
+                <p>Para una matriz real, la propiedad anterior es equivalente a la ortogonalidad:</p>
+                \\[\\det(U) \\det(U^\\dagger) = \\det(U) \\det(U^*) = |\\det(U)|^2 = 1\\]
+            </div>
+
+            <h3>Matrices Hermitianas</h3>
+            <div class="math-content">
+                <p>A veces se llama auto-adjunta.</p>
+                \\[H^\\dagger = H \\quad \\Rightarrow h_{ji}^* = h_{ij}\\]
+                
+                <p>Para una matriz real, la propiedad anterior es equivalente a tener una matriz simétrica, así que todas las matrices reales simétricas son auto-adjuntas.</p>
+            </div>
+
+            <h3>Producto Directo</h3>
+            <div class="math-content">
+                <p>\\(A\\) es una matriz \\(m \\times n\\), \\(B\\) es una matriz \\(m' \\times n'\\).</p>
+                \\[C = A \\otimes B \\quad C_{\\alpha \\beta} = A_{ij}B_{kl}\\]
+                
+                <p>Donde:</p>
+                \\[\\alpha = m'(i - 1) + k, \\quad \\beta = n'(j - 1) + l\\]
+                \\[C \\text{ es de dimensión } mm' \\times nn'\\]
+                
+                <h4>Ejemplo</h4>
+                \\[A \\otimes B = \\begin{pmatrix}
+                a_{11}B & a_{12}B \\\\
+                a_{21}B & a_{22}B
+                \\end{pmatrix} = \\begin{pmatrix}
+                a_{11}b_{11} & a_{11}b_{12} & a_{12}b_{11} & a_{12}b_{12} \\\\
+                a_{11}b_{21} & a_{11}b_{22} & a_{12}b_{21} & a_{12}b_{22} \\\\
+                a_{21}b_{11} & a_{21}b_{12} & a_{22}b_{11} & a_{22}b_{12} \\\\
+                a_{21}b_{21} & a_{21}b_{22} & a_{22}b_{21} & a_{22}b_{22}
+                \\end{pmatrix}\\]
+                
+                <p>Si los productos \\(AA'\\), \\(BB'\\) están definidos:</p>
+                \\[C = A \\otimes B, \\quad C' = A' \\otimes B'\\]
+                \\[CC' = (AA') \\otimes (BB')\\]
+                
+                <p>Si \\(A\\) y \\(B\\) tienen la misma dimensión:</p>
+                \\[C \\otimes (A + B) = C \\otimes A + C \\otimes B\\]
+                \\[(A + B) \\otimes C = A \\otimes C + B \\otimes C\\]
+            </div>
+
+
+
+            <h3>Matrices de Pauli</h3>
+            <div class="math-content">
+                \\[\\sigma_{1} = \\begin{pmatrix}
+                    0 & 1 \\\\
+                    1 & 0 
+                \\end{pmatrix}, \\quad \\sigma_{2}=\\begin{pmatrix}
+                    0 & -i \\\\
+                    i & 0 
+                \\end{pmatrix}, \\quad \\sigma_{3}=\\begin{pmatrix}
+                    1 & 0 \\\\
+                    0 & -1
+                \\end{pmatrix}\\]
+                
+                <p>Anticonmutan y sus cuadrados son matrices unitarias:</p>
+                \\[\\sigma^{2}_{i} = \\textbf{1}_{2}, \\quad \\sigma_{1}\\sigma_{2} + \\sigma_{2}\\sigma_{1}=0, \\quad i \\neq j\\]
+            </div>
+
+
+            <h3>Matrices de Dirac</h3>
+            <div class="math-content">
+                \\[\\gamma^{i} = \\gamma \\otimes \\sigma_{i} = \\begin{pmatrix}
+                    0 & \\sigma_{i} \\\\
+                    -\\sigma_{i} & 0
+                \\end{pmatrix}, \\quad i=1,2,3\\]
+                
+                <p>Si \\(\\mu=0,1,2,3\\) y \\(i=1,2,3\\):</p>
+                \\[(\\gamma^{0})^{2}=1, \\quad (\\gamma^{i})^{2}=-1, \\quad \\gamma^{\\mu}\\gamma^{i} + \\gamma^{i}\\gamma^{\\mu} = 0, \\quad \\mu \\neq i\\]
+                
+                \\[\\gamma^{5} = i \\gamma^{0}\\gamma^{1}\\gamma^{2}\\gamma^{3} = \\begin{pmatrix}
+                    0 & \\textbf{1}_{2} \\\\
+                    \\textbf{1}_{2} & 0
+                \\end{pmatrix}\\]
+            </div>
+
+            <h3>Funciones de Matrices</h3>
+            <div class="math-content">
+                <p>Se puede definir polinomios de matrices y, por lo tanto, series de potencias de matrices (si la serie converge para cada elemento de la matriz):</p>
+                
+                \\[\\exp(A) = \\sum_{n=0}^\\infty \\frac{1}{n!} A^n\\]
+                
+                \\[\\sin(A) = \\sum_{n=0}^\\infty \\frac{(-1)^n}{(2n + 1)!} A^{2n + 1}\\]
+                
+                \\[\\cos(A) = \\sum_{n=0}^\\infty \\frac{(-1)^n}{(2n)!} A^{2n}\\]
+                
+                <p>son matrices cuadradas \\(m \\times m\\) bien definidas.</p>
+            </div>
+
+            <h3>Fórmula de Campbell-Baker-Hausdorff</h3>
+            <div class="math-content">
+                <p>Buscamos la solución a la siguiente ecuación:</p>
+                \\[e^X e^Y = e^Z\\]
+                
+                <p>donde \\(X, Y\\) son matrices que no necesariamente conmutan.</p>
+                
+                \\[Z = X + Y + \\frac{1}{2}[X, Y] + \\frac{1}{12}[X, [X, Y]] - \\frac{1}{12}[Y, [X, Y]] + \\ldots\\]
+                
+                <p>donde \\(\\ldots\\) indica términos de orden mayor en conmutadores.</p>
+            </div>
+
+            <h3>Valores Propios</h3>
+            <div class="math-content">
+                <h4>Ecuación de valores propios</h4>
+                \\[Hr = \\lambda r\\]
+                
+                <p>Los vectores \\(r\\) que satisfacen esta ecuación se llaman vectores propios. Los \\(\\lambda\\) son los valores propios.</p>
+                
+                \\[(H - \\lambda I)r = 0\\]
+                
+                <p>La única solución será \\(r = 0\\) a menos que \\(\\det(H - \\lambda I) = 0\\).</p>
+                
+                \\[\\det(H - \\lambda I) = 
+                \\begin{vmatrix}
+                h_{11} - \\lambda & h_{12} \\\\
+                h_{21} & h_{22} - \\lambda
+                \\end{vmatrix} = 0\\]
+                
+                <p>Esta ecuación nos lleva a la ecuación secular (el nombre viene de la mecánica celeste) o a veces el polinomio característico:</p>
+                
+                \\[(h_{11} - \\lambda)(h_{22} - \\lambda) - h_{12}h_{21} = 0\\]
+            </div>
+
+            <h3>Notación de Dirac</h3>
+            <div class="math-content">
+                <p>Aplicada a vectores y matrices:</p>
+                \\[a = Mb \\leftrightarrow |a\\rangle = |Mb\\rangle = M |b\\rangle\\]
+                
+                \\[a^\\dagger M b = (M^\\dagger a)^\\dagger b \\leftrightarrow \\langle a|Mb\\rangle = \\langle M^\\dagger a|b\\rangle\\]
+                
+                <h4>Valores propios de matrices hermitianas</h4>
+                \\[H|c_i\\rangle = \\lambda_i |c_i\\rangle, \\quad \\langle c_i|H|c_j\\rangle = \\lambda_j \\langle c_i|c_j\\rangle\\]
+                
+                <p>Usando la propiedad de que \\(H\\) es hermitiana:</p>
+                \\[\\langle c_j|H|c_i\\rangle = \\lambda_i \\langle c_j|c_i\\rangle, \\quad \\langle c_j|H|c_i\\rangle = \\lambda_j^* \\langle c_j|c_i\\rangle\\]
+                
+                <p>Si \\(i = j\\), \\(\\lambda_i = \\lambda_i^*\\): los valores propios de una matriz hermitiana son reales.</p>
+                
+                <p>Si \\(i \\neq j\\):</p>
+                \\[(\\lambda_i - \\lambda_j)\\langle c_j|c_i\\rangle = 0\\]
+                
+                <ul>
+                    <li>Si \\(\\lambda_i \\neq \\lambda_j\\) debemos tener \\(\\langle c_j|c_i\\rangle = 0\\): los vectores propios de una matriz hermitiana son ortogonales</li>
+                    <li>Si \\(\\lambda_i = \\lambda_j\\) hay degeneración, pero podemos elegir dos vectores propios ortogonales del subespacio degenerado.</li>
+                </ul>
+            </div>
+
+            <h3>Diagonalización por Matriz Unitaria</h3>
+            <div class="math-content">
+                \\[Hc = \\lambda c\\]
+                
+                <p>donde \\(H\\) es hermitiana.</p>
+                
+                \\[UHU^{-1}(Uc) = \\lambda (Uc)\\]
+                
+                <p>Los valores propios de una matriz no cambian bajo una transformación unitaria. Los vectores propios de una matriz hermitiana son ortogonales y completos.</p>
+                
+                <p><em>Para cualquier matriz hermitiana \\(H\\), existe una transformación unitaria que resulta en \\(UHU^{-1}\\) diagonal, con los valores propios de \\(H\\) como los elementos diagonales. Los vectores propios son \\(|c_i\\rangle = U^{-1}\\hat{e}_i\\) (considerando vectores propios normalizados).</em></p>
+            </div>
+
+
+            <h3>Diagonalización Simultánea</h3>
+            <div class="math-content">
+                <p>Matrices hermitianas \\(A\\) y \\(B\\) tienen un conjunto común de vectores propios si y solo si conmutan.</p>
+                
+                \\[BA|c_i\\rangle = AB|c_i\\rangle \\text{ para cada } |c_i\\rangle\\]
+                
+                <p>Se puede escribir cualquier vector \\(v\\) como una combinación lineal de los \\(|c_i\\rangle\\), así que:</p>
+                
+                \\[(BA - AB)v = 0 \\Rightarrow BA = AB\\]
+            </div>
+
+
+            <h3>Descomposición Espectral</h3>
+            <div class="math-content">
+                <p>La descomposición espectral de \\(H\\), en la base ortonormal de los vectores propios se puede escribir:</p>
+                \\[H = \\sum_{\\mu} \\lambda_{\\mu} |c_{\\mu}\\rangle \\langle c_{\\mu}|, \\quad H|c_{\\mu}\\rangle = \\lambda_{\\mu}c_{\\mu}, \\quad \\langle c_{\\mu}|c_{\\mu}\\rangle = 1\\]
+                
+                <p>Todas las potencias de \\(H\\) tienen los mismos vectores propios. Así que, tiene la siguiente descomposición espectral:</p>
+                
+                \\[f(H) = \\sum_{\\mu} f(\\lambda_{\\mu}) |c_{\\mu}\\rangle \\langle c_{\\mu}|\\]
+                
+                <p>En la base de vectores propios:</p>
+                \\[\\det(\\exp(A)) = \\prod_{\\mu} e^{\\lambda_{\\mu}} = \\exp \\left( \\sum_{\\mu} \\lambda_{\\mu} \\right) = \\exp (\\operatorname{Tr}(A))\\]
+            </div>
+
+            <h3>Valor Esperado</h3>
+            <div class="math-content">
+                <p>Si \\(H\\) es una matriz hermitiana, el valor esperado de \\(H\\) es:</p>
+                
+                \\[\\langle H \\rangle = a^{\\dagger}Ha = \\langle a|H|a\\rangle = \\sum_{\\nu\\mu} a^*_{\\nu}h_{\\nu\\mu}a_{\\mu}\\]
+                
+                <p>donde \\(a\\) es un vector (normalizado) en una base ortonormal. En la base de vectores propios:</p>
+                
+                \\[\\langle H \\rangle = \\sum_{\\mu} a^*_{\\mu}\\lambda_{\\mu}a_{\\mu} = \\sum_{\\mu} |a_{\\mu}|^2 \\lambda_{\\mu}\\]
+                
+                <ul>
+                    <li>\\(a_{\\mu}\\): el coeficiente del vector propio \\(c_{\\mu}\\) (con valor propio \\(\\lambda_{\\mu}\\)) en la expansión de \\(a\\)</li>
+                </ul>
+                
+                \\[\\langle a|a\\rangle = \\sum_{\\mu} a^*_{\\mu}a_{\\mu} = \\sum_{\\mu} |a_{\\mu}|^2 = 1\\]
+            </div>
+
+
+            <h3>Matrices Normales</h3>
+            <div class="math-content">
+                <p>Se puede diagonalizar, por una transformación unitaria, matrices normales:</p>
+                \\[[A, A^{\\dagger}] = 0\\]
+                
+                <p>Matrices hermitianas, unitarias y antihermitianas son todas normales.</p>
+                
+                <p>Supongamos que \\(|x\\rangle\\) es un vector propio de \\(A\\) con valor propio \\(\\lambda\\):</p>
+                
+                \\[(A - \\lambda I)|x\\rangle = 0 \\Rightarrow \\langle x|(A^{\\dagger} - \\lambda^* I)(A - \\lambda I)|x\\rangle = 0\\]
+                
+                \\[\\langle (A^{\\dagger} - \\lambda^* I)x|(A^{\\dagger} - \\lambda^* I)|x\\rangle = 0\\]
+                
+                <p>Este es un producto escalar de la forma \\(\\langle a|a\\rangle\\). La única manera en que puede ser nula es si:</p>
+                \\[(A^{\\dagger} - \\lambda^* I)|x\\rangle = 0\\]
+                
+                <p>Así que \\(|x\\rangle\\) es un vector propio de \\(A\\) y también de \\(A^{\\dagger}\\).</p>
+                
+                <p>Supongamos que \\(|x_i\\rangle\\) y \\(|x_j\\rangle\\) son vectores propios (de \\(A\\) y \\(A^{\\dagger}\\)):</p>
+                
+                <ul>
+                    <li>Si \\(\\lambda_i \\neq \\lambda_j\\) debemos tener \\(\\langle x_j|x_i\\rangle = 0\\): vectores propios ortogonales.</li>
+                    <li>La matriz normal \\(A^{\\dagger}\\) tiene valores propios que son conjugados complejos de los valores propios de \\(A\\), lo que nos permite concluir:</li>
+                    <li>Los valores propios de una matriz antihermitiana son imaginarios: \\(A^{\\dagger} = -A \\Rightarrow \\lambda^* = -\\lambda\\).</li>
+                    <li>Los valores propios de una matriz unitaria son de magnitud unitaria: \\(\\lambda^* = 1/\\lambda \\Rightarrow \\lambda^*\\lambda = 1\\).</li>
+                </ul>
+            </div>
+
+
+
+                    
+                    `
+                }
+            ]
+        },
+        {
+            id: 6,
+            title: "Series de Fourier",
+            duration: "200 min",
+            videoId: "dQw4w9WgXcQ",
+            description: "Espacios de funciones, series de Fourier, identidad de Parseval y operadores diferenciales",
+            subtopics: [ 
+            {
+            title: "Espacios de Funciones",
+            duration: "20 min",
+            description: `<h3>Espacios de Funciones</h3>
+            <div class="math-content">
+                <p>Consideremos el conjunto de funciones con valores complejos definidas en algún dominio \\(\\Omega\\).</p>
+                <p>Un miembro del conjunto es \\(f : \\Omega \\to \\mathbb{C}\\).</p>
+                
+                <p>Este conjunto es un espacio vectorial:</p>
+                \\[(f + g)(x) = f(x) + g(x) \\quad (\\lambda \\cdot f)(x) = \\lambda \\cdot f(x) \\quad x \\in \\Omega\\]
+                
+                <h4>Producto interno</h4>
+                \\[(f, g) \\equiv \\int_{\\Omega} f(x)^{*} g(x) \\, d\\mu\\]
+                
+                <p>donde \\(d\\mu\\) es alguna medida de integración.</p>
+            </div>`
+        },
+        {
+            title: "Espacios de Dimensión Infinita",
+            duration: "25 min",
+            description: `<h3>Espacios de Dimensión Infinita</h3>
+            <div class="math-content">
+                <p>Consideremos el conjunto de funciones con valores complejos definidas en algún dominio \\(\\Omega\\).</p>
+                <p>Un miembro del conjunto es \\(f : \\Omega \\to \\mathbb{C}\\).</p>
+                
+                <p>Este conjunto es un espacio vectorial:</p>
+                \\[(f + g)(x) = f(x) + g(x) \\quad (\\lambda \\cdot f)(x) = \\lambda \\cdot f(x) \\quad x \\in \\Omega\\]
+                
+                <h4>Producto interno</h4>
+                \\[(f, g) \\equiv \\int_{\\Omega} f(x)^{*} g(x) \\, d\\mu\\]
+                
+                <p>donde \\(d\\mu\\) es alguna medida de integración.</p>
+                
+                <h4>Interpretación</h4>
+                <ul>
+                    <li>Se puede interpretar los puntos \\(x \\in \\Omega\\) como los "componentes" de vectores de dimensión infinita.</li>
+                    <li>Multiplicamos el "componente" \\(f(x)\\) por \\(g(x)\\) y sumamos (integramos sobre \\(\\Omega\\)).</li>
+                    <li>La medida \\(d\\mu\\) determina la ponderación de cada punto \\(x \\in \\Omega\\).</li>
+                </ul>
+                
+                <h4>Ejemplos</h4>
+                <p>Como ejemplo, \\(\\Omega = [a, b]\\), un intervalo cerrado en \\(\\mathbb{R}\\), podemos usar \\(d\\mu = dx\\):</p>
+                \\[(f, g) = \\int_{a}^{b} f(x)^{*} g(x) \\, dx\\]
+                
+                <p>Si \\(\\Omega\\) es el disco unitario \\(D^2\\):</p>
+                \\[(f, g) = \\int_{0}^{1} \\int_{0}^{2\\pi} f(r, \\theta)^{*} g(r, \\theta) \\, r \\, dr \\, d\\theta\\]
+                
+                <p>con medida \\(d\\mu = r \\, dr \\, d\\theta\\).</p>
+            </div>`
+        },
+        {
+            title: "Serie de Fourier",
+            duration: "30 min",
+            description: `<h3>Serie de Fourier</h3>
+            <div class="math-content">
+                <h4>Exponencial compleja</h4>
+                \\[e^{i\\theta} = \\cos \\theta + i \\sin \\theta\\]
+                
+                <p>Esta función es periódica con período \\(2\\pi\\). Corresponde al mapeo:</p>
+                \\[\\exp : S^1 \\to \\mathbb{C}\\]
+                
+                <p>con coordenada \\(\\theta \\in [-\\pi, \\pi)\\) parametrizando el círculo.</p>
+                
+                <h4>Ortogonalidad</h4>
+                <p>Potencias de la exponencial compleja son ortogonales con respecto al siguiente producto interno:</p>
+                \\[(e^{im\\theta}, e^{in\\theta}) = \\int_{-\\pi}^{\\pi} e^{-im\\theta} e^{in\\theta} \\, d\\theta = \\int_{-\\pi}^{\\pi} e^{i(n-m)\\theta} \\, d\\theta = 2\\pi \\delta_{mn}\\]
+                
+                <p>donde \\(m, n \\in \\mathbb{Z}\\).</p>
+                
+                <h4>Coeficientes de Fourier</h4>
+                <p>Base para descomponer cualquier función periódica:</p>
+                \\[\\hat{f}_n \\equiv \\frac{1}{2\\pi} (e^{in\\theta}, f) = \\frac{1}{2\\pi} \\int_{-\\pi}^{\\pi} e^{-in\\theta} f(\\theta) \\, d\\theta\\]
+                
+                <p>donde \\(f : S^1 \\to \\mathbb{C}\\) es una función periódica arbitraria. Los \\(\\hat{f}_n\\) son los coeficientes de Fourier de la función \\(f(\\theta)\\).</p>
+            </div>`
+        },
+        {
+            title: "Funciones Reales",
+            duration: "25 min",
+            description: `<h3>Funciones Reales</h3>
+            <div class="math-content">
+                <h4>Expansión de una función periódica</h4>
+                \\[f(\\theta) = \\sum_{n \\in \\mathbb{Z}} \\hat{f}_n e^{in\\theta}\\]
+                
+                <p>Si la función es real, \\(f(\\theta) = f(\\theta)^{*}\\), los coeficientes de Fourier satisfacen \\(\\hat{f}_n^{*} = \\hat{f}_{-n}\\):</p>
+                
+                \\[f(\\theta) = \\hat{f}_0 + \\sum_{n=1}^{\\infty} (a_n \\cos n\\theta + b_n \\sin n\\theta)\\]
+                
+                <p>donde:</p>
+                \\[a_n \\equiv 2 \\operatorname{Re} \\hat{f}_n \\quad \\text{y} \\quad b_n \\equiv -2 \\operatorname{Im} \\hat{f}_n\\]
+                
+                <h4>Coeficientes de Fourier para funciones reales</h4>
+                <p>Los coeficientes \\(a_n\\) y \\(b_n\\) son:</p>
+                
+                \\[a_n = \\frac{1}{\\pi} \\int_{-\\pi}^{\\pi} \\cos(n\\theta) f(\\theta) \\, d\\theta\\]
+                
+                \\[b_n = \\frac{1}{\\pi} \\int_{-\\pi}^{\\pi} \\sin(n\\theta) f(\\theta) \\, d\\theta\\]
+                
+                <p>Estos son los coeficientes de Fourier si usamos \\(\\sin(n\\theta)\\) y \\(\\cos(n\\theta)\\) como funciones base.</p>
+            </div>`
+        },
+        {
+            title: "Identidad de Parseval",
+            duration: "20 min",
+            description: `<h3>Identidad de Parseval</h3>
+            <div class="math-content">
+                \\[(S_n f, S_n f) = 2\\pi \\sum_{k=-n}^{n} |\\hat{f}_k|^2\\]
+                
+                \\[(S_n f, f) = 2\\pi \\sum_{k=-n}^{n} |\\hat{f}_k|^2\\]
+                
+                <p>Los productos internos son reales.</p>
+                
+                <h4>Forma completa</h4>
+                \\[(f, f) = 2\\pi \\sum_{k \\in \\mathbb{Z}} |\\hat{f}_k|^2\\]
+            </div>`
+        }
+            ]
+
+
+        },
+
+        {
+    id: 11,
+    title: "Teoría de Sturm-Liouville",
+    duration: "180 min",
+    videoId: "dQw4w9WgXcQ",
+    description: "Operadores diferenciales autoadjuntos, funciones propias, funciones de Green y ecuaciones inhomogéneas",
+    subtopics: [
+        {
+            title: "Operadores Diferenciales Lineales",
+            duration: "15 min",
+            description: `<h3>Teoría de Sturm-Liouville</h3>
+            <div class="math-content">
+                <p>\\(\\mathcal{L}\\) es un operador lineal diferencial de orden \\(p\\) si:</p>
+                
+                \\[\\mathcal{L} = A_p(x) \\frac{d^p}{dx^p} + A_{p-1}(x) \\frac{d^{p-1}}{dx^{p-1}} + \\cdots + A_1(x) \\frac{d}{dx} + A_0(x)\\]
+                
+                <p>\\(\\mathcal{L}\\) es un mapeo entre dos espacios de funciones.</p>
+            </div>
+            
+            <h3>Operadores Diferenciales de Segundo Orden</h3>
+            <div class="math-content">
+                \\[\\mathcal{L} = P(x) \\frac{d^2}{dx^2} + R(x) \\frac{d}{dx} - Q(x)\\]
+                
+                <h4>Ecuación homogénea</h4>
+                <p>La ecuación homogénea \\(\\mathcal{L}y(x) = 0\\) tiene dos soluciones independientes, \\(y = y_1(x)\\), \\(y = y_2(x)\\), y la solución general es:</p>
+                
+                \\[y(x) = c_1 y_1(x) + c_2 y_2(x) \\quad \\text{donde} \\quad c_i \\in \\mathbb{C}\\]
+                
+                <h4>Ecuación inhomogénea</h4>
+                <p>Para una ecuación inhomogénea \\(\\mathcal{L}y = f\\) buscamos una solución particular \\(y(x) = y_P(x)\\), y la solución general es:</p>
+                
+                \\[y(x) = y_P(x) + c_1 y_1(x) + c_2 y_2(x)\\]
+            </div>
+            <h3>Operadores Diferenciales Autoadjuntos</h3>
+            <div class="math-content">
+                \\[\\mathcal{L}y \\equiv \\frac{d}{dx} \\left( p(x) \\frac{dy}{dx} \\right) - q(x)y\\]
+                
+                <p>donde \\(p(x)\\) es real y diferenciable una vez, \\(q(x)\\) es real y continua.</p>
+                
+                <h4>Forma equivalente</h4>
+                <p>Suponiendo \\(P(x) \\neq 0\\):</p>
+                
+                \\[\\frac{d^2}{dx^2} + \\frac{R(x)}{P(x)} \\frac{d}{dx} - \\frac{Q(x)}{P(x)}\\]
+                
+                \\[= e^{-\\int_0^x \\frac{R(t)}{P(t)} \\, dt} \\frac{d}{dx} \\left( e^{\\int_0^x \\frac{R(t)}{P(t)} \\, dt} \\frac{d}{dx} \\right) - \\frac{Q(x)}{P(x)}\\]
+                
+                <p>Con \\(p(x) = \\exp\\left(\\int_0^x \\frac{R(t)}{P(t)} \\, dt\\right)\\) y \\(q(x) = \\frac{Q(x)}{P(x)}\\)</p>
+                
+                <h4>Producto interno</h4>
+                <p>El operador \\(\\mathcal{L}\\) es autoadjunto con respecto al producto interno:</p>
+                
+                \\[(f, g) = \\int_a^b f(x)^* g(x) \\, dx\\]
+                
+                <p>siempre que las funciones sobre las que actúan satisfagan condiciones de contorno.</p>
+                
+                \\[(\\mathcal{L}f, g)=\\left[ p(x) \\left( \\frac{d f^*}{dx} g - f^* \\frac{d g}{dx} \\right) \\right]_a^b + (f, \\mathcal{L}g)\\]
+                
+                <p>\\(p\\) y \\(q\\) son reales.</p>
+                
+                <h4>Condición de autoadjunción</h4>
+                \\[(\\mathcal{L}f, g) = (f,\\mathcal{L}g)\\]
+                
+                <p>si las funciones satisfacen:</p>
+                
+                \\[\\left[ p(x) \\left( \\frac{df}{dx} ^* g - f ^* \\frac{dg}{dx} \\right) \\right]_{a}^{b} = 0\\]
+                
+                <p>Tendremos un operador autoadjunto.</p>
+            </div>
+            
+            `
+        },
+        {
+            title: "Funciones Propias y Pesos",
+            duration: "30 min",
+            description: `<h3>Funciones Propias y Pesos</h3>
+            <div class="math-content">
+                <h4>Ecuación de valores propios</h4>
+                \\[\\mathcal{L} y(x) = \\lambda w(x) y(x)\\]
+                
+                <h4>Producto interno con peso</h4>
+                <p>El producto interno con peso \\(w\\) es:</p>
+                
+                \\[(f, g)_w \\equiv \\int_{a}^{b} f(x)^{*} g(x) w(x) \\, dx\\]
+                
+                <p>Este es no-degenerado: \\((f, f)_w = 0\\) implica \\(f = 0\\) si \\(f\\) es continua.</p>
+                
+                <h4>Valores propios reales</h4>
+                <p>Los valores propios de un operador autoadjunto son reales: si \\(\\mathcal{L}f = \\lambda wf\\)</p>
+                
+                \\[\\lambda (f, f)_w = (f, \\lambda wf) = (f, \\mathcal{L}f) = (\\mathcal{L}f, f) = \\lambda^{*} (f, f)_w\\]
+                
+                <p>donde \\((f, g)\\) indica el producto interno con \\(w = 1\\).</p>
+                
+                \\[\\mathcal{L}(f^{*}) = (\\mathcal{L}f)^{*} = (\\lambda wf)^{*} = \\lambda w(x) f(x)^{*}\\]
+                
+                <p>así que \\(f^{*}\\) también es una función propia de \\(\\mathcal{L}\\) con el mismo valor propio.</p>
+                
+                <h4>Ortogonalidad</h4>
+                \\[\\lambda_i (f_j, f_i)_w = (f_j, \\mathcal{L}f_i) = (\\mathcal{L}f_j, f_i) = \\lambda_j (f_j, f_i)_w\\]
+                
+                <p>si \\(\\lambda_i \\neq \\lambda_j\\), entonces:</p>
+                
+                \\[(f_j, f_i)_w = \\int_a^b f_j(x)^{*} f_i(x) w(x) \\, dx = 0\\]
+                
+                <h4>Conjunto ortonormal</h4>
+                <p>Podemos encontrar un conjunto ortonormal de funciones propias \\(\\{Y_1(x), Y_2(x), \\ldots\\}\\):</p>
+                
+                \\[Y_n(x) = \\frac{y_n(x)}{\\sqrt{\\int_a^b |y_n|^2 w \\, dx}}\\]
+                
+                <p>donde \\(y_n(x)\\) es una función propia sin normalización. El conjunto de funciones propias ortonormales \\(Y_1(x), Y_2(x), \\ldots\\) forma una base completa para funciones en \\([a, b]\\) que satisfacen las condiciones de contorno elegidas. Así que podemos escribir:</p>
+                
+                \\[f(x) = \\sum_{n=1}^{\\infty} f_n Y_n(x)\\]
+                
+                <p>donde:</p>
+                
+                \\[f_n = \\int_a^b Y_n^{*}(x) f(x) w(x) \\, dx = (Y_n, f)_w\\]
+                
+                <p>La suma es discreta por tener un dominio \\([a, b]\\) compacto (y por las condiciones de contorno).</p>
+            </div>
+            <h3>Ejemplo en Dominio Real</h3>
+            <div class="math-content">
+                <h4>Ecuación de Hermite</h4>
+                \\[\\frac{d}{dx} \\left( e^{-x^2} \\frac{dH}{dx} \\right) = -2\\lambda e^{-x^2} H(x)\\]
+                
+                <p>Existen soluciones no triviales, regulares en todo \\(x \\in \\mathbb{R}\\) si y sólo si \\(\\lambda\\) es un entero no negativo \\(n\\):</p>
+                
+                \\[H_n(x) = (-1)^n e^{x^2} \\frac{d^n}{dx^n} e^{-x^2}\\]
+                
+                <h4>Primeros polinomios de Hermite</h4>
+                \\[H_0(x) = 1, \\quad H_1(x) = 2x, \\quad H_2(x) = 4x^2 - 2, \\quad H_3(x) = 8x^3 - 12x\\]
+                
+                <p>En general, \\(H_n(x)\\) es un polinomio real de grado \\(n\\).</p>
+                
+                <h4>Ortogonalidad</h4>
+                <p>Los polinomios de Hermite son ortogonales con respecto a la función de peso \\(w(x) = e^{-x^2}\\):</p>
+                
+                \\[(H_m, H_n)_{e^{-x^2}} = \\int_{-\\infty}^{\\infty} H_m(x) H_n(x) e^{-x^2} \\, dx = \\delta_{mn} 2^n \\sqrt{\\pi n!}\\]
+            </div>
+            `
+        },
+        {
+            title: "Ecuaciones Inhomogéneas y Funciones de Green",
+            duration: "35 min",
+            description: `<h3>Ecuaciones Inhomogéneas y Funciones de Green</h3>
+            <div class="math-content">
+                <h4>Ecuación inhomogénea</h4>
+                \\[\\mathcal{L}\\phi(x) = w(x)F(x)\\]
+                
+                <p>Indicamos un conjunto completo de funciones propias del operador \\(\\mathcal{L}\\) con \\(\\{Y_1(x), Y_2(x), \\ldots\\}\\).</p>
+                
+                \\[\\mathcal{L}Y_n(x) = \\lambda_n w(x)Y_n(x) \\quad \\text{y} \\quad (Y_m, Y_n)_w = \\delta_{mn}\\]
+                
+                <h4>Expansión en funciones propias</h4>
+                <p>Se puede expandir la solución y la fuente en las funciones propias:</p>
+                
+                \\[\\phi(x) = \\sum_{n=1}^{\\infty} \\phi_n Y_n(x) \\quad \\text{y} \\quad F(x) = \\sum_{n=1}^{\\infty} F_n Y_n(x)\\]
+                
+                <p>Entonces:</p>
+                
+                \\[\\mathcal{L}\\phi = \\sum_{n=1}^{\\infty} \\phi_n \\mathcal{L} Y_n = w \\sum_{n=1}^{\\infty} \\phi_n \\lambda_n Y_n = wF = w \\sum_{n=1}^{\\infty} F_n Y_n\\]
+                
+                <p>Tomamos el producto interno con \\(Y_m\\):</p>
+                
+                \\[\\left( w \\sum_{n=1}^{\\infty} \\phi_n \\lambda_n Y_n, Y_m \\right)_w = w \\sum_{n=1}^{\\infty} F_n (Y_n, Y_m)_w\\]
+                
+                <p>Esto implica:</p>
+                
+                \\[\\phi_m \\lambda_m = F_m\\]
+                
+                <h4>Solución particular</h4>
+                <p>Suponiendo que \\(\\lambda_n \\neq 0\\), hemos encontrado la solución particular:</p>
+                
+                \\[\\phi_P(x) = \\sum_{n=1}^{\\infty} \\frac{F_n}{\\lambda_n} Y_n(x)\\]
+                
+                <p>Los coeficientes de la expansión de \\(F\\) son:</p>
+                
+                \\[F_n = (Y_n, F)_w\\]
+                
+                <p>Así que tenemos:</p>
+                
+                \\[\\phi_P(x) = \\sum_{n=1}^{\\infty} \\frac{(Y_n, F)_w}{\\lambda_n} Y_n(x)\\]
+                
+                <h4>Función de Green</h4>
+                \\[\\phi_P(x) = \\int_a^b G(x; t) f(t) \\, dt\\]
+                
+                <p>donde \\(f(t) = w(t)F(t)\\) es el término de fuente de la ecuación diferencial. Hemos definido la función de Green:</p>
+                
+                \\[G(x; t) \\equiv \\sum_{n=1}^{\\infty} \\frac{Y_n(x) Y_n^{*}(t)}{\\lambda_n}\\]
+            </div>`
+        },
+        {
+            title: "Propiedades de la Función de Green",
+            duration: "20 min",
+            description: `<h3>Función de Green</h3>
+            <div class="math-content">
+                \\[G(x; t) \\text{ es una función de dos variables, } (x, t) \\in [a, b] \\times [a, b]\\]
+                
+                <h4>Características</h4>
+                <ul>
+                    <li>Depende del operador diferencial, a través de sus funciones propias y las condiciones de contorno para que \\(\\mathcal{L}\\) sea autoadjunto.</li>
+                    <li>No depende de la fuente \\(f\\) (el término inhomogéneo de la ecuación diferencial).</li>
+                </ul>
+                
+                <p>Si tenemos \\(G(x; t)\\), podemos construir una solución particular de \\(\\mathcal{L}y = f\\) para cualquier \\(f\\).</p>
+                
+                <h4>Inversa del operador</h4>
+                <p>Formalmente, \\(G(x; t)\\) es la inversa de \\(\\mathcal{L}\\):</p>
+                
+                \\[\\mathcal{L} y(x) = f(x) \\quad \\Rightarrow \\quad y(x) = \\int_a^b G(x; t) f(t) \\, dt\\]
+            </div>`
+        },
+        {
+            title: "Identidad de Parseval",
+            duration: "15 min",
+            description: `<h3>Identidad de Parseval</h3>
+            <div class="math-content">
+                <p>Demostramos ahora la identidad en el presente contexto. Sea \\(\\{Y_1(x), Y_2(x), \\ldots\\}\\) un conjunto completo de funciones ortonormales con respecto al peso \\(w(x)\\), tal que \\((Y_m, Y_n)_w = \\delta_{mn}\\).</p>
+                
+                \\[f(x) = \\sum_{n=1}^{\\infty} f_n Y_n(x) \\quad \\Rightarrow \\quad f_n = (Y_n, f)_w\\]
+                
+                <p>Entonces:</p>
+                
+                \\[(f, f)_w = \\int_a^b f(x) f(x) w(x) \\, dx\\]
+            </div>`
         }
     ]
+},
+{
+    id: 12,
+    title: "Ecuación de Laplace",
+    duration: "240 min",
+    videoId: "dQw4w9WgXcQ",
+    description: "Funciones armónicas, condiciones de contorno, separación de variables en diferentes sistemas de coordenadas",
+    subtopics: [
+        {
+            title: "Introducción y Condiciones de Contorno",
+            duration: "25 min",
+            description: `<h3>Ecuación de Laplace</h3>
+            <div class="math-content">
+                <p>La ecuación de las funciones armónicas en \\(\\Omega \\subset \\mathbb{R}^d\\) se expresa como:</p>
+                
+                \\[\\nabla^2 \\psi \\equiv \\sum_{i=1}^{d} \\frac{\\partial^2 \\psi}{\\partial x_i^2} = 0\\]
+                
+                <p>Aquí, \\(d\\) es el número de dimensiones del espacio. Las soluciones de esta ecuación se conocen como funciones armónicas.</p>
+                
+                <p>Buscamos una solución a esta ecuación en un dominio acotado \\(\\Omega\\) con condiciones de contorno especificadas en \\(\\partial \\Omega\\).</p>
+            </div>
+            
+            <h3>Condiciones de Dirichlet</h3>
+            <div class="math-content">
+                <p>La solución toma cierto valor en el contorno. Definimos una función \\(f : \\partial \\Omega \\to \\mathbb{R}\\) y requerimos que:</p>
+                
+                \\[\\psi(x) = f(x) \\quad \\forall x \\in \\partial \\Omega\\]
+                
+                <h4>Unicidad de la solución</h4>
+                <p>Si una solución existe, debe ser única:</p>
+                
+                \\[\\begin{cases}
+                \\nabla^2 \\psi_1 = \\nabla^2 \\psi_2 = 0 \\\\
+                \\psi_1|_{\\partial \\Omega} = \\psi_2|_{\\partial \\Omega} = f \\\\
+                \\delta \\psi \\equiv \\psi_1 - \\psi_2 \\\\
+                \\nabla \\cdot \\delta \\psi(x) = 0 \\quad \\forall x \\in \\Omega \\\\
+                \\delta \\psi = \\text{cte.}
+                \\end{cases}\\]
+                
+                <p>Pero \\(\\delta \\psi = 0\\) en \\(\\partial \\Omega\\), así que \\(\\delta \\psi = 0\\) en todo \\(\\Omega\\) y \\(\\psi_1 = \\psi_2\\).</p>
+            </div>
+            
+            <h3>Condiciones de Neumann</h3>
+            <div class="math-content">
+                <p>La derivada de la solución, en la dirección normal al contorno, toma cierto valor allí. Definimos una función \\(g : \\partial \\Omega \\to \\mathbb{R}\\) y requerimos que:</p>
+                
+                \\[\\mathbf{n} \\cdot \\nabla \\psi(x) = g(x) \\quad \\forall x \\in \\partial \\Omega\\]
+                
+                <p>donde \\(\\mathbf{n}\\) es el vector normal hacia afuera. El mismo argumento de unicidad llega a \\(\\delta \\psi = \\text{cte.}\\).</p>
+            </div>`
+        },
+        {
+            title: "Ecuación de Laplace en un Disco",
+            duration: "20 min",
+            description: `<h3>Coordenadas Complejas</h3>
+            <div class="math-content">
+                <p>Para \\((x, y) \\in \\mathbb{R}^2\\), usamos coordenadas complejas:</p>
+                
+                \\[z = x + iy, \\quad \\bar{z} = x - iy\\]
+                
+                <p>para escribir la ecuación de Laplace como:</p>
+                
+                \\[\\frac{\\partial^2 \\psi}{\\partial z \\partial \\bar{z}} = 0\\]
+                
+                <h4>Solución en el disco unitario</h4>
+                <p>Cuando \\(|z| = 1\\), podemos escribir \\(e^{in\\theta}\\) como \\(z^n\\) y \\(\\bar{z}^{-n}\\), así que:</p>
+                
+                \\[f(\\theta) = \\sum_{n \\in \\mathbb{Z}} \\hat{f}_n e^{in\\theta} = \\hat{f}_0 + \\sum_{n=1}^{\\infty} \\hat{f}_n z^n \\bigg|_{|z|=1} + \\sum_{n=1}^{\\infty} \\hat{f}_{-n} \\bar{z}^n \\bigg|_{|z|=1}\\]
+                
+                <p>Dado que no hay potencias negativas de \\(z\\) o \\(\\bar{z}\\), podemos extender la serie a todo el disco:</p>
+                
+                \\[\\psi(x, y) = \\hat{f}_0 + \\sum_{n=1}^{\\infty} \\hat{f}_n z^n + \\sum_{n=1}^{\\infty} \\hat{f}_{-n} \\bar{z}^n\\]
+            </div>`
+        },
+        {
+            title: "Separación de Variables en Coordenadas Cartesianas",
+            duration: "35 min",
+            description: `<h3>Separación de Variables</h3>
+            <div class="math-content">
+                <p>Consideremos una región en \\(\\mathbb{R}^3\\):</p>
+                
+                \\[\\Omega = \\{(x, y, z) \\in \\mathbb{R}^3 \\mid 0 \\leq x \\leq a, \\ 0 \\leq y \\leq b, \\ z \\geq 0 \\}\\]
+                
+                <p>Buscamos una solución \\(\\psi : \\Omega \\to \\mathbb{R}\\) que cumpla \\(\\nabla^2 \\psi = 0\\) en \\(\\Omega\\) y las siguientes condiciones de contorno en \\(\\partial \\Omega\\):</p>
+                
+                \\[\\begin{aligned}
+                & \\psi(0, y, z) = 0, \\quad \\psi(a, y, z) = 0 \\\\
+                & \\psi(x, 0, z) = 0, \\quad \\psi(x, b, z) = 0 \\\\
+                & \\psi(x, y, 0) = f(x, y), \\quad \\psi(x, y, z) \\to 0 \\quad \\text{cuando} \\quad z \\to \\infty
+                \\end{aligned}\\]
+                
+                <p>donde \\(f : [0, a] \\times [0, b] \\to \\mathbb{R}\\).</p>
+                
+                <h4>Método de separación</h4>
+                <p>Supongamos que podemos escribir:</p>
+                
+                \\[\\psi(x, y, z) = X(x)Y(y)Z(z)\\]
+                
+                \\[\\nabla^2 \\psi = Y(y)Z(z)X''(x) + X(x)Z(z)Y''(y) + X(x)Y(y)Z''(z) = 0\\]
+                
+                <p>Si \\(\\psi \\neq 0\\):</p>
+                
+                \\[\\frac{X''(x)}{X(x)} + \\frac{Y''(y)}{Y(y)} + \\frac{Z''(z)}{Z(z)} = 0\\]
+                
+                <p>Moviendo solo en \\(x\\) en \\(\\Omega\\), los términos en \\(y\\) y \\(z\\) son constantes, por lo que el término en \\(x\\) también debe ser constante. Argumentando de manera similar para cada coordenada, llegamos a:</p>
+                
+                \\[X''(x) = -\\lambda X(x), \\quad Y''(y) = -\\mu Y(y)\\]
+                
+                \\[Z''(z) = (\\lambda + \\mu) Z(z)\\]
+                
+                <p>El coeficiente en \\(Z\\) no es independiente; la suma de todos debe ser cero por la ecuación de Laplace.</p>
+            </div>
+            
+            <h3>Soluciones Generales</h3>
+            <div class="math-content">
+                <p>Si \\(\\lambda, \\mu \\geq 0\\):</p>
+                
+                \\[X(x) = a \\sin(\\sqrt{\\lambda} x) + b \\cos(\\sqrt{\\lambda} x)\\]
+                
+                \\[Y(y) = c \\sin(\\sqrt{\\mu} y) + d \\cos(\\sqrt{\\mu} y)\\]
+                
+                \\[Z(z) = g e^{-z \\sqrt{\\lambda + \\mu}} + h e^{z \\sqrt{\\lambda + \\mu}}\\]
+                
+                <p>donde \\(a, b, c, d, g, h\\) son constantes. Así que tenemos:</p>
+                
+                \\[\\psi(x, y, z) = A (\\sin(\\sqrt{\\lambda} x) + B \\cos(\\sqrt{\\lambda} x))\\]
+                \\[\\times (\\sin(\\sqrt{\\mu} y) + C \\cos(\\sqrt{\\mu} y)) (e^{-z \\sqrt{\\lambda + \\mu}} + D e^{z \\sqrt{\\lambda + \\mu}})\\]
+                
+                <p>después de redefinir las constantes.</p>
+            </div>`
+        },
+        {
+            title: "Condiciones de Contorno y Solución General",
+            duration: "30 min",
+            description: `<h3>Condiciones de Contorno</h3>
+            <div class="math-content">
+                <ul>
+                    <li>\\(\\psi(0, y, z) = 0 \\Rightarrow B = 0\\)</li>
+                    <li>\\(\\psi(a, y, z) = 0 \\Rightarrow \\lambda_n = \\left(\\frac{n \\pi}{a}\\right)^2\\), para \\(n = 1, 2, 3, \\ldots\\)</li>
+                    <li>\\(\\psi(x, 0, z) = 0 \\Rightarrow C = 0\\)</li>
+                    <li>\\(\\psi(x, b, z) = 0 \\Rightarrow \\mu_m = \\left(\\frac{m \\pi}{b}\\right)^2\\), para \\(m = 1, 2, 3, \\ldots\\)</li>
+                    <li>\\(\\psi(x, y, z) \\to 0\\) cuando \\(z \\to \\infty \\Rightarrow D = 0\\)</li>
+                </ul>
+            </div>
+            
+            <h3>Familia de Soluciones</h3>
+            <div class="math-content">
+                \\[\\psi_{n,m}(x, y, z) \\equiv \\sin \\left(\\frac{n \\pi x}{a}\\right) \\sin \\left(\\frac{m \\pi y}{b}\\right)\\]
+                \\[\\times \\exp \\left(-\\pi z \\sqrt{\\frac{n^2}{a^2} + \\frac{m^2}{b^2}}\\right)\\]
+                
+                <p>donde \\(n, m\\) son enteros. Esta familia de soluciones cumple con las condiciones de contorno homogéneas.</p>
+            </div>
+            
+            <h3>Solución General</h3>
+            <div class="math-content">
+                <p>La solución general puede expresarse como una combinación lineal de estas soluciones:</p>
+                
+                \\[\\psi(x, y, z) = \\sum_{n=1}^{\\infty} \\sum_{m=1}^{\\infty} A_{n,m} \\sin \\left(\\frac{n \\pi x}{a}\\right) \\sin \\left(\\frac{m \\pi y}{b}\\right)\\]
+                \\[\\times \\exp \\left(-\\pi z \\sqrt{\\frac{n^2}{a^2} + \\frac{m^2}{b^2}}\\right)\\]
+                
+                <p>donde los coeficientes \\(A_{n,m}\\) se determinan para satisfacer la condición inhomogénea:</p>
+                
+                \\[\\psi(x, y, 0) = \\sum_{n=1}^{\\infty} \\sum_{m=1}^{\\infty} A_{n,m} \\sin \\left(\\frac{n \\pi x}{a}\\right) \\sin \\left(\\frac{m \\pi y}{b}\\right) = f(x, y)\\]
+                
+                <h4>Determinación de coeficientes</h4>
+                <p>Usando la ortogonalidad de las funciones seno en \\(x\\) y \\(y\\), podemos determinar los coeficientes \\(A_{n,m}\\):</p>
+                
+                \\[A_{n,m} = \\frac{4}{ab} \\int_{0}^{a} \\int_{0}^{b} \\sin \\left(\\frac{n \\pi x}{a}\\right) \\sin \\left(\\frac{m \\pi y}{b}\\right) f(x, y) \\, dx \\, dy\\]
+            </div>
+            
+            <h3>Resumen del Método</h3>
+            <div class="math-content">
+                <ul>
+                    <li>\\(\\psi(x, y, z) = X(x)Y(y)Z(z)\\)</li>
+                    <li>La ecuación de Laplace se separa en tres EDOs dependientes de constantes</li>
+                    <li>Las EDOs son de tipo Sturm-Liouville debido a la naturaleza lineal de la ecuación</li>
+                    <li>Las condiciones de contorno homogéneas restringen los posibles valores de los valores propios</li>
+                    <li>Cada conjunto de valores propios genera funciones propias del operador diferencial</li>
+                    <li>Una solución para un cierto valor propio es un modo normal del sistema</li>
+                    <li>La solución general es una combinación lineal de modos normales debido a la linealidad de la ecuación</li>
+                    <li>La condición inhomogénea fija la combinación lineal específica a utilizar, determinada por la ortogonalidad de las funciones propias</li>
+                </ul>
+            </div>`
+        },
+        {
+            title: "Ecuación de Laplace en Coordenadas Esféricas",
+            duration: "35 min",
+            description: `<h3>Separación de Variables en Coordenadas Esféricas</h3>
+            <div class="math-content">
+                <p>Consideramos la búsqueda de soluciones finitas de \\(\\nabla^2 \\psi(r, \\theta) = 0\\) en un dominio esférico:</p>
+                
+                \\[\\Omega = \\{(r, \\theta, \\phi) \\in \\mathbb{R}^3 \\mid r \\leq a\\}\\]
+                
+                <p>Aplicamos la separación de variables \\(\\psi(r, \\theta) = R(r) \\Theta(\\theta)\\):</p>
+                
+                \\[\\frac{d}{d\\theta} \\left( \\sin \\theta \\frac{d\\Theta}{d\\theta} \\right) + \\lambda \\sin \\theta \\Theta = 0\\]
+                
+                \\[\\frac{d}{dr} \\left( r^2 \\frac{dR}{dr} \\right) - \\lambda R = 0\\]
+                
+                <p>donde \\(\\lambda \\in \\mathbb{R}\\) es la constante de separación. Cada ecuación es de tipo Sturm-Liouville.</p>
+            </div>`
+        },
+        {
+            title: "Polinomios de Legendre",
+            duration: "40 min",
+            description: `<h3>Ecuación de Legendre</h3>
+            <div class="math-content">
+                <p>Usamos \\(x = \\cos \\theta\\) para obtener:</p>
+                
+                \\[0 \\leq \\theta \\leq \\pi \\Rightarrow -1 \\leq x \\leq 1\\]
+                
+                <p>La ecuación angular se transforma en:</p>
+                
+                \\[\\frac{d}{dx} \\left( (1 - x^2) \\frac{d\\Theta}{dx} \\right) = -\\lambda \\Theta\\]
+                
+                <p>Esta es la ecuación de Legendre, un problema de Sturm-Liouville en \\(\\Omega = [-1, 1]\\) con \\(p(x) = 1 - x^2\\), \\(q(x) = 0\\), \\(w(x) = 1\\).</p>
+                
+                <h4>Relación de recurrencia</h4>
+                <p>Igualando las potencias de \\(x\\), obtenemos la relación de recurrencia para los coeficientes \\(a_n\\) de la serie de potencias de Legendre:</p>
+                
+                \\[a_{n+2} = \\frac{n(n+1) - \\lambda}{(n+1)(n+2)} a_n\\]
+                
+                <p>Podemos elegir \\(a_0\\) y \\(a_1\\) libremente. Las dos soluciones linealmente independientes son:</p>
+                
+                \\[\\Theta_0(x) = 1 + \\frac{(-\\lambda)}{2!} x^2 + \\frac{(-\\lambda)(6 - \\lambda)}{4!} x^4 + \\cdots\\]
+                
+                \\[\\Theta_1(x) = x + \\frac{(2 - \\lambda)}{3!} x^3 + \\frac{(2 - \\lambda)(12 - \\lambda)}{5!} x^5 + \\cdots\\]
+                
+                <p>Donde \\(\\Theta_0(-x) = \\Theta_0(x)\\) y \\(\\Theta_1(-x) = -\\Theta_1(x)\\).</p>
+            </div>
+            
+            <h3>Primeros Polinomios de Legendre</h3>
+            <div class="math-content">
+                <p>Para valores específicos de \\(\\lambda\\), encontramos los polinomios de Legendre normalizados \\(P_l(x)\\) con \\(l \\in \\mathbb{Z}_{\\geq 0}\\):</p>
+                
+                \\[P_0(x) = 1, \\quad P_1(x) = x, \\quad P_2(x) = \\frac{1}{2}(3x^2 - 1)\\]
+                \\[P_3(x) = \\frac{1}{2}(5x^3 - 3x), \\ldots\\]
+                
+                <p>Estos polinomios están normalizados tal que \\(P_{l}(1)=1\\).</p>
+            </div>
+            
+            <h3>Función Generatriz</h3>
+            <div class="math-content">
+                <p>En lugar de resolver la ecuación de Legendre directamente, podemos generar los polinomios utilizando la fórmula de Rodrigues:</p>
+                
+                \\[P_l(x) = \\frac{1}{2^l l!} \\frac{d^l}{dx^l} (x^2 - 1)^l\\]
+            </div>
+            
+            <h3>Ortogonalidad</h3>
+            <div class="math-content">
+                <p>Estos polinomios cumplen con la ortogonalidad:</p>
+                
+                \\[\\int_{-1}^{1} P_m(x) P_l(x) \\, dx = \\frac{2}{2l + 1} \\delta_{ml}\\]
+                
+                <p>Todas las raíces de \\(P_l(x)\\) son reales y están en el intervalo \\(x \\in (-1, 1)\\).</p>
+            </div>
+            
+            <h3>Resumen: Polinomios de Legendre</h3>
+            <div class="math-content">
+                <ul>
+                    <li>Son soluciones a la parte angular (azimutal) de la ecuación de Laplace (ecuación de Legendre)</li>
+                    <li>Tienen valores propios \\(\\lambda = l(l + 1)\\) para \\(l \\in \\mathbb{Z}_{\\geq 0}\\)</li>
+                    <li>Por el teorema de Sturm-Liouville, corresponden a un conjunto completo de funciones ortogonales en \\(x \\in [-1, 1]\\) (equivalente a \\(\\theta \\in [0, \\pi]\\), donde \\(x = \\cos \\theta\\))</li>
+                    <li>La derivada \\(l\\)-ésima de \\((x^2 - 1)^l\\) evaluada en \\(x = \\pm 1\\) es \\(0\\), para \\(r < l\\) y \\(r \\geq 0\\)</li>
+                </ul>
+            </div>`
+        },
+        {
+            title: "Ecuación Radial y Desarrollo Multipolar",
+            duration: "35 min",
+            description: `<h3>Ecuación Radial</h3>
+            <div class="math-content">
+                <p>Estamos resolviendo la ecuación de Laplace en coordenadas esféricas dentro de un dominio esférico \\(\\Omega = \\{ r \\leq a \\} \\subset \\mathbb{R}^3\\):</p>
+                
+                \\[\\Delta \\psi = 0\\]
+                
+                <p>Utilizando separación de variables, proponemos la solución:</p>
+                
+                \\[\\psi(r, \\theta) = R(r) \\Theta(\\theta)\\]
+                
+                <p>Para una solución regular, la constante de separación en la parte angular es \\(\\lambda = l(l + 1)\\), donde \\(l \\in \\mathbb{Z}_{\\geq 0}\\) y \\(\\Theta(\\theta) = P_l(\\cos \\theta)\\), siendo \\(P_l\\) los polinomios de Legendre.</p>
+                
+                <p>La ecuación radial resultante es:</p>
+                
+                \\[r^2 \\frac{d}{dr} \\left( r^2 \\frac{dR}{dr} \\right) - l(l + 1)R = 0\\]
+                
+                <h4>Solución de la ecuación radial</h4>
+                <p>Intentando una solución de la forma \\(R(r) \\propto r^\\alpha\\), encontramos las raíces para \\(\\alpha\\):</p>
+                
+                \\[\\alpha(\\alpha + 1) = l(l + 1)\\]
+                
+                <p>Las soluciones son \\(\\alpha = l\\) y \\(\\alpha = -(l + 1)\\). Por lo tanto, la solución general toma la forma:</p>
+                
+                \\[\\psi(r, \\theta) = \\sum_{l=0}^{\\infty} \\left( A_l r^l + B_l r^{-(l+1)} \\right) P_l(\\cos \\theta)\\]
+                
+                <p>donde \\(A_l\\) y \\(B_l\\) son constantes (complejas).</p>
+                
+                <ul>
+                    <li>Para una solución regular en \\(r < a\\), se tiene que \\(B_l = 0\\) para todo \\(l\\)</li>
+                    <li>Para una solución regular en \\(r > a\\), se tiene que \\(A_l = 0\\) para todo \\(l\\)</li>
+                    <li>Para una solución regular en una cáscara \\(a \\leq r \\leq b\\), se tiene que \\(A_l \\neq 0\\) y \\(B_l \\neq 0\\)</li>
+                </ul>
+            </div>
+            
+            <h3>Condición de Contorno</h3>
+            <div class="math-content">
+                <p>Considerando el caso \\(r \\leq a\\), necesitamos satisfacer la condición de contorno en \\(r = a\\):</p>
+                
+                \\[\\psi(a, \\theta) = f(\\theta)\\]
+                
+                <p>Por la teoría de Sturm-Liouville, podemos expandir \\(f(\\theta)\\) en términos de los polinomios de Legendre:</p>
+                
+                \\[f(\\theta) = \\sum_{l=0}^{\\infty} F_l P_l(\\cos \\theta)\\]
+                
+                \\[F_l = \\frac{2l + 1}{2} \\int_{0}^{\\pi} P_l(\\cos \\theta) f(\\theta) \\sin \\theta \\, d\\theta\\]
+                
+                <p>La solución general de la ecuación de Laplace en coordenadas esféricas es entonces:</p>
+                
+                \\[\\psi(r, \\theta) = \\sum_{l=0}^{\\infty} F_l \\left( \\frac{r}{a} \\right)^l P_l(\\cos \\theta)\\]
+                
+                <p>con la elección \\(A_l = F_l a^{-l}\\) para garantizar \\(\\psi(a, \\theta) = f(\\theta)\\).</p>
+            </div>
+            
+            <h3>Desarrollo Multipolar</h3>
+            <div class="math-content">
+                <p>Consideremos la función:</p>
+                
+                \\[\\frac{1}{|r - k|} = \\frac{1}{\\sqrt{1 + r^2 - 2r \\cos \\theta}}\\]
+                
+                <p>Podemos expandirla en polinomios de Legendre:</p>
+                
+                \\[\\frac{1}{|r - k|} = \\sum_{l=0}^{\\infty} a_l r^l P_l(\\cos \\theta)\\]
+                
+                <p>donde los \\(a_l\\) son coeficientes de la expansión. Con \\(\\theta = 0\\), tenemos:</p>
+                
+                \\[\\frac{1}{\\sqrt{1 + r^2 - 2r}} = \\frac{1}{1 - r} = \\sum_{l=0}^{\\infty} r^l \\quad \\text{para} \\quad r < 1\\]
+                
+                <p>Ya que \\(P_l(1) = 1\\) para todo \\(l\\), tenemos \\(a_l = 1\\). Por lo tanto,</p>
+                
+                \\[\\frac{1}{|r - k|} = \\sum_{l=0}^{\\infty} r^l P_l(\\cos \\theta)\\]
+                
+                <p>que aplica para \\(r\\) general. La generalización para cualquier vector \\(r'\\) es:</p>
+                
+                \\[\\frac{1}{|r - r'|} = \\frac{1}{r'} \\sum_{l=0}^{\\infty} \\left( \\frac{r}{r'} \\right)^l P_l(\\hat{r} \\cdot \\hat{r}')\\]
+                
+                <p>cuando \\(r' > r\\).</p>
+            </div>`
+        },
+        {
+    title: "Separación de Variables en Coordenadas Cilíndricas",
+    duration: "25 min",
+    description: `<h3>Separación de Variables</h3>
+    <div class="math-content">
+        <p>Supongamos que \\(\\psi = R(r) \\Theta(\\theta) Z(z)\\):</p>
+        
+        \\[\\left( \\frac{R''}{R} + \\frac{1}{r} \\frac{R'}{R} \\right) + \\frac{1}{r^2} \\frac{\\Theta''}{\\Theta} + \\frac{Z''}{Z} = 0\\]
+        
+        <p>Los términos en \\(\\Theta\\) y \\(Z\\) deben ser iguales a constantes, así que llegamos al siguiente sistema de EDOs:</p>
+        
+        \\[\\Theta'' = -\\lambda \\Theta, \\quad Z'' = \\mu Z, \\quad r^2 R'' + r R' + (\\mu r^2 - \\lambda) R = 0\\]
+        
+        <h4>Solución angular</h4>
+        <p>Para tener \\(\\psi\\) univalente: \\(\\Theta(\\theta + 2\\pi) = \\Theta(\\theta)\\), así que \\(\\lambda_n = n^2\\) para \\(n \\in \\mathbb{Z}\\).</p>
+        
+        \\[\\Theta(\\theta) = \\Theta_n(\\theta) \\equiv a_n \\sin(n \\theta) + b_n \\cos(n \\theta)\\]
+        
+        <h4>Solución en z</h4>
+        <p>En el caso de \\(Z\\): si \\(\\mu < 0\\) las soluciones serían senos/cosenos. Suponemos que \\(\\mu > 0\\) y que \\(\\psi \\to 0\\) cuando \\(z \\to \\infty\\):</p>
+        
+        \\[Z(z) = Z_\\mu(z) \\equiv c_\\mu \\exp(-z \\sqrt{\\mu})\\]
+        
+        <p>para \\(\\mu \\in \\mathbb{R}^+\\), donde \\(c_\\mu\\) es una constante.</p>
+    </div>`
+},
+{
+    title: "Funciones de Bessel - Introducción",
+    duration: "30 min",
+    description: `<h3>Ecuación de Bessel</h3>
+    <div class="math-content">
+        <p>Ecuación radial:</p>
+        
+        \\[r^2 R'' + r R' + (\\mu r^2 - \\lambda)R = 0\\]
+        
+        <p>Dividiendo por \\(r\\) y usando \\(rR'' + R' = (rR')'\\) obtenemos la forma estándar de Sturm-Liouville (SL):</p>
+        
+        \\[\\frac{d}{dr} \\left( r \\frac{dR}{dr} \\right) - \\frac{n^2}{r} R = -\\mu r R\\]
+        
+        <p>donde los coeficientes de SL son \\(p(r) = r\\) y \\(q(r) = -\\lambda_n / r = -n^2 / r\\). La función de peso \\(w(r) = r\\) multiplica el valor propio \\(-\\mu\\).</p>
+        
+        <p>Eliminamos \\(\\mu\\) por el uso de \\(x = r \\sqrt{\\mu}\\):</p>
+        
+        \\[x^2 \\frac{d^2 R}{dx^2} + x \\frac{dR}{dx} + (x^2 - n^2)R = 0\\]
+        
+        <p>Esto es equivalente a la ecuación de Bessel de orden \\(n\\).</p>
+        
+        <h4>Soluciones independientes</h4>
+        <p>EDO de segundo orden: dos soluciones linealmente independientes</p>
+        
+        <ul>
+            <li>\\(J_n(x) \\to\\) función de Bessel de primera especie (regular en el origen)</li>
+            <li>\\(Y_n(x) \\to\\) función de Bessel de segunda especie (singular en el origen)</li>
+        </ul>
+        
+        <p>Una solución a la ecuación de Laplace regular adentro de un radio no puede incluir las \\(Y_n(x)\\).</p>
+    </div>
+    <h3>Serie de Frobenius</h3>
+    <div class="math-content">
+        <p>Por el método de Frobenius:</p>
+        
+        \\[J_n(x) = \\left( \\frac{x}{2} \\right)^n \\sum_{k=0}^\\infty \\frac{(-1)^k}{k!(k + n)!} \\left( \\frac{x}{2} \\right)^{2k}\\]
+        
+        <p>donde \\(n \\in \\mathbb{Z}_{\\geq 0}\\). En el caso de \\(n \\in \\mathbb{R}\\) se puede usar la misma expresión reemplazando:</p>
+        
+        \\[k!(k + n)! \\to \\Gamma(k + 1) \\Gamma(k + n + 1)\\]
+    </div>
+    
+    <h3>Comportamiento Asintótico</h3>
+    <div class="math-content">
+        <h4>En el límite \\(x \\to 0\\):</h4>
+        
+        \\[J_n(x) = \\frac{1}{n!} \\left( \\frac{x}{2} \\right)^n + O(x^{n+2}) \\quad (n \\in \\mathbb{Z}_{\\geq 0})\\]
+        
+        \\[Y_0(x) = O(\\ln x)\\]
+        
+        \\[Y_n(x) = O(x^{-n})\\]
+        
+        <h4>En el límite \\(x \\to \\infty\\):</h4>
+        
+        \\[J_n(x) = \\left( \\frac{2}{\\pi x} \\right)^{1/2} \\cos \\left[ x - \\frac{n \\pi}{2} - \\frac{\\pi}{4} \\right] + O(x^{-3/2})\\]
+        
+        \\[Y_n(x) = \\left( \\frac{2}{\\pi x} \\right)^{1/2} \\sin \\left[ x - \\frac{n \\pi}{2} - \\frac{\\pi}{4} \\right] + O(x^{-3/2})\\]
+    </div>
+
+    <h3>Forma General de la Solución</h3>
+    <div class="math-content">
+        \\[\\psi_{\\mu,n}(r, \\theta, z) = \\left( a_n \\sin n\\theta + b_n \\cos n\\theta \\right) e^{-\\sqrt{\\mu} z}\\]
+        \\[\\times \\left( J_n(r \\sqrt{\\mu}) + B_n Y_n(r \\sqrt{\\mu}) \\right)\\]
+        
+        <p>para \\(n \\in \\mathbb{Z}_{\\geq 0}\\) y \\(\\mu \\in \\mathbb{R}_+\\), que satisface la condición que decae en \\(z \\to \\infty\\).</p>
+        
+        <h4>Condiciones de regularidad</h4>
+        <p>Para una solución regular en el eje \\(z\\), necesitamos \\(B_n = 0\\).</p>
+        
+        <p>La condición \\(\\psi(r) = 0\\) en \\(r = a\\) requiere \\(J_n(a \\sqrt{\\mu}) = 0\\), así que:</p>
+        
+        \\[\\sqrt{\\mu} = \\frac{k_{ni}}{a} \\quad i = 1, 2, 3, \\ldots\\]
+        
+        <p>donde \\(i\\) indica la \\(i\\)-ésima raíz \\(J_n(k_{ni}) = 0\\) de la \\(n\\)-ésima función de Bessel.</p>
+    </div>
+
+    <h3>Combinación Lineal de Modos Normales</h3>
+    <div class="math-content">
+        <p>Podemos considerar una combinación lineal arbitraria de los modos normales (ya que hemos fijado solamente la condición de contorno homogénea hasta ahora):</p>
+        
+        \\[\\psi(r, \\theta, z) = \\sum_{n=0}^\\infty \\sum_{i=1}^\\infty \\left( A_{ni} \\sin n\\theta + B_{ni} \\cos n\\theta \\right) J_n \\left( \\frac{k_{ni} r}{a} \\right)\\]
+        \\[\\times e^{- \\frac{k_{ni} z}{a}}\\]
+        
+        <p>Para fijar las constantes \\(A_{ni}\\) y \\(B_{ni}\\) tenemos que aplicar la condición inhomogénea:</p>
+        
+        \\[\\psi(r, \\theta, z = 0) = f(r, \\theta)\\]
+    </div>
+
+    <h3>Condiciones de Ortogonalidad</h3>
+    <div class="math-content">
+        <p>Ocupamos las condiciones de ortogonalidad de Sturm-Liouville:</p>
+        
+        \\[\\int_0^a J_n \\left( \\frac{k_{nj} r}{a} \\right) J_n \\left( \\frac{k_{ni} r}{a} \\right) r \\, dr = \\frac{a^2}{2} \\delta_{ij} \\left[ J'_n(k_{ni}) \\right]^2\\]
+        
+        \\[= \\frac{a^2}{2} \\delta_{ij} \\left[ J_{n+1}(k_{ni}) \\right]^2\\]
+        
+        <h4>Determinación de coeficientes</h4>
+        <p>Con la condición de ortogonalidad:</p>
+        
+        \\[B_{mj} = \\frac{2}{\\pi a^2} \\frac{1}{J} \\int_0^a \\left[ J_m \\left( \\frac{k_{mj} r}{a} \\right) \\int_{-\\pi}^\\pi \\cos m\\theta f(r, \\theta) \\, d\\theta \\right] r \\, dr\\]
+        
+        \\[J=\\left[ J'_m(k_{mj}) \\right]^2\\]
+        
+        <p>Esta expresión fija las constantes \\(B_{mj}\\) en términos de la función \\(f\\). Las \\(A_{mj}\\) se pueden fijar de una manera similar.</p>
+    </div>
+
+
+
+    `
+}
+       
+    ]
+},
+{
+    id: 13,
+    title: "Ecuación de Onda",
+    duration: "210 min",
+    videoId: "dQw4w9WgXcQ",
+    description: "Ecuación de onda unidimensional, separación de variables, energía, modos normales y fenómenos de reflexión y transmisión",
+    subtopics: [
+        {
+            title: "Ecuación de Ondas y Condiciones de Borde",
+            duration: "20 min",
+            description: `<h3>Ecuación de Ondas</h3>
+            <div class="math-content">
+                <p>La ecuación de ondas en una dimensión espacial es:</p>
+                
+                \\[\\frac{\\partial^2 \\phi}{\\partial t^2} = c^2 \\nabla^2 \\phi\\]
+                
+                <p>donde la velocidad de propagación \\(c\\) está dada por:</p>
+                
+                \\[c^2 = \\frac{T}{\\mu}\\]
+                
+                <p>aquí \\(T\\) es la tensión y \\(\\mu\\) es la densidad lineal de masa.</p>
+            </div>
+            
+            <h3>Condiciones de Borde</h3>
+            <div class="math-content">
+                <h4>Condiciones de contorno (Dirichlet)</h4>
+                \\[\\phi(0, t) = \\phi(L, t) = 0\\]
+                
+                <h4>Condiciones iniciales</h4>
+                \\[\\phi(x, 0) = f(x), \\quad \\frac{\\partial \\phi}{\\partial t} (x, 0) = g(x)\\]
+                
+                <p>donde \\(f(x)\\) es el desplazamiento inicial y \\(g(x)\\) es la velocidad inicial.</p>
+            </div>`
+        },
+        {
+            title: "Separación de Variables",
+            duration: "25 min",
+            description: `<h3>Método de Separación de Variables</h3>
+            <div class="math-content">
+                <p>Proponemos una solución de la forma:</p>
+                
+                \\[\\phi(x, t) = X(x)T(t)\\]
+                
+                <p>Sustituyendo en la ecuación de onda y separando variables, obtenemos:</p>
+                
+                \\[X'' = -\\lambda X \\quad \\text{y} \\quad T'' = -c^2 \\lambda T\\]
+                
+                <h4>Valores propios</h4>
+                <p>Las condiciones de contorno \\(\\phi(0, t) = \\phi(L, t) = 0\\) implican:</p>
+                
+                \\[\\lambda = \\frac{n^2 \\pi^2}{L^2}, \\quad \\text{para } n \\in \\mathbb{N}\\]
+                
+                <p>Cada valor de \\(n\\) corresponde a un modo normal de oscilación.</p>
+            </div>`
+        },
+        {
+            title: "Solución General y Coeficientes de Fourier",
+            duration: "30 min",
+            description: `<h3>Solución General</h3>
+            <div class="math-content">
+                <p>La solución general es una superposición de todos los modos normales:</p>
+                
+                \\[\\phi(x, t) = \\sum_{n=1}^{\\infty} \\sin \\left( \\frac{n \\pi x}{L} \\right) \\left( A_n \\cos \\left( \\frac{n \\pi c t}{L} \\right) + B_n \\sin \\left( \\frac{n \\pi c t}{L} \\right) \\right)\\]
+            </div>
+            
+            <h3>Coeficientes de Fourier</h3>
+            <div class="math-content">
+                <p>Los coeficientes \\(A_n\\) y \\(B_n\\) se determinan a partir de las condiciones iniciales:</p>
+                
+                <h4>Coeficiente \\(A_n\\) (desplazamiento inicial)</h4>
+                \\[A_n = \\frac{2}{L} \\int_{0}^{L} \\sin \\left( \\frac{n \\pi x}{L} \\right) f(x) \\, dx\\]
+                
+                <h4>Coeficiente \\(B_n\\) (velocidad inicial)</h4>
+                \\[B_n = \\frac{2}{n \\pi c} \\int_{0}^{L} \\sin \\left( \\frac{n \\pi x}{L} \\right) g(x) \\, dx\\]
+                
+                <p>Estos coeficientes describen completamente el estado inicial del sistema y determinan su evolución temporal.</p>
+            </div>`
+        },
+        {
+            title: "Energía en la Cuerda",
+            duration: "35 min",
+            description: `<h3>Energía Cinética</h3>
+            <div class="math-content">
+                <p>La energía cinética en la cuerda es:</p>
+                
+                \\[K(t) = \\frac{1}{2} \\int_{0}^{L} \\mu \\left( \\frac{\\partial \\phi}{\\partial t} \\right)^2 dx\\]
+                
+                <p>En términos de los coeficientes de Fourier:</p>
+                
+                \\[K(t) = \\frac{\\mu \\pi^2}{4L c^2} \\sum_{n=1}^{\\infty} n^2 \\left( A_n \\sin \\frac{n \\pi c t}{L} - B_n \\cos \\frac{n \\pi c t}{L} \\right)^2\\]
+            </div>
+            
+            <h3>Energía Potencial</h3>
+            <div class="math-content">
+                <p>La energía potencial almacenada en la cuerda es:</p>
+                
+                \\[V(t) \\approx \\frac{T}{2} \\int_{0}^{L} \\left( \\frac{\\partial \\phi}{\\partial x} \\right)^2 dx\\]
+                
+                <p>En términos de los coeficientes de Fourier:</p>
+                
+                \\[V(t) = \\frac{\\mu \\pi^2}{4L c^2} \\sum_{n=1}^{\\infty} n^2 \\left( A_n \\cos \\frac{n \\pi c t}{L} + B_n \\sin \\frac{n \\pi c t}{L} \\right)^2\\]
+            </div>
+            
+            <h3>Energía Total</h3>
+            <div class="math-content">
+                <p>La energía total del sistema es:</p>
+                
+                \\[E(t) = \\frac{\\mu}{2} \\int_{0}^{L} \\left( \\left( \\frac{\\partial \\phi}{\\partial t} \\right)^2 + c^2 \\left( \\frac{\\partial \\phi}{\\partial x} \\right)^2 \\right) dx\\]
+                
+                <p>En términos de los coeficientes de Fourier:</p>
+                
+                \\[E(t) = \\frac{\\mu c^2 \\pi^2}{4L} \\sum_{n=1}^{\\infty} n^2 (A_n^2 + B_n^2)\\]
+                
+                <p>La energía total es constante en el tiempo (se conserva).</p>
+                
+                <h4>Período de oscilación del modo fundamental</h4>
+                \\[T = \\frac{2L}{c} = \\frac{2\\pi}{\\omega} = \\frac{2L}{\\pi c}\\]
+                
+                <h4>Energía promedio sobre un período</h4>
+                \\[\\bar{K} = \\bar{V} = \\frac{E}{2}\\]
+                
+                <p>El promedio temporal de la energía cinética es igual al promedio de la energía potencial, y cada uno es la mitad de la energía total.</p>
+            </div>`
+        },
+        {
+            title: "Unicidad y Conservación de Energía",
+            duration: "25 min",
+            description: `<h3>Funcional de Energía</h3>
+            <div class="math-content">
+                <p>Definimos el funcional de energía general:</p>
+                
+                \\[E_{\\phi}(t) \\equiv \\frac{1}{2} \\int_{\\Omega} \\left( \\left( \\frac{\\partial \\phi}{\\partial t} \\right)^2 + c^2 \\nabla \\phi \\cdot \\nabla \\phi \\right) dV\\]
+            </div>
+            
+            <h3>Conservación de Energía</h3>
+            <div class="math-content">
+                <p>La tasa de cambio de la energía está dada por:</p>
+                
+                \\[\\frac{dE_{\\phi}}{dt} = c^2 \\int_{\\partial \\Omega} \\left( \\frac{\\partial \\phi}{\\partial t} (\\mathbf{n} \\cdot \\nabla \\phi) \\right) dS\\]
+                
+                <h4>Condiciones para conservación</h4>
+                <p>Si \\(\\mathbf{n} \\cdot \\nabla \\phi |_{\\partial \\Omega} = 0\\) (condiciones de Neumann) o \\(\\frac{\\partial \\phi}{\\partial t} |_{\\partial \\Omega} = 0\\) (condiciones de Dirichlet), no hay flujo de energía fuera de \\(\\Omega\\) y la energía se conserva.</p>
+                
+                <h4>Implicación para unicidad</h4>
+                <p>La conservación de energía garantiza la unicidad de la solución: si dos soluciones satisfacen las mismas condiciones iniciales y de contorno, su diferencia tiene energía cero, por lo que deben ser idénticas.</p>
+            </div>`
+        },
+        {
+            title: "Membrana Circular",
+            duration: "30 min",
+            description: `<h3>Ecuación de Onda en Coordenadas Polares</h3>
+            <div class="math-content">
+                <p>Para una membrana circular \\(\\Omega = \\{(r, \\theta) \\in \\mathbb{R}^2 | r \\leq 1\\}\\), la ecuación de onda es:</p>
+                
+                \\[c^2 \\frac{\\partial^2 \\phi}{\\partial t^2} = \\nabla^2 \\phi = \\frac{1}{r} \\frac{\\partial}{\\partial r} \\left( r \\frac{\\partial \\phi}{\\partial r} \\right) + \\frac{1}{r^2} \\frac{\\partial^2 \\phi}{\\partial \\theta^2}\\]
+                
+                <h4>Condición de contorno</h4>
+                <p>En el borde de la membrana (\\(r=1\\)):</p>
+                
+                \\[\\phi(r=1, \\theta, t) = 0 \\quad \\forall t\\]
+            </div>
+            
+            <h3>Separación de Variables</h3>
+            <div class="math-content">
+                <p>Proponemos:</p>
+                
+                \\[\\phi(r, \\theta, t) = R(r) \\Theta(\\theta) T(t)\\]
+                
+                <p>Esto conduce a tres ecuaciones separadas:</p>
+                
+                \\[T'' = -c^2 \\lambda T, \\quad \\Theta'' = -\\mu \\Theta\\]
+                
+                <p>Para soluciones periódicas en \\(\\theta\\), tenemos \\(\\mu = m^2\\) con \\(m \\in \\mathbb{Z}\\).</p>
+                
+                <p>La ecuación radial es:</p>
+                
+                \\[r(rR')' + (r^2 \\lambda - \\mu)R = 0\\]
+            </div>`
+        },
+        {
+            title: "Solución Radial y Modos de Vibración",
+            duration: "30 min",
+            description: `<h3>Solución de la Ecuación Radial</h3>
+            <div class="math-content">
+                <p>La solución general de la ecuación radial es:</p>
+                
+                \\[R(r) = a_m J_m\\left( \\sqrt{\\lambda} r \\right) + b_m Y_m\\left( \\sqrt{\\lambda} r \\right)\\]
+                
+                <p>donde \\(J_m\\) y \\(Y_m\\) son las funciones de Bessel de primera y segunda especie.</p>
+                
+                <p>Para soluciones regulares en el origen, debemos tener \\(b_m = 0\\).</p>
+            </div>
+            
+            <h3>Condiciones Iniciales</h3>
+            <div class="math-content">
+                <p>Las condiciones iniciales son:</p>
+                
+                \\[\\phi(r, \\theta, 0) = f(r, \\theta), \\quad \\frac{\\partial \\phi}{\\partial t}(r, \\theta, 0) = g(r, \\theta)\\]
+            </div>
+            
+            <h3>Solución General (Caso Axisimétrico)</h3>
+            <div class="math-content">
+                <p>Para el caso especial \\(\\phi(r, \\theta, 0) = 0\\) y \\(\\frac{\\partial \\phi}{\\partial t}(r, \\theta, 0) = g(r)\\) (axisimétrico, \\(m=0\\)):</p>
+                
+                \\[\\phi(r, \\theta, t) = \\sum_{i=1}^{\\infty} A_{0i} \\sin(k_{0i} c t) J_0(k_{0i} r)\\]
+                
+                <p>donde \\(k_{0i}\\) son los ceros de \\(J_0\\), y los coeficientes están dados por:</p>
+                
+                \\[A_{0i} = \\frac{2}{c k_{0i}}\\frac{1}{\\left[ J_1(k_{0i}) \\right]^2} \\int_{0}^{1} J_0(k_{0i} r) g(r) r \\, dr\\]
+            </div>`
+        },
+        {
+            title: "Reflexión y Transmisión de Ondas",
+            duration: "35 min",
+            description: `<h3>Interfaz entre Dos Medios</h3>
+            <div class="math-content">
+                <p>Consideremos una cuerda con densidad \\(\\mu = \\mu_{-}\\) para \\(x < 0\\) y \\(\\mu = \\mu_{+}\\) para \\(x > 0\\).</p>
+                
+                <h4>Onda incidente</h4>
+                \\[\\phi_I(x, t) = A_I \\cos\\left[\\omega\\left(t - \\frac{x}{c_{-}}\\right) + \\xi_I\\right] = \\text{Re}\\left(I e^{i\\omega \\left(t - \\frac{x}{c_{-}}\\right)}\\right)\\]
+                
+                <h4>Onda transmitida</h4>
+                \\[\\phi_T(x, t) = \\text{Re}\\left(T e^{i\\omega \\left(t - \\frac{x}{c_{+}}\\right)}\\right)\\]
+                
+                <h4>Onda reflejada</h4>
+                \\[\\phi_R(x, t) = \\text{Re}\\left(R e^{i\\omega \\left(t + \\frac{x}{c_{-}}\\right)}\\right)\\]
+            </div>
+            
+            <h3>Condiciones de Continuidad</h3>
+            <div class="math-content">
+                <p>En la interfaz \\(x = 0\\), el desplazamiento debe ser continuo:</p>
+                
+                \\[\\phi_I|_{x=0^{-}} + \\phi_R|_{x=0^{-}} = \\phi_T|_{x=0^{+}}\\]
+                
+                <p>Lo que implica:</p>
+                
+                \\[I + R = T\\]
+            </div>
+            
+            <h3>Coeficientes de Reflexión y Transmisión</h3>
+            <div class="math-content">
+                <h4>Coeficiente de reflexión</h4>
+                \\[R = \\frac{c_{+} - c_{-}}{c_{+} + c_{-}} I\\]
+                
+                <h4>Coeficiente de transmisión</h4>
+                \\[T = \\frac{2c_{+}}{c_{+} + c_{-}} I\\]
+            </div>
+            
+            <h3>Casos Especiales</h3>
+            <div class="math-content">
+                <ul>
+                    <li><strong>Medio homogéneo:</strong> Si \\(\\mu_{+} = \\mu_{-}\\) entonces \\(c_{+} = c_{-}\\) y \\(R = 0\\), \\(T = I\\). No hay reflexión.</li>
+                    <li><strong>Medio muy denso:</strong> Si \\(\\mu_{+} \\gg \\mu_{-}\\) entonces \\(c_{+} \\ll c_{-}\\) y \\(T \\approx 0\\), \\(R \\approx -I\\). La onda se refleja con inversión de fase.</li>
+                    <li><strong>Medio muy ligero:</strong> Si \\(\\mu_{+} \\ll \\mu_{-}\\) entonces \\(c_{+} \\gg c_{-}\\) y \\(T \\approx 2I\\), \\(R \\approx I\\). La onda se refleja sin inversión de fase.</li>
+                </ul>
+            </div>`
+        }
+    ]
+},
+{
+    id: 14,
+    title: "Funciones Generalizadas",
+    duration: "180 min",
+    videoId: "dQw4w9WgXcQ",
+    description: "Distribuciones, funciones de prueba, delta de Dirac y derivadas de distribuciones",
+    subtopics: [
+        {
+            title: "Funciones de Prueba y Espacio de Distribuciones",
+            duration: "25 min",
+            description: `<h3>Funciones de Prueba</h3>
+            <div class="math-content">
+                <p>Para definir una distribución, necesitamos una clase de funciones de prueba.</p>
+                
+                <h4>El espacio de distribuciones</h4>
+                <p>El espacio de distribuciones con funciones de prueba en \\(D(\\phi)\\) se denota como \\(D'(\\Omega)\\).</p>
+                
+                <p>Es un espacio vectorial de dimensión infinita:</p>
+                
+                \\[(T_1 + T_2)[\\phi] \\equiv T_1[\\phi] + T_2[\\phi] \\quad (cT_1)[\\phi] \\equiv cT_1[\\phi]\\]
+                
+                \\[\\forall \\phi \\in D(\\Omega), \\, \\forall c \\in \\mathbb{R}\\]
+                
+                <p>El producto \\(cT_1[\\phi]\\) es simplemente multiplicación en \\(\\mathbb{R}\\).</p>
+                
+                <h4>Multiplicación por una función de prueba</h4>
+                <p>También podemos definir la multiplicación de una distribución por una función de prueba:</p>
+                
+                \\[(\\psi T)[\\phi] := T[\\psi \\phi] \\quad \\psi \\in C^\\infty(\\Omega), \\, T \\in D'(\\Omega)\\]
+                
+                <p>donde usamos multiplicación en \\(C^\\infty(\\Omega)\\).</p>
+                
+                <p><strong>Nota:</strong> Generalmente no se puede definir la multiplicación de dos distribuciones.</p>
+                
+                <p>Una función ordinaria \\(f : \\Omega \\to \\mathbb{R}\\) que se puede integrar sobre cualquier conjunto compacto (integrable localmente) es también una distribución.</p>
+            </div>`
+        },
+        {
+            title: "Primer Ejemplo: Función como Distribución",
+            duration: "20 min",
+            description: `<h3>Definición de una Función como Distribución</h3>
+            <div class="math-content">
+                <p>Para definirla como distribución hay que definir su acción en cualquier función de prueba \\(\\phi \\in D(\\phi)\\):</p>
+                
+                \\[f[\\phi] := (f, \\phi) = \\int_\\Omega f(x) \\phi(x) \\, dV\\]
+                
+                <p>La definición dada resulta en un mapeo lineal \\(D(\\phi) \\to \\mathbb{R}\\):</p>
+                
+                \\[T_f [c_1 \\phi_1 + c_2 \\phi_2] = (f, c_1 \\phi_1 + c_2 \\phi_2)\\]
+                
+                \\[= c_1 (f, \\phi_1) + c_2 (f, \\phi_2) = c_1 T_f [\\phi_1] + c_2 T_f [\\phi_2]\\]
+            </div>`
+        },
+        {
+            title: "Segundo Ejemplo: Delta de Dirac",
+            duration: "30 min",
+            description: `<h3>La Delta de Dirac</h3>
+            <div class="math-content">
+                <p>Una distribución que no es una función es la delta de Dirac:</p>
+                
+                \\[\\delta[\\phi] := \\phi(0) \\quad \\forall \\phi \\in D(\\Omega)\\]
+                
+                <p>Este mapeo \\(\\delta : D(\\Omega) \\to \\mathbb{R}\\) es lineal:</p>
+                
+                \\[\\delta[c_1 \\phi_1 + c_2 \\phi_2] = c_1 \\phi_1(0) + c_2 \\phi_2(0)\\]
+                
+                <h4>Notación común</h4>
+                <p>Es muy común escribir</p>
+                
+                \\[\\delta[\\phi] = \\int_\\Omega \\delta(x) \\phi(x) \\, dV\\]
+                
+                <p>necesitamos</p>
+                
+                \\[\\delta(x) = 0 \\quad \\text{cuando} \\quad x \\neq 0, \\quad \\text{y} \\quad \\delta(0) \\stackrel{?!}{=} \\infty\\]
+                
+                <p>para tener un valor finito en la integral.</p>
+            </div>`
+        },
+        {
+            title: "Derivada de una Distribución",
+            duration: "35 min",
+            description: `<h3>Derivada de una Distribución</h3>
+            <div class="math-content">
+                <p>En el caso de una distribución que es una función normal:</p>
+                
+                \\[T_f' [\\phi] = (f', \\phi) = \\int_\\Omega f'(x) \\phi(x) \\, dx\\]
+                
+                \\[= -\\int_\\Omega f(x) \\phi'(x) \\, dx = -(f, \\phi') = -T_f [\\phi']\\]
+                
+                <p>usando integración por partes y el hecho de que el término en el contorno es nulo por el soporte compacto de \\(\\phi\\) en \\(\\Omega\\).</p>
+                
+                <h4>Definición general</h4>
+                <p>Para una función generalizada \\(T\\) definimos</p>
+                
+                \\[T' [\\phi] := -T[\\phi'] \\quad \\forall \\phi \\in D(\\Omega)\\]
+                
+                <h4>Derivada de la delta de Dirac</h4>
+                \\[\\delta' [\\phi] = -\\delta[\\phi'] = -\\phi'(0)\\]
+            </div>`
+        },
+        {
+            title: "Derivadas de Mayor Orden",
+            duration: "20 min",
+            description: `<h3>Derivadas de Mayor Orden</h3>
+            <div class="math-content">
+                <p>Definimos</p>
+                
+                \\[T^{(n)} [\\phi] \\equiv (-1)^n T[\\phi^{(n)}]\\]
+                
+                <h4>Ejemplo: Derivadas de la delta</h4>
+                <p>Por ejemplo:</p>
+                
+                \\[\\delta^{(n)} [\\phi] = (-1)^n \\phi^{(n)} (0)\\]
+            </div>`
+        }
+    ]
+},
+{
+    id: 15,
+    title: "Funciones de Green",
+    duration: "240 min",
+    videoId: "dQw4w9WgXcQ",
+    description: "Funciones de Green para ecuaciones diferenciales, construcción, propiedades y aplicaciones",
+    subtopics: [
+        {
+            title: "Introducción a las Funciones de Green",
+            duration: "30 min",
+            description: `<h3>Operador Diferencial</h3>
+            <div class="math-content">
+                <p>\\(\\mathcal{L}\\) en \\([a, b]\\) (que puede ser infinito):</p>
+                
+                \\[\\mathcal{L}y(x) = \\alpha(x) \\frac{d^2 y}{dx^2} + \\beta(x) \\frac{d y}{dx} + \\gamma(x)y = f(x)\\]
+                
+                <p>donde \\(\\alpha\\), \\(\\beta\\), \\(\\gamma\\) son continuas en \\([a, b]\\) y \\(\\alpha = 0\\) excepto en un número finito de puntos aislados. Supondremos que \\(f(x)\\) es acotada en \\([a, b]\\).</p>
+            </div>
+            
+            <h3>Definición de la Función de Green</h3>
+            <div class="math-content">
+                <p>La función de Green \\(G(x; \\xi)\\) de \\(\\mathcal{L}\\) única solución al problema:</p>
+                
+                \\[\\mathcal{L}G = \\delta(x - \\xi)\\]
+                
+                <p>satisface condiciones de contorno homogéneas \\(G(a; \\xi) = G(b; \\xi) = 0\\).</p>
+            </div>
+            
+            <h3>Solución en Términos de la Función de Green</h3>
+            <div class="math-content">
+                \\[y(x) = \\int_a^b G(x; \\xi)f(\\xi)\\,d\\xi\\]
+                
+                <h4>Verificación</h4>
+                \\[\\mathcal{L}y(x) = \\mathcal{L} \\left[ \\int_a^b G(x; \\xi)f(\\xi)\\,d\\xi \\right] = \\int_a^b [\\mathcal{L}G(x; \\xi)]f(\\xi)\\,d\\xi\\]
+                
+                \\[= \\int_a^b \\delta(x - \\xi)f(\\xi)\\,d\\xi = f(x)\\]
+                
+                <p>La solución satisface \\(y(a) = y(b) = 0\\) como consecuencia de imponer estas condiciones en \\(G(x; \\xi)\\).</p>
+            </div>`
+        },
+        {
+            title: "Construcción de la Función de Green - Ecuación Homogénea",
+            duration: "35 min",
+            description: `<h3>Ecuación Homogénea</h3>
+            <div class="math-content">
+                \\[\\mathcal{L}G = \\delta(x - \\xi)\\]
+                
+                <p>Así que cuando \\(x \\neq \\xi\\), tenemos \\(\\mathcal{L}G = 0\\).</p>
+                
+                <h4>Base de soluciones</h4>
+                <p>Consideremos una base de soluciones \\(\\{y_1, y_2\\}\\) tal que</p>
+                
+                \\[y_1(a) = 0 \\quad \\text{y} \\quad y_2(b) = 0\\]
+                
+                <p>En \\([a, \\xi)\\) la función de Green cumple \\(\\mathcal{L}G = 0\\) y \\(G(a; \\xi) = 0\\).</p>
+                
+                \\[G(x; \\xi) = A(\\xi)y_1(x) \\quad x \\in [a, \\xi)\\]
+                
+                <p>En \\((\\xi, b]\\)</p>
+                
+                \\[G(x; \\xi) = B(\\xi)y_2(x) \\quad x \\in (\\xi, b]\\]
+            </div>`
+        },
+        {
+            title: "Conectando las Dos Soluciones",
+            duration: "30 min",
+            description: `<h3>Condiciones de Conexión</h3>
+            <div class="math-content">
+                <p>Como</p>
+                
+                \\[\\partial_x G \\propto \\delta(x - \\xi) \\quad \\partial_x^2 G \\propto \\delta'(x - \\xi)\\]
+                
+                <p>Las condiciones en \\(G(x; \\xi)\\) son:</p>
+                
+                <h4>Continuidad del desplazamiento</h4>
+                \\[G(x; \\xi) \\big|_{x = \\xi^+} = G(x; \\xi) \\big|_{x = \\xi^-}\\]
+                
+                <h4>Discontinuidad de la derivada</h4>
+                \\[\\left. \\frac{\\partial G(x; \\xi)}{\\partial x} \\right|_{x = \\xi^+} - \\left. \\frac{\\partial G(x; \\xi)}{\\partial x} \\right|_{x = \\xi^-} = \\frac{1}{p(x)}\\]
+                
+                <p>En términos de las soluciones \\(y_1(x)\\), \\(y_2(x)\\) estas condiciones son:</p>
+                
+                \\[A(\\xi)y_1(\\xi) = B(\\xi)y_2(\\xi)\\]
+                
+                \\[A(\\xi) y'_1(\\xi) - B(\\xi) y'_2(\\xi) = \\frac{1}{p(\\xi)}\\]
+            </div>`
+        },
+        {
+            title: "Construyendo la Función de Green",
+            duration: "35 min",
+            description: `<h3>Determinación de los Coeficientes</h3>
+            <div class="math-content">
+                \\[A(\\xi) = \\frac{y_2(\\xi)}{p(\\xi)W(\\xi)}\\]
+                
+                \\[B(\\xi) = \\frac{y_1(\\xi)}{p(\\xi)W(\\xi)}\\]
+                
+                <p>donde</p>
+                
+                \\[W(x) \\equiv y_1 y'_2 - y_2 y'_1\\]
+                
+                <p>Wronskiano de \\(y_1\\), \\(y_2\\).</p>
+            </div>
+            
+            <h3>Función de Green Completa</h3>
+            <div class="math-content">
+                <p>La solución \\(G(x; \\xi)\\) de \\(\\mathcal{L}G = \\delta(x - \\xi)\\) que cumple \\(G(a; \\xi) = G(b; \\xi) = 0\\) es:</p>
+                
+                \\[G(x; \\xi) = \\begin{cases} 
+                \\frac{y_1(x) y_2(\\xi)}{p(\\xi) W(\\xi)} & a \\leq x < \\xi \\\\
+                \\frac{y_2(x) y_1(\\xi)}{p(\\xi) W(\\xi)} & \\xi < x \\leq b 
+                \\end{cases}\\]
+                
+                <h4>Forma alternativa con función escalón</h4>
+                \\[G(x; \\xi) = \\frac{1}{p(\\xi) W(\\xi)} [\\Theta(\\xi - x) y_1(x) y_2(\\xi) + \\Theta(x - \\xi) y_2(x) y_1(\\xi)]\\]
+            </div>
+            
+            <h3>Solución General</h3>
+            <div class="math-content">
+                <p>La solución a \\(\\mathcal{L}y = f\\):</p>
+                
+                \\[y(x) = \\int_a^b G(x; \\xi) f(\\xi) \\, d\\xi\\]
+                
+                \\[= y_2(x) \\int_a^x \\frac{y_1(\\xi)}{p(\\xi) W(\\xi)} f(\\xi) \\, d\\xi + y_1(x) \\int_x^b \\frac{y_2(\\xi)}{p(\\xi) W(\\xi)} f(\\xi) \\, d\\xi\\]
+                
+                <p>En la primera integral tenemos \\(\\xi < x\\), así que usamos la segunda línea de la ecuación. En la segunda integral tenemos \\(\\xi > x\\) usamos la primera línea de la ecuación.</p>
+            </div>`
+        },
+        {
+            title: "Condiciones de Contorno Inhomogéneas",
+            duration: "25 min",
+            description: `<h3>Solución con Condiciones Inhomogéneas</h3>
+            <div class="math-content">
+                <p>Encontrar cualquier solución \\(y_h(x)\\) a la ecuación homogénea \\(L y = 0\\) que cumple la condición de contorno inhomogénea.</p>
+                
+                <p>Por linealidad del operador \\(L\\) tenemos la solución general:</p>
+                
+                \\[y(x) = y_h(x) + \\int_a^b G(x; \\xi) f(\\xi) \\, d\\xi\\]
+                
+                <p>El segundo término garantiza que \\(L y = f\\) pero no afecta las condiciones de contorno.</p>
+            </div>`
+        },
+        {
+            title: "Equivalencia con Expansión en Funciones Propias",
+            duration: "35 min",
+            description: `<h3>Dos Formas de Escribir G</h3>
+            <div class="math-content">
+                <p>Tenemos</p>
+                
+                \\[G(x; \\xi) = \\frac{1}{p(\\xi)W(\\xi)} [\\Theta(\\xi - x) y_1(x) y_2(\\xi) + \\Theta(x - \\xi) y_2(x) y_1(\\xi)]\\]
+                
+                <p>También vimos (en la parte sobre Sturm-Liouville) que</p>
+                
+                \\[G(x; \\xi) = \\sum_{n=1}^{\\infty} \\frac{1}{\\lambda_n} Y_n(x) Y_n^*(\\xi)\\]
+                
+                <p>en términos de las funciones propias \\(\\{Y_n(x)\\}\\) y valores propios \\(\\{\\lambda_n\\}\\) del operador de Sturm-Liouville.</p>
+            </div>
+            
+            <h3>Derivación de la Expansión</h3>
+            <div class="math-content">
+                <p>También vimos que:</p>
+                
+                \\[\\delta(x - \\xi) = w(x) \\sum_{n \\in \\mathbb{Z}} Y_n(x) Y_n^*(\\xi)\\]
+                
+                <p>Podemos escribir</p>
+                
+                \\[G(x; \\xi) = \\sum_{n \\in \\mathbb{Z}} \\hat{G}_n(\\xi) Y_n(x)\\]
+                
+                \\[\\mathcal{L}G = \\sum_{n \\in \\mathbb{Z}} \\hat{G}_n(\\xi) \\mathcal{L} Y_n(x) = w(x) \\sum_{n \\in \\mathbb{Z}} \\hat{G}_n(\\xi) \\lambda_n Y_n(x)\\]
+                
+                <p>Para tener \\(\\mathcal{L}G = \\delta(x - \\xi)\\) necesitamos que</p>
+                
+                \\[\\hat{G}_n(\\xi) = \\frac{1}{\\lambda_n} Y_n^*(\\xi)\\]
+            </div>`
+        },
+        {
+            title: "Problemas de Valor Inicial",
+            duration: "40 min",
+            description: `<h3>Construcción de la Función</h3>
+            <div class="math-content">
+                <p>Buscamos la función \\(y : t \\in [t_0, \\infty) \\rightarrow \\mathbb{R}\\) que es la solución de</p>
+                
+                \\[Ly = f(t)\\]
+                
+                <p>con condiciones iniciales \\(y(t_0) = 0, y'(t_0) = 0\\).</p>
+                
+                <p>Como antes, buscamos una \\(G\\) tal que</p>
+                
+                \\[LG = \\delta(t - \\tau)\\]
+                
+                <p>y así \\(G(t, \\tau)\\) satisface la ecuación homogénea para \\(t \\neq \\tau\\).</p>
+            </div>
+            
+            <h3>Solución para \\(t < \\tau\\)</h3>
+            <div class="math-content">
+                <p>\\(G\\) para \\(t_0 \\leq t < \\tau\\) debe ser una solución general a la ecuación homogénea:</p>
+                
+                \\[G = Ay_1(t) + By_2(t)\\]
+                
+                <p>donde \\(\\{y_1(t), y_2(t)\\}\\) es cualquier base de soluciones linealmente independientes.</p>
+                
+                <p>Tenemos que imponer dos condiciones iniciales:</p>
+                
+                \\[Ay_1(t_0) + By_2(t_0) = 0\\]
+                
+                \\[Ay'_1(t_0) + By'_2(t_0) = 0\\]
+                
+                <p>Escribimos las ecuaciones arriba como</p>
+                
+                \\[\\begin{pmatrix}
+                y_1(t_0) & y_2(t_0) \\\\
+                y'_1(t_0) & y'_2(t_0)
+                \\end{pmatrix}
+                \\begin{pmatrix}
+                A \\\\
+                B
+                \\end{pmatrix}
+                = 0\\]
+                
+                <p>Ya que \\(y_1, y_2\\) son linealmente independientes, el determinante de la matriz (el wronskiano) es no nulo.</p>
+                
+                <p>Por lo tanto: \\(A = B = 0\\)</p>
+                
+                \\[W(x) \\equiv y_1 y'_2 - y_2 y'_1\\]
+                
+                <p>Así,</p>
+                
+                \\[G(t, \\tau) = 0 \\quad \\text{para} \\quad t \\in [t_0, \\tau).\\]
+            </div>
+            
+            <h3>Solución para \\(t > \\tau\\)</h3>
+            <div class="math-content">
+                <p>Para \\(t > \\tau\\), tenemos</p>
+                
+                \\[G = Cy_1(t) + Dy_2(t).\\]
+                
+                <p>Aplicamos las condiciones de continuidad y discontinuidad de la derivada:</p>
+                
+                \\[Cy_1(\\tau) + Dy_2(\\tau) = 0\\]
+                
+                \\[Cy'_1(\\tau) + Dy'_2(\\tau) = \\frac{1}{p(\\tau)}\\]
+                
+                <p>Estas ecuaciones determinan \\(C(\\tau)\\) y \\(D(\\tau)\\).</p>
+            </div>
+            
+            <h3>Solución General del Problema de Valor Inicial</h3>
+            <div class="math-content">
+                <p>La solución general es</p>
+                
+                \\[y(t) = \\int_{t_0}^\\infty G(t; \\tau) f(\\tau) d\\tau = \\int_{t_0}^t G(t; \\tau) f(\\tau) d\\tau\\]
+                
+                <p>donde hemos usado el hecho de que \\(G(t; \\tau) = 0\\) para \\(\\tau > t\\).</p>
+            </div>`
+        }
+    ]
+},
+{
+    id: 16,
+    title: "Transformada de Fourier",
+    duration: "240 min",
+    videoId: "dQw4w9WgXcQ",
+    description: "Transformada de Fourier para funciones no periódicas, propiedades, aplicaciones y teoremas fundamentales",
+    subtopics: [
+        {
+            title: "Serie a Transformada",
+            duration: "30 min",
+            description: `<h3>De Serie a Transformada</h3>
+            <div class="math-content">
+                <p>Para una función periódica \\( f : S^1 \\to \\mathbb{C} \\),</p>
+                
+                \\[f(x) = \\frac{1}{2L} \\sum_{n \\in \\mathbb{Z}} \\hat{f}_n e^{in\\pi x / L}\\]
+                
+                <p>con período \\( 2L \\).</p>
+                
+                <p>Ahora vamos a extender esta idea a funciones no periódicas \\( f : \\mathbb{R} \\to \\mathbb{C} \\). Los coeficientes de la serie de Fourier son</p>
+                
+                \\[\\hat{f}_n = \\frac{1}{2\\pi} \\int_{-\\pi}^{\\pi} e^{-inx} f(x) \\, dx\\]
+                
+                <p>para \\( n \\in \\mathbb{Z} \\). En el caso de una función no periódica \\( f : \\mathbb{R} \\to \\mathbb{C} \\), definimos la transformada de Fourier \\( \\tilde{f}(k) \\) de \\( f(x) \\) como</p>
+                
+                \\[\\tilde{f}(k) := \\int_{-\\infty}^{\\infty} e^{-ikx} f(x) \\, dx\\]
+                
+                <p>La transformada de Fourier es una transformación lineal (de hecho, una transformación unitaria):</p>
+                
+                \\[\\tilde{f} = \\mathcal{F}[f]\\]
+            </div>`
+        },
+        {
+            title: "Propiedades",
+            duration: "35 min",
+            description: `<h3>Propiedades de la Transformada</h3>
+            <div class="math-content">
+                <p>Para constantes \\( c1, c2 \\in \\mathbb{C} \\) y funciones integrables \\( f, g \\), la transformada de Fourier es lineal:</p>
+                
+                \\[\\mathcal{F}[c1f + c2g] = c1 \\mathcal{F}[f] + c2 \\mathcal{F}[g]\\]
+                
+                <p>Cambiando variables en la integral se puede verificar que</p>
+                
+                \\[\\mathcal{F}[f(x - a)] = e^{-ika} \\tilde{f}(k) \\quad \\text{(traslación)}\\]
+                
+                \\[\\mathcal{F}[e^{ilx} f(x)] = \\tilde{f}(k - l) \\quad \\text{(traslación de fase)}\\]
+                
+                \\[\\mathcal{F}[f(cx)] = \\frac{1}{|c|} \\tilde{f}\\left(\\frac{k}{c}\\right) \\quad \\text{(escalamiento)}\\]
+            </div>}
+            
+            <h3>Transformada de la Convolución</h3>
+            <div class="math-content">
+                <p>La transformada de Fourier de una convolución de dos funciones es el producto de las transformadas de Fourier de las funciones:</p>
+                
+                \\[\\mathcal{F}[f * g(x)] = \\int_{-\\infty}^{\\infty} e^{-ikx} \\left[ \\int_{-\\infty}^{\\infty} f(x - y)g(y) \\, dy \\right] dx\\]
+                
+                \\[= \\mathcal{F}[f] \\mathcal{F}[g]\\]
+            </div>
+
+            <h3>Transformada de Derivadas</h3>
+            <div class="math-content">
+                <p>La transformada de Fourier de la derivada \\( f'(x) \\) de una función suave e integrable \\( f \\):</p>
+                
+                \\[\\mathcal{F}[f'(x)] = \\int_{-\\infty}^{\\infty} e^{-ikx} f'(x) \\, dx = -\\int_{-\\infty}^{\\infty} \\left( \\frac{d}{dk} e^{-ikx} \\right) f(x) \\, dx\\]
+                
+                \\[=ik \\tilde{f}(k)\\]
+                
+                <p>donde la suposición de que \\( f(x) \\) es integrable significa que decae cuando \\( |x| \\to \\infty \\), por lo tanto no hay un término en el borde.</p>
+                
+                <p>También tenemos la conversa del resultado anterior:</p>
+                
+                \\[\\mathcal{F}[xf(x)] = \\int_{-\\infty}^{\\infty} e^{-ikx} x f(x) \\, dx = i \\frac{d}{dk} \\int_{-\\infty}^{\\infty} e^{-ikx} f(x) \\, dx\\]
+                
+                \\[= i \\tilde{f}'(k)\\]
+                
+                <p>suponiendo que \\( xf(x) \\) es integrable (y por lo tanto \\( \\tilde{f} \\) es derivable) para justificar la derivación bajo la integral.</p>
+            </div>
+
+            <h3>Ecuaciones Diferenciales y Transformadas</h3>
+            <div class="math-content">
+                <p>Supongamos que</p>
+                
+                \\[\\mathcal{L}(\\partial) = \\sum_{r=0}^{p} c_r \\frac{d^r}{dx^r}\\]
+                
+                <p>es un operador diferencial con coeficientes constantes \\( c_r \\in \\mathbb{C} \\).</p>
+                
+                <p>\\( \\tilde{y} \\) es la transformada de Fourier de \\( y : \\mathbb{R} \\to \\mathbb{C} \\).</p>
+                
+                <p>Entonces, la transformada de Fourier de \\( \\mathcal{L}(\\partial)y \\) es</p>
+                
+                \\[\\mathcal{F}[\\mathcal{L}(\\partial)y] = L(ik) \\tilde{y}(k)\\]
+                
+                <p>, donde</p>
+                
+                \\[\\mathcal{L}(ik) = \\sum_{r=0}^{p} c_r (ik)^r\\]
+                
+                <p>Suponiendo que todas las integrales de Fourier convergen, si \\( y \\) satisface la ecuación diferencial \\( \\mathcal{L}(\\partial)y(x) = f(x) \\) en \\( \\mathbb{R} \\), entonces</p>
+                
+                \\[\\tilde{y}(k) = \\frac{\\tilde{f}(k)}{L(ik)}\\]
+                
+                <p>en términos de las transformadas de Fourier.</p>
+            </div>
+            
+            <h3>Ejemplo de Aplicación</h3>
+            <div class="math-content">
+                \\[\\nabla^2 \\phi(x) - m^2 \\phi(x) = -\\rho(x)\\]
+                
+                <p>para \\(\\phi : \\mathbb{R}^n \\to \\mathbb{C}\\).</p>
+                
+                <p>Definimos la transformada de Fourier para funciones en \\(\\mathbb{R}^n\\):</p>
+                
+                \\[\\mathcal{F}[\\phi(x)] = \\tilde{\\phi}(k) = \\int_{\\mathbb{R}^n} e^{-ik \\cdot x} \\phi(x) \\, dx\\]
+                
+                <p>La ecuación diferencial se convierte en:</p>
+                
+                \\[\\tilde{\\phi}(k) = \\frac{\\tilde{\\rho}(k)}{|k|^2 + m^2}\\]
+            </div>
+            `
+        },
+        {
+            title: "Teorema de la conversión",
+            duration: "20 min",
+            description: `<h3>Teorema de Inversión de Fourier</h3>
+            <div class="math-content">
+                <p>Teorema de la inversión de Fourier: se puede expresar una función \\( f(x) \\) en términos de una integral de su transformada:</p>
+                
+                \\[f(x) = \\mathcal{F}^{-1}[\\tilde{f}(k)]\\]
+            </div>`
+        },
+        {
+            title: "Dualidad",
+            duration: "25 min",
+            description: `<h3>Dualidad de Fourier</h3>
+            <div class="math-content">
+                <p>Reemplazando \\( x \\) por \\( -x \\) en la expresión anterior para \\( f(x) \\) tenemos</p>
+                
+                \\[\\tilde{f}(k) = \\mathcal{F}[f(x)] \\implies f(-x) = \\frac{1}{2\\pi} \\mathcal{F}[\\tilde{f}(k)]\\]
+                
+                <p>Vimos antes que</p>
+                
+                \\[\\mathcal{F}[f * g(x)] = \\tilde{f}(k) \\cdot \\tilde{g}(k)\\]
+                
+                <p>Utilizando el teorema de la inversión de Fourier:</p>
+                
+                \\[\\mathcal{F}[f(x) g(x)] = \\frac{1}{2\\pi} \\int \\tilde{f}(k - l) \\tilde{g}(l) \\, dl = \\frac{1}{2\\pi} \\tilde{f} * \\tilde{g}(k)\\]
+            </div>`
+        },
+        {
+            title: "Soluciones a ecuaciones diferenciales",
+            duration: "30 min",
+            description: `<h3>Soluciones mediante Transformadas</h3>
+            <div class="math-content">
+                <p>Vimos que podemos resolver ecuaciones diferenciales lineales usando la transformada:</p>
+                
+                \\[\\mathcal{L}(\\partial) y(x) = f(x) \\Rightarrow \\tilde{y}(k) = \\frac{\\tilde{f}(k)}{\\mathcal{L}(ik)}\\]
+                
+                <p>donde \\( \\mathcal{L}(ik) \\) es un polinomio en \\( k \\).</p>
+                
+                <p>Por el teorema de la inversión de Fourier:</p>
+                
+                \\[y(x) = \\frac{1}{2\\pi} \\int_{-\\infty}^{\\infty} e^{ikx} \\frac{\\tilde{f}(k)}{\\mathcal{L}(ik)} \\, dk\\]
+            </div>`
+        },
+        {
+            title: "Teorema de Parseval",
+            duration: "25 min",
+            description: `<h3>Teorema de Parseval</h3>
+            <div class="math-content">
+                \\[(f, g) = \\int_{\\mathbb{R}^n} f^*(x) g(x) \\, d^n x = \\int_{\\mathbb{R}^n} f^*(x) \\left[ \\frac{1}{2\\pi} \\int_{\\mathbb{R}^n} e^{ik \\cdot x} \\tilde{g}(k) \\, d^n k \\right] d^n x\\]
+                
+                \\[= \\frac{1}{2\\pi} \\int_{\\mathbb{R}^n} \\left( \\int_{\\mathbb{R}^n} \\tilde{g}(k) \\tilde{f}^*(k) \\, d^n k \\right)\\]
+                
+                \\[= \\frac{1}{2\\pi} (\\tilde{f}, \\tilde{g})\\]
+                
+                <p>Como caso especial:</p>
+                
+                \\[(f, f) = \\frac{1}{2\\pi} (\\tilde{f}, \\tilde{f})\\]
+                
+                <p>Teorema de Parseval en el contexto de funciones no periódicas.</p>
+            </div>`
+        },
+        {
+            title: "Transformada para distribuciones",
+            duration: "45 min",
+            description: `<h3>Transformada de la Delta de Dirac</h3>
+            <div class="math-content">
+                <p>Las funciones de Green dan soluciones a ecuaciones inhomogéneas:</p>
+                
+                \\[\\mathcal{L} y(x) = f(x) \\quad \\text{y} \\quad \\mathcal{L}G(x; \\xi) = \\delta(x - \\xi)\\]
+                
+                <p>Si queremos aplicar transformadas de Fourier necesitamos la transformada de \\(\\delta\\):</p>
+                
+                \\[\\mathcal{F}[\\delta(x)] = \\int_{-\\infty}^{\\infty} e^{-ikx} \\delta(x) \\, dx = 1\\]
+                
+                <p>Considerando dos funciones suaves \\(\\varphi, \\psi\\) que decaen suficientemente rápido en \\(|x| \\to \\infty\\). Ya vimos que:</p>
+                
+                \\[(\\mathcal{F}\\varphi, \\mathcal{F}\\psi) = 2\\pi (\\varphi, \\psi)\\]
+                
+                <p>Esto es equivalente a:</p>
+                
+                \\[(\\mathcal{F}\\varphi, \\psi^*) = 2\\pi (\\varphi, \\mathcal{F}^{-1}\\psi^*)\\]
+                
+                <p>una distribución actúa en una función de prueba como:</p>
+                
+                \\[T\\varphi[\\psi] = (\\varphi, \\psi)\\]
+                
+                <p>Así que podemos ver que:</p>
+                
+                \\[\\mathcal{F}T[\\psi] = 2\\pi T[\\mathcal{F}^{-1}\\psi] \\Rightarrow \\mathcal{F}[\\delta][\\varphi] = 2\\pi \\delta[\\mathcal{F}^{-1}\\varphi]\\]
+                
+                \\[2\\pi \\delta[\\mathcal{F}^{-1}\\varphi] = 2\\pi \\delta \\left[ \\frac{1}{2\\pi} \\int_{-\\infty}^{\\infty} e^{ikx} \\varphi(k) \\, dk \\right]\\]
+                
+                \\[= \\int_{-\\infty}^{\\infty} \\varphi(k) \\, dk = (1, \\varphi)\\]
+                
+                <p>Vemos que la transformada de Fourier de la distribución \\(\\delta\\) es \\(1\\). Tratamos \\(1\\) como una distribución:</p>
+                
+                \\[\\mathcal{F}T[1][\\psi] = 2\\pi T1[\\mathcal{F}^{-1}\\psi] = 2\\pi (1, \\mathcal{F}^{-1}\\psi) = 2\\pi \\delta[\\psi]\\]
+                
+                <p>Por lo tanto, podemos escribir:</p>
+                
+                \\[\\int_{-\\infty}^{\\infty} e^{-ikx} \\, dx = 2\\pi \\delta(k)\\]
+                
+                <p>Por las propiedades de traslación de las transformadas de Fourier:</p>
+                
+                \\[\\mathcal{F}[\\delta(x - a)] = e^{-ika} \\quad \\text{y} \\quad \\mathcal{F}[e^{-ilx}] = 2\\pi \\delta(k - l)\\]
+                
+                <p>También tenemos:</p>
+                
+                \\[\\mathcal{F}[\\cos(lx)] = \\pi (\\delta(k + l) + \\delta(k - l))\\]
+                
+                \\[\\mathcal{F}[\\sin(lx)] = i\\pi (\\delta(k + l) - \\delta(k - l))\\]
+                
+                <p>- Una transformada de Fourier convierte la multiplicación por \\(x\\) en derivación con respecto a \\(k\\).</p>
+                <p>- La transformada de Fourier de un polinomio involucra derivadas de funciones \\(\\delta\\).</p>
+                <p>- La transformada de derivadas de funciones \\(\\delta\\) es un polinomio.</p>
+            </div>`
+        }
+    ]
+}
+]
     };
         
 
